@@ -40,11 +40,33 @@ def stl_bytes(mesh, description='PAR6 MSG TPU honeycomb jaw; metres'):
     return bytes(result)
 
 
+def tessellation_key(config, gmsh_version):
+    recipe={key:config[key] for key in ['source_sha256','solid_ids','mesh_size_max_mm','curvature_segments']}
+    recipe.update(schema=1,gmsh_version=gmsh_version,
+                  generator_sha256=hashlib.sha256(Path(__file__).read_bytes().replace(b'\r\n',b'\n')).hexdigest())
+    return hashlib.sha256(json.dumps(recipe,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+
+
+def payload_hash(payload):
+    return hashlib.sha256(json.dumps(payload,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+
+
 def step_solids(config, config_path=CONFIG):
     import gmsh
     source = config_path.parent / config['source']
     if hashlib.sha256(source.read_bytes()).hexdigest() != config['source_sha256']:
         raise ValueError('STEP changed; inspect solid IDs and mounting transform before rebuilding')
+    cache=config_path.parent/'tessellation_cache.json'
+    key=tessellation_key(config,gmsh.__version__)
+    if cache.is_file():
+        stored=json.loads(cache.read_text(encoding='utf-8'));payload=stored.get('payload',{})
+        if stored.get('input_sha256')==key and stored.get('payload_sha256')==payload_hash(payload):
+            result={name:trimesh.Trimesh(vertices=part['vertices_mm'],faces=part['faces'],
+                                        face_normals=part['face_normals'],process=False)
+                    for name,part in payload['meshes'].items()}
+            if set(result)!=set(config['solid_ids']) or not all(mesh.is_volume for mesh in result.values()):
+                raise ValueError('Invalid cached STEP tessellation')
+            return result,payload['report'],gmsh.__version__
     gmsh.initialize()
     try:
         gmsh.option.setNumber('General.Terminal',0)
@@ -86,6 +108,11 @@ def step_solids(config, config_path=CONFIG):
             report[name] = {'step_solid':tag,'triangles':len(mesh.faces),
                             'cad_volume_mm3':exact_volume,'mesh_volume_mm3':mesh.volume,
                             'relative_volume_error':error,'watertight':True}
+        payload={'meshes':{name:{'vertices_mm':mesh.vertices.tolist(),'faces':mesh.faces.tolist(),
+                                 'face_normals':mesh.face_normals.tolist()}
+                           for name,mesh in result.items()},'report':report}
+        cache.write_text(json.dumps({'input_sha256':key,'payload_sha256':payload_hash(payload),
+                                     'payload':payload},separators=(',',':'))+'\n',encoding='utf-8')
         return result,report,gmsh.__version__
     finally:
         gmsh.finalize()

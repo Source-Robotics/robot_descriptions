@@ -38,6 +38,9 @@ https://cairosvg.org/documentation/ for its platform installation guidance.
    Reuses a checked SVG/configuration/generator-keyed raster cache to keep
    Cairo antialiasing differences from changing unchanged artwork across OSes.
 3. Verifies/tessellates the STEP jaw sources and rebuilds the selected jaws.
+   Checked tessellations include the STEP hash, solid IDs, meshing settings,
+   Gmsh version and generator hash, preserving identical reviewed surfaces
+   across platforms until those authoring inputs change.
 4. Builds six convex contact pieces per finger, reusing validated cached pieces
    only when source hashes match.
 5. Applies the captured arm reference and user-reported tool masses.
