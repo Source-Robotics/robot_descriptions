@@ -1,0 +1,96 @@
+{
+  "poses_per_profile": 160,
+  "joint_sampling": "RCB software limits: standby, both limit corners, random poses",
+  "arm_com_tolerance_mm": 0.01,
+  "arm_tensor_relative_tolerance": 0.0001,
+  "reference_mode": "versioned snapshot; live runtime is not imported",
+  "external_baseline_checked": false,
+  "profiles": {
+    "flange": {
+      "tool_mass_g": 55.5,
+      "formats": {
+        "mujoco": {
+          "max_mass_difference_g": 0.0,
+          "max_com_difference_mm": 0.003729456817182737,
+          "max_tensor_relative_difference": 1.2462042734619022e-05
+        },
+        "urdf": {
+          "max_mass_difference_g": 0.0,
+          "max_com_difference_mm": 0.001442116561007803,
+          "max_tensor_relative_difference": 1.6860482752078813e-14
+        }
+      },
+      "rigid_arm_gravity_max_difference_nm": 3.7414764986865023e-05,
+      "rigid_arm_mass_matrix_max_relative_difference": 1.51239436514822e-05
+    },
+    "msg": {
+      "tool_mass_g": 380.0,
+      "formats": {
+        "mujoco": {
+          "max_mass_difference_g": 0.0,
+          "max_com_difference_mm": 0.003729456817182737,
+          "max_tensor_relative_difference": 1.2462042734619022e-05
+        },
+        "urdf": {
+          "max_mass_difference_g": 0.0,
+          "max_com_difference_mm": 0.003820808406167706,
+          "max_tensor_relative_difference": 1.2767788708087921e-05
+        }
+      },
+      "rigid_arm_gravity_max_difference_nm": 3.7414764986865023e-05,
+      "rigid_arm_mass_matrix_max_relative_difference": 1.512394365151714e-05
+    },
+    "msg_tpu_glue": {
+      "tool_mass_g": 380.0,
+      "formats": {
+        "mujoco": {
+          "max_mass_difference_g": 0.0,
+          "max_com_difference_mm": 0.003729456817182737,
+          "max_tensor_relative_difference": 1.2462042734619022e-05
+        },
+        "urdf": {
+          "max_mass_difference_g": 0.0,
+          "max_com_difference_mm": 0.003820808406167706,
+          "max_tensor_relative_difference": 1.2767788708087921e-05
+        }
+      },
+      "rigid_arm_gravity_max_difference_nm": 3.7414764986865023e-05,
+      "rigid_arm_mass_matrix_max_relative_difference": 1.512394365151714e-05
+    },
+    "ssg48": {
+      "tool_mass_g": 440.0,
+      "formats": {
+        "mujoco": {
+          "max_mass_difference_g": 0.0,
+          "max_com_difference_mm": 0.003729456817182737,
+          "max_tensor_relative_difference": 1.2462042734619022e-05
+        },
+        "urdf": {
+          "max_mass_difference_g": 0.0,
+          "max_com_difference_mm": 0.003818771579023075,
+          "max_tensor_relative_difference": 1.2767788708087921e-05
+        }
+      },
+      "rigid_arm_gravity_max_difference_nm": 3.741476498664298e-05,
+      "rigid_arm_mass_matrix_max_relative_difference": 1.5123943651544816e-05
+    },
+    "ssg48_stock": {
+      "tool_mass_g": 440.0,
+      "formats": {
+        "mujoco": {
+          "max_mass_difference_g": 0.0,
+          "max_com_difference_mm": 0.003729456817182737,
+          "max_tensor_relative_difference": 1.2462042734619022e-05
+        },
+        "urdf": {
+          "max_mass_difference_g": 0.0,
+          "max_com_difference_mm": 0.003818771579023075,
+          "max_tensor_relative_difference": 1.2767788708087921e-05
+        }
+      },
+      "rigid_arm_gravity_max_difference_nm": 3.741476498664298e-05,
+      "rigid_arm_mass_matrix_max_relative_difference": 1.5123943651544816e-05
+    }
+  },
+  "reference_snapshot_sha256": "9a96ceccbef275bd01f142b0282b9e91df9fa90f217f4c0ce181926d8356c862"
+}

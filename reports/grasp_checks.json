@@ -1,0 +1,274 @@
+[
+  {
+    "robot": "par6",
+    "profile": "msg-solid",
+    "shape": "box",
+    "object_mass_kg": 0.05,
+    "object_height_m": 0.06,
+    "lifted_m": 0.04080214039962288,
+    "release_drop_m": 0.04080210332041276,
+    "contacting_fingers": [
+      "left_finger_link",
+      "right_finger_link"
+    ],
+    "passed": true,
+    "maximum_internal_penetration_m": 0.0,
+    "simulation_warnings": 0,
+    "scope": "Simulation regression fixture; force/friction/compliance are not hardware-calibrated."
+  },
+  {
+    "robot": "par6",
+    "profile": "msg-solid",
+    "shape": "cylinder",
+    "object_mass_kg": 0.05,
+    "object_height_m": 0.06,
+    "lifted_m": 0.04492629538010175,
+    "release_drop_m": 0.04490465222178357,
+    "contacting_fingers": [
+      "left_finger_link",
+      "right_finger_link"
+    ],
+    "passed": true,
+    "maximum_internal_penetration_m": 0.0,
+    "simulation_warnings": 0,
+    "scope": "Simulation regression fixture; force/friction/compliance are not hardware-calibrated."
+  },
+  {
+    "robot": "par6",
+    "profile": "msg-soft-tpu",
+    "shape": "box",
+    "object_mass_kg": 0.05,
+    "object_height_m": 0.06,
+    "lifted_m": 0.0396805028496412,
+    "release_drop_m": 0.03968046577053087,
+    "contacting_fingers": [
+      "left_finger_link",
+      "right_finger_link"
+    ],
+    "passed": true,
+    "maximum_internal_penetration_m": 0.0,
+    "simulation_warnings": 0,
+    "scope": "Simulation regression fixture; force/friction/compliance are not hardware-calibrated."
+  },
+  {
+    "robot": "par6",
+    "profile": "msg-soft-tpu",
+    "shape": "cylinder",
+    "object_mass_kg": 0.05,
+    "object_height_m": 0.06,
+    "lifted_m": 0.040704431318227624,
+    "release_drop_m": 0.04071115464253665,
+    "contacting_fingers": [
+      "left_finger_link",
+      "right_finger_link"
+    ],
+    "passed": true,
+    "maximum_internal_penetration_m": 0.0,
+    "simulation_warnings": 0,
+    "scope": "Simulation regression fixture; force/friction/compliance are not hardware-calibrated."
+  },
+  {
+    "robot": "par6",
+    "profile": "ssg48-solid",
+    "shape": "box",
+    "object_mass_kg": 0.05,
+    "object_height_m": 0.04120021396875383,
+    "lifted_m": 0.03731620412657222,
+    "release_drop_m": 0.03731616704746114,
+    "contacting_fingers": [
+      "left_finger_link",
+      "right_finger_link"
+    ],
+    "passed": true,
+    "maximum_internal_penetration_m": 0.0,
+    "simulation_warnings": 0,
+    "scope": "Simulation regression fixture; force/friction/compliance are not hardware-calibrated."
+  },
+  {
+    "robot": "par6",
+    "profile": "ssg48-solid",
+    "shape": "cylinder",
+    "object_mass_kg": 0.05,
+    "object_height_m": 0.04120021396875383,
+    "lifted_m": 0.04697253876720049,
+    "release_drop_m": 0.04694405971633213,
+    "contacting_fingers": [
+      "left_finger_link",
+      "right_finger_link"
+    ],
+    "passed": true,
+    "maximum_internal_penetration_m": 0.0,
+    "simulation_warnings": 0,
+    "scope": "Simulation regression fixture; force/friction/compliance are not hardware-calibrated."
+  },
+  {
+    "robot": "par6",
+    "profile": "ssg48-fin-ray",
+    "shape": "box",
+    "object_mass_kg": 0.05,
+    "object_height_m": 0.06,
+    "lifted_m": 0.040487848426259174,
+    "release_drop_m": 0.04048781134715074,
+    "contacting_fingers": [
+      "left_finger_link",
+      "right_finger_link"
+    ],
+    "passed": true,
+    "maximum_internal_penetration_m": 0.0,
+    "simulation_warnings": 0,
+    "scope": "Simulation regression fixture; force/friction/compliance are not hardware-calibrated."
+  },
+  {
+    "robot": "par6",
+    "profile": "ssg48-fin-ray",
+    "shape": "cylinder",
+    "object_mass_kg": 0.05,
+    "object_height_m": 0.06,
+    "lifted_m": 0.044322933625261005,
+    "release_drop_m": 0.044267829542196255,
+    "contacting_fingers": [
+      "left_finger_link",
+      "right_finger_link"
+    ],
+    "passed": true,
+    "maximum_internal_penetration_m": 0.0,
+    "simulation_warnings": 0,
+    "scope": "Simulation regression fixture; force/friction/compliance are not hardware-calibrated."
+  },
+  {
+    "robot": "parol6",
+    "profile": "msg-solid",
+    "shape": "box",
+    "object_mass_kg": 0.05,
+    "object_height_m": 0.06,
+    "lifted_m": 0.04080214039962288,
+    "release_drop_m": 0.04080210332041276,
+    "contacting_fingers": [
+      "left_finger_link",
+      "right_finger_link"
+    ],
+    "passed": true,
+    "maximum_internal_penetration_m": 0.0,
+    "simulation_warnings": 0,
+    "scope": "Simulation regression fixture; force/friction/compliance are not hardware-calibrated."
+  },
+  {
+    "robot": "parol6",
+    "profile": "msg-solid",
+    "shape": "cylinder",
+    "object_mass_kg": 0.05,
+    "object_height_m": 0.06,
+    "lifted_m": 0.04492629538010175,
+    "release_drop_m": 0.04490465222178357,
+    "contacting_fingers": [
+      "left_finger_link",
+      "right_finger_link"
+    ],
+    "passed": true,
+    "maximum_internal_penetration_m": 0.0,
+    "simulation_warnings": 0,
+    "scope": "Simulation regression fixture; force/friction/compliance are not hardware-calibrated."
+  },
+  {
+    "robot": "parol6",
+    "profile": "msg-soft-tpu",
+    "shape": "box",
+    "object_mass_kg": 0.05,
+    "object_height_m": 0.06,
+    "lifted_m": 0.0396805028496412,
+    "release_drop_m": 0.03968046577053087,
+    "contacting_fingers": [
+      "left_finger_link",
+      "right_finger_link"
+    ],
+    "passed": true,
+    "maximum_internal_penetration_m": 0.0,
+    "simulation_warnings": 0,
+    "scope": "Simulation regression fixture; force/friction/compliance are not hardware-calibrated."
+  },
+  {
+    "robot": "parol6",
+    "profile": "msg-soft-tpu",
+    "shape": "cylinder",
+    "object_mass_kg": 0.05,
+    "object_height_m": 0.06,
+    "lifted_m": 0.040704431318227624,
+    "release_drop_m": 0.04071115464253665,
+    "contacting_fingers": [
+      "left_finger_link",
+      "right_finger_link"
+    ],
+    "passed": true,
+    "maximum_internal_penetration_m": 0.0,
+    "simulation_warnings": 0,
+    "scope": "Simulation regression fixture; force/friction/compliance are not hardware-calibrated."
+  },
+  {
+    "robot": "parol6",
+    "profile": "ssg48-solid",
+    "shape": "box",
+    "object_mass_kg": 0.05,
+    "object_height_m": 0.04120021396875383,
+    "lifted_m": 0.03731620412657222,
+    "release_drop_m": 0.03731616704746114,
+    "contacting_fingers": [
+      "left_finger_link",
+      "right_finger_link"
+    ],
+    "passed": true,
+    "maximum_internal_penetration_m": 0.0,
+    "simulation_warnings": 0,
+    "scope": "Simulation regression fixture; force/friction/compliance are not hardware-calibrated."
+  },
+  {
+    "robot": "parol6",
+    "profile": "ssg48-solid",
+    "shape": "cylinder",
+    "object_mass_kg": 0.05,
+    "object_height_m": 0.04120021396875383,
+    "lifted_m": 0.04697253876720049,
+    "release_drop_m": 0.04694405971633213,
+    "contacting_fingers": [
+      "left_finger_link",
+      "right_finger_link"
+    ],
+    "passed": true,
+    "maximum_internal_penetration_m": 0.0,
+    "simulation_warnings": 0,
+    "scope": "Simulation regression fixture; force/friction/compliance are not hardware-calibrated."
+  },
+  {
+    "robot": "parol6",
+    "profile": "ssg48-fin-ray",
+    "shape": "box",
+    "object_mass_kg": 0.05,
+    "object_height_m": 0.06,
+    "lifted_m": 0.040487848426259174,
+    "release_drop_m": 0.04048781134715074,
+    "contacting_fingers": [
+      "left_finger_link",
+      "right_finger_link"
+    ],
+    "passed": true,
+    "maximum_internal_penetration_m": 0.0,
+    "simulation_warnings": 0,
+    "scope": "Simulation regression fixture; force/friction/compliance are not hardware-calibrated."
+  },
+  {
+    "robot": "parol6",
+    "profile": "ssg48-fin-ray",
+    "shape": "cylinder",
+    "object_mass_kg": 0.05,
+    "object_height_m": 0.06,
+    "lifted_m": 0.044322933625261005,
+    "release_drop_m": 0.044267829542196255,
+    "contacting_fingers": [
+      "left_finger_link",
+      "right_finger_link"
+    ],
+    "passed": true,
+    "maximum_internal_penetration_m": 0.0,
+    "simulation_warnings": 0,
+    "scope": "Simulation regression fixture; force/friction/compliance are not hardware-calibrated."
+  }
+]

@@ -1,0 +1,23 @@
+<package format="2">
+  <name>par6_ssg48_gripper</name>
+  <version>1.0.0</version>
+  <description>
+    <p>URDF description, meshes, and ROS 1 launch files for the Source Robotics PAR6 with SSG48 gripper.</p>
+  </description>
+  <author>Source Robotics</author>
+  <maintainer email="petar@source-robotics.com">Source Robotics</maintainer>
+  <license>Apache-2.0</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>roslaunch</depend>
+  <depend>robot_state_publisher</depend>
+  <depend>rviz</depend>
+  <depend>joint_state_publisher_gui</depend>
+  <depend>gazebo</depend>
+  <depend>gazebo_ros</depend>
+  <depend>tf</depend>
+  <depend>rostopic</depend>
+  <depend>std_msgs</depend>
+  <export>
+    <architecture_independent />
+  </export>
+</package>

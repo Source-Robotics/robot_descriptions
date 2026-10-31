@@ -1,0 +1,2305 @@
+{
+  "reference": "RCB as currently configured, not modified. User prefers its arm link mass/COM/central inertia; motor rotor inertias are uncalibrated estimates.",
+  "sources": {
+    "source/dynamics/rcb_reference.json": "9a96ceccbef275bd01f142b0282b9e91df9fa90f217f4c0ce181926d8356c862"
+  },
+  "reference_capture_date": "2026-10-31",
+  "upstream_source_hashes": {
+    "robots/PAR6.py": "dab53204a7f105647e09f9f080396275159846f6dde52a43f7a4128cf9654ca5",
+    "robots/PAR6.xml": "11a08b9e9e365ddd491fee740d05316b24e20869ffa44a00302f5fa8b3119b29",
+    "utility/pinocchio_attach.py": "c38cbe11bbcbd7dd4913b48171cef7ff433ba5611d15704317be83acd63a2142",
+    "grippers/Flange.xml": "04dbd6f7a98e8bc883e4d41b935e012bc19ed98f44507a2f08c5837a8ec19ef9",
+    "grippers/MSG_small_motor_150mm_rail.xml": "d29128adaeadafcb8d130b5ef7c7f52392fe04d4c01245873ca8a5225bd1df7b",
+    "grippers/SSG48.xml": "8b3f40824ff53ccead856507c63616ab882c1b0ea221c91106151e409814b108"
+  },
+  "frame_convention": "All COM and central inertia tensors expressed in the corresponding RCB DH link frame. Tool includes moving fingers and fixed tool bodies; static base excluded.",
+  "physical_measurements": {
+    "schema_version": 1,
+    "reported_date": "2026-10-28",
+    "source": "User-reported physical measurements in this conversation",
+    "status": "Applied to all five URDF/MJCF variants on 2026-10-28. Working RCB runtime tool configuration remains unchanged. See dynamics_sync_validation.json.",
+    "units": {
+      "mass": "kg"
+    },
+    "arm": {
+      "link_mass_com_and_central_inertia_reference": "RCB-RUNTIME/RCB-Runtime/robots/PAR6.py",
+      "status": "User confirms RCB is the preferred reference for the arm link mass properties"
+    },
+    "motor_rotor_inertia": {
+      "status": "uncalibrated_estimates",
+      "user_instruction": "RCB motor inertias are wrong; URDF/MuJoCo values are estimates too. Correct later. Do not adopt RCB motor inertias as measured truth."
+    },
+    "tools": {
+      "flange": {
+        "total_mass_kg": 0.0555,
+        "status": "user_confirmed",
+        "com_and_central_inertia": "Not supplied by this measurement"
+      },
+      "msg": {
+        "total_mass_kg": 0.38,
+        "left_moving_assembly_mass_kg": 0.0393,
+        "right_moving_assembly_mass_kg": 0.0393,
+        "moving_assembly_scope": "One finger + jaw + sliding elements",
+        "moving_assembly_mass_approximate": true,
+        "fixed_assembly_mass_kg": 0.3014,
+        "fixed_assembly_mass_basis": "User stated 301.4 g; consistent with 380 - 2 * 39.3 g",
+        "jaw_options": [
+          "Solid jaws",
+          "Soft TPU jaws"
+        ],
+        "jaw_option_note": "User previously confirmed both MSG jaw designs have equal mass",
+        "com_and_central_inertia": "Not supplied by these measurements"
+      },
+      "ssg48": {
+        "total_mass_kg": 0.44,
+        "left_moving_assembly_mass_kg": 0.0393,
+        "right_moving_assembly_mass_kg": 0.0393,
+        "moving_assembly_mass_kg": 0.0393,
+        "moving_assembly_mass_status": "User explicitly confirmed 39.3 g per complete moving assembly",
+        "moving_assembly_scope": "One slider + finger + jaw",
+        "moving_assembly_mass_approximate": true,
+        "fixed_assembly_mass_kg": 0.3614,
+        "fixed_assembly_mass_basis": "440 - 2 * 39.3 g",
+        "com_and_central_inertia": "Not supplied by these measurements"
+      }
+    },
+    "fixed_base": {
+      "mass_reference": "Unresolved assembly scope; lower priority for the current fixed-base arm model"
+    }
+  },
+  "caveats": [
+    "RCB combines the end effector into one rigid link; its reference jaw opening is not recorded.",
+    "Rotor/gearbox inertia is compared separately from rigid-body inertia.",
+    "User reports current RCB motor rotor inertias are incorrect; calibration is deferred. They are not measured reference values.",
+    "User-reported tool masses in physical_measurements supersede the older configured tool masses; no model values are changed by this audit.",
+    "No reference or simulation inertial values were changed by this audit."
+  ],
+  "variants": {
+    "flange": {
+      "rcb_tool": "Flange",
+      "links": [
+        {
+          "link": "J1",
+          "rcb": {
+            "mass_kg": 1.9931400000000001,
+            "com_m": [
+              -0.01791,
+              0.0032400000000000003,
+              0.01797
+            ],
+            "inertia_kg_m2": [
+              [
+                0.01274598834,
+                5.6669030000000005e-05,
+                -0.0024788978500000004
+              ],
+              [
+                5.6669030000000005e-05,
+                0.013519754430000001,
+                -0.00026984318
+              ],
+              [
+                -0.0024788978500000004,
+                -0.00026984318,
+                0.0025494801000000003
+              ]
+            ]
+          },
+          "mujoco": {
+            "mass_kg": 1.9931400000000001,
+            "com_m": [
+              -0.01791,
+              0.003240000000000008,
+              0.01797
+            ],
+            "inertia_kg_m2": [
+              [
+                0.01274598834,
+                5.6669029999996616e-05,
+                -0.0024788978499999978
+              ],
+              [
+                5.666902999999727e-05,
+                0.013519754429999989,
+                -0.0002698431799999984
+              ],
+              [
+                -0.0024788978499999973,
+                -0.0002698431799999987,
+                0.002549480100000002
+              ]
+            ],
+            "bodies": [
+              "shoulder_link"
+            ]
+          },
+          "mujoco_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 7.806255641895632e-15,
+            "inertia_frobenius_relative_error": 7.218427580664793e-16
+          },
+          "urdf": {
+            "mass_kg": 1.9931400000000001,
+            "com_m": [
+              -0.01791,
+              0.003240000000000008,
+              0.01797
+            ],
+            "inertia_kg_m2": [
+              [
+                0.01274598834,
+                5.6669030000000005e-05,
+                -0.0024788978500000004
+              ],
+              [
+                5.6669030000000005e-05,
+                0.013519754430000001,
+                -0.00026984318
+              ],
+              [
+                -0.0024788978500000004,
+                -0.00026984318,
+                0.0025494801000000003
+              ]
+            ],
+            "bodies": [
+              "shoulder_link"
+            ]
+          },
+          "urdf_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 7.806255641895632e-15,
+            "inertia_frobenius_relative_error": 0.0
+          },
+          "urdf_vs_mujoco": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 0.0,
+            "inertia_frobenius_relative_error": 7.218427580664796e-16
+          }
+        },
+        {
+          "link": "J2",
+          "rcb": {
+            "mass_kg": 1.33224,
+            "com_m": [
+              -0.10285,
+              0.01108,
+              -0.015880000000000002
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0032219537100000003,
+                -9.078224000000002e-05,
+                -0.00029855195000000003
+              ],
+              [
+                -9.078224000000002e-05,
+                0.0064479537800000005,
+                0.00025671953000000003
+              ],
+              [
+                -0.00029855195000000003,
+                0.00025671953000000003,
+                0.0038243168700000003
+              ]
+            ]
+          },
+          "mujoco": {
+            "mass_kg": 1.33224,
+            "com_m": [
+              -0.10285,
+              0.011079999999999998,
+              -0.015880000000000002
+            ],
+            "inertia_kg_m2": [
+              [
+                0.003221953710000001,
+                -9.078224000000031e-05,
+                -0.00029855195000000003
+              ],
+              [
+                -9.078224000000031e-05,
+                0.006447953780000002,
+                0.00025671953000000025
+              ],
+              [
+                -0.0002985519499999999,
+                0.0002567195300000002,
+                0.0038243168700000016
+              ]
+            ],
+            "bodies": [
+              "upper_arm_link"
+            ]
+          },
+          "mujoco_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 1.734723475976807e-15,
+            "inertia_frobenius_relative_error": 2.923165844324453e-16
+          },
+          "urdf": {
+            "mass_kg": 1.33224,
+            "com_m": [
+              -0.10285,
+              0.011079999999999998,
+              -0.015880000000000002
+            ],
+            "inertia_kg_m2": [
+              [
+                0.003221953710000001,
+                -9.078224000000003e-05,
+                -0.00029855195000000003
+              ],
+              [
+                -9.078224000000003e-05,
+                0.0064479537800000005,
+                0.00025671953000000003
+              ],
+              [
+                -0.00029855195000000003,
+                0.00025671953000000003,
+                0.0038243168699999995
+              ]
+            ],
+            "bodies": [
+              "upper_arm_link"
+            ]
+          },
+          "urdf_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 1.734723475976807e-15,
+            "inertia_frobenius_relative_error": 1.4997740207869007e-16
+          },
+          "urdf_vs_mujoco": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 0.0,
+            "inertia_frobenius_relative_error": 3.4488332045611054e-16
+          }
+        },
+        {
+          "link": "J3",
+          "rcb": {
+            "mass_kg": 0.68511,
+            "com_m": [
+              0.03392,
+              -0.0037400000000000003,
+              -0.02219
+            ],
+            "inertia_kg_m2": [
+              [
+                0.00061022164,
+                -2.528564e-05,
+                6.122538e-05
+              ],
+              [
+                -2.528564e-05,
+                0.0008568201600000001,
+                -5.698924e-05
+              ],
+              [
+                6.122538e-05,
+                -5.698924e-05,
+                0.0007764695500000001
+              ]
+            ]
+          },
+          "mujoco": {
+            "mass_kg": 0.68511,
+            "com_m": [
+              0.03392,
+              -0.0037400000000000016,
+              -0.022189999999999998
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0006102216399999998,
+                -2.5285640000000017e-05,
+                6.122537999999993e-05
+              ],
+              [
+                -2.5285640000000007e-05,
+                0.0008568201599999999,
+                -5.6989239999999874e-05
+              ],
+              [
+                6.122537999999993e-05,
+                -5.698923999999986e-05,
+                0.0007764695499999995
+              ]
+            ],
+            "bodies": [
+              "forearm_link"
+            ]
+          },
+          "mujoco_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 3.705370968959021e-15,
+            "inertia_frobenius_relative_error": 5.017848085981859e-16
+          },
+          "urdf": {
+            "mass_kg": 0.68511,
+            "com_m": [
+              0.03392,
+              -0.0037400000000000003,
+              -0.022189999999999998
+            ],
+            "inertia_kg_m2": [
+              [
+                0.00061022164,
+                -2.5285640000000003e-05,
+                6.122538000000002e-05
+              ],
+              [
+                -2.5285640000000003e-05,
+                0.0008568201600000001,
+                -5.698924e-05
+              ],
+              [
+                6.122538000000002e-05,
+                -5.698924e-05,
+                0.0007764695500000001
+              ]
+            ],
+            "bodies": [
+              "forearm_link"
+            ]
+          },
+          "urdf_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 3.469446951953614e-15,
+            "inertia_frobenius_relative_error": 2.941553520938889e-17
+          },
+          "urdf_vs_mujoco": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 1.3010426069826053e-15,
+            "inertia_frobenius_relative_error": 5.067740064079573e-16
+          }
+        },
+        {
+          "link": "J4",
+          "rcb": {
+            "mass_kg": 0.57956,
+            "com_m": [
+              -8.999999999999999e-05,
+              -0.06556999999999999,
+              -0.01713
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0011704656100000003,
+                1.08145e-06,
+                1.2438e-07
+              ],
+              [
+                1.08145e-06,
+                0.00035842503000000004,
+                -0.00028745228000000007
+              ],
+              [
+                1.2438e-07,
+                -0.00028745228000000007,
+                0.0010405868900000002
+              ]
+            ]
+          },
+          "mujoco": {
+            "mass_kg": 0.57956,
+            "com_m": [
+              -9.00000000000214e-05,
+              -0.06557000000000002,
+              -0.01713
+            ],
+            "inertia_kg_m2": [
+              [
+                0.00117046561,
+                1.0814499999996434e-06,
+                1.2437999999988187e-07
+              ],
+              [
+                1.0814499999996434e-06,
+                0.00035842503,
+                -0.0002874522800000001
+              ],
+              [
+                1.24379999999882e-07,
+                -0.0002874522800000001,
+                0.0010405868900000002
+              ]
+            ],
+            "bodies": [
+              "wrist_1_link"
+            ]
+          },
+          "mujoco_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 3.5055502320926924e-14,
+            "inertia_frobenius_relative_error": 3.5082791049200767e-16
+          },
+          "urdf": {
+            "mass_kg": 0.57956,
+            "com_m": [
+              -9.00000000000214e-05,
+              -0.06556999999999999,
+              -0.01713
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0011704656100000003,
+                1.0814499999999998e-06,
+                1.2438000000000003e-07
+              ],
+              [
+                1.0814499999999998e-06,
+                0.00035842502999999993,
+                -0.00028745228000000007
+              ],
+              [
+                1.2438000000000003e-07,
+                -0.00028745228000000007,
+                0.0010405868900000002
+              ]
+            ],
+            "bodies": [
+              "wrist_1_link"
+            ]
+          },
+          "urdf_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 2.1412992906588713e-14,
+            "inertia_frobenius_relative_error": 6.542128126278566e-17
+          },
+          "urdf_vs_mujoco": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 2.7755575615628914e-14,
+            "inertia_frobenius_relative_error": 3.506776750040294e-16
+          }
+        },
+        {
+          "link": "J5",
+          "rcb": {
+            "mass_kg": 0.52381,
+            "com_m": [
+              0.0,
+              -0.00023999999999999998,
+              0.0035499999999999998
+            ],
+            "inertia_kg_m2": [
+              [
+                0.00041379107000000004,
+                2.613e-08,
+                -3.557e-08
+              ],
+              [
+                2.613e-08,
+                0.00040956068,
+                -9.4593e-07
+              ],
+              [
+                -3.557e-08,
+                -9.4593e-07,
+                0.00018259111
+              ]
+            ]
+          },
+          "mujoco": {
+            "mass_kg": 0.52381,
+            "com_m": [
+              6.668201821357334e-19,
+              -0.00024000000000000003,
+              0.0035499999999999976
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0004137910700000001,
+                2.6129999999984945e-08,
+                -3.556999999998426e-08
+              ],
+              [
+                2.6129999999985117e-08,
+                0.00040956067999999983,
+                -9.459300000000198e-07
+              ],
+              [
+                -3.556999999998426e-08,
+                -9.459300000000197e-07,
+                0.00018259111000000006
+              ]
+            ],
+            "bodies": [
+              "wrist_2_link"
+            ]
+          },
+          "mujoco_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 2.269265364489076e-15,
+            "inertia_frobenius_relative_error": 3.0241824893390725e-16
+          },
+          "urdf": {
+            "mass_kg": 0.52381,
+            "com_m": [
+              6.668201821357334e-19,
+              -0.00023999999999999998,
+              0.0035499999999999976
+            ],
+            "inertia_kg_m2": [
+              [
+                0.00041379107000000004,
+                2.613e-08,
+                -3.557e-08
+              ],
+              [
+                2.613e-08,
+                0.00040956068,
+                -9.4593e-07
+              ],
+              [
+                -3.557e-08,
+                -9.4593e-07,
+                0.00018259111
+              ]
+            ],
+            "bodies": [
+              "wrist_2_link"
+            ]
+          },
+          "urdf_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 2.2686177638801743e-15,
+            "inertia_frobenius_relative_error": 0.0
+          },
+          "urdf_vs_mujoco": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 5.421010862427522e-17,
+            "inertia_frobenius_relative_error": 3.0241824893390735e-16
+          }
+        },
+        {
+          "link": "complete_tool",
+          "rcb": {
+            "mass_kg": 0.0555,
+            "com_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          },
+          "mujoco": {
+            "mass_kg": 0.0555,
+            "com_m": [
+              6.212767394170169e-05,
+              6.799788973144116e-05,
+              -0.008045684145943949
+            ],
+            "inertia_kg_m2": [
+              [
+                1.1066099999860174e-05,
+                -2.1232645807563988e-11,
+                1.6026833778941144e-11
+              ],
+              [
+                -2.1232645807563994e-11,
+                6.0615800000885505e-06,
+                4.939266989238227e-13
+              ],
+              [
+                1.6026833778941154e-11,
+                4.939266989238242e-13,
+                5.902420000051276e-06
+              ]
+            ],
+            "bodies": [
+              "flange_link"
+            ]
+          },
+          "mujoco_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 8.046211340573347,
+            "inertia_frobenius_relative_error": null
+          },
+          "urdf": {
+            "mass_kg": 0.0555,
+            "com_m": [
+              6.282870908930058e-05,
+              6.964763928521902e-05,
+              -0.008045800520462276
+            ],
+            "inertia_kg_m2": [
+              [
+                5.90242323471309e-06,
+                -2.355084516210973e-08,
+                1.8409531286565126e-08
+              ],
+              [
+                -2.355084516210973e-08,
+                6.06157538333085e-06,
+                -9.377356300969297e-10
+              ],
+              [
+                1.8409531286565126e-08,
+                -9.377356300969297e-10,
+                1.10660922067779e-05
+              ]
+            ],
+            "bodies": [
+              "flange_link"
+            ]
+          },
+          "urdf_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 8.046347261671897,
+            "inertia_frobenius_relative_error": null
+          },
+          "urdf_vs_mujoco": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 0.0017962925421197984,
+            "inertia_frobenius_relative_error": 0.5242466013551279
+          }
+        }
+      ],
+      "tool_fully_closed": {},
+      "rotor_armature_rcb_kg_m2": [
+        0.0004177920000000001,
+        0.0063750000000000005,
+        0.0018663945578231292,
+        9.12e-05,
+        9.12e-05,
+        0.00015000000000000001
+      ],
+      "rotor_armature_mujoco_kg_m2": [
+        0.001,
+        0.001,
+        0.001,
+        0.001,
+        0.001,
+        0.001
+      ],
+      "tcp_max_error": {
+        "mujoco": {
+          "position_m": 2.5545220552182024e-06,
+          "angle_rad": 8.904398594191226e-06
+        },
+        "urdf": {
+          "position_m": 7.21061038483164e-07,
+          "angle_rad": 1.5063370459637487e-14
+        }
+      },
+      "limits": {
+        "rcb_qlim_deg": [
+          [
+            -164.1371389797406,
+            -139.8437284661937,
+            114.09116633578715,
+            -149.81319410147003,
+            -99.12169855763241,
+            -48.70141258611997
+          ],
+          [
+            164.1371389797406,
+            -6.4323966307054565,
+            376.0169316191191,
+            146.37544733068512,
+            91.67324722093173,
+            409.09186572340775
+          ]
+        ],
+        "mujoco_arm_range_rcb_deg": [
+          [
+            -360.00026887880375,
+            360.00026887880375
+          ],
+          [
+            -450.00026887880375,
+            270.00026887880375
+          ],
+          [
+            -180.00026887880372,
+            540.0002688788038
+          ],
+          [
+            -360.00026887880375,
+            360.00026887880375
+          ],
+          [
+            -360.00026887880375,
+            360.00026887880375
+          ],
+          [
+            -180.00026887880372,
+            540.0002688788038
+          ]
+        ],
+        "urdf_arm_joint_types": [
+          "continuous",
+          "continuous",
+          "continuous",
+          "continuous",
+          "continuous",
+          "continuous"
+        ]
+      },
+      "poses_checked": 25,
+      "max_gravity_torque_difference_nm": [
+        0.0,
+        0.0044116716947493195,
+        0.004397693638936717,
+        0.0012429260206550108,
+        0.004385138426399815,
+        4.9566622409853555e-05
+      ],
+      "mass_matrix_max_relative_difference": 0.05332387578255824,
+      "mass_matrix_without_rotor_max_relative_difference": 0.004390264905687774,
+      "rotor_reference_status": "Uncalibrated estimates; correction deferred by user"
+    },
+    "msg": {
+      "rcb_tool": "MSG_small_motor_150mm_rail",
+      "links": [
+        {
+          "link": "J1",
+          "rcb": {
+            "mass_kg": 1.9931400000000001,
+            "com_m": [
+              -0.01791,
+              0.0032400000000000003,
+              0.01797
+            ],
+            "inertia_kg_m2": [
+              [
+                0.01274598834,
+                5.6669030000000005e-05,
+                -0.0024788978500000004
+              ],
+              [
+                5.6669030000000005e-05,
+                0.013519754430000001,
+                -0.00026984318
+              ],
+              [
+                -0.0024788978500000004,
+                -0.00026984318,
+                0.0025494801000000003
+              ]
+            ]
+          },
+          "mujoco": {
+            "mass_kg": 1.9931400000000001,
+            "com_m": [
+              -0.01791,
+              0.003240000000000008,
+              0.01797
+            ],
+            "inertia_kg_m2": [
+              [
+                0.01274598834,
+                5.6669029999996616e-05,
+                -0.0024788978499999978
+              ],
+              [
+                5.666902999999727e-05,
+                0.013519754429999989,
+                -0.0002698431799999984
+              ],
+              [
+                -0.0024788978499999973,
+                -0.0002698431799999987,
+                0.002549480100000002
+              ]
+            ],
+            "bodies": [
+              "shoulder_link"
+            ]
+          },
+          "mujoco_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 7.806255641895632e-15,
+            "inertia_frobenius_relative_error": 7.218427580664793e-16
+          },
+          "urdf": {
+            "mass_kg": 1.9931400000000001,
+            "com_m": [
+              -0.01791,
+              0.003240000000000008,
+              0.01797
+            ],
+            "inertia_kg_m2": [
+              [
+                0.01274598834,
+                5.6669030000000005e-05,
+                -0.0024788978500000004
+              ],
+              [
+                5.6669030000000005e-05,
+                0.013519754430000001,
+                -0.00026984318
+              ],
+              [
+                -0.0024788978500000004,
+                -0.00026984318,
+                0.0025494801000000003
+              ]
+            ],
+            "bodies": [
+              "shoulder_link"
+            ]
+          },
+          "urdf_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 7.806255641895632e-15,
+            "inertia_frobenius_relative_error": 0.0
+          },
+          "urdf_vs_mujoco": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 0.0,
+            "inertia_frobenius_relative_error": 7.218427580664796e-16
+          }
+        },
+        {
+          "link": "J2",
+          "rcb": {
+            "mass_kg": 1.33224,
+            "com_m": [
+              -0.10285,
+              0.01108,
+              -0.015880000000000002
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0032219537100000003,
+                -9.078224000000002e-05,
+                -0.00029855195000000003
+              ],
+              [
+                -9.078224000000002e-05,
+                0.0064479537800000005,
+                0.00025671953000000003
+              ],
+              [
+                -0.00029855195000000003,
+                0.00025671953000000003,
+                0.0038243168700000003
+              ]
+            ]
+          },
+          "mujoco": {
+            "mass_kg": 1.33224,
+            "com_m": [
+              -0.10285,
+              0.011079999999999998,
+              -0.015880000000000002
+            ],
+            "inertia_kg_m2": [
+              [
+                0.003221953710000001,
+                -9.078224000000031e-05,
+                -0.00029855195000000003
+              ],
+              [
+                -9.078224000000031e-05,
+                0.006447953780000002,
+                0.00025671953000000025
+              ],
+              [
+                -0.0002985519499999999,
+                0.0002567195300000002,
+                0.0038243168700000016
+              ]
+            ],
+            "bodies": [
+              "upper_arm_link"
+            ]
+          },
+          "mujoco_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 1.734723475976807e-15,
+            "inertia_frobenius_relative_error": 2.923165844324453e-16
+          },
+          "urdf": {
+            "mass_kg": 1.33224,
+            "com_m": [
+              -0.10285,
+              0.011079999999999996,
+              -0.015880000000000002
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0032219537100000003,
+                -9.078223999999999e-05,
+                -0.00029855195
+              ],
+              [
+                -9.078223999999999e-05,
+                0.006447953779999997,
+                0.00025671953
+              ],
+              [
+                -0.00029855195,
+                0.00025671953,
+                0.0038243168699999995
+              ]
+            ],
+            "bodies": [
+              "upper_arm_link"
+            ]
+          },
+          "urdf_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 3.469446951953614e-15,
+            "inertia_frobenius_relative_error": 4.3742811898684817e-16
+          },
+          "urdf_vs_mujoco": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 1.734723475976807e-15,
+            "inertia_frobenius_relative_error": 7.009622937990465e-16
+          }
+        },
+        {
+          "link": "J3",
+          "rcb": {
+            "mass_kg": 0.68511,
+            "com_m": [
+              0.03392,
+              -0.0037400000000000003,
+              -0.02219
+            ],
+            "inertia_kg_m2": [
+              [
+                0.00061022164,
+                -2.528564e-05,
+                6.122538e-05
+              ],
+              [
+                -2.528564e-05,
+                0.0008568201600000001,
+                -5.698924e-05
+              ],
+              [
+                6.122538e-05,
+                -5.698924e-05,
+                0.0007764695500000001
+              ]
+            ]
+          },
+          "mujoco": {
+            "mass_kg": 0.68511,
+            "com_m": [
+              0.03392,
+              -0.0037400000000000016,
+              -0.022189999999999998
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0006102216399999998,
+                -2.5285640000000017e-05,
+                6.122537999999993e-05
+              ],
+              [
+                -2.5285640000000007e-05,
+                0.0008568201599999999,
+                -5.6989239999999874e-05
+              ],
+              [
+                6.122537999999993e-05,
+                -5.698923999999986e-05,
+                0.0007764695499999995
+              ]
+            ],
+            "bodies": [
+              "forearm_link"
+            ]
+          },
+          "mujoco_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 3.705370968959021e-15,
+            "inertia_frobenius_relative_error": 5.017848085981859e-16
+          },
+          "urdf": {
+            "mass_kg": 0.68511,
+            "com_m": [
+              0.03392,
+              -0.00374,
+              -0.022189999999999998
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0006102216399999997,
+                -2.528563999999999e-05,
+                6.122537999999998e-05
+              ],
+              [
+                -2.5285639999999983e-05,
+                0.0008568201599999996,
+                -5.698923999999996e-05
+              ],
+              [
+                6.122537999999998e-05,
+                -5.698923999999997e-05,
+                0.0007764695499999995
+              ]
+            ],
+            "bodies": [
+              "forearm_link"
+            ]
+          },
+          "urdf_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 3.496446946337351e-15,
+            "inertia_frobenius_relative_error": 6.357588525288817e-16
+          },
+          "urdf_vs_mujoco": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 1.734723475976807e-15,
+            "inertia_frobenius_relative_error": 2.891920334436105e-16
+          }
+        },
+        {
+          "link": "J4",
+          "rcb": {
+            "mass_kg": 0.57956,
+            "com_m": [
+              -8.999999999999999e-05,
+              -0.06556999999999999,
+              -0.01713
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0011704656100000003,
+                1.08145e-06,
+                1.2438e-07
+              ],
+              [
+                1.08145e-06,
+                0.00035842503000000004,
+                -0.00028745228000000007
+              ],
+              [
+                1.2438e-07,
+                -0.00028745228000000007,
+                0.0010405868900000002
+              ]
+            ]
+          },
+          "mujoco": {
+            "mass_kg": 0.57956,
+            "com_m": [
+              -9.00000000000214e-05,
+              -0.06557000000000002,
+              -0.01713
+            ],
+            "inertia_kg_m2": [
+              [
+                0.00117046561,
+                1.0814499999996434e-06,
+                1.2437999999988187e-07
+              ],
+              [
+                1.0814499999996434e-06,
+                0.00035842503,
+                -0.0002874522800000001
+              ],
+              [
+                1.24379999999882e-07,
+                -0.0002874522800000001,
+                0.0010405868900000002
+              ]
+            ],
+            "bodies": [
+              "wrist_1_link"
+            ]
+          },
+          "mujoco_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 3.5055502320926924e-14,
+            "inertia_frobenius_relative_error": 3.5082791049200767e-16
+          },
+          "urdf": {
+            "mass_kg": 0.57956,
+            "com_m": [
+              -9.00000000000214e-05,
+              -0.06557000000000002,
+              -0.01712999999999999
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0011704656099999992,
+                1.0814499999999994e-06,
+                1.2438e-07
+              ],
+              [
+                1.0814499999999992e-06,
+                0.0003584250299999996,
+                -0.0002874522799999998
+              ],
+              [
+                1.2438000000000003e-07,
+                -0.0002874522799999998,
+                0.001040586889999999
+              ]
+            ],
+            "bodies": [
+              "wrist_1_link"
+            ]
+          },
+          "urdf_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 3.656804345797427e-14,
+            "inertia_frobenius_relative_error": 9.889186236537264e-16
+          },
+          "urdf_vs_mujoco": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 1.0408340855860843e-14,
+            "inertia_frobenius_relative_error": 9.663028004372175e-16
+          }
+        },
+        {
+          "link": "J5",
+          "rcb": {
+            "mass_kg": 0.52381,
+            "com_m": [
+              0.0,
+              -0.00023999999999999998,
+              0.0035499999999999998
+            ],
+            "inertia_kg_m2": [
+              [
+                0.00041379107000000004,
+                2.613e-08,
+                -3.557e-08
+              ],
+              [
+                2.613e-08,
+                0.00040956068,
+                -9.4593e-07
+              ],
+              [
+                -3.557e-08,
+                -9.4593e-07,
+                0.00018259111
+              ]
+            ]
+          },
+          "mujoco": {
+            "mass_kg": 0.52381,
+            "com_m": [
+              6.668201821357334e-19,
+              -0.00024000000000000003,
+              0.0035499999999999976
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0004137910700000001,
+                2.6129999999984945e-08,
+                -3.556999999998426e-08
+              ],
+              [
+                2.6129999999985117e-08,
+                0.00040956067999999983,
+                -9.459300000000198e-07
+              ],
+              [
+                -3.556999999998426e-08,
+                -9.459300000000197e-07,
+                0.00018259111000000006
+              ]
+            ],
+            "bodies": [
+              "wrist_2_link"
+            ]
+          },
+          "mujoco_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 2.269265364489076e-15,
+            "inertia_frobenius_relative_error": 3.0241824893390725e-16
+          },
+          "urdf": {
+            "mass_kg": 0.52381,
+            "com_m": [
+              6.668201821357334e-19,
+              -0.0002400000000000001,
+              0.0035499999999999976
+            ],
+            "inertia_kg_m2": [
+              [
+                0.00041379106999999977,
+                2.6129999999999986e-08,
+                -3.556999999999999e-08
+              ],
+              [
+                2.6129999999999986e-08,
+                0.0004095606799999997,
+                -9.459300000000318e-07
+              ],
+              [
+                -3.556999999999998e-08,
+                -9.459300000000318e-07,
+                0.00018259110999999985
+              ]
+            ],
+            "bodies": [
+              "wrist_2_link"
+            ]
+          },
+          "urdf_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 2.2712070583944797e-15,
+            "inertia_frobenius_relative_error": 6.863882400817492e-16
+          },
+          "urdf_vs_mujoco": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 5.421010862427522e-17,
+            "inertia_frobenius_relative_error": 6.673340219261143e-16
+          }
+        },
+        {
+          "link": "complete_tool",
+          "rcb": {
+            "mass_kg": 0.37,
+            "com_m": [
+              0.03362,
+              0.00122,
+              -0.06832
+            ],
+            "inertia_kg_m2": [
+              [
+                0.000539212,
+                5.28904e-06,
+                -2.121042e-05
+              ],
+              [
+                5.28904e-06,
+                0.000303879,
+                1.12004e-06
+              ],
+              [
+                -2.121042e-05,
+                1.12004e-06,
+                0.000643418
+              ]
+            ]
+          },
+          "mujoco": {
+            "mass_kg": 0.38,
+            "com_m": [
+              0.027927025933728797,
+              0.00023584014447981143,
+              -0.06741083001836795
+            ],
+            "inertia_kg_m2": [
+              [
+                0.00047168606103503117,
+                5.673738477462259e-07,
+                3.564953404769766e-05
+              ],
+              [
+                5.673738477462259e-07,
+                0.00013745606818198777,
+                -5.668717963952149e-06
+              ],
+              [
+                3.564953404769766e-05,
+                -5.668717963952149e-06,
+                0.00048800962148090306
+              ]
+            ],
+            "bodies": [
+              "msg_gripper_link",
+              "left_finger_link",
+              "right_finger_link"
+            ]
+          },
+          "mujoco_difference": {
+            "mass_difference_g": 10.000000000000009,
+            "com_distance_mm": 5.848513862166593,
+            "inertia_frobenius_relative_error": 0.28099371893607916
+          },
+          "urdf": {
+            "mass_kg": 0.38,
+            "com_m": [
+              0.027646131555426542,
+              0.00022244408085529013,
+              -0.0669583337985914
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0005084881944306025,
+                3.817249547346867e-07,
+                4.1968875770432155e-05
+              ],
+              [
+                3.817249547346867e-07,
+                0.00014764013844984175,
+                -1.934077638555139e-06
+              ],
+              [
+                4.196887577043215e-05,
+                -1.934077638555139e-06,
+                0.0005254745570286709
+              ]
+            ],
+            "bodies": [
+              "msg_gripper_link",
+              "left_finger_link",
+              "right_finger_link"
+            ]
+          },
+          "urdf_difference": {
+            "mass_difference_g": 10.000000000000009,
+            "com_distance_mm": 6.20776585004216,
+            "inertia_frobenius_relative_error": 0.24349446225182836
+          },
+          "urdf_vs_mujoco": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 0.5327606734684106,
+            "inertia_frobenius_relative_error": 0.07848000147488261
+          }
+        }
+      ],
+      "tool_fully_closed": {
+        "mujoco": {
+          "mass_kg": 0.38,
+          "com_m": [
+            0.027927025933728852,
+            0.00023584014447981114,
+            -0.06741083001836795
+          ],
+          "inertia_kg_m2": [
+            [
+              0.00019960940890896025,
+              5.203673284224656e-07,
+              3.564961891691859e-05
+            ],
+            [
+              5.203673284224656e-07,
+              0.0001374561312962821,
+              1.6360958075588683e-06
+            ],
+            [
+              3.564961891691859e-05,
+              1.6360958075588683e-06,
+              0.00021593290849267983
+            ]
+          ],
+          "bodies": [
+            "msg_gripper_link",
+            "left_finger_link",
+            "right_finger_link"
+          ]
+        },
+        "mujoco_difference": {
+          "mass_difference_g": 10.000000000000009,
+          "com_distance_mm": 5.84851386216654,
+          "inertia_frobenius_relative_error": 0.6452707674563698
+        },
+        "urdf": {
+          "mass_kg": 0.38,
+          "com_m": [
+            0.027646131555426542,
+            0.00022244408085528913,
+            -0.0669583337985914
+          ],
+          "inertia_kg_m2": [
+            [
+              0.00020022673044235058,
+              3.766277563003204e-07,
+              4.1968899335478005e-05
+            ],
+            [
+              3.766277563003187e-07,
+              0.00014764015429279213,
+              2.0154149294046963e-07
+            ],
+            [
+              4.1968899335478005e-05,
+              2.0154149294046963e-07,
+              0.0002172130774970131
+            ]
+          ],
+          "bodies": [
+            "msg_gripper_link",
+            "left_finger_link",
+            "right_finger_link"
+          ]
+        },
+        "urdf_difference": {
+          "mass_difference_g": 10.000000000000009,
+          "com_distance_mm": 6.20776585004216,
+          "inertia_frobenius_relative_error": 0.6420813074807349
+        }
+      },
+      "rotor_armature_rcb_kg_m2": [
+        0.0004177920000000001,
+        0.0063750000000000005,
+        0.0018663945578231292,
+        9.12e-05,
+        9.12e-05,
+        0.00015000000000000001
+      ],
+      "rotor_armature_mujoco_kg_m2": [
+        0.001,
+        0.001,
+        0.001,
+        0.001,
+        0.001,
+        0.001
+      ],
+      "tcp_max_error": {
+        "mujoco": {
+          "position_m": 3.0935994823844436e-06,
+          "angle_rad": 8.904398594191226e-06
+        },
+        "urdf": {
+          "position_m": 3.1691857816043674e-06,
+          "angle_rad": 8.624398452343e-06
+        }
+      },
+      "limits": {
+        "rcb_qlim_deg": [
+          [
+            -164.1371389797406,
+            -139.8437284661937,
+            114.09116633578715,
+            -149.81319410147003,
+            -99.12169855763241,
+            -48.70141258611997
+          ],
+          [
+            164.1371389797406,
+            -6.4323966307054565,
+            376.0169316191191,
+            146.37544733068512,
+            91.67324722093173,
+            409.09186572340775
+          ]
+        ],
+        "mujoco_arm_range_rcb_deg": [
+          [
+            -360.00026887880375,
+            360.00026887880375
+          ],
+          [
+            -450.00026887880375,
+            270.00026887880375
+          ],
+          [
+            -180.00026887880372,
+            540.0002688788038
+          ],
+          [
+            -360.00026887880375,
+            360.00026887880375
+          ],
+          [
+            -360.00026887880375,
+            360.00026887880375
+          ],
+          [
+            -180.00026887880372,
+            540.0002688788038
+          ]
+        ],
+        "urdf_arm_joint_types": [
+          "continuous",
+          "continuous",
+          "continuous",
+          "continuous",
+          "continuous",
+          "continuous"
+        ]
+      },
+      "poses_checked": 25,
+      "max_gravity_torque_difference_nm": [
+        0.0,
+        0.04327709076998687,
+        0.0348799614180475,
+        0.019444316666234196,
+        0.021667976901964814,
+        0.019656278907774462
+      ],
+      "mass_matrix_max_relative_difference": 0.0384465493963561,
+      "mass_matrix_without_rotor_max_relative_difference": 0.01310437961443582,
+      "rotor_reference_status": "Uncalibrated estimates; correction deferred by user"
+    },
+    "ssg48": {
+      "rcb_tool": "SSG48",
+      "links": [
+        {
+          "link": "J1",
+          "rcb": {
+            "mass_kg": 1.9931400000000001,
+            "com_m": [
+              -0.01791,
+              0.0032400000000000003,
+              0.01797
+            ],
+            "inertia_kg_m2": [
+              [
+                0.01274598834,
+                5.6669030000000005e-05,
+                -0.0024788978500000004
+              ],
+              [
+                5.6669030000000005e-05,
+                0.013519754430000001,
+                -0.00026984318
+              ],
+              [
+                -0.0024788978500000004,
+                -0.00026984318,
+                0.0025494801000000003
+              ]
+            ]
+          },
+          "mujoco": {
+            "mass_kg": 1.9931400000000001,
+            "com_m": [
+              -0.01791,
+              0.003240000000000008,
+              0.01797
+            ],
+            "inertia_kg_m2": [
+              [
+                0.01274598834,
+                5.6669029999996616e-05,
+                -0.0024788978499999978
+              ],
+              [
+                5.666902999999727e-05,
+                0.013519754429999989,
+                -0.0002698431799999984
+              ],
+              [
+                -0.0024788978499999973,
+                -0.0002698431799999987,
+                0.002549480100000002
+              ]
+            ],
+            "bodies": [
+              "shoulder_link"
+            ]
+          },
+          "mujoco_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 7.806255641895632e-15,
+            "inertia_frobenius_relative_error": 7.218427580664793e-16
+          },
+          "urdf": {
+            "mass_kg": 1.9931400000000001,
+            "com_m": [
+              -0.01791,
+              0.003240000000000008,
+              0.01797
+            ],
+            "inertia_kg_m2": [
+              [
+                0.01274598834,
+                5.6669030000000005e-05,
+                -0.0024788978500000004
+              ],
+              [
+                5.6669030000000005e-05,
+                0.013519754430000001,
+                -0.00026984318
+              ],
+              [
+                -0.0024788978500000004,
+                -0.00026984318,
+                0.0025494801000000003
+              ]
+            ],
+            "bodies": [
+              "shoulder_link"
+            ]
+          },
+          "urdf_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 7.806255641895632e-15,
+            "inertia_frobenius_relative_error": 0.0
+          },
+          "urdf_vs_mujoco": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 0.0,
+            "inertia_frobenius_relative_error": 7.218427580664796e-16
+          }
+        },
+        {
+          "link": "J2",
+          "rcb": {
+            "mass_kg": 1.33224,
+            "com_m": [
+              -0.10285,
+              0.01108,
+              -0.015880000000000002
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0032219537100000003,
+                -9.078224000000002e-05,
+                -0.00029855195000000003
+              ],
+              [
+                -9.078224000000002e-05,
+                0.0064479537800000005,
+                0.00025671953000000003
+              ],
+              [
+                -0.00029855195000000003,
+                0.00025671953000000003,
+                0.0038243168700000003
+              ]
+            ]
+          },
+          "mujoco": {
+            "mass_kg": 1.33224,
+            "com_m": [
+              -0.10285,
+              0.011079999999999998,
+              -0.015880000000000002
+            ],
+            "inertia_kg_m2": [
+              [
+                0.003221953710000001,
+                -9.078224000000031e-05,
+                -0.00029855195000000003
+              ],
+              [
+                -9.078224000000031e-05,
+                0.006447953780000002,
+                0.00025671953000000025
+              ],
+              [
+                -0.0002985519499999999,
+                0.0002567195300000002,
+                0.0038243168700000016
+              ]
+            ],
+            "bodies": [
+              "upper_arm_link"
+            ]
+          },
+          "mujoco_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 1.734723475976807e-15,
+            "inertia_frobenius_relative_error": 2.923165844324453e-16
+          },
+          "urdf": {
+            "mass_kg": 1.33224,
+            "com_m": [
+              -0.10285,
+              0.011079999999999996,
+              -0.015880000000000002
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0032219537100000003,
+                -9.078223999999999e-05,
+                -0.00029855195
+              ],
+              [
+                -9.078223999999999e-05,
+                0.006447953779999997,
+                0.00025671953
+              ],
+              [
+                -0.00029855195,
+                0.00025671953,
+                0.0038243168699999995
+              ]
+            ],
+            "bodies": [
+              "upper_arm_link"
+            ]
+          },
+          "urdf_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 3.469446951953614e-15,
+            "inertia_frobenius_relative_error": 4.3742811898684817e-16
+          },
+          "urdf_vs_mujoco": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 1.734723475976807e-15,
+            "inertia_frobenius_relative_error": 7.009622937990465e-16
+          }
+        },
+        {
+          "link": "J3",
+          "rcb": {
+            "mass_kg": 0.68511,
+            "com_m": [
+              0.03392,
+              -0.0037400000000000003,
+              -0.02219
+            ],
+            "inertia_kg_m2": [
+              [
+                0.00061022164,
+                -2.528564e-05,
+                6.122538e-05
+              ],
+              [
+                -2.528564e-05,
+                0.0008568201600000001,
+                -5.698924e-05
+              ],
+              [
+                6.122538e-05,
+                -5.698924e-05,
+                0.0007764695500000001
+              ]
+            ]
+          },
+          "mujoco": {
+            "mass_kg": 0.68511,
+            "com_m": [
+              0.03392,
+              -0.0037400000000000016,
+              -0.022189999999999998
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0006102216399999998,
+                -2.5285640000000017e-05,
+                6.122537999999993e-05
+              ],
+              [
+                -2.5285640000000007e-05,
+                0.0008568201599999999,
+                -5.6989239999999874e-05
+              ],
+              [
+                6.122537999999993e-05,
+                -5.698923999999986e-05,
+                0.0007764695499999995
+              ]
+            ],
+            "bodies": [
+              "forearm_link"
+            ]
+          },
+          "mujoco_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 3.705370968959021e-15,
+            "inertia_frobenius_relative_error": 5.017848085981859e-16
+          },
+          "urdf": {
+            "mass_kg": 0.68511,
+            "com_m": [
+              0.03392,
+              -0.00374,
+              -0.022189999999999998
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0006102216399999997,
+                -2.528563999999999e-05,
+                6.122537999999998e-05
+              ],
+              [
+                -2.5285639999999983e-05,
+                0.0008568201599999996,
+                -5.698923999999996e-05
+              ],
+              [
+                6.122537999999998e-05,
+                -5.698923999999997e-05,
+                0.0007764695499999995
+              ]
+            ],
+            "bodies": [
+              "forearm_link"
+            ]
+          },
+          "urdf_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 3.496446946337351e-15,
+            "inertia_frobenius_relative_error": 6.357588525288817e-16
+          },
+          "urdf_vs_mujoco": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 1.734723475976807e-15,
+            "inertia_frobenius_relative_error": 2.891920334436105e-16
+          }
+        },
+        {
+          "link": "J4",
+          "rcb": {
+            "mass_kg": 0.57956,
+            "com_m": [
+              -8.999999999999999e-05,
+              -0.06556999999999999,
+              -0.01713
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0011704656100000003,
+                1.08145e-06,
+                1.2438e-07
+              ],
+              [
+                1.08145e-06,
+                0.00035842503000000004,
+                -0.00028745228000000007
+              ],
+              [
+                1.2438e-07,
+                -0.00028745228000000007,
+                0.0010405868900000002
+              ]
+            ]
+          },
+          "mujoco": {
+            "mass_kg": 0.57956,
+            "com_m": [
+              -9.00000000000214e-05,
+              -0.06557000000000002,
+              -0.01713
+            ],
+            "inertia_kg_m2": [
+              [
+                0.00117046561,
+                1.0814499999996434e-06,
+                1.2437999999988187e-07
+              ],
+              [
+                1.0814499999996434e-06,
+                0.00035842503,
+                -0.0002874522800000001
+              ],
+              [
+                1.24379999999882e-07,
+                -0.0002874522800000001,
+                0.0010405868900000002
+              ]
+            ],
+            "bodies": [
+              "wrist_1_link"
+            ]
+          },
+          "mujoco_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 3.5055502320926924e-14,
+            "inertia_frobenius_relative_error": 3.5082791049200767e-16
+          },
+          "urdf": {
+            "mass_kg": 0.57956,
+            "com_m": [
+              -9.00000000000214e-05,
+              -0.06557000000000002,
+              -0.01712999999999999
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0011704656099999992,
+                1.0814499999999994e-06,
+                1.2438e-07
+              ],
+              [
+                1.0814499999999992e-06,
+                0.0003584250299999996,
+                -0.0002874522799999998
+              ],
+              [
+                1.2438000000000003e-07,
+                -0.0002874522799999998,
+                0.001040586889999999
+              ]
+            ],
+            "bodies": [
+              "wrist_1_link"
+            ]
+          },
+          "urdf_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 3.656804345797427e-14,
+            "inertia_frobenius_relative_error": 9.889186236537264e-16
+          },
+          "urdf_vs_mujoco": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 1.0408340855860843e-14,
+            "inertia_frobenius_relative_error": 9.663028004372175e-16
+          }
+        },
+        {
+          "link": "J5",
+          "rcb": {
+            "mass_kg": 0.52381,
+            "com_m": [
+              0.0,
+              -0.00023999999999999998,
+              0.0035499999999999998
+            ],
+            "inertia_kg_m2": [
+              [
+                0.00041379107000000004,
+                2.613e-08,
+                -3.557e-08
+              ],
+              [
+                2.613e-08,
+                0.00040956068,
+                -9.4593e-07
+              ],
+              [
+                -3.557e-08,
+                -9.4593e-07,
+                0.00018259111
+              ]
+            ]
+          },
+          "mujoco": {
+            "mass_kg": 0.52381,
+            "com_m": [
+              6.668201821357334e-19,
+              -0.00024000000000000003,
+              0.0035499999999999976
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0004137910700000001,
+                2.6129999999984945e-08,
+                -3.556999999998426e-08
+              ],
+              [
+                2.6129999999985117e-08,
+                0.00040956067999999983,
+                -9.459300000000198e-07
+              ],
+              [
+                -3.556999999998426e-08,
+                -9.459300000000197e-07,
+                0.00018259111000000006
+              ]
+            ],
+            "bodies": [
+              "wrist_2_link"
+            ]
+          },
+          "mujoco_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 2.269265364489076e-15,
+            "inertia_frobenius_relative_error": 3.0241824893390725e-16
+          },
+          "urdf": {
+            "mass_kg": 0.52381,
+            "com_m": [
+              6.668201821357334e-19,
+              -0.0002400000000000001,
+              0.0035499999999999976
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0004137910699999997,
+                2.6129999999999973e-08,
+                -3.5569999999999974e-08
+              ],
+              [
+                2.6129999999999973e-08,
+                0.00040956067999999956,
+                -9.459300000000317e-07
+              ],
+              [
+                -3.5569999999999974e-08,
+                -9.459300000000317e-07,
+                0.00018259110999999982
+              ]
+            ],
+            "bodies": [
+              "wrist_2_link"
+            ]
+          },
+          "urdf_difference": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 2.2712070583944797e-15,
+            "inertia_frobenius_relative_error": 9.441476227646571e-16
+          },
+          "urdf_vs_mujoco": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 5.421010862427522e-17,
+            "inertia_frobenius_relative_error": 8.644297023881085e-16
+          }
+        },
+        {
+          "link": "complete_tool",
+          "rcb": {
+            "mass_kg": 0.41484,
+            "com_m": [
+              1e-05,
+              -0.00012,
+              -0.03721
+            ],
+            "inertia_kg_m2": [
+              [
+                0.00032619,
+                -3.917e-07,
+                -2.998e-07
+              ],
+              [
+                -3.917e-07,
+                0.00022519,
+                -1.2089e-06
+              ],
+              [
+                -2.998e-07,
+                -1.2089e-06,
+                0.00028541
+              ]
+            ]
+          },
+          "mujoco": {
+            "mass_kg": 0.44,
+            "com_m": [
+              5.5036245820583764e-05,
+              0.00013737138694973843,
+              -0.058089196270446064
+            ],
+            "inertia_kg_m2": [
+              [
+                0.0002614998972031412,
+                -6.13886555368057e-06,
+                -2.68735221687221e-06
+              ],
+              [
+                -6.13886555368057e-06,
+                0.00012199393409191362,
+                8.611846983757348e-07
+              ],
+              [
+                -2.68735221687221e-06,
+                8.611846983757348e-07,
+                0.00022450941967409535
+              ]
+            ],
+            "bodies": [
+              "ssg48_gripper_link",
+              "left_finger_link",
+              "right_finger_link"
+            ]
+          },
+          "mujoco_difference": {
+            "mass_difference_g": 25.160000000000014,
+            "com_distance_mm": 20.88083104653804,
+            "inertia_frobenius_relative_error": 0.2794384161082913
+          },
+          "urdf": {
+            "mass_kg": 0.44,
+            "com_m": [
+              5.488821888481922e-05,
+              0.00013704656283401604,
+              -0.058089170880540775
+            ],
+            "inertia_kg_m2": [
+              [
+                0.00026149997899073884,
+                -6.138791073792256e-06,
+                -2.687312420177701e-06
+              ],
+              [
+                -6.138791073792256e-06,
+                0.00012199392698265114,
+                8.606661310961466e-07
+              ],
+              [
+                -2.687312420177701e-06,
+                8.606661310961466e-07,
+                0.00022450904499575518
+              ]
+            ],
+            "bodies": [
+              "ssg48_gripper_link",
+              "left_finger_link",
+              "right_finger_link"
+            ]
+          },
+          "urdf_difference": {
+            "mass_difference_g": 25.160000000000014,
+            "com_distance_mm": 20.880801338705403,
+            "inertia_frobenius_relative_error": 0.27943864213202524
+          },
+          "urdf_vs_mujoco": {
+            "mass_difference_g": 0.0,
+            "com_distance_mm": 0.00035786495659295345,
+            "inertia_frobenius_relative_error": 2.286334639495145e-06
+          }
+        }
+      ],
+      "tool_fully_closed": {
+        "mujoco": {
+          "mass_kg": 0.44,
+          "com_m": [
+            5.5036245820583764e-05,
+            0.00013737138694973843,
+            -0.05808919627044601
+          ],
+          "inertia_kg_m2": [
+            [
+              0.0004127663427470475,
+              -1.2283513055906008e-05,
+              -2.68732614703255e-06
+            ],
+            [
+              -1.2283513055906008e-05,
+              0.00012199389595056823,
+              8.618074004818685e-07
+            ],
+            [
+              -2.687326147032549e-06,
+              8.618074004818685e-07,
+              0.00037577582707153427
+            ]
+          ],
+          "bodies": [
+            "ssg48_gripper_link",
+            "left_finger_link",
+            "right_finger_link"
+          ]
+        },
+        "mujoco_difference": {
+          "mass_difference_g": 25.160000000000014,
+          "com_distance_mm": 20.880831046537985,
+          "inertia_frobenius_relative_error": 0.3339966675884112
+        },
+        "urdf": {
+          "mass_kg": 0.44,
+          "com_m": [
+            5.488821888481922e-05,
+            0.00013704656283401652,
+            -0.058089170880540775
+          ],
+          "inertia_kg_m2": [
+            [
+              0.00041276643153258474,
+              -1.2283352439209259e-05,
+              -2.6873124199290045e-06
+            ],
+            [
+              -1.2283352439209259e-05,
+              0.00012199388184080514,
+              8.606435625707193e-07
+            ],
+            [
+              -2.6873124199290045e-06,
+              8.606435625707193e-07,
+              0.00037577545239575504
+            ]
+          ],
+          "bodies": [
+            "ssg48_gripper_link",
+            "left_finger_link",
+            "right_finger_link"
+          ]
+        },
+        "urdf_difference": {
+          "mass_difference_g": 25.160000000000014,
+          "com_distance_mm": 20.880801338705403,
+          "inertia_frobenius_relative_error": 0.33399624818408447
+        }
+      },
+      "rotor_armature_rcb_kg_m2": [
+        0.0004177920000000001,
+        0.0063750000000000005,
+        0.0018663945578231292,
+        9.12e-05,
+        9.12e-05,
+        0.00015000000000000001
+      ],
+      "rotor_armature_mujoco_kg_m2": [
+        0.001,
+        0.001,
+        0.001,
+        0.001,
+        0.001,
+        0.001
+      ],
+      "tcp_max_error": {
+        "mujoco": {
+          "position_m": 3.080888761319944e-06,
+          "angle_rad": 8.904398594191226e-06
+        },
+        "urdf": {
+          "position_m": 3.4596975227391915e-06,
+          "angle_rad": 1.0913461085021562e-05
+        }
+      },
+      "limits": {
+        "rcb_qlim_deg": [
+          [
+            -164.1371389797406,
+            -139.8437284661937,
+            114.09116633578715,
+            -149.81319410147003,
+            -99.12169855763241,
+            -48.70141258611997
+          ],
+          [
+            164.1371389797406,
+            -6.4323966307054565,
+            376.0169316191191,
+            146.37544733068512,
+            91.67324722093173,
+            409.09186572340775
+          ]
+        ],
+        "mujoco_arm_range_rcb_deg": [
+          [
+            -360.00026887880375,
+            360.00026887880375
+          ],
+          [
+            -450.00026887880375,
+            270.00026887880375
+          ],
+          [
+            -180.00026887880372,
+            540.0002688788038
+          ],
+          [
+            -360.00026887880375,
+            360.00026887880375
+          ],
+          [
+            -360.00026887880375,
+            360.00026887880375
+          ],
+          [
+            -180.00026887880372,
+            540.0002688788038
+          ]
+        ],
+        "urdf_arm_joint_types": [
+          "continuous",
+          "continuous",
+          "continuous",
+          "continuous",
+          "continuous",
+          "continuous"
+        ]
+      },
+      "poses_checked": 25,
+      "max_gravity_torque_difference_nm": [
+        0.0,
+        0.06933856302060493,
+        0.046005638799825,
+        0.018528507649788806,
+        0.06453794386741801,
+        0.0011015477423448599
+      ],
+      "mass_matrix_max_relative_difference": 0.06576196429080207,
+      "mass_matrix_without_rotor_max_relative_difference": 0.0508948397890172,
+      "rotor_reference_status": "Uncalibrated estimates; correction deferred by user"
+    }
+  }
+}

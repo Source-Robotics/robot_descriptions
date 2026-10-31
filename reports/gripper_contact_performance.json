@@ -1,0 +1,216 @@
+{
+  "msg": {
+    "mujoco_version": "3.3.0",
+    "resolution": [
+      1280,
+      720
+    ],
+    "camera_azimuth": 135,
+    "rounds": 5,
+    "frames_per_round": 20,
+    "measurement": "Interleaved local timing batches; frame includes scene update and RGB readback, not GUI presentation or Haply I/O.",
+    "models": {
+      "single_hull": {
+        "variant": "msg",
+        "msg_jaws": "stock",
+        "ssg48_jaws": null,
+        "total_geoms": 18,
+        "collision_geoms": 10,
+        "clearance_pairs": 36,
+        "mesh_triangles_in_memory": 313014,
+        "timings": {
+          "step_ms": {
+            "median_ms": 0.03137484999024309,
+            "min_ms": 0.028311700007179752,
+            "max_ms": 0.0325903499906417,
+            "samples_ms": [
+              0.030127374979201704,
+              0.03137484999024309,
+              0.03236379998270422,
+              0.0325903499906417,
+              0.028311700007179752
+            ]
+          },
+          "gap_info_all_ms": {
+            "median_ms": 0.2640490001067519,
+            "min_ms": 0.22812050010543317,
+            "max_ms": 0.3902584995375946,
+            "samples_ms": [
+              0.2640490001067519,
+              0.3902584995375946,
+              0.2690160000929609,
+              0.24257800017949194,
+              0.22812050010543317
+            ]
+          },
+          "frame_ms": {
+            "median_ms": 6.535995000740513,
+            "min_ms": 5.70167499827221,
+            "max_ms": 8.45780999516137,
+            "samples_ms": [
+              8.45780999516137,
+              7.738855003844947,
+              6.535995000740513,
+              5.70167499827221,
+              5.726149998372421
+            ]
+          }
+        }
+      },
+      "convex_pieces": {
+        "variant": "msg",
+        "msg_jaws": "stock",
+        "ssg48_jaws": null,
+        "total_geoms": 30,
+        "collision_geoms": 20,
+        "clearance_pairs": 146,
+        "mesh_triangles_in_memory": 313360,
+        "timings": {
+          "step_ms": {
+            "median_ms": 0.03126922500086948,
+            "min_ms": 0.028595949988812208,
+            "max_ms": 0.03498587501235306,
+            "samples_ms": [
+              0.03126922500086948,
+              0.028595949988812208,
+              0.03498587501235306,
+              0.03046750000794418,
+              0.03409395000198856
+            ]
+          },
+          "gap_info_all_ms": {
+            "median_ms": 0.565610000048764,
+            "min_ms": 0.5040940002072603,
+            "max_ms": 0.631580000044778,
+            "samples_ms": [
+              0.5499149998649955,
+              0.5663554999046028,
+              0.631580000044778,
+              0.5040940002072603,
+              0.565610000048764
+            ]
+          },
+          "frame_ms": {
+            "median_ms": 7.2234150022268295,
+            "min_ms": 5.437525000888854,
+            "max_ms": 10.209409997332841,
+            "samples_ms": [
+              5.437525000888854,
+              8.204154996201396,
+              10.209409997332841,
+              6.21930499910377,
+              7.2234150022268295
+            ]
+          }
+        }
+      }
+    }
+  },
+  "ssg48": {
+    "mujoco_version": "3.3.0",
+    "resolution": [
+      1280,
+      720
+    ],
+    "camera_azimuth": 135,
+    "rounds": 5,
+    "frames_per_round": 20,
+    "measurement": "Interleaved local timing batches; frame includes scene update and RGB readback, not GUI presentation or Haply I/O.",
+    "models": {
+      "single_hull": {
+        "variant": "ssg48",
+        "msg_jaws": "stock",
+        "ssg48_jaws": "pinch",
+        "total_geoms": 15,
+        "collision_geoms": 10,
+        "clearance_pairs": 36,
+        "mesh_triangles_in_memory": 192590,
+        "timings": {
+          "step_ms": {
+            "median_ms": 0.02250507500139065,
+            "min_ms": 0.021529899997403845,
+            "max_ms": 0.024981599999591708,
+            "samples_ms": [
+              0.024981599999591708,
+              0.021529899997403845,
+              0.023862400004873052,
+              0.02250507500139065,
+              0.02153830000315793
+            ]
+          },
+          "gap_info_all_ms": {
+            "median_ms": 0.16883249976672232,
+            "min_ms": 0.1485064998269081,
+            "max_ms": 0.1888074999442324,
+            "samples_ms": [
+              0.18276199989486486,
+              0.1485064998269081,
+              0.16883249976672232,
+              0.1888074999442324,
+              0.152706999797374
+            ]
+          },
+          "frame_ms": {
+            "median_ms": 5.78893999918364,
+            "min_ms": 5.18544499645941,
+            "max_ms": 13.663964997977018,
+            "samples_ms": [
+              5.78893999918364,
+              5.18544499645941,
+              13.663964997977018,
+              5.458604998420924,
+              6.295499997213483
+            ]
+          }
+        }
+      },
+      "convex_pieces": {
+        "variant": "ssg48",
+        "msg_jaws": "stock",
+        "ssg48_jaws": "pinch",
+        "total_geoms": 27,
+        "collision_geoms": 20,
+        "clearance_pairs": 146,
+        "mesh_triangles_in_memory": 192948,
+        "timings": {
+          "step_ms": {
+            "median_ms": 0.022980699985055253,
+            "min_ms": 0.02269947499735281,
+            "max_ms": 0.023919775005197152,
+            "samples_ms": [
+              0.023919775005197152,
+              0.023305775015614927,
+              0.02269947499735281,
+              0.022980699985055253,
+              0.022776875004637986
+            ]
+          },
+          "gap_info_all_ms": {
+            "median_ms": 0.47239899984560907,
+            "min_ms": 0.4522740002721548,
+            "max_ms": 0.5029964999994263,
+            "samples_ms": [
+              0.5029964999994263,
+              0.47239899984560907,
+              0.4995399998733774,
+              0.4522740002721548,
+              0.4703855002298951
+            ]
+          },
+          "frame_ms": {
+            "median_ms": 5.28035499737598,
+            "min_ms": 5.028344999300316,
+            "max_ms": 6.440700002713129,
+            "samples_ms": [
+              6.440700002713129,
+              5.028344999300316,
+              6.196745001943782,
+              5.1288549962919205,
+              5.28035499737598
+            ]
+          }
+        }
+      }
+    }
+  }
+}

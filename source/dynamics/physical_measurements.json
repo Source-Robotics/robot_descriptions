@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "reported_date": "2026-10-28",
+  "source": "User-reported physical measurements in this conversation",
+  "status": "Applied to all five URDF/MJCF variants on 2026-10-28. Working RCB runtime tool configuration remains unchanged. See dynamics_sync_validation.json.",
+  "units": {"mass": "kg"},
+  "arm": {
+    "link_mass_com_and_central_inertia_reference": "RCB-RUNTIME/RCB-Runtime/robots/PAR6.py",
+    "status": "User confirms RCB is the preferred reference for the arm link mass properties"
+  },
+  "motor_rotor_inertia": {
+    "status": "uncalibrated_estimates",
+    "user_instruction": "RCB motor inertias are wrong; URDF/MuJoCo values are estimates too. Correct later. Do not adopt RCB motor inertias as measured truth."
+  },
+  "tools": {
+    "flange": {
+      "total_mass_kg": 0.0555,
+      "status": "user_confirmed",
+      "com_and_central_inertia": "Not supplied by this measurement"
+    },
+    "msg": {
+      "total_mass_kg": 0.380,
+      "left_moving_assembly_mass_kg": 0.0393,
+      "right_moving_assembly_mass_kg": 0.0393,
+      "moving_assembly_scope": "One finger + jaw + sliding elements",
+      "moving_assembly_mass_approximate": true,
+      "fixed_assembly_mass_kg": 0.3014,
+      "fixed_assembly_mass_basis": "User stated 301.4 g; consistent with 380 - 2 * 39.3 g",
+      "jaw_options": ["Solid jaws", "Soft TPU jaws"],
+      "jaw_option_note": "User previously confirmed both MSG jaw designs have equal mass",
+      "com_and_central_inertia": "Not supplied by these measurements"
+    },
+    "ssg48": {
+      "total_mass_kg": 0.440,
+      "left_moving_assembly_mass_kg": 0.0393,
+      "right_moving_assembly_mass_kg": 0.0393,
+      "moving_assembly_mass_kg": 0.0393,
+      "moving_assembly_mass_status": "User explicitly confirmed 39.3 g per complete moving assembly",
+      "moving_assembly_scope": "One slider + finger + jaw",
+      "moving_assembly_mass_approximate": true,
+      "fixed_assembly_mass_kg": 0.3614,
+      "fixed_assembly_mass_basis": "440 - 2 * 39.3 g",
+      "com_and_central_inertia": "Not supplied by these measurements"
+    }
+  },
+  "fixed_base": {
+    "mass_reference": "Unresolved assembly scope; lower priority for the current fixed-base arm model"
+  }
+}

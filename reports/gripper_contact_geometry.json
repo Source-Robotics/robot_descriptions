@@ -1,0 +1,201 @@
+{
+  "method": "VHACD regions refitted through complete source triangles",
+  "maximum_pieces_per_finger": 6,
+  "visible_geometry_unchanged": true,
+  "inertial_definitions_unchanged": true,
+  "ssg48_scope": "External carriage and selected jaw; internal URDF racks remain visual only. Joint coupling represents the internal transmission.",
+  "profiles": {
+    "msg_solid": {
+      "mujoco": {
+        "left": {
+          "pieces": 6,
+          "triangles": 174,
+          "source_package": "mujoco/par6",
+          "source_sha256": {
+            "assets/jaw1_MSG.STL": "9230322709aab12df0e039d88e7b77a3f0e0e8b6f2c4e274e359e1066abdd4de"
+          },
+          "all_source_triangles_enclosed": true,
+          "sampled_old_hull_volume_removed_fraction": 0.1952292728114868
+        },
+        "right": {
+          "pieces": 6,
+          "triangles": 172,
+          "source_package": "mujoco/par6",
+          "source_sha256": {
+            "assets/jaw2_MSG.STL": "2c0d7206ba05af4228f8c3a4486af4a77dc8aa7beafa73514a8c0e09a119f4b1"
+          },
+          "all_source_triangles_enclosed": true,
+          "sampled_old_hull_volume_removed_fraction": 0.13284386830331535
+        }
+      },
+      "urdf": {
+        "left": {
+          "pieces": 6,
+          "triangles": 174,
+          "source_package": "urdf/par6_description",
+          "source_sha256": {
+            "meshes/msg/jaw1.STL": "9230322709aab12df0e039d88e7b77a3f0e0e8b6f2c4e274e359e1066abdd4de"
+          },
+          "all_source_triangles_enclosed": true,
+          "sampled_old_hull_volume_removed_fraction": 0.1952292728114868
+        },
+        "right": {
+          "pieces": 6,
+          "triangles": 172,
+          "source_package": "urdf/par6_description",
+          "source_sha256": {
+            "meshes/msg/jaw2.STL": "2c0d7206ba05af4228f8c3a4486af4a77dc8aa7beafa73514a8c0e09a119f4b1"
+          },
+          "all_source_triangles_enclosed": true,
+          "sampled_old_hull_volume_removed_fraction": 0.13284386830331535
+        }
+      }
+    },
+    "msg_soft_tpu": {
+      "mujoco": {
+        "left": {
+          "pieces": 6,
+          "triangles": 196,
+          "source_package": "mujoco/par6",
+          "source_sha256": {
+            "assets/jaws/tpu_glue/left_carriage.STL": "93ffc7f9674e271a0448f8072e61251249b7fc396d70ace614c57d0360f7a7ca",
+            "assets/jaws/tpu_glue/left_holder.STL": "444f27deff4bbbc79788f4505a1b6182b03f1de163b6054f89a5638ecdf2e06a",
+            "assets/jaws/tpu_glue/left_hex.STL": "d7b3065a4d91c3b94fc72464558b5f7732ccb617ee4cf7b3271d156352f71014"
+          },
+          "all_source_triangles_enclosed": true,
+          "sampled_old_hull_volume_removed_fraction": 0.19709282362366945
+        },
+        "right": {
+          "pieces": 6,
+          "triangles": 160,
+          "source_package": "mujoco/par6",
+          "source_sha256": {
+            "assets/jaws/tpu_glue/right_carriage.STL": "74c8f8bc1a5c9eef384f26aa0854c03919ce659c815144622e493397fd75e5f4",
+            "assets/jaws/tpu_glue/right_holder.STL": "85fe96ecadb68b15ede4116ba7ec5583ad19402c215c636948aed3bd0f5cb6ef",
+            "assets/jaws/tpu_glue/right_hex.STL": "cf24db642e3eaff3d5cd1a8ced9aed5f525365bc3b8b010c5dbec9f72b055cbe"
+          },
+          "all_source_triangles_enclosed": true,
+          "sampled_old_hull_volume_removed_fraction": 0.16912431941923775
+        }
+      },
+      "urdf": {
+        "left": {
+          "pieces": 6,
+          "triangles": 196,
+          "source_package": "urdf/par6_description",
+          "source_sha256": {
+            "meshes/msg/jaws/tpu_glue/left_carriage.STL": "93ffc7f9674e271a0448f8072e61251249b7fc396d70ace614c57d0360f7a7ca",
+            "meshes/msg/jaws/tpu_glue/left_holder.STL": "444f27deff4bbbc79788f4505a1b6182b03f1de163b6054f89a5638ecdf2e06a",
+            "meshes/msg/jaws/tpu_glue/left_hex.STL": "d7b3065a4d91c3b94fc72464558b5f7732ccb617ee4cf7b3271d156352f71014"
+          },
+          "all_source_triangles_enclosed": true,
+          "sampled_old_hull_volume_removed_fraction": 0.19709282362366945
+        },
+        "right": {
+          "pieces": 6,
+          "triangles": 160,
+          "source_package": "urdf/par6_description",
+          "source_sha256": {
+            "meshes/msg/jaws/tpu_glue/right_carriage.STL": "74c8f8bc1a5c9eef384f26aa0854c03919ce659c815144622e493397fd75e5f4",
+            "meshes/msg/jaws/tpu_glue/right_holder.STL": "85fe96ecadb68b15ede4116ba7ec5583ad19402c215c636948aed3bd0f5cb6ef",
+            "meshes/msg/jaws/tpu_glue/right_hex.STL": "cf24db642e3eaff3d5cd1a8ced9aed5f525365bc3b8b010c5dbec9f72b055cbe"
+          },
+          "all_source_triangles_enclosed": true,
+          "sampled_old_hull_volume_removed_fraction": 0.16912431941923775
+        }
+      }
+    },
+    "ssg48_solid": {
+      "mujoco": {
+        "left": {
+          "pieces": 6,
+          "triangles": 176,
+          "source_package": "mujoco/par6",
+          "source_sha256": {
+            "assets/jaws/ssg48_pinch/left.STL": "c33ad87ade91ae90d7ca083e5e415018a2db31d57adda4f72714fa7e816c74d4"
+          },
+          "all_source_triangles_enclosed": true,
+          "sampled_old_hull_volume_removed_fraction": 0.0947054436987323
+        },
+        "right": {
+          "pieces": 6,
+          "triangles": 182,
+          "source_package": "mujoco/par6",
+          "source_sha256": {
+            "assets/jaws/ssg48_pinch/right.STL": "d0c01cae377ab03afd3f2b5c9c72915d45c6245b62a382c495d1aa139afff82e"
+          },
+          "all_source_triangles_enclosed": true,
+          "sampled_old_hull_volume_removed_fraction": 0.08065532451165722
+        }
+      },
+      "urdf": {
+        "left": {
+          "pieces": 6,
+          "triangles": 176,
+          "source_package": "mujoco/par6",
+          "source_sha256": {
+            "assets/jaws/ssg48_pinch/left.STL": "c33ad87ade91ae90d7ca083e5e415018a2db31d57adda4f72714fa7e816c74d4"
+          },
+          "all_source_triangles_enclosed": true,
+          "sampled_old_hull_volume_removed_fraction": 0.0947054436987323
+        },
+        "right": {
+          "pieces": 6,
+          "triangles": 182,
+          "source_package": "mujoco/par6",
+          "source_sha256": {
+            "assets/jaws/ssg48_pinch/right.STL": "d0c01cae377ab03afd3f2b5c9c72915d45c6245b62a382c495d1aa139afff82e"
+          },
+          "all_source_triangles_enclosed": true,
+          "sampled_old_hull_volume_removed_fraction": 0.08065532451165722
+        }
+      }
+    },
+    "ssg48_fin_ray": {
+      "mujoco": {
+        "left": {
+          "pieces": 6,
+          "triangles": 212,
+          "source_package": "mujoco/par6",
+          "source_sha256": {
+            "assets/jaw1_SSG48.STL": "d3cbd3919b4489ca00dd6816b78a5f52ab6a90ea050ae3341fadd38bf6cf0608"
+          },
+          "all_source_triangles_enclosed": true,
+          "sampled_old_hull_volume_removed_fraction": 0.1727214786488209
+        },
+        "right": {
+          "pieces": 6,
+          "triangles": 286,
+          "source_package": "mujoco/par6",
+          "source_sha256": {
+            "assets/jaw2_SSG48.STL": "ebd4142408f1a0871954337c72549b105f845a6fd2d6a3e813d36575c8d99d48"
+          },
+          "all_source_triangles_enclosed": true,
+          "sampled_old_hull_volume_removed_fraction": 0.22055978330968656
+        }
+      },
+      "urdf": {
+        "left": {
+          "pieces": 6,
+          "triangles": 212,
+          "source_package": "mujoco/par6",
+          "source_sha256": {
+            "assets/jaw1_SSG48.STL": "d3cbd3919b4489ca00dd6816b78a5f52ab6a90ea050ae3341fadd38bf6cf0608"
+          },
+          "all_source_triangles_enclosed": true,
+          "sampled_old_hull_volume_removed_fraction": 0.1727214786488209
+        },
+        "right": {
+          "pieces": 6,
+          "triangles": 286,
+          "source_package": "mujoco/par6",
+          "source_sha256": {
+            "assets/jaw2_SSG48.STL": "ebd4142408f1a0871954337c72549b105f845a6fd2d6a3e813d36575c8d99d48"
+          },
+          "all_source_triangles_enclosed": true,
+          "sampled_old_hull_volume_removed_fraction": 0.22055978330968656
+        }
+      }
+    }
+  }
+}

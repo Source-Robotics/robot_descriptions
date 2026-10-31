@@ -1,0 +1,6 @@
+<launch>
+  <arg name="end_effector" default="msg" doc="flange, msg, msg_tpu_glue, ssg48, ssg48_stock, pneumatic" />
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" />
+  <param name="robot_description" command="python3 &quot;$(find parol6_description)/scripts/ros_urdf.py&quot; &quot;$(find parol6_description)/parol6_$(arg end_effector).urdf&quot;" />
+  <node name="spawn_parol6" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model parol6_$(arg end_effector)" output="screen" />
+</launch>

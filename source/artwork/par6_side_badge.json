@@ -1,0 +1,23 @@
+{
+  "source": "par6_side_badge.svg",
+  "source_sha256": "9b10a155dd83fb762a0059c98dc4e63e415f1f49acdb468d87b3c0915bbac09b",
+  "link": "upper_arm_link",
+  "scale_m_per_svg_unit": 0.000042,
+  "axis_rotation_deg": 8.39,
+  "x_center_m": 0.0028405,
+  "y_start_m": -0.199259,
+  "panel_face_z_m": 0.0817,
+  "curve_tolerance_svg_units": 0.35,
+  "texture_width_px": 1024,
+  "texture_height_px": 384,
+  "panel_color": "#CAD1EE",
+  "colors": {
+    "background": "#464545",
+    "emblem": "#FFFFFF",
+    "symbol": "#464545",
+    "wordmark": "#FFFFFF",
+    "robot_name": "#FFFFFF",
+    "tagline": "#FFFFFF",
+    "divider": "#FFFFFF"
+  }
+}

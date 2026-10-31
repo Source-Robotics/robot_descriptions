@@ -1,0 +1,27 @@
+{
+  "visual_signature": "6242048cd2fbbc40f64d7bb1906da81a864ec8e4ff4e379ceeaaf3f008af14e6",
+  "projection": {
+    "pos": [
+      0.10999999940395355,
+      1.0,
+      0.19200000166893005
+    ],
+    "forward": [
+      -1.8369701465288538e-16,
+      -1.0,
+      0.0
+    ],
+    "up": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "top": 0.23499999940395355,
+    "bottom": -0.23499999940395355,
+    "center": 0.0,
+    "width": 0.0,
+    "orthographic": true,
+    "registration_error_max_px": 0.4088001034451091
+  },
+  "image_sha256": "d60ed1944992effb7bd6e7b7fca8cb6826a1ea118b35fefc727e7522031ce64b"
+}

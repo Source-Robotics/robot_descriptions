@@ -1,0 +1,44 @@
+{
+  "id": "pinch",
+  "label": "Solid jaws",
+  "source": "solid_jaws_pinch.STEP",
+  "source_sha256": "ee2f151ab9fab9e60d15df57c9e0796cb0c016a4558970da25ae35b0b01455d2",
+  "source_units": "mm",
+  "solid_ids": {
+    "finger": 1
+  },
+  "mesh_size_max_mm": 50,
+  "curvature_segments": 20,
+  "source_to_left_finger_rotation": [
+    [
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      -1
+    ],
+    [
+      -1,
+      0,
+      0
+    ]
+  ],
+  "source_to_left_finger_translation_m": [
+    -0.0431484856430223,
+    0.0378744679574258,
+    0.0167365097277473
+  ],
+  "matching_export": "source/legacy/assets/SSG48 gripper jaws/solid_jaws_pinch",
+  "matching_export_sha256": {
+    "left": "e41ec5e82cff5bfbafc6308d801ce8fa33fbae79783905638e50ef05583e073d",
+    "right": "66f5c69b1aa78fe3b2cd2939005368411abe6197b0a808b479c040557352f65c"
+  },
+  "maximum_mesh_deviation_mm": 0.1,
+  "color": "#4C4C4C",
+  "default": true,
+  "inertia": "retain existing SSG48 finger mass, center of mass, and inertia as the current approximation",
+  "collision": "Six convex pieces for the selected jaw and external carriage, shared between formats; internal transmission racks remain visual only."
+}

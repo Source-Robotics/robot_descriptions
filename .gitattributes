@@ -1,0 +1,14 @@
+* text=auto eol=lf
+# These inputs have byte-level provenance hashes; preserve their exact bytes.
+*.STL -text
+*.stl -text
+*.STEP -text
+*.step -text
+*.svg -text
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.zip binary
+*.pdf binary
+# Preserve the supplied, byte-hashed PAROL6 export exactly.
+source/parol6/original/** -text

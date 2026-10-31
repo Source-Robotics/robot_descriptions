@@ -1,0 +1,496 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="par6_msg_tpu_glue">
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.032918423627964 -3.97602362145477E-09 0.0314011608034138" rpy="0 0 0" />
+      <mass value="0.998265338800333" />
+      <inertia ixx="0.00118949401625524" ixy="-3.53594550153641E-12" ixz="-5.94924049151937E-05" iyy="0.00238159101024826" iyz="-6.16822652198136E-11" izz="0.00282485466366564" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="shoulder_link">
+    <inertial>
+      <origin xyz="0.0055100000000000045 0.01797 0.10725999999999999" rpy="0 0 0" />
+      <mass value="1.9931400000000001" />
+      <inertia ixx="0.01274598834" ixy="-0.0024788978500000004" ixz="-5.6669030000000154e-05" iyy="0.0025494801000000003" iyz="0.00026984317999999936" izz="0.013519754430000001" />
+    </inertial>
+    <visual name="shoulder_structure_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/visual/shoulder_structure_visual.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <visual name="j1_actuator_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/visual/j1_actuator_visual.STL" />
+      </geometry>
+      <material name="j1_actuator_black">
+        <color rgba="0.06 0.06 0.065 1" />
+      </material>
+    </visual>
+    <visual name="j2_actuator_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/visual/j2_actuator_visual.STL" />
+      </geometry>
+      <material name="j2_actuator_black">
+        <color rgba="0.06 0.06 0.065 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/shoulder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_joint" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="shoulder_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="0" velocity="0" />
+  </joint>
+  <link name="upper_arm_link">
+    <inertial>
+      <origin xyz="-0.01108099999999999 -0.077150058329976567 0.015879716612119149" rpy="0 0 0" />
+      <mass value="1.3322400000000001" />
+      <inertia ixx="0.0064479537799999988" ixy="-9.0783182982875151e-05" ixz="0.00025671919653648059" iyy="0.00322195590329322" iyz="-0.00029855416259537697" izz="0.0038243146767067797" />
+    </inertial>
+    <visual name="upper_arm_structure_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/branding/upper_arm_structure_badged.dae" />
+      </geometry>
+    </visual>
+    <visual name="j3_actuator_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/visual/j3_actuator_visual.STL" />
+      </geometry>
+      <material name="j3_actuator_black">
+        <color rgba="0.06 0.06 0.065 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/upper_arm.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="shoulder_joint" type="continuous">
+    <origin xyz="0.023421 0 0.1105" rpy="-1.5708 0 0" />
+    <parent link="shoulder_link" />
+    <child link="upper_arm_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="0" velocity="0" />
+  </joint>
+  <link name="forearm_link">
+    <inertial>
+      <origin xyz="0.0095799322316954365 -0.022189062659065277 -0.0037391406238957772" rpy="0 0 0" />
+      <mass value="0.68511" />
+      <inertia ixx="0.00061022100446166767" ixy="-6.1224374249270173e-05" ixz="2.5284974638261845e-05" iyy="0.00077646916244997416" iyz="-5.6988967475870837e-05" izz="0.00085682118308835764" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/elbow.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/elbow.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="elbow_joint" type="continuous">
+    <origin xyz="0 -0.18 0" rpy="3.1416 0 -1.5708" />
+    <parent link="upper_arm_link" />
+    <child link="forearm_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="0" velocity="0" />
+  </joint>
+  <link name="wrist_1_link">
+    <inertial>
+      <origin xyz="-9.0472223870661847e-05 -0.017128769405677792 -0.11142922237108562" rpy="0 0 0" />
+      <mass value="0.57955999999999996" />
+      <inertia ixx="0.0011704656029640325" ixy="1.24962772470221e-07" ixz="-1.0833764458669173e-06" iyy="0.0010405847773363986" iyz="0.00028745478922608268" izz="0.00035842714969956815" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/lower_arm.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/lower_arm.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wrist_1_joint" type="continuous">
+    <origin xyz="0.0435 0 0" rpy="1.5708 0 -3.1416" />
+    <parent link="forearm_link" />
+    <child link="wrist_1_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="0" velocity="0" />
+  </joint>
+  <link name="wrist_2_link">
+    <inertial>
+      <origin xyz="-6.3799470657498569e-07 -0.0035508393393627589 -0.00023854192431725939" rpy="0 0 0" />
+      <mass value="0.52381" />
+      <inertia ixx="0.00041379106992745054" ixy="3.6422623607063931e-08" ixz="2.6111119874188284e-08" iyy="0.00018259110331832955" iyz="9.4509625944805062e-07" izz="0.00040956068675421957" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/wrist.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/wrist.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wrist_2_joint" type="continuous">
+    <origin xyz="0 0 -0.176999999999995" rpy="-1.57079632679489 0 0" />
+    <parent link="wrist_1_link" />
+    <child link="wrist_2_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="0" velocity="0" />
+  </joint>
+  <link name="msg_gripper_link">
+    <inertial>
+      <origin xyz="-0.00642470048892474 0.000282668798476438 -0.0695192335056825" rpy="0 0 0" />
+      <mass value="0.3014" />
+      <inertia ixx="0.000140871735417615" ixy="-9.82778432876683E-07" ixz="-2.72691487145471E-06" iyy="2.45392416247037E-05" iyz="-2.78909378823719E-07" izz="0.00013036472950858" />
+    </inertial>
+    <visual name="msg_gripper_structure_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/msg/visual/msg_gripper_structure_visual.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <visual name="msg_camera_lens_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/msg/visual/msg_camera_lens_visual.STL" />
+      </geometry>
+      <material name="msg_camera_lens_black">
+        <color rgba="0.06 0.06 0.065 1" />
+      </material>
+    </visual>
+    <visual name="msg_gripper_motor_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/msg/visual/msg_gripper_motor_visual.STL" />
+      </geometry>
+      <material name="msg_gripper_motor_black">
+        <color rgba="0.06 0.06 0.065 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/msg/gripper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="wrist_3_link" />
+  <joint name="wrist_3_joint" type="continuous">
+    <origin xyz="0 0 0" rpy="1.5707963267949 0 3.141592653589793" />
+    <parent link="wrist_2_link" />
+    <child link="wrist_3_link" />
+    <axis xyz="0 0 -1" />
+    <limit effort="0" velocity="0" />
+  </joint>
+  <link name="flange" />
+  <joint name="flange_fixed_joint" type="fixed">
+    <parent link="wrist_3_link" />
+    <child link="flange" />
+    <origin xyz="0 0 0.0571" rpy="0 0 0" />
+  </joint>
+  <joint name="msg_gripper_fixed_joint" type="fixed">
+    <parent link="flange" />
+    <child link="msg_gripper_link" />
+    <origin xyz="0 0 -0.0571" rpy="0 3.141592653589793 0" />
+  </joint>
+  <link name="left_finger_link">
+    <inertial>
+      <origin xyz="0.000317390129572659 -0.0636011550113124 -0.0505219142777576" rpy="0 0 0" />
+      <mass value="0.039300000000000002" />
+      <inertia ixx="1.05776518737304E-05" ixy="4.17466317108795E-08" ixz="-4.94412707881078E-07" iyy="1.02820791329259E-05" iyz="5.30501392593403E-07" izz="1.56447936575552E-06" />
+    </inertial>
+    <visual name="msg_tpu_left_carriage">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/msg/jaws/tpu_glue/left_carriage.STL" />
+      </geometry>
+      <material name="msg_jaw_black">
+        <color rgba="0.0588235294 0.0588235294 0.0666666667 1" />
+      </material>
+    </visual>
+    <visual name="msg_tpu_left_holder">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/msg/jaws/tpu_glue/left_holder.STL" />
+      </geometry>
+      <material name="msg_jaw_black">
+        <color rgba="0.0588235294 0.0588235294 0.0666666667 1" />
+      </material>
+    </visual>
+    <visual name="msg_tpu_left_hex">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/msg/jaws/tpu_glue/left_hex.STL" />
+      </geometry>
+      <material name="msg_jaw_yellow">
+        <color rgba="1 0.823529412 0.101960784 1" />
+      </material>
+    </visual>
+    <collision name="contact_msg_soft_tpu_left_00">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/contacts/msg_soft_tpu/left_00.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_msg_soft_tpu_left_01">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/contacts/msg_soft_tpu/left_01.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_msg_soft_tpu_left_02">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/contacts/msg_soft_tpu/left_02.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_msg_soft_tpu_left_03">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/contacts/msg_soft_tpu/left_03.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_msg_soft_tpu_left_04">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/contacts/msg_soft_tpu/left_04.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_msg_soft_tpu_left_05">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/contacts/msg_soft_tpu/left_05.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_finger_joint" type="prismatic">
+    <origin xyz="0.02835 0 -0.1409" rpy="-3.1416 0 3.1416" />
+    <parent link="msg_gripper_link" />
+    <child link="left_finger_link" />
+    <axis xyz="0 -1 0" />
+    <limit lower="-0.0525" upper="0" effort="0" velocity="0" />
+  </joint>
+  <link name="right_finger_link">
+    <inertial>
+      <origin xyz="0.000313277058697659 0.0636017321420815 -0.0494862901594326" rpy="0 0 0" />
+      <mass value="0.039300000000000002" />
+      <inertia ixx="1.05767573086608E-05" ixy="-4.18351972636844E-08" ixz="-7.32706121136976E-07" iyy="1.02816308296904E-05" iyz="-5.3239570329707E-07" izz="1.56361148863754E-06" />
+    </inertial>
+    <visual name="msg_tpu_right_carriage">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/msg/jaws/tpu_glue/right_carriage.STL" />
+      </geometry>
+      <material name="msg_jaw_black">
+        <color rgba="0.0588235294 0.0588235294 0.0666666667 1" />
+      </material>
+    </visual>
+    <visual name="msg_tpu_right_holder">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/msg/jaws/tpu_glue/right_holder.STL" />
+      </geometry>
+      <material name="msg_jaw_black">
+        <color rgba="0.0588235294 0.0588235294 0.0666666667 1" />
+      </material>
+    </visual>
+    <visual name="msg_tpu_right_hex">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/msg/jaws/tpu_glue/right_hex.STL" />
+      </geometry>
+      <material name="msg_jaw_yellow">
+        <color rgba="1 0.823529412 0.101960784 1" />
+      </material>
+    </visual>
+    <collision name="contact_msg_soft_tpu_right_00">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/contacts/msg_soft_tpu/right_00.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_msg_soft_tpu_right_01">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/contacts/msg_soft_tpu/right_01.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_msg_soft_tpu_right_02">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/contacts/msg_soft_tpu/right_02.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_msg_soft_tpu_right_03">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/contacts/msg_soft_tpu/right_03.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_msg_soft_tpu_right_04">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/contacts/msg_soft_tpu/right_04.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_msg_soft_tpu_right_05">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/contacts/msg_soft_tpu/right_05.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger_joint" type="prismatic">
+    <mimic joint="left_finger_joint" multiplier="-1" offset="0" />
+    <origin xyz="0.02835 0 -0.1409" rpy="-3.1416 0 3.1416" />
+    <parent link="msg_gripper_link" />
+    <child link="right_finger_link" />
+    <axis xyz="0 -1 0" />
+    <limit lower="0" upper="0.0525" effort="0" velocity="0" />
+  </joint>
+  <link name="tcp" />
+  <joint name="tcp_fixed_joint" type="fixed">
+    <parent link="msg_gripper_link" />
+    <child link="tcp" />
+    <origin xyz="0.02835 0 -0.1409" rpy="0 3.141592653589793 0" />
+  </joint>
+  <link name="msg_camera_link" />
+  <joint name="msg_camera_fixed_joint" type="fixed">
+    <parent link="msg_gripper_link" />
+    <child link="msg_camera_link" />
+    <origin xyz="-0.0513 0 -0.0897" rpy="-0.872664625997165 0 1.570796326794897" />
+  </joint>
+  <link name="msg_camera_optical_frame" />
+  <joint name="msg_camera_optical_joint" type="fixed">
+    <parent link="msg_camera_link" />
+    <child link="msg_camera_optical_frame" />
+    <origin xyz="0 0 0" rpy="3.141592653589793 0 0" />
+  </joint>
+  <transmission name="base_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="base_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="base_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="shoulder_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="shoulder_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="shoulder_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="elbow_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="elbow_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="elbow_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="wrist_1_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="wrist_1_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wrist_1_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="wrist_2_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="wrist_2_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wrist_2_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="wrist_3_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="wrist_3_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wrist_3_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="gripper_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_finger_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="gripper_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+</robot>

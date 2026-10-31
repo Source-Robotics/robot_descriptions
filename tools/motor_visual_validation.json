@@ -1,0 +1,32 @@
+{
+  "mujoco_version": "3.3.0",
+  "triangle_records_preserved": {
+    "urdf/shoulder": 51322,
+    "urdf/upper_arm": 31260,
+    "urdf/msg_gripper": 64004,
+    "mujoco/shoulder": 51322,
+    "mujoco/upper_arm": 31260,
+    "mujoco/msg_gripper": 64004
+  },
+  "urdf_nonvisual_definitions_except_finger_contacts_unchanged": true,
+  "mujoco": {
+    "flange": {
+      "current_entry": "flange",
+      "poses_checked": 26,
+      "kinematics_and_mass_properties_unchanged": true,
+      "finger_contact_comparison": "Excluded; intentional later contact refinement."
+    },
+    "msg": {
+      "current_entry": "msg",
+      "poses_checked": 26,
+      "kinematics_and_mass_properties_unchanged": true,
+      "finger_contact_comparison": "Excluded; intentional later contact refinement."
+    },
+    "ssg48": {
+      "current_entry": "ssg48_stock",
+      "poses_checked": 26,
+      "kinematics_and_mass_properties_unchanged": true,
+      "finger_contact_comparison": "Excluded; intentional later contact refinement."
+    }
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "scope": "Contact geometry intentionally changes; no contact-force equivalence is claimed.",
+  "profiles": {
+    "msg_solid": {
+      "unchanged_compiled_arrays": [
+        "body_parentid",
+        "body_pos",
+        "body_quat",
+        "body_ipos",
+        "body_iquat",
+        "body_mass",
+        "body_inertia",
+        "jnt_type",
+        "jnt_pos",
+        "jnt_axis",
+        "jnt_range",
+        "dof_damping",
+        "dof_armature",
+        "dof_frictionloss",
+        "actuator_trnid",
+        "actuator_gainprm",
+        "actuator_biasprm",
+        "actuator_ctrlrange",
+        "actuator_forcerange",
+        "eq_data",
+        "eq_obj1id",
+        "eq_obj2id",
+        "cam_pos",
+        "cam_quat",
+        "key_qpos",
+        "key_ctrl"
+      ],
+      "poses_checked": 26,
+      "urdf_only_finger_collisions_changed": true,
+      "visible_assets_byte_identical": true,
+      "geometry": {
+        "mujoco/left": {
+          "pieces": 6,
+          "source_triangles_covered": 1724
+        },
+        "mujoco/right": {
+          "pieces": 6,
+          "source_triangles_covered": 1636
+        },
+        "urdf/left": {
+          "pieces": 6,
+          "source_triangles_covered": 1724
+        },
+        "urdf/right": {
+          "pieces": 6,
+          "source_triangles_covered": 1636
+        }
+      }
+    },
+    "msg_soft_tpu": {
+      "unchanged_compiled_arrays": [
+        "body_parentid",
+        "body_pos",
+        "body_quat",
+        "body_ipos",
+        "body_iquat",
+        "body_mass",
+        "body_inertia",
+        "jnt_type",
+        "jnt_pos",
+        "jnt_axis",
+        "jnt_range",
+        "dof_damping",
+        "dof_armature",
+        "dof_frictionloss",
+        "actuator_trnid",
+        "actuator_gainprm",
+        "actuator_biasprm",
+        "actuator_ctrlrange",
+        "actuator_forcerange",
+        "eq_data",
+        "eq_obj1id",
+        "eq_obj2id",
+        "cam_pos",
+        "cam_quat",
+        "key_qpos",
+        "key_ctrl"
+      ],
+      "poses_checked": 26,
+      "urdf_only_finger_collisions_changed": true,
+      "visible_assets_byte_identical": true,
+      "geometry": {
+        "mujoco/left": {
+          "pieces": 6,
+          "source_triangles_covered": 7192
+        },
+        "mujoco/right": {
+          "pieces": 6,
+          "source_triangles_covered": 7104
+        },
+        "urdf/left": {
+          "pieces": 6,
+          "source_triangles_covered": 7192
+        },
+        "urdf/right": {
+          "pieces": 6,
+          "source_triangles_covered": 7104
+        }
+      }
+    },
+    "ssg48_solid": {
+      "unchanged_compiled_arrays": [
+        "body_parentid",
+        "body_pos",
+        "body_quat",
+        "body_ipos",
+        "body_iquat",
+        "body_mass",
+        "body_inertia",
+        "jnt_type",
+        "jnt_pos",
+        "jnt_axis",
+        "jnt_range",
+        "dof_damping",
+        "dof_armature",
+        "dof_frictionloss",
+        "actuator_trnid",
+        "actuator_gainprm",
+        "actuator_biasprm",
+        "actuator_ctrlrange",
+        "actuator_forcerange",
+        "eq_data",
+        "eq_obj1id",
+        "eq_obj2id",
+        "cam_pos",
+        "cam_quat",
+        "key_qpos",
+        "key_ctrl"
+      ],
+      "poses_checked": 26,
+      "urdf_only_finger_collisions_changed": true,
+      "visible_assets_byte_identical": true,
+      "geometry": {
+        "mujoco/left": {
+          "pieces": 6,
+          "source_triangles_covered": 1224
+        },
+        "mujoco/right": {
+          "pieces": 6,
+          "source_triangles_covered": 1224
+        },
+        "urdf/left": {
+          "pieces": 6,
+          "source_triangles_covered": 1312
+        },
+        "urdf/right": {
+          "pieces": 6,
+          "source_triangles_covered": 1312
+        }
+      }
+    },
+    "ssg48_fin_ray": {
+      "unchanged_compiled_arrays": [
+        "body_parentid",
+        "body_pos",
+        "body_quat",
+        "body_ipos",
+        "body_iquat",
+        "body_mass",
+        "body_inertia",
+        "jnt_type",
+        "jnt_pos",
+        "jnt_axis",
+        "jnt_range",
+        "dof_damping",
+        "dof_armature",
+        "dof_frictionloss",
+        "actuator_trnid",
+        "actuator_gainprm",
+        "actuator_biasprm",
+        "actuator_ctrlrange",
+        "actuator_forcerange",
+        "eq_data",
+        "eq_obj1id",
+        "eq_obj2id",
+        "cam_pos",
+        "cam_quat",
+        "key_qpos",
+        "key_ctrl"
+      ],
+      "poses_checked": 26,
+      "urdf_only_finger_collisions_changed": true,
+      "visible_assets_byte_identical": true,
+      "geometry": {
+        "mujoco/left": {
+          "pieces": 6,
+          "source_triangles_covered": 1926
+        },
+        "mujoco/right": {
+          "pieces": 6,
+          "source_triangles_covered": 1926
+        },
+        "urdf/left": {
+          "pieces": 6,
+          "source_triangles_covered": 2014
+        },
+        "urdf/right": {
+          "pieces": 6,
+          "source_triangles_covered": 2014
+        }
+      }
+    }
+  }
+}

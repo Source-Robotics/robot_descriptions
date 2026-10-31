@@ -1,0 +1,108 @@
+{
+  "version": 1,
+  "name": "Source Robotics PAR6 URDF",
+  "manufacturer": "Source Robotics",
+  "category": "arm",
+  "license": "Apache-2.0",
+  "sourceUrl": "https://source-robotics.com/",
+  "sourceRevision": "2025-02-10",
+  "packageVersion": "2.12.1",
+  "entry": "par6_msg.urdf",
+  "dof": 6,
+  "armActuators": [
+    "base_joint",
+    "shoulder_joint",
+    "elbow_joint",
+    "wrist_1_joint",
+    "wrist_2_joint",
+    "wrist_3_joint"
+  ],
+  "gripperActuators": [
+    "left_finger_joint",
+    "right_finger_joint"
+  ],
+  "variants": [
+    {
+      "id": "flange",
+      "label": "Flange only",
+      "entry": "par6_flange.urdf",
+      "tcpSites": [
+        "tcp"
+      ],
+      "endEffectorBodies": [
+        "flange_link"
+      ],
+      "gripperActuators": []
+    },
+    {
+      "id": "msg",
+      "label": "MSG - Solid jaws",
+      "entry": "par6_msg.urdf",
+      "tcpSites": [
+        "tcp"
+      ],
+      "endEffectorBodies": [
+        "msg_gripper_link"
+      ],
+      "gripperActuators": [
+        "left_finger_joint",
+        "right_finger_joint"
+      ]
+    },
+    {
+      "id": "msg-tpu-glue",
+      "label": "MSG - Soft TPU jaws",
+      "entry": "par6_msg_tpu_glue.urdf",
+      "tcpSites": [
+        "tcp"
+      ],
+      "endEffectorBodies": [
+        "msg_gripper_link"
+      ],
+      "gripperActuators": [
+        "left_finger_joint",
+        "right_finger_joint"
+      ]
+    },
+    {
+      "id": "ssg48",
+      "label": "SSG48 - Solid jaws",
+      "entry": "par6_ssg48.urdf",
+      "tcpSites": [
+        "tcp"
+      ],
+      "endEffectorBodies": [
+        "ssg48_gripper_link"
+      ],
+      "gripperActuators": [
+        "left_finger_joint",
+        "right_finger_joint"
+      ]
+    },
+    {
+      "id": "ssg48-stock",
+      "label": "SSG48 - Fin-ray jaws",
+      "entry": "par6_ssg48_stock.urdf",
+      "tcpSites": [
+        "tcp"
+      ],
+      "endEffectorBodies": [
+        "ssg48_gripper_link"
+      ],
+      "gripperActuators": [
+        "left_finger_joint",
+        "right_finger_joint"
+      ]
+    },
+    {
+      "id": "pneumatic",
+      "label": "Pneumatic gripper",
+      "entry": "par6_pneumatic.urdf",
+      "endEffectorBodies": [
+        "pneumatic_gripper_link"
+      ],
+      "gripperActuators": [],
+      "preview": "par6_pneumatic.png"
+    }
+  ]
+}

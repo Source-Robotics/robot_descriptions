@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "name": "Source Robotics PAR6",
+  "manufacturer": "Source Robotics",
+  "category": "arm",
+  "license": "Apache-2.0",
+  "sourceUrl": "https://source-robotics.com/",
+  "sourceRevision": "2025-02-10",
+  "packageVersion": "1.0.0",
+  "entry": "scene.xml",
+  "dof": 6,
+  "tcpSites": ["tcp"],
+  "endEffectorBodies": ["msg_gripper"],
+  "armActuators": [
+    "actuator_joint1",
+    "actuator_joint2",
+    "actuator_joint3",
+    "actuator_joint4",
+    "actuator_joint5",
+    "actuator_joint6"
+  ],
+  "gripperActuators": ["actuator_rh_r1"],
+  "preview": "PAR6_MSG_image.png"
+}

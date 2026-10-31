@@ -1,0 +1,455 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="parol6_pneumatic">
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.03291842362796 -3.9760226777652E-09 0.0314011608034117" rpy="0 0 0" />
+      <mass value="0.998265338800333" />
+      <inertia ixx="0.00118949401625524" ixy="-3.53594527704034E-12" ixz="-5.94924049151936E-05" iyy="0.00238159101024826" iyz="-6.16822652141328E-11" izz="0.00282485466366564" />
+    </inertial>
+    <visual name="base_link">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/arm/base_link.STL" />
+      </geometry>
+      <material name="parol6_structure">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/arm/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="shoulder_link">
+    <inertial>
+      <origin xyz="0.0055100000000000045 0.01797 0.10725999999999999" rpy="0 0 0" />
+      <mass value="1.9931400000000001" />
+      <inertia ixx="0.01274598834" ixy="-0.0024788978500000004" ixz="-5.6669030000000154e-05" iyy="0.0025494801000000003" iyz="0.00026984317999999936" izz="0.013519754430000001" />
+    </inertial>
+    <visual name="shoulder_structure_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/arm/visual/shoulder_structure_visual.STL" />
+      </geometry>
+      <material name="parol6_structure">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <visual name="j1_actuator_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/arm/visual/j1_actuator_visual.STL" />
+      </geometry>
+      <material name="j1_actuator_black">
+        <color rgba="0.06 0.06 0.065 1" />
+      </material>
+    </visual>
+    <visual name="j2_actuator_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/arm/visual/j2_actuator_visual.STL" />
+      </geometry>
+      <material name="j2_actuator_black">
+        <color rgba="0.06 0.06 0.065 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/arm/L1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_joint" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="shoulder_link" />
+    <axis xyz="0 0 1" />
+    <limit lower="-1.7" upper="1.7" effort="300" velocity="3" />
+  </joint>
+  <link name="upper_arm_link">
+    <inertial>
+      <origin xyz="-0.01108072106103649 -0.077150000000000052 0.015879999999999721" rpy="0 0 0" />
+      <mass value="1.3322400000000001" />
+      <inertia ixx="0.0064479537800000005" ixy="-9.0782240000000816e-05" ixz="0.00025671952999999938" iyy="0.0032219537100000029" iyz="-0.00029855195000000226" izz="0.0038243168699999977" />
+    </inertial>
+    <visual name="upper_arm_structure_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/arm/visual/upper_arm_structure_visual.STL" />
+      </geometry>
+      <material name="parol6_structure">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <visual name="j3_actuator_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/arm/visual/j3_actuator_visual.STL" />
+      </geometry>
+      <material name="j3_actuator_black">
+        <color rgba="0.06 0.06 0.065 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/arm/L2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="shoulder_joint" type="revolute">
+    <origin xyz="0.0234207210610365 0 0.1105" rpy="-1.5707963267949 0 0" />
+    <parent link="shoulder_link" />
+    <child link="upper_arm_link" />
+    <axis xyz="0 0 1" />
+    <limit lower="-0.97999999999999998" upper="1" effort="300" velocity="3" />
+  </joint>
+  <link name="forearm_link">
+    <inertial>
+      <origin xyz="0.0095799999999999132 -0.022189278938963535 -0.0037399999999993749" rpy="0 0 0" />
+      <mass value="0.68511" />
+      <inertia ixx="0.00061022163999999938" ixy="-6.1225379999999252e-05" ixz="2.5285639999998685e-05" iyy="0.00077646955000000096" iyz="-5.6989240000000579e-05" izz="0.0008568201599999999" />
+    </inertial>
+    <visual name="L3">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/arm/L3.STL" />
+      </geometry>
+      <material name="parol6_structure">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/arm/L3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="elbow_joint" type="revolute">
+    <origin xyz="0 -0.18 0" rpy="3.14159265358979 0 -1.5707963267949" />
+    <parent link="upper_arm_link" />
+    <child link="forearm_link" />
+    <axis xyz="0 0 1" />
+    <limit lower="-1.3" upper="2" effort="300" velocity="3" />
+  </joint>
+  <link name="wrist_1_link">
+    <inertial>
+      <origin xyz="-9.0000000000834597e-05 -0.01712999999999994 -0.11142927893896357" rpy="0 0 0" />
+      <mass value="0.57955999999999996" />
+      <inertia ixx="0.0011704656100000003" ixy="1.2437999999749739e-07" ixz="-1.081449999993243e-06" iyy="0.0010405868900000041" iyz="0.00028745227999999546" izz="0.00035842502999999614" />
+    </inertial>
+    <visual name="L4">
+      <origin xyz="0 0 -0.00064999999999998392" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/arm/L4.STL" />
+      </geometry>
+      <material name="parol6_structure">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.00064999999999998392" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/arm/L4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wrist_1_joint" type="revolute">
+    <origin xyz="0.0434999999999984 0 0" rpy="1.5707963267949 0 -3.14159265358979" />
+    <parent link="forearm_link" />
+    <child link="wrist_1_link" />
+    <axis xyz="0 0 1" />
+    <limit lower="-2" upper="2" effort="300" velocity="3" />
+  </joint>
+  <link name="wrist_2_link">
+    <inertial>
+      <origin xyz="-3.033731645813142e-16 -0.0035507210610383252 -0.00024000000000033166" rpy="0 0 0" />
+      <mass value="0.52381" />
+      <inertia ixx="0.00041379107000000004" ixy="3.5569999998380109e-08" ixz="2.6129999999990639e-08" iyy="0.00018259111000000001" iyz="9.4593000000306266e-07" izz="0.00040956068" />
+    </inertial>
+    <visual name="L5">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/arm/L5.STL" />
+      </geometry>
+      <material name="parol6_structure">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/arm/L5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wrist_2_joint" type="revolute">
+    <origin xyz="0 0 -0.17699999999999999" rpy="-1.57079632679489 0 0" />
+    <parent link="wrist_1_link" />
+    <child link="wrist_2_link" />
+    <axis xyz="0 0 1" />
+    <limit lower="-2.1000000000000001" upper="2.1000000000000001" effort="300" velocity="3" />
+  </joint>
+  <link name="wrist_3_link" />
+  <joint name="wrist_3_joint" type="continuous">
+    <origin xyz="0 0 0" rpy="1.5707963267949 0 3.141592653589793" />
+    <parent link="wrist_2_link" />
+    <child link="wrist_3_link" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-3.1000000000000001" upper="3.1000000000000001" effort="300" velocity="3" />
+  </joint>
+  <link name="flange" />
+  <joint name="flange_fixed_joint" type="fixed">
+    <parent link="wrist_3_link" />
+    <child link="flange" />
+    <origin xyz="0 0 0.050500000000000003" rpy="0 0 0" />
+  </joint>
+  <link name="tcp" />
+  <transmission name="base_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="base_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="base_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="shoulder_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="shoulder_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="shoulder_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="elbow_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="elbow_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="elbow_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="wrist_1_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="wrist_1_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wrist_1_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="wrist_2_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="wrist_2_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wrist_2_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="wrist_3_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="wrist_3_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wrist_3_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <link name="pneumatic_gripper_link">
+    <inertial>
+      <mass value="0.17678849912447975" />
+      <inertia ixx="5.291696899130683e-05" ixy="9.3739419059752712e-07" ixz="3.0545437329842463e-06" iyy="6.4661506581366722e-05" iyz="-5.1102582352059587e-08" izz="7.1196494516531864e-05" />
+      <origin xyz="0.0027628952820895583 -0.00051767386129517609 -0.018713917148450405" rpy="0 0 0" />
+    </inertial>
+    <visual name="pneumatic_gripper_link_visual">
+      <origin xyz="0 0 0.035999999999999997" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pneumatic/pneumatic_gripper_link.STL" />
+      </geometry>
+      <material name="pneumatic_body">
+        <color rgba="0.72 0.75 0.80 1" />
+      </material>
+    </visual>
+    <collision name="contact_pneumatic_gripper_link_00">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pneumatic/pneumatic_gripper_link_contact_00.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_pneumatic_gripper_link_01">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pneumatic/pneumatic_gripper_link_contact_01.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_pneumatic_gripper_link_02">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pneumatic/pneumatic_gripper_link_contact_02.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_pneumatic_gripper_link_03">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pneumatic/pneumatic_gripper_link_contact_03.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_pneumatic_gripper_link_04">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pneumatic/pneumatic_gripper_link_contact_04.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_pneumatic_gripper_link_05">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pneumatic/pneumatic_gripper_link_contact_05.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_finger_link">
+    <inertial>
+      <mass value="0.0091057489057972951" />
+      <inertia ixx="2.6787758060609797e-07" ixy="-7.1144271159902491e-08" ixz="-5.2754623660849944e-14" iyy="6.3571512276325262e-07" iyz="-2.2980772001116573e-14" izz="6.3189248420302658e-07" />
+      <origin xyz="0.040926385793950588 0.014744637747271984 -0.026799998001132849" rpy="0 0 0" />
+    </inertial>
+    <visual name="left_finger_link_visual">
+      <origin xyz="0 0 0.035999999999999997" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pneumatic/left_finger_link.STL" />
+      </geometry>
+      <material name="pneumatic_jaw">
+        <color rgba="0.12 0.13 0.15 1" />
+      </material>
+    </visual>
+    <collision name="contact_left_finger_link_00">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pneumatic/left_finger_link_contact_00.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_left_finger_link_01">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pneumatic/left_finger_link_contact_01.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_left_finger_link_02">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pneumatic/left_finger_link_contact_02.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_left_finger_link_03">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pneumatic/left_finger_link_contact_03.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_left_finger_link_04">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pneumatic/left_finger_link_contact_04.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_left_finger_link_05">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pneumatic/left_finger_link_contact_05.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_finger_link">
+    <inertial>
+      <mass value="0.0091057519697229257" />
+      <inertia ixx="2.6796493682868254e-07" ixy="7.1144271980720139e-08" ixz="-3.8908383727062919e-09" iyy="6.3580254511328423e-07" iyz="1.8034318118820948e-09" izz="6.3189261363958413e-07" />
+      <origin xyz="0.040926386507481344 -0.014744638058539962 -0.026679448454255829" rpy="0 0 0" />
+    </inertial>
+    <visual name="right_finger_link_visual">
+      <origin xyz="0 0 0.035999999999999997" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pneumatic/right_finger_link.STL" />
+      </geometry>
+      <material name="pneumatic_jaw">
+        <color rgba="0.12 0.13 0.15 1" />
+      </material>
+    </visual>
+    <collision name="contact_right_finger_link_00">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pneumatic/right_finger_link_contact_00.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_right_finger_link_01">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pneumatic/right_finger_link_contact_01.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_right_finger_link_02">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pneumatic/right_finger_link_contact_02.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_right_finger_link_03">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pneumatic/right_finger_link_contact_03.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_right_finger_link_04">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pneumatic/right_finger_link_contact_04.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_right_finger_link_05">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/pneumatic/right_finger_link_contact_05.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="pneumatic_gripper_fixed_joint" type="fixed">
+    <parent link="flange" />
+    <child link="pneumatic_gripper_link" />
+    <origin xyz="0 0 -0.014999999999999999" rpy="0 3.1415926535897931 0" />
+  </joint>
+  <joint name="left_finger_joint" type="prismatic">
+    <parent link="pneumatic_gripper_link" />
+    <child link="left_finger_link" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <axis xyz="0 -1 0" />
+    <limit lower="0" upper="0.0035000000000000001" effort="20" velocity="0.029999999999999999" />
+    <dynamics damping="2" friction="0" />
+  </joint>
+  <joint name="right_finger_joint" type="prismatic">
+    <parent link="pneumatic_gripper_link" />
+    <child link="right_finger_link" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="0.0035000000000000001" effort="20" velocity="0.029999999999999999" />
+    <dynamics damping="2" friction="0" />
+    <mimic joint="left_finger_joint" multiplier="1" offset="0" />
+  </joint>
+  <joint name="tcp_fixed_joint" type="fixed">
+    <parent link="pneumatic_gripper_link" />
+    <child link="tcp" />
+    <origin xyz="0.045249999999999999 0 -0.026799999999999997" rpy="0 3.141592653589793 0" />
+  </joint>
+</robot>

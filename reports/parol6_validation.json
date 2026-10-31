@@ -1,0 +1,334 @@
+{
+  "package_version": "2.12.1",
+  "joint_convention": "PAR6 normalized",
+  "poses_per_profile": 160,
+  "reference": "PAR6 arm chain with the user-corrected 177 mm forearm; PAROL6 flange reach corrected to match PAR6 housing-to-tool spacing. Original export retained unchanged.",
+  "joint_names": [
+    "base_joint",
+    "shoulder_joint",
+    "elbow_joint",
+    "wrist_1_joint",
+    "wrist_2_joint",
+    "wrist_3_joint"
+  ],
+  "source_joint_names": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5",
+    "L6"
+  ],
+  "par6_from_parol6_joint_signs": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "source_from_parol6_joint_signs": [
+    1.0,
+    1.0,
+    -1.0,
+    -1.0,
+    -1.0,
+    -1.0
+  ],
+  "forearm_dimension_m": {
+    "par6": 0.177,
+    "parol6": 0.177
+  },
+  "source_forearm_dimension_m": 0.17635,
+  "mounting_geometry": {
+    "housing_front_from_j6_m": {
+      "par6": 0.0411,
+      "parol6": 0.0345
+    },
+    "measured_housing_front_from_j6_m": {
+      "par6": 0.041099999099969864,
+      "parol6": 0.03449999913573265
+    },
+    "flange_distance_m": {
+      "par6": 0.0571,
+      "parol6": 0.0505
+    },
+    "flange_shift_from_par6_m": -0.006599999999999995,
+    "lower_arm_mesh_offset_m": [
+      0.0,
+      0.0,
+      -0.0006499999999999839
+    ],
+    "basis": "Largest connected housing component, maximum local Y. Exclude internal motor/shaft components, which do not define the housing mounting face. Shift the complete flange subtree by the difference, -6.6 mm, to preserve PAR6 housing-to-tool spacing."
+  },
+  "source_l6_from_flange": [
+    [
+      -1.0,
+      0.0,
+      1.2246063538223773e-16,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      -1.2246063538223773e-16,
+      0.0,
+      -1.0,
+      -0.0505
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "wrist_3_from_flange": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0,
+      0.0505
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "profiles": {
+    "flange": {
+      "source_arm_fk_max_mm_deg": [
+        0.650255306063601,
+        0.0008319350118483342
+      ],
+      "corrected_source_arm_fk_max_mm_deg": [
+        0.0016669142292385147,
+        0.0008319350118483342
+      ],
+      "source_flange_fk_max_mm_deg": [
+        0.0019701041502156623,
+        0.0008319350118483342
+      ],
+      "urdf_native_tcp_max_mm_deg": [
+        0.0022506774809241256,
+        0.0009321818603035188
+      ],
+      "mapped_par6_flange_max_mm_deg": [
+        6.600000000000041,
+        0.0
+      ],
+      "mapped_par6_flange_residual_max_mm_deg": [
+        1.1102230246251565e-13,
+        0.0
+      ],
+      "mapped_par6_mass_matrix_max_relative_difference": 0.00356264904010562,
+      "mapped_par6_gravity_max_difference_nm": 0.0035934029999331596,
+      "shared_mass_com_inertia_and_armature_checked": true,
+      "shared_tool_subtree_identical": true,
+      "par6_axes_and_origin_orientations_identical": true,
+      "canonical_chain_residual_max_mm_deg": [
+        2.0661161048683738e-12,
+        0.0
+      ]
+    },
+    "msg": {
+      "source_arm_fk_max_mm_deg": [
+        0.6502802615337796,
+        0.0008804197090499207
+      ],
+      "corrected_source_arm_fk_max_mm_deg": [
+        0.0017137688079222738,
+        0.0008804197090499207
+      ],
+      "source_flange_fk_max_mm_deg": [
+        0.00205596889130111,
+        0.0008804197090499207
+      ],
+      "urdf_native_tcp_max_mm_deg": [
+        0.0009998274908640603,
+        0.0004790278484887681
+      ],
+      "mapped_par6_flange_max_mm_deg": [
+        6.600000000000041,
+        0.0
+      ],
+      "mapped_par6_flange_residual_max_mm_deg": [
+        1.1102230246251565e-13,
+        0.0
+      ],
+      "mapped_par6_mass_matrix_max_relative_difference": 0.01261088740464202,
+      "mapped_par6_gravity_max_difference_nm": 0.024603479999541378,
+      "shared_mass_com_inertia_and_armature_checked": true,
+      "shared_tool_subtree_identical": true,
+      "par6_axes_and_origin_orientations_identical": true,
+      "canonical_chain_residual_max_mm_deg": [
+        5.0495380892025946e-12,
+        0.0
+      ]
+    },
+    "msg_tpu_glue": {
+      "source_arm_fk_max_mm_deg": [
+        0.6502802615337796,
+        0.0008804197090499207
+      ],
+      "corrected_source_arm_fk_max_mm_deg": [
+        0.0017137688079222738,
+        0.0008804197090499207
+      ],
+      "source_flange_fk_max_mm_deg": [
+        0.00205596889130111,
+        0.0008804197090499207
+      ],
+      "urdf_native_tcp_max_mm_deg": [
+        0.0009998274908640603,
+        0.0004790278484887681
+      ],
+      "mapped_par6_flange_max_mm_deg": [
+        6.600000000000041,
+        0.0
+      ],
+      "mapped_par6_flange_residual_max_mm_deg": [
+        1.1102230246251565e-13,
+        0.0
+      ],
+      "mapped_par6_mass_matrix_max_relative_difference": 0.01261088740464202,
+      "mapped_par6_gravity_max_difference_nm": 0.024603479999541378,
+      "shared_mass_com_inertia_and_armature_checked": true,
+      "shared_tool_subtree_identical": true,
+      "par6_axes_and_origin_orientations_identical": true,
+      "canonical_chain_residual_max_mm_deg": [
+        5.0495380892025946e-12,
+        0.0
+      ]
+    },
+    "ssg48": {
+      "source_arm_fk_max_mm_deg": [
+        0.6502802615337796,
+        0.0007804106998655552
+      ],
+      "corrected_source_arm_fk_max_mm_deg": [
+        0.0017137688079222738,
+        0.0007804106998655552
+      ],
+      "source_flange_fk_max_mm_deg": [
+        0.0022178425490030043,
+        0.0007804106998655552
+      ],
+      "urdf_native_tcp_max_mm_deg": [
+        0.0007865740094897231,
+        0.00031588907324750455
+      ],
+      "mapped_par6_flange_max_mm_deg": [
+        6.600000000000041,
+        0.0
+      ],
+      "mapped_par6_flange_residual_max_mm_deg": [
+        1.1102230246251565e-13,
+        0.0
+      ],
+      "mapped_par6_mass_matrix_max_relative_difference": 0.014533941578596306,
+      "mapped_par6_gravity_max_difference_nm": 0.02848823999946859,
+      "shared_mass_com_inertia_and_armature_checked": true,
+      "shared_tool_subtree_identical": true,
+      "par6_axes_and_origin_orientations_identical": true,
+      "canonical_chain_residual_max_mm_deg": [
+        0.0,
+        0.0
+      ]
+    },
+    "ssg48_stock": {
+      "source_arm_fk_max_mm_deg": [
+        0.6502802615337796,
+        0.0007804106998655552
+      ],
+      "corrected_source_arm_fk_max_mm_deg": [
+        0.0017137688079222738,
+        0.0007804106998655552
+      ],
+      "source_flange_fk_max_mm_deg": [
+        0.0022178425490030043,
+        0.0007804106998655552
+      ],
+      "urdf_native_tcp_max_mm_deg": [
+        0.0007865740094897231,
+        0.00031588907324750455
+      ],
+      "mapped_par6_flange_max_mm_deg": [
+        6.600000000000041,
+        0.0
+      ],
+      "mapped_par6_flange_residual_max_mm_deg": [
+        1.1102230246251565e-13,
+        0.0
+      ],
+      "mapped_par6_mass_matrix_max_relative_difference": 0.014533941578596306,
+      "mapped_par6_gravity_max_difference_nm": 0.02848823999946859,
+      "shared_mass_com_inertia_and_armature_checked": true,
+      "shared_tool_subtree_identical": true,
+      "par6_axes_and_origin_orientations_identical": true,
+      "canonical_chain_residual_max_mm_deg": [
+        0.0,
+        0.0
+      ]
+    },
+    "pneumatic": {
+      "source_arm_fk_max_mm_deg": [
+        0.650255306063601,
+        0.0008319350118483342
+      ],
+      "corrected_source_arm_fk_max_mm_deg": [
+        0.0016669142292385147,
+        0.0008319350118483342
+      ],
+      "source_flange_fk_max_mm_deg": [
+        0.0019701041502156623,
+        0.0008319350118483342
+      ],
+      "urdf_native_tcp_max_mm_deg": [
+        0.00247387286917694,
+        0.0009321818603018443
+      ],
+      "mapped_par6_flange_max_mm_deg": [
+        6.600000000000041,
+        0.0
+      ],
+      "mapped_par6_flange_residual_max_mm_deg": [
+        1.1102230246251565e-13,
+        0.0
+      ],
+      "mapped_par6_mass_matrix_max_relative_difference": 0.012511755482944678,
+      "mapped_par6_gravity_max_difference_nm": 0.012625469999764993,
+      "shared_mass_com_inertia_and_armature_checked": true,
+      "shared_tool_subtree_identical": true,
+      "par6_axes_and_origin_orientations_identical": true,
+      "canonical_chain_residual_max_mm_deg": [
+        2.0661161048683738e-12,
+        0.0
+      ]
+    }
+  },
+  "ideal_dh_error_max_mm_deg": [
+    0.002356902270411908,
+    0.0009321818602271729
+  ],
+  "visual_triangle_records_preserved": true,
+  "original_arm_collision_meshes_preserved": true
+}

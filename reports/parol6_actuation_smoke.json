@@ -1,0 +1,112 @@
+{
+  "flange": {
+    "duration_s": 3,
+    "finite_states": true,
+    "warning_count": 0,
+    "peak_tracking_error_deg": [
+      0.39117455911041155,
+      0.31405753929564223,
+      0.23137656185078936,
+      0.06968869271939078,
+      0.04935777428101389,
+      0.03590432071652105
+    ],
+    "peak_actuator_torque_nm": [
+      3.4547416677623772,
+      2.774170455190074,
+      2.043698888473955,
+      0.6289201276979384,
+      0.44734879294209406,
+      0.32586066541699665
+    ],
+    "note": "Finite-gain smoke check, not physical stepper identification."
+  },
+  "msg": {
+    "duration_s": 3,
+    "finite_states": true,
+    "warning_count": 0,
+    "peak_tracking_error_deg": [
+      0.4331357128318627,
+      0.27538280197895104,
+      0.3000687456161098,
+      0.06990841103638021,
+      0.07098526332143673,
+      0.03632858675017561
+    ],
+    "peak_actuator_torque_nm": [
+      3.8205968574565503,
+      2.4366006980427812,
+      2.6430751876312684,
+      0.6308226736251754,
+      0.6361023646298847,
+      0.3295476377253266
+    ],
+    "note": "Finite-gain smoke check, not physical stepper identification."
+  },
+  "msg_tpu_glue": {
+    "duration_s": 3,
+    "finite_states": true,
+    "warning_count": 0,
+    "peak_tracking_error_deg": [
+      0.4331357128318627,
+      0.27538280197895104,
+      0.3000687456161098,
+      0.06990841103638021,
+      0.07098526332143673,
+      0.03632858675017561
+    ],
+    "peak_actuator_torque_nm": [
+      3.8205968574565503,
+      2.4366006980427812,
+      2.6430751876312684,
+      0.6308226736251754,
+      0.6361023646298847,
+      0.3295476377253266
+    ],
+    "note": "Finite-gain smoke check, not physical stepper identification."
+  },
+  "ssg48": {
+    "duration_s": 3,
+    "finite_states": true,
+    "warning_count": 0,
+    "peak_tracking_error_deg": [
+      0.4441006215740137,
+      0.2748091834253561,
+      0.3140380065820272,
+      0.06947549018661507,
+      0.07807395566771395,
+      0.036169820531036075
+    ],
+    "peak_actuator_torque_nm": [
+      3.9161823100477733,
+      2.431575953093784,
+      2.7649968628673207,
+      0.627055016520174,
+      0.6979704941784988,
+      0.3281698782001996
+    ],
+    "note": "Finite-gain smoke check, not physical stepper identification."
+  },
+  "ssg48_stock": {
+    "duration_s": 3,
+    "finite_states": true,
+    "warning_count": 0,
+    "peak_tracking_error_deg": [
+      0.4441006215740137,
+      0.2748091834253561,
+      0.3140380065820272,
+      0.06947549018661507,
+      0.07807395566771395,
+      0.036169820531036075
+    ],
+    "peak_actuator_torque_nm": [
+      3.9161823100477733,
+      2.431575953093784,
+      2.7649968628673207,
+      0.627055016520174,
+      0.6979704941784988,
+      0.3281698782001996
+    ],
+    "note": "Finite-gain smoke check, not physical stepper identification."
+  }
+}

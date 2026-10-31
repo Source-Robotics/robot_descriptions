@@ -1,0 +1,301 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="par6_flange">
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.03291842362796 -3.9760226777652E-09 0.0314011608034117" rpy="0 0 0" />
+      <mass value="0.998265338800333" />
+      <inertia ixx="0.00118949401625524" ixy="-3.53594527704034E-12" ixz="-5.94924049151936E-05" iyy="0.00238159101024826" iyz="-6.16822652141328E-11" izz="0.00282485466366564" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="shoulder_link">
+    <inertial>
+      <origin xyz="0.0055100000000000045 0.01797 0.10725999999999999" rpy="0 0 0" />
+      <mass value="1.9931400000000001" />
+      <inertia ixx="0.01274598834" ixy="-0.0024788978500000004" ixz="-5.6669030000000154e-05" iyy="0.0025494801000000003" iyz="0.00026984317999999936" izz="0.013519754430000001" />
+    </inertial>
+    <visual name="shoulder_structure_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/visual/shoulder_structure_visual.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <visual name="j1_actuator_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/visual/j1_actuator_visual.STL" />
+      </geometry>
+      <material name="j1_actuator_black">
+        <color rgba="0.06 0.06 0.065 1" />
+      </material>
+    </visual>
+    <visual name="j2_actuator_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/visual/j2_actuator_visual.STL" />
+      </geometry>
+      <material name="j2_actuator_black">
+        <color rgba="0.06 0.06 0.065 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/shoulder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_joint" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="shoulder_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="0" velocity="0" />
+  </joint>
+  <link name="upper_arm_link">
+    <inertial>
+      <origin xyz="-0.01108072106103649 -0.077150000000000052 0.015879999999999721" rpy="0 0 0" />
+      <mass value="1.3322400000000001" />
+      <inertia ixx="0.0064479537800000005" ixy="-9.0782240000000816e-05" ixz="0.00025671952999999938" iyy="0.0032219537100000029" iyz="-0.00029855195000000226" izz="0.0038243168699999977" />
+    </inertial>
+    <visual name="upper_arm_structure_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/branding/upper_arm_structure_badged.dae" />
+      </geometry>
+    </visual>
+    <visual name="j3_actuator_visual">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/visual/j3_actuator_visual.STL" />
+      </geometry>
+      <material name="j3_actuator_black">
+        <color rgba="0.06 0.06 0.065 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/upper_arm.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="shoulder_joint" type="continuous">
+    <origin xyz="0.0234207210610365 0 0.1105" rpy="-1.5707963267949 0 0" />
+    <parent link="shoulder_link" />
+    <child link="upper_arm_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="0" velocity="0" />
+  </joint>
+  <link name="forearm_link">
+    <inertial>
+      <origin xyz="0.0095799999999999132 -0.022189278938963535 -0.0037399999999993749" rpy="0 0 0" />
+      <mass value="0.68511" />
+      <inertia ixx="0.00061022163999999938" ixy="-6.1225379999999252e-05" ixz="2.5285639999998685e-05" iyy="0.00077646955000000096" iyz="-5.6989240000000579e-05" izz="0.0008568201599999999" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/elbow.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/elbow.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="elbow_joint" type="continuous">
+    <origin xyz="0 -0.18 0" rpy="3.14159265358979 0 -1.5707963267949" />
+    <parent link="upper_arm_link" />
+    <child link="forearm_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="0" velocity="0" />
+  </joint>
+  <link name="wrist_1_link">
+    <inertial>
+      <origin xyz="-9.0000000000834597e-05 -0.01712999999999994 -0.11142927893896357" rpy="0 0 0" />
+      <mass value="0.57955999999999996" />
+      <inertia ixx="0.0011704656100000003" ixy="1.2437999999749739e-07" ixz="-1.081449999993243e-06" iyy="0.0010405868900000041" iyz="0.00028745227999999546" izz="0.00035842502999999614" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/lower_arm.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/lower_arm.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wrist_1_joint" type="continuous">
+    <origin xyz="0.0434999999999984 0 0" rpy="1.5707963267949 0 -3.14159265358979" />
+    <parent link="forearm_link" />
+    <child link="wrist_1_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="0" velocity="0" />
+  </joint>
+  <link name="wrist_2_link">
+    <inertial>
+      <origin xyz="-3.033731645813142e-16 -0.0035507210610383252 -0.00024000000000033166" rpy="0 0 0" />
+      <mass value="0.52381" />
+      <inertia ixx="0.00041379107000000004" ixy="3.5569999998380109e-08" ixz="2.6129999999990639e-08" iyy="0.00018259111000000001" iyz="9.4593000000306266e-07" izz="0.00040956068" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/wrist.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/common/wrist.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wrist_2_joint" type="continuous">
+    <origin xyz="0 0 -0.177000000000002" rpy="-1.57079632679489 0 0" />
+    <parent link="wrist_1_link" />
+    <child link="wrist_2_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="0" velocity="0" />
+  </joint>
+  <link name="flange_link">
+    <inertial>
+      <origin xyz="-6.28287090892465E-05 6.96476392843537E-05 -0.0490534784184994" rpy="0 0 0" />
+      <mass value="0.055500000000000001" />
+      <inertia ixx="5.90242323471309E-06" ixy="2.35508451621105E-08" ixz="1.84095312865299E-08" iyy="6.06157538333085E-06" iyz="9.37735630145885E-10" izz="1.10660922067779E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/flange/flange.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/flange/flange.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="wrist_3_link" />
+  <joint name="wrist_3_joint" type="continuous">
+    <origin xyz="0 0 0" rpy="1.5707963267949 0 3.141592653589793" />
+    <parent link="wrist_2_link" />
+    <child link="wrist_3_link" />
+    <axis xyz="0 0 -1" />
+    <limit effort="0" velocity="0" />
+  </joint>
+  <link name="flange" />
+  <joint name="flange_fixed_joint" type="fixed">
+    <parent link="wrist_3_link" />
+    <child link="flange" />
+    <origin xyz="0 0 0.0571" rpy="0 0 0" />
+  </joint>
+  <joint name="flange_tool_fixed_joint" type="fixed">
+    <parent link="flange" />
+    <child link="flange_link" />
+    <origin xyz="0 0 -0.0571" rpy="0 3.141592653589793 0" />
+  </joint>
+  <link name="tcp" />
+  <joint name="tcp_fixed_joint" type="fixed">
+    <parent link="flange" />
+    <child link="tcp" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  <transmission name="base_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="base_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="base_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="shoulder_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="shoulder_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="shoulder_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="elbow_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="elbow_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="elbow_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="wrist_1_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="wrist_1_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wrist_1_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="wrist_2_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="wrist_2_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wrist_2_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="wrist_3_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="wrist_3_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wrist_3_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+</robot>

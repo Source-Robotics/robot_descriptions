@@ -1,0 +1,7 @@
+<launch>
+  <arg name="end_effector" default="msg" doc="flange, msg, msg_tpu_glue, ssg48, ssg48_stock, pneumatic" />
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" />
+  <node name="spawn_par6" pkg="gazebo_ros" type="spawn_model"
+        args="-file $(find par6_description)/par6_$(arg end_effector).urdf -urdf -model par6_$(arg end_effector)"
+        output="screen" />
+</launch>

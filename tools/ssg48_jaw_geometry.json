@@ -1,0 +1,99 @@
+{
+  "source_sha256": "ee2f151ab9fab9e60d15df57c9e0796cb0c016a4558970da25ae35b0b01455d2",
+  "gmsh_version": "4.15.2",
+  "cad": {
+    "finger": {
+      "step_solid": 1,
+      "triangles": 2600,
+      "cad_volume_mm3": 9382.385547363518,
+      "mesh_volume_mm3": 9384.644824276913,
+      "relative_volume_error": 0.00024079983731106758,
+      "watertight": true
+    }
+  },
+  "default": "pinch",
+  "new_bodies": 0,
+  "new_joints": 0,
+  "new_geoms": 0,
+  "color": "#4C4C4C",
+  "jaws": {
+    "left": {
+      "finger_triangles": 264,
+      "max_step_mesh_surface_deviation_mm": 0.054519319293827515,
+      "packages": {
+        "mujoco": {
+          "carriage_triangles": 960,
+          "total_triangles": 1224,
+          "bounds_mm": [
+            [
+              -15.699999406933784,
+              -49.5000034570694,
+              -19.899999722838402
+            ],
+            [
+              15.699999406933784,
+              -23.499999195337296,
+              30.99999949336052
+            ]
+          ]
+        },
+        "urdf": {
+          "carriage_triangles": 1048,
+          "total_triangles": 1312,
+          "bounds_mm": [
+            [
+              -15.699999406933784,
+              -49.5000034570694,
+              -19.899999722838402
+            ],
+            [
+              15.699999406933784,
+              22.838158532977104,
+              30.99999949336052
+            ]
+          ]
+        }
+      }
+    },
+    "right": {
+      "finger_triangles": 264,
+      "max_step_mesh_surface_deviation_mm": 0.054519287680219984,
+      "packages": {
+        "mujoco": {
+          "carriage_triangles": 960,
+          "total_triangles": 1224,
+          "bounds_mm": [
+            [
+              -15.699999406933784,
+              23.499999195337296,
+              -19.899999722838402
+            ],
+            [
+              15.699999406933784,
+              49.5000034570694,
+              30.99999949336052
+            ]
+          ]
+        },
+        "urdf": {
+          "carriage_triangles": 1048,
+          "total_triangles": 1312,
+          "bounds_mm": [
+            [
+              -15.699999406933784,
+              -22.838158532977104,
+              -19.899999722838402
+            ],
+            [
+              15.699999406933784,
+              49.5000034570694,
+              30.99999949336052
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "inertia": "retain existing SSG48 finger mass, center of mass, and inertia as the current approximation",
+  "collision": "Six convex pieces for the selected jaw and external carriage, shared between formats; internal transmission racks remain visual only."
+}

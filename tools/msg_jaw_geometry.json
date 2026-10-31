@@ -1,0 +1,70 @@
+{
+  "source_sha256": "1b7315edbf1dce7b50a178cb9957be9048b416adce361e6066e93bb1e7a0289b",
+  "gmsh_version": "4.15.2",
+  "source_units": "mm",
+  "model_units": "m",
+  "source_solids": {
+    "holder": {
+      "step_solid": 1,
+      "triangles": 3772,
+      "cad_volume_mm3": 14844.694619065242,
+      "mesh_volume_mm3": 14850.963701911542,
+      "relative_volume_error": 0.0004223113379677734,
+      "watertight": true
+    },
+    "hex": {
+      "step_solid": 2,
+      "triangles": 2310,
+      "cad_volume_mm3": 4768.010374116349,
+      "mesh_volume_mm3": 4768.3053382674625,
+      "relative_volume_error": 6.186315212608484e-05,
+      "watertight": true
+    }
+  },
+  "jaws": {
+    "left": {
+      "bounds_m": [
+        [
+          -0.00900000000000002,
+          -0.0765,
+          -0.08930000000000005
+        ],
+        [
+          0.01640000008046627,
+          -0.05209999904036522,
+          0.01100000000000001
+        ]
+      ],
+      "collision_triangles": 58,
+      "carriage_triangles": 1110,
+      "holder_triangles": 3772,
+      "yellow_hex_triangles": 2310
+    },
+    "right": {
+      "bounds_m": [
+        [
+          -0.00900000000000002,
+          0.05209999904036522,
+          -0.08930000000000005
+        ],
+        [
+          0.01640000008046627,
+          0.0765,
+          0.01100000000000001
+        ]
+      ],
+      "collision_triangles": 60,
+      "carriage_triangles": 1022,
+      "holder_triangles": 3772,
+      "yellow_hex_triangles": 2310
+    }
+  },
+  "collision": "one convex hull of the selected geometry per finger",
+  "inertia": "existing finger inertial definitions retained",
+  "new_bodies": 0,
+  "new_joints": 0,
+  "colors": {
+    "black": "#0F0F11",
+    "yellow": "#FFD21A"
+  }
+}

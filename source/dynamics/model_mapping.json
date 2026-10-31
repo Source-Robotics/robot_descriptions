@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "enabled": true,
+  "arm_reference": "source/dynamics/rcb_reference.json",
+  "arm_bodies": [
+    "shoulder_link",
+    "upper_arm_link",
+    "forearm_link",
+    "wrist_1_link",
+    "wrist_2_link"
+  ],
+  "profiles": {
+    "flange": "flange",
+    "msg": "msg",
+    "msg_tpu_glue": "msg",
+    "ssg48": "ssg48",
+    "ssg48_stock": "ssg48"
+  },
+  "tool_mass_policy": "Apply physical_measurements.json; retain each format's existing tool COM and central inertia as unverified estimates",
+  "motor_rotor_policy": "Preserve current estimates; calibration deferred by user",
+  "fixed_base_policy": "Preserve existing fixed-base properties; assembly scope unresolved",
+  "runtime_policy": "Normal builds use the checked-in snapshot. Refresh explicitly with import_rcb_reference.py --rcb-root PATH; runtime files are never edited."
+}

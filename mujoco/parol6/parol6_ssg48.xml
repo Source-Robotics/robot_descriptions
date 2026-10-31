@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="PAROL6_SSG48">
+  <compiler angle="radian" autolimits="true" meshdir="assets" />
+  <option integrator="implicitfast" />
+  <default>
+    <default class="Y">
+      <joint range="-6.28319 6.28319" armature="0.001" damping="25.0" frictionloss="1.5" />
+      <position kp="500" forcerange="-300 300" ctrlrange="-6.28319 6.28319" />
+    </default>
+    <default class="SSG48_gripper">
+      <joint armature="0.1" damping="10.0" frictionloss="0" />
+      <position forcerange="-50 50" ctrlrange="-0.0235 0" kp="100" />
+    </default>
+  </default>
+  <asset>
+    <mesh name="base_link" file="arm/base_link.STL" scale="1 1 1" />
+    <mesh name="shoulder_link" file="arm/L1.STL" scale="1 1 1" />
+    <mesh name="upper_arm_link" file="arm/L2.STL" scale="1 1 1" />
+    <mesh name="forearm_link" file="arm/L3.STL" scale="1 1 1" />
+    <mesh name="wrist_1_link" file="arm/L4.STL" scale="1 1 1" />
+    <mesh name="wrist_2_link" file="arm/L5.STL" scale="1 1 1" />
+    <mesh name="gripper" file="gripper_SSG48.STL" scale="1 1 1" />
+    <mesh name="left_finger_link" file="jaws/ssg48_pinch/left.STL" scale="1 1 1" />
+    <mesh name="right_finger_link" file="jaws/ssg48_pinch/right.STL" scale="1 1 1" />
+    <material name="j1_actuator_black" rgba="0.06 0.06 0.065 1" specular="0.3" shininess="0.25" />
+    <material name="j2_actuator_black" rgba="0.06 0.06 0.065 1" specular="0.3" shininess="0.25" />
+    <material name="j3_actuator_black" rgba="0.06 0.06 0.065 1" specular="0.3" shininess="0.25" />
+    <mesh name="j1_actuator_visual" file="visual/j1_actuator_visual.STL" scale="1 1 1" />
+    <mesh name="j2_actuator_visual" file="visual/j2_actuator_visual.STL" scale="1 1 1" />
+    <mesh name="shoulder_structure_visual" file="visual/shoulder_structure_visual.STL" scale="1 1 1" />
+    <mesh name="j3_actuator_visual" file="visual/j3_actuator_visual.STL" scale="1 1 1" />
+    <mesh name="upper_arm_structure_visual" file="visual/upper_arm_structure_visual.STL" scale="1 1 1" />
+    <material name="ssg48_jaw_material" rgba="0.298039216 0.298039216 0.298039216 1" specular="0.2" shininess="0.2" />
+    <mesh name="contact_ssg48_solid_left_00" file="contacts/ssg48_solid/left_00.STL" />
+    <mesh name="contact_ssg48_solid_left_01" file="contacts/ssg48_solid/left_01.STL" />
+    <mesh name="contact_ssg48_solid_left_02" file="contacts/ssg48_solid/left_02.STL" />
+    <mesh name="contact_ssg48_solid_left_03" file="contacts/ssg48_solid/left_03.STL" />
+    <mesh name="contact_ssg48_solid_left_04" file="contacts/ssg48_solid/left_04.STL" />
+    <mesh name="contact_ssg48_solid_left_05" file="contacts/ssg48_solid/left_05.STL" />
+    <mesh name="contact_ssg48_solid_right_00" file="contacts/ssg48_solid/right_00.STL" />
+    <mesh name="contact_ssg48_solid_right_01" file="contacts/ssg48_solid/right_01.STL" />
+    <mesh name="contact_ssg48_solid_right_02" file="contacts/ssg48_solid/right_02.STL" />
+    <mesh name="contact_ssg48_solid_right_03" file="contacts/ssg48_solid/right_03.STL" />
+    <mesh name="contact_ssg48_solid_right_04" file="contacts/ssg48_solid/right_04.STL" />
+    <mesh name="contact_ssg48_solid_right_05" file="contacts/ssg48_solid/right_05.STL" />
+  </asset>
+  <worldbody>
+    <body name="base_link">
+      <geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="base_link" />
+      <body name="shoulder_link">
+        <inertial mass="1.9931400000000001" pos="0.0055100000000000045 0.01797 0.10725999999999999" quat="0.16922304146398287 0.76381155402360357 0.61096037987256457 0.12117296069543843" diaginertia="0.0019733479435563878 0.013265176356982655 0.013576698569460956" />
+        <joint name="base_joint" pos="0 0 0" axis="0 0 1" class="Y" limited="true" range="-1.7 1.7" />
+        <geom type="mesh" rgba="0 0 0 0" mesh="shoulder_link" group="3" />
+        <geom name="shoulder_structure_visual" type="mesh" mesh="shoulder_structure_visual" rgba="0.79216 0.81961 0.93333 1" contype="0" conaffinity="0" mass="0" group="2" />
+        <geom name="j1_actuator_visual" type="mesh" mesh="j1_actuator_visual" material="j1_actuator_black" contype="0" conaffinity="0" mass="0" group="2" />
+        <geom name="j2_actuator_visual" type="mesh" mesh="j2_actuator_visual" material="j2_actuator_black" contype="0" conaffinity="0" mass="0" group="2" />
+        <body name="upper_arm_link" pos="0.023421 0 0.1105" quat="0.707105 -0.707108 0 0">
+          <inertial mass="1.3322400000000001" pos="-0.01108099999999999 -0.077150067372466546 0.01587967267999791" quat="-0.56470127149728311 0.42308511803304966 0.60924855430853131 -0.36183926810294736" diaginertia="0.0030989973993509959 0.0039179854648952687 0.0064772414957537392" />
+          <joint name="shoulder_joint" pos="0 0 0" axis="0 0 1" class="Y" limited="true" range="-0.97999999999999998 1" />
+          <geom type="mesh" rgba="0 0 0 0" mesh="upper_arm_link" group="3" />
+          <geom name="upper_arm_structure_visual" type="mesh" mesh="upper_arm_structure_visual" contype="0" conaffinity="0" mass="0" group="2" rgba="0.79216 0.81961 0.93333 1" />
+          <geom name="j3_actuator_visual" type="mesh" mesh="j3_actuator_visual" material="j3_actuator_black" contype="0" conaffinity="0" mass="0" group="2" />
+          <body name="forearm_link" pos="0 -0.18 0" quat="-2.59734e-06 0.707105 -0.707108 2.59735e-06">
+            <inertial mass="0.68511" pos="0.009579921725692964 -0.022189068113424793 -0.0037390326700816288" quat="0.95017743248201225 0.27055221356823922 0.05447127762204923 0.14490419748730013" diaginertia="0.00058995072364846472 0.00075780807896230697 0.00089575254738922801" />
+            <joint name="elbow_joint" pos="0 0 0" axis="0 0 1" class="Y" limited="true" range="-1.3 2" />
+            <geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="forearm_link" />
+            <body name="wrist_1_link" pos="0.0435 0 0" quat="-2.59734e-06 -2.59735e-06 -0.707108 -0.707105">
+              <inertial mass="0.57955999999999996" pos="-9.04185253414453e-05 -0.017128705537790025 -0.11142923743879764" quat="0.69732013010439631 0.11967668477403055 -0.69525822075856802 -0.12664175354248516" diaginertia="0.00025344979304637043 0.0011455583122489197 0.0011704694247047097" />
+              <joint name="wrist_1_joint" pos="0 0 0" axis="0 0 1" class="Y" limited="true" range="-2 2" />
+              <geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="wrist_1_link" pos="0 0 -0.00064999999999998392" />
+              <body name="wrist_2_link" pos="0 0 -0.17699999999999999" quat="0.707105 -0.707108 0 0">
+                <inertial mass="0.52381" pos="-5.3936154437558936e-07 -0.0035508136928119214 -0.00023852848940545109" quat="-0.49952562668094996 -0.50055209146268598 0.50254722259141493 0.49736107717330463" diaginertia="0.00018258716232339353 0.00040956445886035239 0.00041379123881625426" />
+                <joint name="wrist_2_joint" pos="0 0 0" axis="0 0 1" class="Y" limited="true" range="-2.1000000000000001 2.1000000000000001" />
+                <geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="wrist_2_link" />
+                <body name="wrist_3_link" quat="0 0 0.707105 0.707108">
+                  <joint name="wrist_3_joint" pos="0 0 0" axis="0 0 -1" class="Y" limited="false" />
+                  <body name="flange" pos="0 0 0.050500000000000003">
+                    <body name="ssg48_gripper_link" pos="0 0 -0.0571" quat="0 0 1 0">
+                      <inertial pos="-6.7987e-05 0.0001694 -0.077391" quat="0.464161 0.46546 -0.535128 0.530603" mass="0.3614" diaginertia="0.00014808 0.000127124 5.86313e-05" />
+                      <geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="gripper" />
+                      <body name="tcp_link" pos="0 0 -0.1409">
+                        <site name="tcp" pos="0 0 0" quat="0 0 1 0" size="0.005" rgba="1 0 0 1" />
+                      </body>
+                      <body name="left_finger_link" pos="0 0 -0.11745" quat="1.34924e-11 3.67321e-06 1 3.67321e-06">
+                        <inertial pos="0.0033269 0.029197 -0.0097237" quat="0.427918 0.661892 -0.405093 0.463342" mass="0.039300000000000002" diaginertia="4.64011e-06 3.93984e-06 1.21885e-06" />
+                        <joint name="left_finger_joint" pos="0 0 0" axis="0 -1 0" type="slide" range="-0.0235 0" class="SSG48_gripper" />
+                        <geom type="mesh" mesh="left_finger_link" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" material="ssg48_jaw_material" contype="0" conaffinity="0" mass="0" />
+                        <geom name="contact_ssg48_solid_left_00" type="mesh" mesh="contact_ssg48_solid_left_00" rgba="0 0 0 0" group="3" mass="0" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" />
+                        <geom name="contact_ssg48_solid_left_01" type="mesh" mesh="contact_ssg48_solid_left_01" rgba="0 0 0 0" group="3" mass="0" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" />
+                        <geom name="contact_ssg48_solid_left_02" type="mesh" mesh="contact_ssg48_solid_left_02" rgba="0 0 0 0" group="3" mass="0" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" />
+                        <geom name="contact_ssg48_solid_left_03" type="mesh" mesh="contact_ssg48_solid_left_03" rgba="0 0 0 0" group="3" mass="0" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" />
+                        <geom name="contact_ssg48_solid_left_04" type="mesh" mesh="contact_ssg48_solid_left_04" rgba="0 0 0 0" group="3" mass="0" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" />
+                        <geom name="contact_ssg48_solid_left_05" type="mesh" mesh="contact_ssg48_solid_left_05" rgba="0 0 0 0" group="3" mass="0" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" />
+                      </body>
+                      <body name="right_finger_link" pos="0 0 -0.11745" quat="1.34924e-11 3.67321e-06 1 3.67321e-06">
+                        <inertial pos="-0.0033269 -0.029197 -0.0097237" quat="0.405093 0.463342 -0.427918 0.661892" mass="0.039300000000000002" diaginertia="4.64011e-06 3.93984e-06 1.21885e-06" />
+                        <joint name="right_finger_joint" pos="0 0 0" axis="0 -1 0" type="slide" range="0 0.0235" class="SSG48_gripper" />
+                        <geom type="mesh" mesh="right_finger_link" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" material="ssg48_jaw_material" contype="0" conaffinity="0" mass="0" />
+                        <geom name="contact_ssg48_solid_right_00" type="mesh" mesh="contact_ssg48_solid_right_00" rgba="0 0 0 0" group="3" mass="0" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" />
+                        <geom name="contact_ssg48_solid_right_01" type="mesh" mesh="contact_ssg48_solid_right_01" rgba="0 0 0 0" group="3" mass="0" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" />
+                        <geom name="contact_ssg48_solid_right_02" type="mesh" mesh="contact_ssg48_solid_right_02" rgba="0 0 0 0" group="3" mass="0" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" />
+                        <geom name="contact_ssg48_solid_right_03" type="mesh" mesh="contact_ssg48_solid_right_03" rgba="0 0 0 0" group="3" mass="0" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" />
+                        <geom name="contact_ssg48_solid_right_04" type="mesh" mesh="contact_ssg48_solid_right_04" rgba="0 0 0 0" group="3" mass="0" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" />
+                        <geom name="contact_ssg48_solid_right_05" type="mesh" mesh="contact_ssg48_solid_right_05" rgba="0 0 0 0" group="3" mass="0" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" />
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <inertial mass="1.1168432349561239" pos="-0.031832510799151587 3.9199901745269003e-07 0.030149540174031066" quat="-1.2420222968156924e-05 0.69655780782013632 -1.0535747729800704e-07 0.71750067610458523" diaginertia="0.0031206543640251504 0.002579949104567911 0.0013568349231461423" />
+    </body>
+  </worldbody>
+  <contact>
+    <exclude body1="world" body2="shoulder_link" />
+  </contact>
+  <equality>
+    <joint joint1="right_finger_joint" joint2="left_finger_joint" polycoef="0 -1 0 0 0" />
+  </equality>
+  <actuator>
+    <position name="base_actuator" joint="base_joint" class="Y" ctrlrange="-1.7 1.7" />
+    <position name="shoulder_actuator" joint="shoulder_joint" class="Y" ctrlrange="-0.97999999999999998 1" />
+    <position name="elbow_actuator" joint="elbow_joint" class="Y" ctrlrange="-1.3 2" />
+    <position name="wrist_1_actuator" joint="wrist_1_joint" class="Y" ctrlrange="-2 2" />
+    <position name="wrist_2_actuator" joint="wrist_2_joint" class="Y" ctrlrange="-2.1000000000000001 2.1000000000000001" />
+    <position name="wrist_3_actuator" joint="wrist_3_joint" class="Y" />
+    <position name="gripper_actuator" joint="left_finger_joint" class="SSG48_gripper" />
+  </actuator>
+  <keyframe>
+    <key name="home" qpos="0 0 0 0 0 0 0 0" ctrl="0 0 0 0 0 0 0" />
+    <key name="parked" qpos="0 -0.5 -1.3 0 0 0 0 0" ctrl="0 -0.5 -1.3 0 0 0 0" />
+  </keyframe>
+</mujoco>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650">
+<rect width="1200" height="650" fill="#f7f9fc"/>
+<style>text{font-family:Arial,sans-serif;fill:#172c40}.title{font-size:25px;font-weight:bold}.label{font-size:16px}.small{font-size:14px}.mono{font-family:monospace;font-size:15px}</style>
+<defs><marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto-start-reverse"><path d="M0 0L6 3L0 6Z" fill="#16828f"/></marker></defs>
+<text x="34" y="39" class="title">PAR6 / PAROL6: common axes and wrist-frame convention</text>
+<text x="34" y="67" class="label">Actual packaged zero-pose joint centers, side projection in X-Z. Joint 5 and joint 6 share a center.</text>
+
+<rect x="28" y="89" width="565" height="462" rx="12" fill="white" stroke="#d7e0eb"/>
+<text x="49" y="121" class="title">PAR6</text>
+<polyline points="92.000,465.000 125.257,374.390 125.257,226.790 125.257,191.120 376.597,191.120 376.597,191.120" fill="none" stroke="#6f8092" stroke-width="9" stroke-linejoin="round"/>
+<line x1="376.59742390667446" y1="191.1200000000003" x2="457.67942390667446" y2="191.12" stroke="#b08730" stroke-width="6"/>
+<rect x="453.67942390667446" y="181.12" width="8" height="20" fill="#b08730"/><text x="439.67942390667446" y="171.12" class="small">Flange</text>
+<circle cx="92.0" cy="465.0" r="7" fill="#244764" stroke="white" stroke-width="2"/>
+<text x="66.0" y="489.0" class="label">J1</text>
+<line x1="92.0" y1="465.0" x2="92.0" y2="431.0" stroke="#16828f" stroke-width="2" marker-end="url(#arrow)"/>
+<circle cx="125.25742390667183" cy="374.39" r="7" fill="#244764" stroke="white" stroke-width="2"/>
+<text x="91.25742390667183" y="356.39" class="label">J2</text>
+<circle cx="143.25742390667182" cy="391.39" r="7" fill="white" stroke="#16828f" stroke-width="2"/>
+<path d="M139.25742390667182 387.39L147.25742390667182 395.39M139.25742390667182 395.39L147.25742390667182 387.39" stroke="#16828f" stroke-width="1.5"/>
+<circle cx="125.25742390667183" cy="226.79000000000002" r="7" fill="#244764" stroke="white" stroke-width="2"/>
+<text x="91.25742390667183" y="232.79000000000002" class="label">J3</text>
+<circle cx="143.25742390667182" cy="243.79000000000002" r="7" fill="white" stroke="#16828f" stroke-width="2"/>
+<circle cx="143.25742390667182" cy="243.79000000000002" r="2.5" fill="#16828f"/>
+<circle cx="125.25742390667162" cy="191.1200000000013" r="7" fill="#244764" stroke="white" stroke-width="2"/>
+<text x="91.25742390667162" y="181.1200000000013" class="label">J4</text>
+<line x1="125.25742390667162" y1="191.1200000000013" x2="91.25742390667162" y2="191.12000000000154" stroke="#16828f" stroke-width="2" marker-end="url(#arrow)"/>
+<circle cx="376.59742390667446" cy="191.1200000000003" r="7" fill="#244764" stroke="white" stroke-width="2"/>
+<text x="366.59742390667446" y="154.1200000000003" class="label">J5/J6</text>
+<text x="195" y="217" class="small">Forearm axis distance: 177.00 mm</text>
+<text x="49" y="510" class="small">Local joint axes, J1 to J6:</text><text x="49" y="533" class="mono">+Z, +Z, +Z, +Z, +Z, -Z</text>
+<rect x="628" y="89" width="565" height="462" rx="12" fill="white" stroke="#d7e0eb"/>
+<text x="649" y="121" class="title">PAROL6 / standardized frames</text>
+<polyline points="692.000,465.000 725.257,374.390 725.257,226.790 725.257,191.120 976.597,191.120 976.597,191.120" fill="none" stroke="#6f8092" stroke-width="9" stroke-linejoin="round"/>
+<line x1="976.5974239066716" y1="191.1200000000003" x2="1048.3074239066716" y2="191.12" stroke="#b08730" stroke-width="6"/>
+<rect x="1044.3074239066716" y="181.12" width="8" height="20" fill="#b08730"/><text x="1030.3074239066716" y="171.12" class="small">Flange</text>
+<circle cx="692.0" cy="465.0" r="7" fill="#244764" stroke="white" stroke-width="2"/>
+<text x="666.0" y="489.0" class="label">J1</text>
+<line x1="692.0" y1="465.0" x2="692.0" y2="431.0" stroke="#16828f" stroke-width="2" marker-end="url(#arrow)"/>
+<circle cx="725.2574239066719" cy="374.39" r="7" fill="#244764" stroke="white" stroke-width="2"/>
+<text x="691.2574239066719" y="356.39" class="label">J2</text>
+<circle cx="743.2574239066719" cy="391.39" r="7" fill="white" stroke="#16828f" stroke-width="2"/>
+<path d="M739.2574239066719 387.39L747.2574239066719 395.39M739.2574239066719 395.39L747.2574239066719 387.39" stroke="#16828f" stroke-width="1.5"/>
+<circle cx="725.2574239066719" cy="226.79000000000002" r="7" fill="#244764" stroke="white" stroke-width="2"/>
+<text x="691.2574239066719" y="232.79000000000002" class="label">J3</text>
+<circle cx="743.2574239066719" cy="243.79000000000002" r="7" fill="white" stroke="#16828f" stroke-width="2"/>
+<circle cx="743.2574239066719" cy="243.79000000000002" r="2.5" fill="#16828f"/>
+<circle cx="725.2574239066716" cy="191.1200000000013" r="7" fill="#244764" stroke="white" stroke-width="2"/>
+<text x="691.2574239066716" y="181.1200000000013" class="label">J4</text>
+<line x1="725.2574239066716" y1="191.1200000000013" x2="691.2574239066716" y2="191.12000000000154" stroke="#16828f" stroke-width="2" marker-end="url(#arrow)"/>
+<circle cx="976.5974239066716" cy="191.1200000000003" r="7" fill="#244764" stroke="white" stroke-width="2"/>
+<text x="966.5974239066716" y="154.1200000000003" class="label">J5/J6</text>
+<text x="795" y="217" class="small">Forearm axis distance: 177.00 mm</text>
+<text x="649" y="510" class="small">Local joint axes, J1 to J6:</text><text x="649" y="533" class="mono">+Z, +Z, +Z, +Z, +Z, -Z</text>
+<text x="34" y="583" class="label">Same public arm frames and 177 mm forearm. The intended DH difference is the wrist-to-flange d6.</text>
+<text x="34" y="610" class="label">Flange reach: PAR6 57.1 mm; PAROL6 50.5 mm. Tool spacing follows each wrist housing.</text>
+<text x="34" y="636" class="small">Teal marks show positive directions; dot = -Y, cross = +Y. Historical export conversion is documented separately.</text></svg>

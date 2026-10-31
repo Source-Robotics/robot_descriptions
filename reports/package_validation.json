@@ -1,0 +1,26 @@
+{
+  "par6_mujoco.zip": {
+    "bytes": 8509015,
+    "variants_checked": 6,
+    "grasp_scenes_compiled": 8,
+    "crc_and_assets_valid": true
+  },
+  "par6_urdf.zip": {
+    "bytes": 7042328,
+    "variants_checked": 6,
+    "grasp_scenes_compiled": 0,
+    "crc_and_assets_valid": true
+  },
+  "parol6_mujoco.zip": {
+    "bytes": 8655058,
+    "variants_checked": 6,
+    "grasp_scenes_compiled": 8,
+    "crc_and_assets_valid": true
+  },
+  "parol6_urdf.zip": {
+    "bytes": 8638977,
+    "variants_checked": 6,
+    "grasp_scenes_compiled": 0,
+    "crc_and_assets_valid": true
+  }
+}

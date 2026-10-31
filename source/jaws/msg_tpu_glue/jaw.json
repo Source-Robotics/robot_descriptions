@@ -1,0 +1,16 @@
+{
+  "id": "tpu-glue",
+  "label": "Soft TPU jaws",
+  "source": "MSG_JAW_TPU_GLUE.STEP",
+  "source_sha256": "1b7315edbf1dce7b50a178cb9957be9048b416adce361e6066e93bb1e7a0289b",
+  "source_units": "mm",
+  "solid_ids": {"holder": 1, "hex": 2},
+  "mesh_size_max_mm": 50,
+  "curvature_segments": 20,
+  "source_to_left_finger_rotation": [[0, 0, -1], [0, 1, 0], [-1, 0, 0]],
+  "source_to_left_finger_translation_m": [-0.009, 0.0032752863261588, -0.1160031476711238],
+  "right_jaw": "mirror left across finger-frame Y=0",
+  "colors": {"black": "#0F0F11", "yellow": "#FFD21A"},
+  "inertia": "retain the existing finger link inertial definitions; new material densities are not supplied",
+  "collision": "convex hull of the new holder, honeycomb insert, and retained finger carriage"
+}

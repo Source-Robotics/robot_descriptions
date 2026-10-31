@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "source": "User-supplied SolidWorks PAROL6 URDF export",
+  "original_sha256": {
+    "urdf/parol6.urdf": "f776fd253e4494d613031b12556759e88ac343b15e5ad58c7b4a28e3b0b4e221",
+    "package.xml": "717909629a2c85f2d6441d223027c2094fe5cb684807be130d3a63a223e8e955",
+    "meshes/base_link.STL": "a775b6e791a3f8f49a669b20ad96bd9eb20544d9f54334a13f591034619d0931",
+    "meshes/L1.STL": "f4f7446b9fd8ddccee2e4948d14270d1bb1544ccc72d301315f316fe52d9d0db",
+    "meshes/L2.STL": "41b54c4f747551fd494d0f0c7d73eb0d8fea60a4f97e23042032a7566b3a70d8",
+    "meshes/L3.STL": "4a3584a29eee9266dc0c7bc22224f2c282aa275b65a35999f9316604b1483e2f",
+    "meshes/L4.STL": "b34747db1d8fd1f60448a855a8470d9fe0aab7bc44b483f1ba69370c552f5f48",
+    "meshes/L5.STL": "a6128037ab3bb73d8cc75e3b8c95ff617f3741da4d8e6eea566e4b6805ee11c4",
+    "meshes/L6.STL": "8bb5aeba3923421418f2498080cac2c61b898aee343e4dc52c8a24b852742446"
+  },
+  "joint_policy": "Use PAR6 axes and joint-origin orientations, including J6, and the user-corrected 177 mm forearm. Move the lower-arm mesh and wrist origin outward by 0.65 mm from the supplied export. Convert source joint bounds into the normalized coordinates.",
+  "par6_from_parol6_joint_signs": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "dynamics_policy": "Inherit PAR6 mass, local COM and central inertia in corresponding CAD link frames, separately for each format. These are user-authorized shared estimates for PAROL6, not a PAROL6 measurement.",
+  "tool_policy": "Reuse all six PAR6 flange-relative tool/jaw profiles. PAROL6 uses a 50.5 mm J6-to-flange reference distance, matching PAR6 housing-to-tool spacing with the shorter wrist housing. The supplied L6 end-tool mesh is preserved as source only, not stacked with the selected tool.",
+  "geometry": {
+    "forearm_distance_m": 0.177,
+    "source_forearm_distance_m": 0.17635,
+    "flange_distance_m": 0.0505,
+    "par6_flange_distance_m": 0.0571,
+    "wrist_housing_reference": {
+      "par6_mesh": "urdf/par6_description/meshes/common/wrist.STL",
+      "parol6_mesh": "source/parol6/original/meshes/L5.STL",
+      "housing_component": 0,
+      "forward_axis_in_wrist2": "+Y",
+      "par6_housing_front_m": 0.0411,
+      "parol6_housing_front_m": 0.0345,
+      "method": "Largest connected housing component, maximum local Y. Exclude internal motor/shaft components, which do not define the housing mounting face. Shift the complete flange subtree by the difference, -6.6 mm, to preserve PAR6 housing-to-tool spacing."
+    },
+    "provenance": "User correction: both forearms are 177 mm. Wrist flange reach is derived by matching PAR6 spacing against the included CAD housing surfaces; not an independent hardware measurement."
+  },
+  "arm_meshes": {
+    "base_link": "base_link",
+    "shoulder_link": "L1",
+    "upper_arm_link": "L2",
+    "forearm_link": "L3",
+    "wrist_1_link": "L4",
+    "wrist_2_link": "L5"
+  },
+  "visual_components": {
+    "L1": {
+      "shoulder_structure_visual": [
+        4,
+        16,
+        17,
+        28,
+        31,
+        32
+      ],
+      "j1_actuator_visual": [
+        0,
+        1,
+        5,
+        7,
+        8,
+        9,
+        10,
+        18,
+        20,
+        21,
+        22,
+        23,
+        29
+      ],
+      "j2_actuator_visual": [
+        2,
+        3,
+        6,
+        11,
+        12,
+        13,
+        14,
+        15,
+        19,
+        24,
+        25,
+        26,
+        27,
+        30
+      ]
+    },
+    "L2": {
+      "upper_arm_structure_visual": [
+        2,
+        3,
+        10,
+        16
+      ],
+      "j3_actuator_visual": [
+        0,
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17
+      ]
+    }
+  },
+  "source_from_parol6_joint_signs": [
+    1.0,
+    1.0,
+    -1.0,
+    -1.0,
+    -1.0,
+    -1.0
+  ],
+  "actuation_policy": "User selected finite position control with torque limits. Retain PAR6 simulation estimates; open-loop hardware does not imply infinite stiffness."
+}

@@ -1,0 +1,106 @@
+{
+  "scope": "MuJoCo native and imported URDF collision meshes, with adjacent-body filtering. Housing/finger overlap in a slide joint is not a simulated transmission contact.",
+  "ssg48_collision_policy": "Keep the complete rack visual; use the rack-free external carriage/jaw contact envelope in both formats.",
+  "results": [
+    {
+      "robot": "par6",
+      "profile": "ssg48",
+      "format": "mujoco",
+      "travel_samples": 201,
+      "travel_per_finger_m": 0.0235,
+      "maximum_internal_penetration_m": 1.9908677596344045e-09,
+      "at_travel_m": 0.0235,
+      "deepest_body_pair": [
+        "left_finger_link",
+        "right_finger_link"
+      ],
+      "passed": true
+    },
+    {
+      "robot": "par6",
+      "profile": "ssg48",
+      "format": "urdf",
+      "travel_samples": 201,
+      "travel_per_finger_m": 0.0235,
+      "maximum_internal_penetration_m": 1.9908677669070687e-09,
+      "at_travel_m": 0.0235,
+      "deepest_body_pair": [
+        "left_finger_link",
+        "right_finger_link"
+      ],
+      "passed": true
+    },
+    {
+      "robot": "par6",
+      "profile": "ssg48_stock",
+      "format": "mujoco",
+      "travel_samples": 201,
+      "travel_per_finger_m": 0.0235,
+      "maximum_internal_penetration_m": 0.0,
+      "at_travel_m": 0.0,
+      "deepest_body_pair": null,
+      "passed": true
+    },
+    {
+      "robot": "par6",
+      "profile": "ssg48_stock",
+      "format": "urdf",
+      "travel_samples": 201,
+      "travel_per_finger_m": 0.0235,
+      "maximum_internal_penetration_m": 0.0,
+      "at_travel_m": 0.0,
+      "deepest_body_pair": null,
+      "passed": true
+    },
+    {
+      "robot": "parol6",
+      "profile": "ssg48",
+      "format": "mujoco",
+      "travel_samples": 201,
+      "travel_per_finger_m": 0.0235,
+      "maximum_internal_penetration_m": 1.990867759634336e-09,
+      "at_travel_m": 0.0235,
+      "deepest_body_pair": [
+        "left_finger_link",
+        "right_finger_link"
+      ],
+      "passed": true
+    },
+    {
+      "robot": "parol6",
+      "profile": "ssg48",
+      "format": "urdf",
+      "travel_samples": 201,
+      "travel_per_finger_m": 0.0235,
+      "maximum_internal_penetration_m": 1.9908677669070687e-09,
+      "at_travel_m": 0.0235,
+      "deepest_body_pair": [
+        "left_finger_link",
+        "right_finger_link"
+      ],
+      "passed": true
+    },
+    {
+      "robot": "parol6",
+      "profile": "ssg48_stock",
+      "format": "mujoco",
+      "travel_samples": 201,
+      "travel_per_finger_m": 0.0235,
+      "maximum_internal_penetration_m": 0.0,
+      "at_travel_m": 0.0,
+      "deepest_body_pair": null,
+      "passed": true
+    },
+    {
+      "robot": "parol6",
+      "profile": "ssg48_stock",
+      "format": "urdf",
+      "travel_samples": 201,
+      "travel_per_finger_m": 0.0235,
+      "maximum_internal_penetration_m": 0.0,
+      "at_travel_m": 0.0,
+      "deepest_body_pair": null,
+      "passed": true
+    }
+  ]
+}

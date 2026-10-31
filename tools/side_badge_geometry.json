@@ -1,0 +1,51 @@
+{
+  "source_sha256": "9b10a155dd83fb762a0059c98dc4e63e415f1f49acdb468d87b3c0915bbac09b",
+  "link": "upper_arm_link",
+  "panel_face_z_m": 0.0817,
+  "flat_face_containment_passed": true,
+  "minimum_panel_edge_clearance_m": 0.004639724458110299,
+  "bounds_m": [
+    -0.02945360102954796,
+    -0.19946733276132514,
+    0.01946578843881384,
+    -0.0543591461517722
+  ],
+  "texture_viewbox_svg_units": [
+    -162.0,
+    -166.0,
+    3784.0,
+    1258.0
+  ],
+  "covers": {
+    "mujoco": {
+      "triangles": 6960,
+      "source_triangles_preserved": true,
+      "source_mesh_sha256": "36819c2eae87af2ae6129548423c6494164799de5b89a18f06326cd95762aab0",
+      "exported_triangles_verified_exact_float32": true
+    },
+    "urdf": {
+      "triangles": 6960,
+      "source_triangles_preserved": true,
+      "source_mesh_sha256": "230142a4e8be430e8f4da16e13ec4bcd14f19ed3993ac02a007d755180008993",
+      "exported_triangles_verified_exact_float32": true
+    }
+  },
+  "render_mode": "existing_cover_texture",
+  "extra_visual_geoms": 0,
+  "extra_triangles": 0,
+  "texture_resolution": [
+    1024,
+    384
+  ],
+  "colors": {
+    "background": "#464545",
+    "emblem": "#FFFFFF",
+    "symbol": "#464545",
+    "wordmark": "#FFFFFF",
+    "robot_name": "#FFFFFF",
+    "tagline": "#FFFFFF",
+    "divider": "#FFFFFF"
+  },
+  "deterministic_rebuild_verified": true,
+  "palette_recolor_verified": true
+}

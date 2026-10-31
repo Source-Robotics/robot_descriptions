@@ -1,0 +1,19 @@
+{
+  "version": "2.8.0",
+  "automated_tests_passed": 69,
+  "poses_per_profile": 160,
+  "profiles": 5,
+  "isolated_arm_validation_passed": true,
+  "geometry_kinematics_collisions_and_drives_unchanged": true,
+  "measured_tool_masses_applied": true,
+  "tool_com_and_central_inertia": "retained unverified estimates",
+  "motor_armature": "unchanged estimates; deferred",
+  "rcb_runtime": "unchanged",
+  "sync_idempotent": true,
+  "jaw_rebuilds_preserve_sync": true,
+  "grasp_hold_thresholds_passed": 7,
+  "grasp_cases": 8,
+  "grasp_finding": "SSG48 Solid jaws box retained lift 31.64 mm, below 35 mm target.",
+  "physical_drive_hold_and_jog_tests_passed": 6,
+  "ssg48_full_arm_hold_tests_passed": 2
+}

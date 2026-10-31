@@ -1,0 +1,68 @@
+{
+  "mujoco_version": "3.3.0",
+  "poses_checked": 26,
+  "jaw_closing_simulation_steps": 1000,
+  "closing_coupling_error_m": 1.2775938227169159e-05,
+  "unchanged_compiled_arrays": [
+    "body_parentid",
+    "body_pos",
+    "body_quat",
+    "body_mass",
+    "body_inertia",
+    "body_ipos",
+    "body_iquat",
+    "jnt_type",
+    "jnt_pos",
+    "jnt_axis",
+    "jnt_range",
+    "jnt_limited",
+    "dof_damping",
+    "dof_armature",
+    "dof_frictionloss",
+    "qpos0",
+    "actuator_trnid",
+    "actuator_gainprm",
+    "actuator_biasprm",
+    "actuator_ctrlrange",
+    "actuator_forcerange",
+    "eq_data",
+    "eq_obj1id",
+    "eq_obj2id",
+    "cam_pos",
+    "cam_quat",
+    "cam_fovy",
+    "key_qpos",
+    "key_ctrl"
+  ],
+  "urdf_non_jaw_definitions_unchanged": true,
+  "kinematics_and_mass_matrices_identical": true,
+  "collision_geoms_before": 20,
+  "collision_geoms_after": 20,
+  "meshes": {
+    "mujoco\\par6\\assets\\jaws\\tpu_glue/left": {
+      "closed_colored_parts": true,
+      "collision_hull_contains_all_visuals": true,
+      "visual_triangles": 7192,
+      "collision_triangles": 58
+    },
+    "mujoco\\par6\\assets\\jaws\\tpu_glue/right": {
+      "closed_colored_parts": true,
+      "collision_hull_contains_all_visuals": true,
+      "visual_triangles": 7104,
+      "collision_triangles": 60
+    },
+    "urdf\\par6_description\\meshes\\msg\\jaws\\tpu_glue/left": {
+      "closed_colored_parts": true,
+      "collision_hull_contains_all_visuals": true,
+      "visual_triangles": 7192,
+      "collision_triangles": 58
+    },
+    "urdf\\par6_description\\meshes\\msg\\jaws\\tpu_glue/right": {
+      "closed_colored_parts": true,
+      "collision_hull_contains_all_visuals": true,
+      "visual_triangles": 7104,
+      "collision_triangles": 60
+    }
+  },
+  "physical_scope": "Current finger mass and inertia retained by request. Collision hulls follow the new rigid jaw geometry; contact forces can differ."
+}

@@ -1,0 +1,1 @@
+<mujoco model="PAROL6 default"><include file="scene_msg.xml"/></mujoco>

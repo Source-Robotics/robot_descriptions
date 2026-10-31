@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "name": "Source Robotics PAROL6 URDF",
+  "manufacturer": "Source Robotics",
+  "category": "arm",
+  "license": "Apache-2.0",
+  "sourceUrl": "https://github.com/Source-Robotics/robot_descriptions",
+  "sourceRevision": "PAROL6 included export; see source/parol6/model.json in the authoring repository",
+  "packageVersion": "2.12.1",
+  "entry": "parol6_msg.urdf",
+  "dof": 6,
+  "armActuators": [
+    "base_joint",
+    "shoulder_joint",
+    "elbow_joint",
+    "wrist_1_joint",
+    "wrist_2_joint",
+    "wrist_3_joint"
+  ],
+  "gripperActuators": [
+    "left_finger_joint",
+    "right_finger_joint"
+  ],
+  "variants": [
+    {
+      "id": "flange",
+      "label": "Flange only",
+      "entry": "parol6_flange.urdf",
+      "tcpSites": [
+        "tcp"
+      ],
+      "endEffectorBodies": [
+        "flange_link"
+      ],
+      "gripperActuators": [],
+      "preview": "parol6_flange.png"
+    },
+    {
+      "id": "msg",
+      "label": "MSG - Solid jaws",
+      "entry": "parol6_msg.urdf",
+      "tcpSites": [
+        "tcp"
+      ],
+      "endEffectorBodies": [
+        "msg_gripper_link"
+      ],
+      "gripperActuators": [
+        "left_finger_joint",
+        "right_finger_joint"
+      ],
+      "preview": "parol6_msg.png"
+    },
+    {
+      "id": "msg-tpu-glue",
+      "label": "MSG - Soft TPU jaws",
+      "entry": "parol6_msg_tpu_glue.urdf",
+      "tcpSites": [
+        "tcp"
+      ],
+      "endEffectorBodies": [
+        "msg_gripper_link"
+      ],
+      "gripperActuators": [
+        "left_finger_joint",
+        "right_finger_joint"
+      ],
+      "preview": "parol6_msg_tpu_glue.png"
+    },
+    {
+      "id": "ssg48",
+      "label": "SSG48 - Solid jaws",
+      "entry": "parol6_ssg48.urdf",
+      "tcpSites": [
+        "tcp"
+      ],
+      "endEffectorBodies": [
+        "ssg48_gripper_link"
+      ],
+      "gripperActuators": [
+        "left_finger_joint",
+        "right_finger_joint"
+      ],
+      "preview": "parol6_ssg48.png"
+    },
+    {
+      "id": "ssg48-stock",
+      "label": "SSG48 - Fin-ray jaws",
+      "entry": "parol6_ssg48_stock.urdf",
+      "tcpSites": [
+        "tcp"
+      ],
+      "endEffectorBodies": [
+        "ssg48_gripper_link"
+      ],
+      "gripperActuators": [
+        "left_finger_joint",
+        "right_finger_joint"
+      ],
+      "preview": "parol6_ssg48_stock.png"
+    },
+    {
+      "id": "pneumatic",
+      "label": "Pneumatic gripper",
+      "entry": "parol6_pneumatic.urdf",
+      "endEffectorBodies": [
+        "pneumatic_gripper_link"
+      ],
+      "gripperActuators": [],
+      "preview": "parol6_pneumatic.png"
+    }
+  ],
+  "preview": "parol6_msg.png"
+}

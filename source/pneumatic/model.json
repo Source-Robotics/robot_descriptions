@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "name": "Pneumatic gripper",
+  "style": "Original side-gripping MHZ2-10D assembly",
+  "source_mesh": "source/parol6/original/meshes/L6.STL",
+  "source_sha256": "8bb5aeba3923421418f2498080cac2c61b898aee343e4dc52c8a24b852742446",
+  "components": {
+    "pneumatic_gripper_link": [
+      0,
+      1,
+      2
+    ],
+    "left_finger_link": [
+      3,
+      5
+    ],
+    "right_finger_link": [
+      4,
+      6
+    ]
+  },
+  "source_mesh_translation_m": [
+    0.0,
+    0.0,
+    0.036
+  ],
+  "flange_to_body_xyz_m": [
+    0.0,
+    0.0,
+    -0.015
+  ],
+  "flange_to_body_rpy_rad": [
+    0.0,
+    3.141592653589793,
+    0.0
+  ],
+  "mounting_basis": "Rebase the original assembly rear face (source Z = -36 mm) to body Z = 0. Mount that face 15 mm behind the standard flange reference, preserving the approximately 1 mm housing clearance of the shared tool interface on both arms.",
+  "tcp_in_source_mesh_m": [
+    0.04525,
+    0.0,
+    -0.0628
+  ],
+  "tcp_basis": "Legacy MHZ2-10D RCB DH reference (a = -45.25 mm, d = -62.8 mm), carried with the source geometry through rebasing and mounting. Not a newly measured grasp center.",
+  "travel_per_finger_m": 0.0035,
+  "motion_basis": "Local PAROL6 API pneumatic vertical motion definition: symmetric 3.5 mm per jaw. Source mesh is open at q = 0; positive joint displacement closes each jaw. Nominal modeled inner clearance changes from about 7.1 mm to 0.1 mm.",
+  "total_mass_kg": 0.195,
+  "mass_status": "Unverified legacy RCB MHZ2-10D total, explicitly marked TODO in the upstream configuration. Not a user measurement.",
+  "mass_distribution": "Distribute the estimated total by solid CAD volume; compute local COM and central inertia from each rigid part at that uniform density. These are simulation estimates, not measured mass properties.",
+  "position_gain_n_per_m": 8000.0,
+  "actuator_force_limit_n": 20.0,
+  "joint_damping_ns_per_m": 2.0,
+  "joint_velocity_limit_m_s": 0.03,
+  "actuation_status": "Finite force-limited jaw servo approximating valve open/close endpoints. No air pressure, compressibility, valves, or measured pressure-to-force behavior is simulated.",
+  "colors": {
+    "body": "0.72 0.75 0.80 1",
+    "jaw": "0.12 0.13 0.15 1"
+  },
+  "reference_sources": {
+    "legacy_rcb": {
+      "original_path": "RCB-RUNTIME/RCB-Runtime/grippers/MHZ2-10D.xml",
+      "sha256": "fdaaf906fdb942bd49e6fe3b3af122e6fbd55226f2f6b4d7b5d1d3ab686ca25b",
+      "build_dependency": false
+    },
+    "jaw_travel_reference": {
+      "original_path": "PAROL6-python-API-main/parol6/tools.py",
+      "sha256": "393bf12271f3461fe2401639e54c59e0abe292bddea9710fa8f9521bbe9d3e23",
+      "build_dependency": false
+    }
+  }
+}

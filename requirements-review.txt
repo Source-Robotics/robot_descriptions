@@ -1,0 +1,3 @@
+# Optional printable review booklet; ordinary builds do not need pypdf/OpenGL.
+-r requirements-build.lock.txt
+pypdf==6.21.4
