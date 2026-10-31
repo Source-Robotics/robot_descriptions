@@ -10,6 +10,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   standalone:
     runs-on: ubuntu-24.04
@@ -28,6 +32,16 @@ jobs:
         run: python -I -m pytest tests -q -p no:cacheprovider
       - name: Full independent build and validation
         run: python -I tools/build.py
+      - name: Save portability diagnostics on failure
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: build-portability-diagnostics
+          path: |
+            mujoco/par6/assets/branding
+            mujoco/par6/par6_flange.xml
+            source/reviews/render_cache/par6_flange.json
+            tools/side_badge_geometry.json
       - name: Prepare checked release assets
         shell: bash
         run: |
