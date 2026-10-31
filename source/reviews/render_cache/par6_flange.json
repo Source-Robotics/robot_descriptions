@@ -23,5 +23,22 @@
     "orthographic": true,
     "registration_error_max_px": 0.4088001034451091
   },
-  "image_sha256": "b1545ae0ed506b038a490f672d6c2c3305395938119bd22d52135e4fa432e6df"
+  "image_sha256": "b1545ae0ed506b038a490f672d6c2c3305395938119bd22d52135e4fa432e6df",
+  "visual_inputs": {
+    "mesh:base_link.STL": "916731a1863cc0b2b4da0b64942dcb25cafbf31ab1c7fef280218f038e1c26d4",
+    "mesh:shoulder.STL": "4b774a3b0902aa79c10e799201ef72c554bd0eacfc17b144e992a81fa37d254e",
+    "mesh:upper_arm.STL": "3ffa7ed6e1836216f16813d3ce186c6d086e5133033db844477ea48feb4ea7c2",
+    "mesh:elbow.STL": "7afaa8d9ff6905a04e98b2d8281d8de7f88d03a54cfaaa5a211e4d6f943efcd0",
+    "mesh:lower_arm.STL": "b35f1d3c286d2eea2b026801e41c66fe4b83d822b2cdf13be2377ca39a88bb94",
+    "mesh:wrist.STL": "a4de381a1cf9202829cc05b1f4d23c90e1d583846d3e2f073e01b5895d0da505",
+    "mesh:gripper_flange.STL": "52b6e057f6a07b47cbbf19c9ee5832a8f5edbc14345ae104e3ec54823f51eac6",
+    "mesh:visual/j1_actuator_visual.STL": "68e507b5a05f6295b3d3c32c89051392b71477be525f5726a939c3876868747b",
+    "mesh:visual/j2_actuator_visual.STL": "d0a5e5ae0ac78a5ee1c04e1e1555bd27f94524ebf137683b8114db95662d6df2",
+    "mesh:visual/shoulder_structure_visual.STL": "e08a5109e641ed0a38fb7374230d95b93d1cefa3dd669ad40f5735b92e4985e3",
+    "mesh:visual/j3_actuator_visual.STL": "5d9d4984006d0ab53cabc91c0aac348a46094f0df0d46819fa8ab7d07b79763b",
+    "mesh:branding/upper_arm_structure_badged.obj": "0fc343dafb9cd9f556e5e3f737c76aaf1e59cff616c50a8e56a554c6a7d229f2",
+    "texture:assets/branding/par6_badge.png": "70c52397ef3928c5c1cb144b4b76bd6537c736d6bf1ce5d3fb675492e0ca08b9",
+    "xml:par6_flange.xml": "eb1ef8943ec7ee5ff9e5f9b220ca30a35f2758a3321faf98d318fafedcb56c2c",
+    "xml:scene_flange.xml": "fd236f5f5f3dee1dd18bd643a44fba17d2a332ce785c204759c717c8f827398f"
+  }
 }

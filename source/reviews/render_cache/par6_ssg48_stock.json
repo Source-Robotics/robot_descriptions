@@ -23,5 +23,36 @@
     "orthographic": true,
     "registration_error_max_px": 0.4088001034451091
   },
-  "image_sha256": "1886a4634567416bf56a0381e1974cac49819b3c66f9d0b909a6cd9c38e4d9c0"
+  "image_sha256": "1886a4634567416bf56a0381e1974cac49819b3c66f9d0b909a6cd9c38e4d9c0",
+  "visual_inputs": {
+    "mesh:base_link.STL": "916731a1863cc0b2b4da0b64942dcb25cafbf31ab1c7fef280218f038e1c26d4",
+    "mesh:shoulder.STL": "4b774a3b0902aa79c10e799201ef72c554bd0eacfc17b144e992a81fa37d254e",
+    "mesh:upper_arm.STL": "3ffa7ed6e1836216f16813d3ce186c6d086e5133033db844477ea48feb4ea7c2",
+    "mesh:elbow.STL": "7afaa8d9ff6905a04e98b2d8281d8de7f88d03a54cfaaa5a211e4d6f943efcd0",
+    "mesh:lower_arm.STL": "b35f1d3c286d2eea2b026801e41c66fe4b83d822b2cdf13be2377ca39a88bb94",
+    "mesh:wrist.STL": "a4de381a1cf9202829cc05b1f4d23c90e1d583846d3e2f073e01b5895d0da505",
+    "mesh:gripper_SSG48.STL": "e90a8a4b0d9d53581854732babec0e8fd364d8ac9079a33215bef5e07274faf4",
+    "mesh:jaw1_SSG48.STL": "d3cbd3919b4489ca00dd6816b78a5f52ab6a90ea050ae3341fadd38bf6cf0608",
+    "mesh:jaw2_SSG48.STL": "ebd4142408f1a0871954337c72549b105f845a6fd2d6a3e813d36575c8d99d48",
+    "mesh:visual/j1_actuator_visual.STL": "68e507b5a05f6295b3d3c32c89051392b71477be525f5726a939c3876868747b",
+    "mesh:visual/j2_actuator_visual.STL": "d0a5e5ae0ac78a5ee1c04e1e1555bd27f94524ebf137683b8114db95662d6df2",
+    "mesh:visual/shoulder_structure_visual.STL": "e08a5109e641ed0a38fb7374230d95b93d1cefa3dd669ad40f5735b92e4985e3",
+    "mesh:visual/j3_actuator_visual.STL": "5d9d4984006d0ab53cabc91c0aac348a46094f0df0d46819fa8ab7d07b79763b",
+    "mesh:branding/upper_arm_structure_badged.obj": "0fc343dafb9cd9f556e5e3f737c76aaf1e59cff616c50a8e56a554c6a7d229f2",
+    "mesh:contacts/ssg48_fin_ray/left_00.STL": "77671f45a5983500649ff762ddc825a98e33b25d56ff6df0ebb81f3c107e4f83",
+    "mesh:contacts/ssg48_fin_ray/left_01.STL": "f7dff1fd033f50a277a3d8d6db0de087b3596b7e88382f69e4c5bb7d3fd19bcd",
+    "mesh:contacts/ssg48_fin_ray/left_02.STL": "84fe2916112e31bdd0e4c92cb70f0e7c2f36f8bcca9afd742e34b90d6155f272",
+    "mesh:contacts/ssg48_fin_ray/left_03.STL": "272fad246ebc1f086628c23e28c2802a003015827c4c35739ae2717a71e56a18",
+    "mesh:contacts/ssg48_fin_ray/left_04.STL": "799b166787d4bb6baf70b70a3d095b8ead20ed9ff0b2445bbb46f03bd82617c8",
+    "mesh:contacts/ssg48_fin_ray/left_05.STL": "95f5f05cc48171f3f3904680f7065b25e58e48605fda3cca522bbfe934224455",
+    "mesh:contacts/ssg48_fin_ray/right_00.STL": "3c01371c94acb5b14481de9e213948143828da4c451be34046783c5c3daeb87c",
+    "mesh:contacts/ssg48_fin_ray/right_01.STL": "c34c738e73058675d598b677db87d3481b160ec4b2b29a95fc22efc24eccf646",
+    "mesh:contacts/ssg48_fin_ray/right_02.STL": "4c974a21dd6ce920cc6d71a041013aed05a8ea0e03e902e27aea758aeb328f3a",
+    "mesh:contacts/ssg48_fin_ray/right_03.STL": "bcd525db42ee1c07485a46530778daf1b327fc01d2a57f9612cdcca1e19fd320",
+    "mesh:contacts/ssg48_fin_ray/right_04.STL": "770f1cfeedcf733e4cf5d30a337bd36b364b3fd35b847308e04be946d61367b4",
+    "mesh:contacts/ssg48_fin_ray/right_05.STL": "c20ff1ad759b1b2295f46ea5e70255600e3b8f7f32f7aa240a844ce0071d5e3e",
+    "texture:assets/branding/par6_badge.png": "70c52397ef3928c5c1cb144b4b76bd6537c736d6bf1ce5d3fb675492e0ca08b9",
+    "xml:par6_ssg48_stock.xml": "1cec9cc34c3e46cd41cbfb0bc4b6ca06a67ed9becbedd6de9afeee0d99ed44d9",
+    "xml:scene_ssg48_stock.xml": "3efb58cdf69b5a39ecc3cc6163504e7df7f879b6ead25fcc4b7a9acc4ea656ed"
+  }
 }

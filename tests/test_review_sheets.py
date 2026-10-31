@@ -35,7 +35,7 @@ def test_render_cache_tracks_geometry_and_projection_is_registered(monkeypatch):
     moved_x, moved_z = project([.1, 0., 0.], camera), project([0., 0., .1], camera)
     assert moved_x[0] < base[0] and moved_z[1] < base[1]
     assert abs(moved_x[0]-base[0]) == pytest.approx(abs(moved_z[1]-base[1]), abs=1e-6)
-    monkeypatch.setattr('build_review_sheets.visual_signature', lambda path: 'changed-source')
+    monkeypatch.setattr('build_review_sheets.visual_signature', lambda path, **kwargs: 'changed-source')
     with pytest.raises(ValueError, match='stale review snapshot'):
         cached_snapshot(model, 'par6', 'msg')
 

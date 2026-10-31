@@ -148,7 +148,7 @@ def analyze(robot, profile):
     return result, model
 
 
-def visual_signature(scene):
+def visual_signature(scene, *, inputs=None):
     digest = hashlib.sha256(json.dumps({'revision': RENDER_REVISION,
         'camera': CAMERA, 'mujoco': mujoco.__version__}, sort_keys=True).encode())
     # Hash canonical source geometry instead of compiled floating-point arrays:
@@ -177,6 +177,8 @@ def visual_signature(scene):
                 blob = source.read_bytes()
                 if source.suffix.lower() in {'.obj', '.mtl'}:
                     blob = blob.replace(b'\r\n', b'\n')
+                if inputs is not None:
+                    inputs[f'{tag}:{filename}'] = hashlib.sha256(blob).hexdigest()
                 digest.update(filename.encode()); digest.update(blob)
         for parent in root.iter():
             for child in list(parent):
@@ -185,7 +187,10 @@ def visual_signature(scene):
             if not (parent.text or '').strip():
                 parent.text = None
             parent.tail = None
-        digest.update(ET.canonicalize(ET.tostring(root, encoding='unicode')).encode())
+        canonical = ET.canonicalize(ET.tostring(root, encoding='unicode')).encode()
+        if inputs is not None:
+            inputs[f'xml:{path.name}'] = hashlib.sha256(canonical).hexdigest()
+        digest.update(canonical)
     visit(scene)
     return digest.hexdigest()
 
@@ -268,16 +273,20 @@ def cached_snapshot(model, robot, profile, refresh=False):
     CACHE.mkdir(parents=True, exist_ok=True)
     path = CACHE/f'{robot}_{profile}.png'
     meta = path.with_suffix('.json')
-    signature = visual_signature(paths(robot, profile)[1])
+    inputs = {}
+    signature = visual_signature(paths(robot, profile)[1], inputs=inputs)
     if refresh:
         projection = render_snapshot(model, path)
-        meta.write_text(json.dumps({'visual_signature': signature, 'projection': projection,
+        meta.write_text(json.dumps({'visual_signature': signature, 'visual_inputs': inputs, 'projection': projection,
             'image_sha256': hashlib.sha256(path.read_bytes()).hexdigest()}, indent=2)+'\n', encoding='utf-8')
     if not path.is_file() or not meta.is_file():
         raise ValueError('Review snapshot missing. Run python tools/build_review_sheets.py --render')
     details = json.loads(meta.read_text())
     if details['visual_signature'] != signature or details['image_sha256'] != hashlib.sha256(path.read_bytes()).hexdigest():
-        raise ValueError(f'{robot}/{profile}: stale review snapshot. Run python tools/build_review_sheets.py --render')
+        previous = details.get('visual_inputs', {})
+        changed = {key: {'cached': previous.get(key), 'current': inputs.get(key)}
+                   for key in sorted(previous.keys() | inputs.keys()) if previous.get(key) != inputs.get(key)}
+        raise ValueError(f'{robot}/{profile}: stale review snapshot. Run python tools/build_review_sheets.py --render. Changed visual inputs: {json.dumps(changed)}')
     return path, details['projection']
 
 

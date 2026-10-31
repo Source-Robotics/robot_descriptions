@@ -23,5 +23,35 @@
     "orthographic": true,
     "registration_error_max_px": 0.4088001034451091
   },
-  "image_sha256": "441be223eb719a89af2e13cfcf0d6e4cb0ee0d952da7a354670e876cbdb4df1e"
+  "image_sha256": "441be223eb719a89af2e13cfcf0d6e4cb0ee0d952da7a354670e876cbdb4df1e",
+  "visual_inputs": {
+    "mesh:arm/base_link.STL": "a775b6e791a3f8f49a669b20ad96bd9eb20544d9f54334a13f591034619d0931",
+    "mesh:arm/L1.STL": "f4f7446b9fd8ddccee2e4948d14270d1bb1544ccc72d301315f316fe52d9d0db",
+    "mesh:arm/L2.STL": "41b54c4f747551fd494d0f0c7d73eb0d8fea60a4f97e23042032a7566b3a70d8",
+    "mesh:arm/L3.STL": "4a3584a29eee9266dc0c7bc22224f2c282aa275b65a35999f9316604b1483e2f",
+    "mesh:arm/L4.STL": "b34747db1d8fd1f60448a855a8470d9fe0aab7bc44b483f1ba69370c552f5f48",
+    "mesh:arm/L5.STL": "a6128037ab3bb73d8cc75e3b8c95ff617f3741da4d8e6eea566e4b6805ee11c4",
+    "mesh:gripper_SSG48.STL": "e90a8a4b0d9d53581854732babec0e8fd364d8ac9079a33215bef5e07274faf4",
+    "mesh:jaw1_SSG48.STL": "d3cbd3919b4489ca00dd6816b78a5f52ab6a90ea050ae3341fadd38bf6cf0608",
+    "mesh:jaw2_SSG48.STL": "ebd4142408f1a0871954337c72549b105f845a6fd2d6a3e813d36575c8d99d48",
+    "mesh:visual/j1_actuator_visual.STL": "aa1069d40ac09444fb9e5f2f879e05a768686efc9943d51955de1e5948672248",
+    "mesh:visual/j2_actuator_visual.STL": "a9891b56216c28b5e838d4ec78730e6ad3836f5fb959d531005a14b69f93964e",
+    "mesh:visual/shoulder_structure_visual.STL": "34fa4eb9571280e981692b539c9fec5c6ab48fe58cb68a74f85706d19dae1d20",
+    "mesh:visual/j3_actuator_visual.STL": "d5245d07ed1e0c5ba453dcc3a63c25ed9f22d5e81323e3239092112fbc1516e3",
+    "mesh:visual/upper_arm_structure_visual.STL": "9419c857079db4137e0be283b0c9e6d3f891a046d3e8c6bcd72b49adbe42720a",
+    "mesh:contacts/ssg48_fin_ray/left_00.STL": "77671f45a5983500649ff762ddc825a98e33b25d56ff6df0ebb81f3c107e4f83",
+    "mesh:contacts/ssg48_fin_ray/left_01.STL": "f7dff1fd033f50a277a3d8d6db0de087b3596b7e88382f69e4c5bb7d3fd19bcd",
+    "mesh:contacts/ssg48_fin_ray/left_02.STL": "84fe2916112e31bdd0e4c92cb70f0e7c2f36f8bcca9afd742e34b90d6155f272",
+    "mesh:contacts/ssg48_fin_ray/left_03.STL": "272fad246ebc1f086628c23e28c2802a003015827c4c35739ae2717a71e56a18",
+    "mesh:contacts/ssg48_fin_ray/left_04.STL": "799b166787d4bb6baf70b70a3d095b8ead20ed9ff0b2445bbb46f03bd82617c8",
+    "mesh:contacts/ssg48_fin_ray/left_05.STL": "95f5f05cc48171f3f3904680f7065b25e58e48605fda3cca522bbfe934224455",
+    "mesh:contacts/ssg48_fin_ray/right_00.STL": "3c01371c94acb5b14481de9e213948143828da4c451be34046783c5c3daeb87c",
+    "mesh:contacts/ssg48_fin_ray/right_01.STL": "c34c738e73058675d598b677db87d3481b160ec4b2b29a95fc22efc24eccf646",
+    "mesh:contacts/ssg48_fin_ray/right_02.STL": "4c974a21dd6ce920cc6d71a041013aed05a8ea0e03e902e27aea758aeb328f3a",
+    "mesh:contacts/ssg48_fin_ray/right_03.STL": "bcd525db42ee1c07485a46530778daf1b327fc01d2a57f9612cdcca1e19fd320",
+    "mesh:contacts/ssg48_fin_ray/right_04.STL": "770f1cfeedcf733e4cf5d30a337bd36b364b3fd35b847308e04be946d61367b4",
+    "mesh:contacts/ssg48_fin_ray/right_05.STL": "c20ff1ad759b1b2295f46ea5e70255600e3b8f7f32f7aa240a844ce0071d5e3e",
+    "xml:parol6_ssg48_stock.xml": "84e58b29a424aee5c3059da3522d85d6aaf037acc77408f67008551f32cf9c01",
+    "xml:scene_ssg48_stock.xml": "37e2ae45e0c7a70ab96045f08a32ea87223756323c4a579727b91801b893d160"
+  }
 }
