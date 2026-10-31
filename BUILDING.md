@@ -35,6 +35,8 @@ https://cairosvg.org/documentation/ for its platform installation guidance.
 
 1. Regenerates visual partitions from the preserved original STL records.
 2. Bakes the editable SVG palette onto the cover texture.
+   Reuses a checked SVG/configuration/generator-keyed raster cache to keep
+   Cairo antialiasing differences from changing unchanged artwork across OSes.
 3. Verifies/tessellates the STEP jaw sources and rebuilds the selected jaws.
 4. Builds six convex contact pieces per finger, reusing validated cached pieces
    only when source hashes match.

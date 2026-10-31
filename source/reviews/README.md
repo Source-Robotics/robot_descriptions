@@ -19,5 +19,12 @@ actual orthographic OpenGL frustum and an independent pixel-registration
 check using three temporary foreground markers. Those markers are absent
 from the saved source images.
 
+The generated PAR6 badge texture uses a versioned raster cache in
+`source/artwork/texture_cache`. Its SVG, palette/configuration, atlas viewport
+and generator-code hash control invalidation; the PNG checksum guards cache
+integrity. This preserves identical artwork across Cairo platform versions,
+which otherwise differ slightly at antialiased edges. Editing badge inputs
+regenerates that texture and invalidates the corresponding review snapshot.
+
 Dimensions, DH rows and FK diagnostics are always regenerated from models;
 they are never read from a snapshot or manually maintained image annotations.

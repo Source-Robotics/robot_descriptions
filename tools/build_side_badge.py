@@ -163,10 +163,29 @@ def color_rgba(value):
     return ' '.join(f'{int(value[i:i+2],16)/255:.9g}' for i in [1,3,5]) + ' 1'
 
 
+def texture_cache_key(config, viewport):
+    # Cache the canonical rasterization of these authoring inputs. Cairo's
+    # antialiasing differs slightly across platforms; polygon iteration order
+    # is also not an authoring input. Code/source/palette/atlas edits invalidate
+    # the cache, while an unchanged checkout emits byte-identical artwork.
+    recipe={'schema':1,'config':config,'viewport':list(viewport),
+            'svg_sha256':hashlib.sha256((CONFIG.parent/config['source']).read_bytes()).hexdigest(),
+            'generator_sha256':hashlib.sha256(Path(__file__).read_bytes().replace(b'\r\n',b'\n')).hexdigest()}
+    return hashlib.sha256(json.dumps(recipe,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+
+
 def render_texture(config, shapes, viewport):
     width, height = config['texture_width_px'], config['texture_height_px']
     if width < 64 or height < 16 or width > 4096 or height > 4096:
         raise ValueError('Texture dimensions must be between 64x16 and 4096x4096')
+    directory=CONFIG.parent/'texture_cache'
+    image_path,metadata_path=directory/'par6_badge.png',directory/'par6_badge.json'
+    key=texture_cache_key(config,viewport)
+    if image_path.is_file() and metadata_path.is_file():
+        metadata=json.loads(metadata_path.read_text(encoding='utf-8'))
+        blob=image_path.read_bytes()
+        if metadata.get('input_sha256')==key and metadata.get('image_sha256')==hashlib.sha256(blob).hexdigest():
+            return blob
     left, top, view_width, view_height = viewport
     color_rgba(config['panel_color'])
     elements = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="{left} {top} {view_width} {view_height}" preserveAspectRatio="none">',
@@ -186,7 +205,12 @@ def render_texture(config, shapes, viewport):
     image = Image.open(io.BytesIO(png)).convert('RGB')
     output = io.BytesIO()
     image.save(output, format='PNG', optimize=True)
-    return output.getvalue()
+    blob=output.getvalue()
+    directory.mkdir(parents=True,exist_ok=True)
+    image_path.write_bytes(blob)
+    metadata_path.write_text(json.dumps({'input_sha256':key,
+        'image_sha256':hashlib.sha256(blob).hexdigest()},indent=2)+'\n',encoding='utf-8')
+    return blob
 
 
 def original_normals(path, triangles):
