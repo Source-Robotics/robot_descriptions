@@ -23,12 +23,12 @@ the corresponding CAD part frames, per the user's instruction. New packages
 carry the repository's Apache-2.0 declaration. This is model-data inheritance,
 not an independent PAROL6 weighing or inertia measurement.
 
-The source's 176.35 mm forearm is retained. Source rounded RPY entries are
-preserved here, while generated joint origins use the PAR6 reference angles.
-The normalized wrist-to-flange transform is +57.1 mm on Z with no rotation,
-identical to PAR6. For comparison only, the historical L6 frame reaches that
-face using -57.1 mm Z and 180 degrees about Y. The flange distance comes from
-the requested shared PAR6 interface, not an independent marker in this export.
+The original source's 176.35 mm forearm and rounded RPY entries are preserved
+here. Generated models use the corrected 177 mm forearm, a 0.65 mm outward
+lower-arm mesh shift, and the PAR6 reference angles. PAROL6's normalized
+wrist-to-flange transform is +50.5 mm on Z with no rotation; PAR6 uses +57.1 mm.
+The shorter PAROL6 wrist preserves the same housing-to-tool clearance.
+`model.json` records these corrections; they do not alter the original export.
 
 See the generated `KINEMATICS_COMPARISON.md` and diagram in each package for
 the standard DH table, coordinate conversion and validation results.

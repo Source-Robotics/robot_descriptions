@@ -98,6 +98,10 @@ edit branding, or contribute a model, see the [build guide](BUILDING.md),
 [model details and authoring notes](MODEL_DETAILS.md), and [changelog](CHANGELOG.md).
 The build uses only the files in this repository.
 
+**Wondering what all the folders and files are?** Read the
+[repository guide](REPOSITORY_GUIDE.md) for the package layout, editable inputs,
+build tools, reports and generated files. Most users only need one model package.
+
 ## License
 
 The description packages are provided under [Apache-2.0](LICENSE). Hardware,

@@ -173,6 +173,13 @@ diagrams explicitly show the retained operational TCPs.
 
 ### Other checks
 
+Standalone gripper guide images can be refreshed separately on a machine with
+OpenGL, for example `python tools/render_gripper_previews.py --gripper msg`.
+The MSG preview uses a temporary presentation pose with the lens upright and
+jaws facing the viewer. It does not change the model's mounting frame or physics.
+The next standalone export copies these images into both package formats;
+`tools/export_hardware_guide.py` copies them into the hardware guide.
+
 ```bash
 python tools/verify_dynamics_sync.py
 python tools/audit_rcb_dynamics.py
