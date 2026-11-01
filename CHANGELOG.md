@@ -1,5 +1,11 @@
 # Changelog - Source Robotics robot descriptions
 
+## 2.15.1 - 2026-11-01
+
+- Added simulated MSG built-in camera previews for Solid and Soft TPU jaws, using the existing orange-box grasp fixtures and unmodified camera geometry/FOV.
+- Included camera instructions and previews in all six arm/MSG packages and linked them from product guides. SSG48 standalone models have no camera.
+- Corrected historical PAR6 appearance notes to the actual 51.5-degree vertical FOV; camera settings and all physical model data are unchanged.
+
 ## 2.15.0 - 2026-11-01
 
 - Licensed current model/data/assets/documentation under CC BY 4.0; Python/ROS support code remains Apache-2.0. Added attribution and explicit scope to all eight packages. Earlier releases retain their existing license grants.

@@ -6,7 +6,7 @@
   "license": "CC-BY-4.0",
   "sourceUrl": "https://source-robotics.com/",
   "sourceRevision": "2025-02-10",
-  "packageVersion": "2.15.0",
+  "packageVersion": "2.15.1",
   "entry": "scene_msg.xml",
   "dof": 6,
   "tcpSites": [

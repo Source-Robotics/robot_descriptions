@@ -53,3 +53,5 @@ The authoring repository is https://github.com/Source-Robotics/robot_description
 Models and assets: **CC BY 4.0**. See [attribution and license scope](docs/ATTRIBUTION.md).
 
 [Changing colors](docs/COLORS.md): material names, editable palettes and examples.
+
+[MSG built-in camera](docs/MSG_CAMERA.md): simulated views with both jaw options and a rendering example.

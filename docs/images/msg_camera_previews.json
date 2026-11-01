@@ -1,0 +1,70 @@
+{
+  "mujoco_version": "3.3.0",
+  "description": "Simulated native-camera views; uncalibrated against hardware.",
+  "fixture": "Unchanged existing open-jaw, 50 g orange-box grasp scenes.",
+  "lighting_override": {
+    "headlight_ambient": [
+      0.45,
+      0.45,
+      0.45
+    ],
+    "headlight_diffuse": [
+      0.6,
+      0.6,
+      0.6
+    ]
+  },
+  "image_processing": "No crop, rotation, camera override or annotation. Sites hidden.",
+  "views": [
+    {
+      "jaws": "solid",
+      "source_scene": "mujoco/par6/bench/msg-solid_box.xml",
+      "scene_sha256": "33692dc3443c8e4b803b41075e953a86ccde345b4911a7c770d49935313c8ece",
+      "camera_name": "msg_camera",
+      "camera_definition": {
+        "name": "msg_camera",
+        "mode": "fixed",
+        "pos": "-0.0513 0 -0.0897",
+        "xyaxes": "0 1 0 -0.642788 0 -0.766044",
+        "fovy": "51.50",
+        "resolution": "1280 720"
+      },
+      "compiled_vertical_fov_deg": 51.5,
+      "image_size_px": [
+        1280,
+        720
+      ],
+      "finger_qpos_m": [
+        0.0,
+        0.0
+      ],
+      "image": "msg_camera_solid.png",
+      "image_sha256": "667d6d6f215a4fd3e3442f08bb37246ec42c9b522d449c03c85c3214bb82d3c3"
+    },
+    {
+      "jaws": "soft_tpu",
+      "source_scene": "mujoco/par6/bench/msg-soft-tpu_box.xml",
+      "scene_sha256": "851be4f7159f0c4a7d57b5a818a8ac08b7e8b3e89af6150d89010eadbb4b87cf",
+      "camera_name": "msg_camera",
+      "camera_definition": {
+        "name": "msg_camera",
+        "mode": "fixed",
+        "pos": "-0.0513 0 -0.0897",
+        "xyaxes": "0 1 0 -0.642788 0 -0.766044",
+        "fovy": "51.50",
+        "resolution": "1280 720"
+      },
+      "compiled_vertical_fov_deg": 51.5,
+      "image_size_px": [
+        1280,
+        720
+      ],
+      "finger_qpos_m": [
+        0.0,
+        0.0
+      ],
+      "image": "msg_camera_soft_tpu.png",
+      "image_sha256": "21c50ca461d1b5e0f4ad31f3fce3924f62715278a633d021aca8339d4126d58c"
+    }
+  ]
+}

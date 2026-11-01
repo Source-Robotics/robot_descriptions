@@ -16,7 +16,7 @@ hundreds of individual STL files.
 | [`guides/`](guides/) | Short instructions for each product, including downloads and which model to open. | Start here. |
 | [`mujoco/`](mujoco/) | Four independent native MuJoCo packages: `par6/`, `parol6/`, `msg/`, `ssg48/`. | Using MuJoCo. |
 | [`urdf/`](urdf/) | Four independent URDF/ROS packages: `par6_description/`, `parol6_description/`, `msg_description/`, `ssg48_description/`. | Using URDF, RViz or another URDF consumer. |
-| [`docs/`](docs/) | The color-customization guide in `COLORS.md` and images under `images/`. | Browsing illustrations. |
+| [`docs/`](docs/) | Color/camera guides in `COLORS.md` / `MSG_CAMERA.md` and images under `images/`. | Browsing illustrations. |
 | [`LICENSES/`](LICENSES/) | Apache-2.0 software license text. | Maintaining or redistributing support code. |
 | [`source/`](source/) | Original CAD exports, STEP jaws, editable logo, measured data, reference snapshots and checked rendering/geometry caches. | Changing or rebuilding models. |
 | [`tools/`](tools/) | Python generators, validators and packaging tools, plus geometry/benchmark records. | Maintaining the models. |
@@ -160,6 +160,7 @@ a root README/LICENSE and `docs/VALIDATION.md`.
 | `README.md` | How to open the package and select a configuration. |
 | `LICENSE` | License carried with the exported package. |
 | `docs/ATTRIBUTION.md` | Source Robotics credit and CC BY 4.0 model-license scope; URDF packages also include `docs/LICENSE-CODE.txt` for Apache-2.0 support code. |
+| `docs/MSG_CAMERA.md` | Simulated built-in MSG camera views, FOV/frame information and a Python rendering example; included in arm/MSG packages. |
 | `docs/COLORS.md` | Material names, editable badge/jaw palettes, RGBA examples and regeneration steps. |
 | `docs/README.md` | Clickable index of the detailed notes. |
 | `docs/MODEL_DETAILS.md` | Retained longer PAR6 appearance, jaw and authoring notes. |
@@ -251,6 +252,7 @@ running every script manually is not the normal workflow.
 | `build_kinematics_docs.py` | Writes common-frame/DH comparison and actuation documentation. |
 | `build_review_sheets.py` | Builds twelve dimensioned sheets and their checks; optionally refreshes OpenGL snapshots or generates the PDF. |
 | `build_standalone_grippers.py` | Exports independent MSG/SSG48 packages from maintained arm-mounted tool subtrees. |
+| `render_msg_camera_previews.py` | Renders the actual named MSG camera in both existing box grasp fixtures, with recorded demo lighting and PNG/camera metadata. |
 | `render_gripper_previews.py` | Optional OpenGL refresh of standalone guide images. MSG uses a temporary upright presentation pose, without changing saved mounting frames. |
 | `render_parol6_previews.py` | Optional OpenGL refresh of PAROL6 preview images. |
 | `benchmark_visuals.py` | Local timing comparison for rendering, physics and clearance queries. Timing records are measurements on a particular machine. |
@@ -358,7 +360,7 @@ runs and release manifests identify the built revision.
 
 - [`output/pdf/robot_kinematics_review.pdf`](output/pdf/robot_kinematics_review.pdf)
   is the twelve-page booklet: PAR6 and PAROL6, each with six tool configurations.
-- `releases/v2.12.1.md`, `releases/v2.13.0.md` and `releases/v2.14.0.md` and `releases/v2.15.0.md` are release-note sources.
+- `releases/v2.12.1.md`, `releases/v2.13.0.md` and `releases/v2.14.0.md` and `releases/v2.15.0.md` and `releases/v2.15.1.md` are release-note sources.
 - A local build produces eight ZIPs under `dist/`. `prepare_release.py` adds the
   release PDF, `release_manifest.json` and `SHA256SUMS`.
 - The manifest describes the packaged revision/assets; checksums verify the

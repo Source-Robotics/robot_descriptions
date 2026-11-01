@@ -68,11 +68,11 @@ release ZIPs do not contain its source/generator environment.
 
 | Appearance | File to edit | Setting |
 | --- | --- | --- |
-| PAR6 side-panel badge | [`source/artwork/par6_side_badge.json`](https://github.com/Source-Robotics/robot_descriptions/blob/v2.15.0/source/artwork/par6_side_badge.json) | `colors.background`, `emblem`, `symbol`, `wordmark`, `robot_name`, `tagline`, `divider`; also `panel_color` |
-| Badge shapes/text outlines | [`source/artwork/par6_side_badge.svg`](https://github.com/Source-Robotics/robot_descriptions/blob/v2.15.0/source/artwork/par6_side_badge.svg) | Editable vector artwork; review the corresponding configuration and cache when shapes change. |
-| MSG Soft TPU jaws | [`source/jaws/msg_tpu_glue/jaw.json`](https://github.com/Source-Robotics/robot_descriptions/blob/v2.15.0/source/jaws/msg_tpu_glue/jaw.json) | `colors.black` for holders/carriages; `colors.yellow` for honeycomb inserts |
-| SSG48 Solid jaws | [`source/jaws/ssg48_pinch/jaw.json`](https://github.com/Source-Robotics/robot_descriptions/blob/v2.15.0/source/jaws/ssg48_pinch/jaw.json) | `color` |
-| Pneumatic gripper | [`source/pneumatic/model.json`](https://github.com/Source-Robotics/robot_descriptions/blob/v2.15.0/source/pneumatic/model.json) | `colors.body`, `colors.jaw` (RGBA) |
+| PAR6 side-panel badge | [`source/artwork/par6_side_badge.json`](https://github.com/Source-Robotics/robot_descriptions/blob/v2.15.1/source/artwork/par6_side_badge.json) | `colors.background`, `emblem`, `symbol`, `wordmark`, `robot_name`, `tagline`, `divider`; also `panel_color` |
+| Badge shapes/text outlines | [`source/artwork/par6_side_badge.svg`](https://github.com/Source-Robotics/robot_descriptions/blob/v2.15.1/source/artwork/par6_side_badge.svg) | Editable vector artwork; review the corresponding configuration and cache when shapes change. |
+| MSG Soft TPU jaws | [`source/jaws/msg_tpu_glue/jaw.json`](https://github.com/Source-Robotics/robot_descriptions/blob/v2.15.1/source/jaws/msg_tpu_glue/jaw.json) | `colors.black` for holders/carriages; `colors.yellow` for honeycomb inserts |
+| SSG48 Solid jaws | [`source/jaws/ssg48_pinch/jaw.json`](https://github.com/Source-Robotics/robot_descriptions/blob/v2.15.1/source/jaws/ssg48_pinch/jaw.json) | `color` |
+| Pneumatic gripper | [`source/pneumatic/model.json`](https://github.com/Source-Robotics/robot_descriptions/blob/v2.15.1/source/pneumatic/model.json) | `colors.body`, `colors.jaw` (RGBA) |
 
 For example, the MSG palette starts as:
 
@@ -85,7 +85,7 @@ For example, the MSG palette starts as:
 
 Change `yellow` to `#2080FF` to make the honeycomb inserts blue. Keep the JSON
 keys unchanged: they identify parts rather than requiring a particular color.
-After installing the [build dependencies](https://github.com/Source-Robotics/robot_descriptions/blob/v2.15.0/BUILDING.md), regenerate the
+After installing the [build dependencies](https://github.com/Source-Robotics/robot_descriptions/blob/v2.15.1/BUILDING.md), regenerate the
 packages. Visual changes also require refreshed dimensioned-review snapshots:
 
 ```bash

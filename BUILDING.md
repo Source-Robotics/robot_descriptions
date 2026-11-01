@@ -181,6 +181,12 @@ diagrams explicitly show the retained operational TCPs.
 
 ### Other checks
 
+MSG built-in camera examples use the existing box grasp fixtures. Refresh them
+with `python tools/render_msg_camera_previews.py` on a machine with OpenGL;
+the normal build copies the committed PNGs and `docs/MSG_CAMERA.md` into the
+six arm/MSG packages. Camera pose/FOV and model definitions are retained.
+See [the camera guide](docs/MSG_CAMERA.md) for scene and lighting details.
+
 Standalone gripper guide images can be refreshed separately on a machine with
 OpenGL, for example `python tools/render_gripper_previews.py --gripper msg`.
 The MSG preview uses a temporary presentation pose with the lens upright and

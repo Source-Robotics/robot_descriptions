@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <package format="2">
   <name>ssg48_description</name>
-  <version>2.15.0</version>
+  <version>2.15.1</version>
   <description>Standalone Source Robotics SSG48 gripper with interchangeable jaws.</description>
   <maintainer email="petar@source-robotics.com">Source Robotics</maintainer>
   <license>CC-BY-4.0</license>

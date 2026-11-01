@@ -1,5 +1,10 @@
 # PAROL6 description changelog
 
+## 2.15.1 - 2026-11-01
+
+- Added native MSG camera previews and rendering instructions to the package documentation.
+- Kept model camera settings, geometry, physical properties and controls unchanged.
+
 ## 2.15.0 - 2026-11-01
 
 - Licensed model data/assets under CC BY 4.0, retaining Apache-2.0 for support code.

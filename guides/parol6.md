@@ -73,6 +73,8 @@ ROS 1 files; a ROS 2 consumer can use the URDF with its own launch setup.
 
 ## 4. Check dimensions and frames
 
+For MSG configurations, see [the built-in camera view](../docs/MSG_CAMERA.md).
+
 - [Dimensioned PAROL6 review sheets](../mujoco/parol6/docs/KINEMATIC_REVIEW.md)
 - [PAROL6 DH convention](../mujoco/parol6/docs/DH.md)
 - [PAR6 / PAROL6 comparison](../reports/par6_parol6_kinematics.md)

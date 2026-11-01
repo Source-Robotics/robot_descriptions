@@ -61,3 +61,5 @@ See [validation notes](docs/VALIDATION.md) for the extraction checks and `LICENS
 Models and assets: **CC BY 4.0**. See [attribution and license scope](docs/ATTRIBUTION.md).
 
 [Changing colors](docs/COLORS.md): material names, editable palettes and examples.
+
+[MSG built-in camera](docs/MSG_CAMERA.md): simulated views with both jaw options and a rendering example.

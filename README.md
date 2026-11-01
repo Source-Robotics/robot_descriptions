@@ -65,6 +65,7 @@ geometry; deformation is not modeled.
 - [PAR6 / PAROL6 kinematic comparison](reports/par6_parol6_kinematics.md): axes, DH tables and wrist dimensions.
 - [Mass and inertia status](reports/dynamics_sync_validation.md): measured masses, RCB references and remaining estimates.
 - [SSG48 collision and grasp checks](reports/ssg48_contact_diagnosis.md): jaw contacts and validation fixtures.
+- [MSG built-in camera](docs/MSG_CAMERA.md): simulated views with both jaw options and a rendering example.
 
 Robot packages include `docs/DH.md`, `docs/DYNAMICS.md`, `docs/ACTUATION.md` and
 `docs/KINEMATIC_REVIEW.md`. Standalone gripper packages include their operating

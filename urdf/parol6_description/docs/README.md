@@ -14,6 +14,7 @@
 - [PAROL6 kinematic review sheets](KINEMATIC_REVIEW.md)
 - [PAR6 and PAROL6: common DH and joint convention](KINEMATICS_COMPARISON.md)
 - [Importing the supplied PAROL6 export](MIGRATION.md)
+- [View from the MSG built-in camera](MSG_CAMERA.md)
 - [Pneumatic gripper](PNEUMATIC.md)
 - [SSG48 internal contacts and grasp fixture correction](SSG48_CONTACTS.md)
 

@@ -153,7 +153,7 @@ and reference-frame visualization; jaw-specific grasp frames are not yet calibra
 
 Only the MSG variant contains the fixed `msg_camera`. Its camera and
 semantic frames do not use visible helper geometry. The current camera mount
-pose and 90-degree field of view should be checked against production CAD and
+pose and 51.5-degree vertical field of view should be checked against production CAD and
 camera calibration before using rendered images as calibrated measurements.
 
 ## Quick test

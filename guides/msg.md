@@ -71,6 +71,27 @@ estimates. Selecting jaws changes visible/contact geometry; soft-material
 deformation is not simulated. The existing `tcp` is a control frame rather
 than a newly measured jaw-specific grasp center.
 
+## 4. View through the built-in camera
+
+These **simulated views from `msg_camera`** show both fully open jaw options
+and the orange box from the existing grasp-test scene. The modeled camera
+uses a **51.5-degree vertical field of view** at **1280 x 720**. Demo lighting
+is brighter for visibility; the camera pose, object and jaw geometry are unchanged.
+
+| Solid jaws: built-in camera | Soft TPU jaws: built-in camera |
+| --- | --- |
+| ![MSG built-in camera with Solid jaws](../docs/images/msg_camera_solid.png) | ![MSG built-in camera with Soft TPU jaws](../docs/images/msg_camera_soft_tpu.png) |
+
+The jaws frame the grasp area, and the close test object extends partly beyond
+the image border. These are model renders, not calibrated real-camera photos.
+The standalone gripper scene contains no test object; its camera sees the jaws
+and background until you add objects to your own simulation.
+
+[Camera settings and Python rendering example](../docs/MSG_CAMERA.md) explain
+how to render the existing named camera. The same page and previews are included
+under `docs/MSG_CAMERA.md` in the arm/MSG downloads. URDF provides the camera
+mounting and optical frames; image rendering belongs to the consuming simulator.
+
 ## Use MSG already mounted on PAR6 or PAROL6
 
 Download the **robot** package using the [PAR6](par6.md) or [PAROL6](parol6.md)

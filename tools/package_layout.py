@@ -2,6 +2,7 @@
 import json
 from pathlib import Path
 import re
+import shutil
 from urllib.parse import unquote, urlsplit
 
 
@@ -25,11 +26,20 @@ def write_index(package):
     base=f'https://github.com/Source-Robotics/robot_descriptions/blob/v{data["packageVersion"]}/'
     colors=colors.replace('](../source/',']('+base+'source/').replace('](../BUILDING.md)',']('+base+'BUILDING.md)')
     (directory/'COLORS.md').write_text(colors,encoding='utf-8')
+    has_msg=Path(package).name in {'par6','parol6','msg','par6_description','parol6_description','msg_description'}
+    if has_msg:
+        camera=(source/'docs/MSG_CAMERA.md').read_text(encoding='utf-8')
+        camera=camera.replace('](images/','](../previews/')
+        (directory/'MSG_CAMERA.md').write_text(camera,encoding='utf-8')
+        for name in ['msg_camera_solid.png','msg_camera_soft_tpu.png']:
+            shutil.copyfile(source/'docs/images'/name,previews(package)/name)
     front=Path(package)/'README.md'
     text=front.read_text(encoding='utf-8')
     if '[Changing colors](docs/COLORS.md)' not in text:
         text+='\n[Changing colors](docs/COLORS.md): material names, editable palettes and examples.\n'
-        front.write_text(text,encoding='utf-8')
+    if has_msg and '[MSG built-in camera](docs/MSG_CAMERA.md)' not in text:
+        text+='\n[MSG built-in camera](docs/MSG_CAMERA.md): simulated views with both jaw options and a rendering example.\n'
+    front.write_text(text,encoding='utf-8')
     lines=['# Package documentation', '', '[Back to the model instructions](../README.md)', '']
     for path in sorted(directory.glob('*.md')):
         if path.name=='README.md':continue
