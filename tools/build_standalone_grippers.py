@@ -24,6 +24,8 @@ GRIPPERS = {
 }
 
 
+from package_layout import documentation, previews
+
 def write_xml(path, root):
     ET.indent(root, space='  ')
     ET.ElementTree(root).write(path, encoding='utf-8', xml_declaration=True)
@@ -145,7 +147,7 @@ def metadata(family, native, version):
                          'endEffectorBodies': [f'{family}_gripper_link'],
                          'gripperActuators': ['gripper_actuator'] if native else []})
         if (ROOT/f'source/grippers/previews/{family}_{suffix}.png').is_file():
-            variants[-1]['preview'] = f'{family}_{suffix}.png'
+            variants[-1]['preview'] = f'previews/{family}_{suffix}.png'
     return {'version': 1, 'name': f'Source Robotics {config["label"]} gripper',
             'manufacturer': 'Source Robotics', 'category': 'gripper', 'license': 'Apache-2.0',
             'sourceUrl': 'https://github.com/Source-Robotics/robot_descriptions',
@@ -191,12 +193,16 @@ This self-contained package contains **only the {label} gripper**, with both jaw
 options, its fixed mounting frame and configured TCP. All required meshes and
 materials are included. Keep the whole folder together when moving or uploading it.
 
-![{label} with Solid jaws]({family}_solid.png)
+![{label} with Solid jaws](previews/{family}_solid.png)
 
 {table}
 {rows}
 
 The default is Solid jaws. {'`scene.xml` is an alias for `scene_solid.xml`.' if native else 'The URDF filenames are at the package root and use relative mesh paths.'}
+
+Detailed notes are in [docs/](docs/), model images in [previews/](previews/),
+and geometry in `{'assets' if native else 'meshes'}/`. The model entry files
+remain at the package root.
 
 ## Open the model
 
@@ -228,7 +234,7 @@ The retained `tcp` is the operational control frame, not a newly measured
 jaw-specific grasp center. Frame and inertia definitions are copied from the
 maintained robot assembly; exporting does not infer new physical measurements.
 
-See `VALIDATION.md` for the extraction checks and `LICENSE` for Apache-2.0.
+See [validation notes](docs/VALIDATION.md) for the extraction checks and `LICENSE` for Apache-2.0.
 '''
 
 
@@ -241,7 +247,7 @@ def build():
             for suffix, profile, _ in config['profiles']:
                 preview = ROOT/f'source/grippers/previews/{family}_{suffix}.png'
                 if preview.is_file():
-                    shutil.copyfile(preview,destination/preview.name)
+                    shutil.copyfile(preview,previews(destination)/preview.name)
                 if native:
                     model = native_model(family, profile, destination)
                     write_xml(destination/f'{family}_{suffix}.xml', model)
@@ -267,7 +273,7 @@ def build():
             (destination/'sim2bot.robot.json').write_text(json.dumps(metadata(family,native,version),indent=2)+'\n',encoding='utf-8')
             (destination/'README.md').write_text(readme(family,native),encoding='utf-8')
             shutil.copyfile(ROOT/'LICENSE',destination/'LICENSE')
-            (destination/'VALIDATION.md').write_text('''# Standalone gripper validation
+            (documentation(destination)/'VALIDATION.md').write_text('''# Standalone gripper validation
 
 Generated from the maintained PAR6 tool subtree, with the root at the physical
 `flange` frame. Both arms use the same tool-relative definitions.
@@ -300,8 +306,8 @@ These are model-preservation and simulation checks, not physical calibration.
 project({family}_description)
 find_package(catkin REQUIRED)
 catkin_package()
-install(DIRECTORY launch meshes DESTINATION ${{CATKIN_PACKAGE_SHARE_DESTINATION}})
-install(FILES {family}_solid.urdf {family}_{config['profiles'][1][0]}.urdf
+install(DIRECTORY launch meshes docs previews DESTINATION ${{CATKIN_PACKAGE_SHARE_DESTINATION}})
+install(FILES README.md LICENSE sim2bot.robot.json {family}_solid.urdf {family}_{config['profiles'][1][0]}.urdf
         DESTINATION ${{CATKIN_PACKAGE_SHARE_DESTINATION}})
 ''',encoding='utf-8')
                 launch = ET.Element('launch')

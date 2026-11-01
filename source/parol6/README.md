@@ -30,5 +30,5 @@ wrist-to-flange transform is +50.5 mm on Z with no rotation; PAR6 uses +57.1 mm.
 The shorter PAROL6 wrist preserves the same housing-to-tool clearance.
 `model.json` records these corrections; they do not alter the original export.
 
-See the generated `KINEMATICS_COMPARISON.md` and diagram in each package for
+See the generated `docs/KINEMATICS_COMPARISON.md` and diagram in each package for
 the standard DH table, coordinate conversion and validation results.

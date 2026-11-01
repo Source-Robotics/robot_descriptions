@@ -5,7 +5,7 @@
   "category": "gripper",
   "license": "Apache-2.0",
   "sourceUrl": "https://github.com/Source-Robotics/robot_descriptions",
-  "packageVersion": "2.13.0",
+  "packageVersion": "2.14.0",
   "entry": "scene_solid.xml",
   "dof": 1,
   "rootFrame": "flange",
@@ -30,7 +30,7 @@
       "gripperActuators": [
         "gripper_actuator"
       ],
-      "preview": "ssg48_solid.png"
+      "preview": "previews/ssg48_solid.png"
     },
     {
       "id": "fin-ray",
@@ -42,7 +42,7 @@
       "gripperActuators": [
         "gripper_actuator"
       ],
-      "preview": "ssg48_fin_ray.png"
+      "preview": "previews/ssg48_fin_ray.png"
     }
   ]
 }

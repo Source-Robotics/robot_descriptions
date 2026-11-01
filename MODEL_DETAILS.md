@@ -9,9 +9,9 @@ Download the [tested model packages](https://github.com/Source-Robotics/robot_de
 for direct use. To maintain or embed these models, see [the build guide](BUILDING.md)
 and [release/submodule instructions](RELEASING.md).
 
-Every package includes `DH.md` and `KINEMATICS_COMPARISON.md`, documenting
+Every package includes `docs/DH.md` and `KINEMATICS_COMPARISON.md`, documenting
 its coordinate convention and the differences between the two robot families.
-It also includes `KINEMATIC_REVIEW.md` and dimensioned SVG/PNG sheets with a
+It also includes `docs/KINEMATIC_REVIEW.md` and dimensioned SVG/PNG sheets with a
 tool-specific DH table for each profile. Open the
 [offline comparison page](reports/kinematics_review/index.html) to compare any
 two configurations, or the [printable booklet](output/pdf/robot_kinematics_review.pdf)
@@ -54,7 +54,7 @@ flange-relative tool definitions and inherited local inertials stay intact.
 The old supplied export is retained unchanged for reference; its reversed
 coordinate directions are a historical conversion, not the new public model.
 A physical controller's encoder/homing mapping is not inferred from the model.
-See `ACTUATION.md` in each package for finite servo settings and the distinction
+See `docs/ACTUATION.md` in each package for finite servo settings and the distinction
 between open-loop hardware and simulated joint stiffness.
 
 ![PAROL6 tool profiles](reports/parol6_models.png)
@@ -69,7 +69,7 @@ The original side-gripping pneumatic assembly is available on both arms as
 `par6_pneumatic.urdf` / `parol6_pneumatic.urdf`. Jaws move symmetrically through
 3.5 mm each, with native coupling, URDF mimic joints and convex collisions.
 Its legacy 195 g total, CAD mass distribution and finite actuator settings
-remain estimates. See [PNEUMATIC.md](mujoco/par6/PNEUMATIC.md) for mounting,
+remain estimates. See [PNEUMATIC.md](mujoco/par6/docs/PNEUMATIC.md) for mounting,
 TCPs, open/close controls and calibration status. Existing measured electric
 gripper masses and the five earlier profiles are retained.
 
@@ -86,7 +86,7 @@ MJCF's added visual geoms have zero mass and disabled collisions; the affected
 original collision geoms have transparent rendering. URDF changes are confined
 to the affected links' visual elements.
 
-See [the appearance preview](motor_visuals_preview.png), the reproducible
+See [the appearance preview](docs/images/motor_visuals_preview.png), the reproducible
 [mesh partition script](tools/split_motor_visuals.py), and
 [validation results](tools/motor_visual_validation.json). Every source triangle
 record is preserved exactly across the visual partitions. Each package's own
@@ -99,7 +99,7 @@ independent `msg_camera_lens_black` and `msg_gripper_motor_black` materials.
 The camera enclosure, printed brackets, rails, and other gripper parts keep
 their previous colors. The original complete gripper mesh remains the collision
 shape, and the camera pose, intrinsics, gripper mechanism, and inertial data are
-unchanged. See [the gripper preview](gripper_visuals_preview.png).
+unchanged. See [the gripper preview](docs/images/gripper_visuals_preview.png).
 
 Visual partitions are in `mujoco/par6/assets/visual/` and, for the URDF MSG
 variant, `urdf/par6_description/meshes/msg/visual/`.
@@ -230,7 +230,7 @@ asset workflow. The current STL meshes have no UV coordinates.
 The supplied Source Robotics / PAR6 / Collaborative SVG is now fitted to the
 flat outer cover of `upper_arm_link`, on the side shown in the placement
 reference. It follows the panel's long axis, with the emblem toward the elbow.
-See [the side-badge preview](side_badge_preview.png).
+See [the side-badge preview](docs/images/side_badge_preview.png).
 
 The badge is now a 1024x384 RGB PNG painted onto the existing cover visual,
 using a UV-mapped OBJ in MJCF and a textured DAE in URDF. It replaces the

@@ -1,5 +1,5 @@
 {
-  "package_version": "2.13.0",
+  "package_version": "2.14.0",
   "joint_convention": "PAR6 normalized",
   "poses_per_profile": 160,
   "reference": "PAR6 arm chain with the user-corrected 177 mm forearm; PAROL6 flange reach corrected to match PAR6 housing-to-tool spacing. Original export retained unchanged.",

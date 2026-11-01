@@ -5,9 +5,13 @@
 PAR6 is available in **MuJoCo and URDF**, with all six configurations below.
 The default `scene.xml` in the MuJoCo package opens the MSG with Solid jaws.
 
-| PAR6 with MSG | PAR6 with SSG48 |
-| --- | --- |
-| ![PAR6 with MSG](../source/reviews/render_cache/par6_msg.png) | ![PAR6 with SSG48](../source/reviews/render_cache/par6_ssg48.png) |
+### PAR6 with MSG
+
+![PAR6 with MSG Solid jaws](../docs/images/par6_msg.png)
+
+### PAR6 with SSG48
+
+![PAR6 with SSG48 Solid jaws](../docs/images/par6_ssg48.png)
 
 ## 1. Download
 
@@ -69,12 +73,12 @@ ROS 1 files; a ROS 2 consumer can use the URDF with its own launch setup.
 
 ## 4. Check dimensions and frames
 
-- [Dimensioned PAR6 review sheets](../mujoco/par6/KINEMATIC_REVIEW.md)
-- [PAR6 DH convention](../mujoco/par6/DH.md)
+- [Dimensioned PAR6 review sheets](../mujoco/par6/docs/KINEMATIC_REVIEW.md)
+- [PAR6 DH convention](../mujoco/par6/docs/DH.md)
 - [PAR6 / PAROL6 comparison](../reports/par6_parol6_kinematics.md)
-- [Mass, COM and inertia status](../mujoco/par6/DYNAMICS.md)
-- [Actuator settings](../mujoco/par6/ACTUATION.md)
-- [Pneumatic jaw motion and controls](../mujoco/par6/PNEUMATIC.md)
+- [Mass, COM and inertia status](../mujoco/par6/docs/DYNAMICS.md)
+- [Actuator settings](../mujoco/par6/docs/ACTUATION.md)
+- [Pneumatic jaw motion and controls](../mujoco/par6/docs/PNEUMATIC.md)
 
 `flange` is the physical tool-mounting face; `tcp` is the configured control
 frame. Jaw-specific grasp centers have not been calibrated. PAR6 and PAROL6
@@ -85,5 +89,5 @@ wrist housings require different flange offsets.
 
 The shared repository replaces the older model folder in the PAR6 hardware
 repository. File locations and some public joint names have changed. See the
-[name migration table](../urdf/par6_description/MIGRATION.md) and
+[name migration table](../urdf/par6_description/docs/MIGRATION.md) and
 [legacy-folder migration guide](legacy-models.md) before updating existing code.

@@ -1,5 +1,10 @@
 # PAROL6 description changelog
 
+## 2.14.0 - 2026-11-01
+
+- Moved detailed notes and review sheets into docs/, and catalog images into previews/.
+- Retained runtime model, scene, mesh and ROS launch entry paths and all physical data.
+
 ## 2.13.0 - 2026-10-31
 
 - Corrected SSG48 URDF collision proxies to omit internal transmission racks while preserving their visuals and all inertial properties.

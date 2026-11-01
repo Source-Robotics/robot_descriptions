@@ -40,6 +40,8 @@ SPLITS = {
 }
 
 
+from package_layout import documentation, previews
+
 def write_xml(tree, path):
     path.parent.mkdir(parents=True, exist_ok=True)
     ET.indent(tree, space='  ')
@@ -211,18 +213,23 @@ def metadata_and_support():
             variant['entry'] = variant['entry'].replace('par6_', 'parol6_')
             variant.pop('preview', None)
             profile = variant['entry'].removeprefix('scene_').removeprefix('parol6_').removesuffix('.xml').removesuffix('.urdf')
-            if (target/f'parol6_{profile}.png').is_file():
-                variant['preview'] = f'parol6_{profile}.png'
-        if (target/'parol6_msg.png').is_file():
-            data['preview'] = 'parol6_msg.png'
+            if (previews(target)/f'parol6_{profile}.png').is_file():
+                variant['preview'] = f'previews/parol6_{profile}.png'
+        if (previews(target)/'parol6_msg.png').is_file():
+            data['preview'] = 'previews/parol6_msg.png'
         (target/'sim2bot.robot.json').write_text(json.dumps(data, indent=2)+'\n', encoding='utf-8')
         shutil.copyfile(ROOT/'LICENSE', target/'LICENSE')
         for document in ['GRASP_FRAMES.md', 'CONTACT_PERFORMANCE.md']:
-            text = (template/document).read_text(encoding='utf-8').replace('PAR6', 'PAROL6').replace('par6_', 'parol6_')
-            (target/document).write_text(text, encoding='utf-8')
-        (target/'CHANGELOG.md').write_text(f'''# PAROL6 description changelog
+            text = (documentation(template)/document).read_text(encoding='utf-8').replace('PAR6', 'PAROL6').replace('par6_', 'parol6_')
+            (documentation(target)/document).write_text(text, encoding='utf-8')
+        (documentation(target)/'CHANGELOG.md').write_text(f'''# PAROL6 description changelog
 
-## {version} - 2026-10-31
+## {version} - 2026-11-01
+
+- Moved detailed notes and review sheets into docs/, and catalog images into previews/.
+- Retained runtime model, scene, mesh and ROS launch entry paths and all physical data.
+
+## 2.13.0 - 2026-10-31
 
 - Corrected SSG48 URDF collision proxies to omit internal transmission racks while preserving their visuals and all inertial properties.
 - Corrected short-jaw grasp fixture clearance and added full-stroke internal contact and close/lift/hold/release regression checks.
@@ -251,7 +258,7 @@ def metadata_and_support():
 
 - First PAROL6 package with shared tools and physical properties, using the supplied export angle convention.
 ''', encoding='utf-8')
-        (target/'MIGRATION.md').write_text('''# Importing the supplied PAROL6 export
+        (documentation(target)/'MIGRATION.md').write_text('''# Importing the supplied PAROL6 export
 
 The original URDF names joints and moving links L1 through L6. They are
 renamed in order to base_joint/shoulder_link,
@@ -286,6 +293,11 @@ Self-contained {'URDF' if target == URDF else 'MuJoCo'} description with the sup
 standardized PAR6 joint convention, plus shared PAR6 end effectors.
 No other checkout is needed.
 
+![PAROL6 with MSG Solid jaws](previews/parol6_msg.png)
+
+Detailed notes and dimensioned drawings are in [docs/](docs/); model images are
+in [previews/](previews/). Entry files, assets and ROS launch paths are unchanged.
+
 | Tool | Model |
 | --- | --- |
 {entries}
@@ -293,12 +305,12 @@ No other checkout is needed.
 MSG defaults to Solid jaws; SSG48 defaults to Solid jaws. The alternative
 options are MSG Soft TPU jaws and SSG48 Fin-ray jaws.
 The original side-gripping pneumatic assembly is also selectable; its jaws
-move symmetrically through 3.5 mm each. See [PNEUMATIC.md](PNEUMATIC.md) for
+move symmetrically through 3.5 mm each. See [PNEUMATIC.md](docs/PNEUMATIC.md) for
 the mounting reference, TCP and explicitly estimated dynamics/actuation.
 
 {viewing}
 
-Read [DH.md](DH.md) and [the PAR6 comparison](KINEMATICS_COMPARISON.md) before
+Read [DH.md](docs/DH.md) and [the PAR6 comparison](docs/KINEMATICS_COMPARISON.md) before
 exchanging joint angles with older exports. Public angles, axes and J6
 orientation now match PAR6, as does the corrected 177 mm forearm (d4 = -177 mm).
 Flange-ending d6 differs: -50.5 mm on PAROL6 versus -57.1 mm on PAR6.
@@ -311,16 +323,16 @@ remain the collision assets. PAR6's badge artwork is not placed on PAROL6.
 Mass, local COM and central inertia are inherited from the corresponding
 PAR6 package as requested, not independently measured for PAROL6. Flange mass
 is 55.5 g; complete MSG is 380 g and complete SSG48 is 440 g, with 39.3 g per
-moving finger/jaw/slider assembly. See [DYNAMICS.md](DYNAMICS.md) for limits of
-this assumption and [DYNAMICS_AUDIT.md](DYNAMICS_AUDIT.md) for validation.
-See [ACTUATION.md](ACTUATION.md) for finite position-control settings;
+moving finger/jaw/slider assembly. See [DYNAMICS.md](docs/DYNAMICS.md) for limits of
+this assumption and [DYNAMICS_AUDIT.md](docs/DYNAMICS_AUDIT.md) for validation.
+See [ACTUATION.md](docs/ACTUATION.md) for finite position-control settings;
 open-loop hardware does not imply infinite simulated joint stiffness.
-See [KINEMATIC_REVIEW.md](KINEMATIC_REVIEW.md) for dimensioned model snapshots
+See [KINEMATIC_REVIEW.md](docs/KINEMATIC_REVIEW.md) for dimensioned model snapshots
 and tool-specific DH tables for all six configurations.
 
 The authoring repository is https://github.com/Source-Robotics/robot_descriptions.
 ''', encoding='utf-8')
-        (target/'DYNAMICS.md').write_text('''# PAROL6 dynamics inheritance
+        (documentation(target)/'DYNAMICS.md').write_text('''# PAROL6 dynamics inheritance
 
 The user specified that PAROL6 has the same mass properties as PAR6. Each
 format therefore inherits PAR6's mass, local COM and full central inertia
@@ -359,7 +371,7 @@ remain existing estimates; see ACTUATION.md.
     for name in ['package.xml', 'CMakeLists.txt']:
         text = (PAR6_URDF/name).read_text().replace('par6_description', 'parol6_description').replace('PAR6', 'PAROL6').replace('par6_', 'parol6_')
         if name == 'CMakeLists.txt':
-            text = text.replace('DIRECTORY config launch meshes', 'DIRECTORY config launch meshes scripts')
+            text = text.replace('DIRECTORY config launch meshes docs previews', 'DIRECTORY config launch meshes docs previews scripts')
         (URDF/name).write_text(text, encoding='utf-8')
     for directory in ['config', 'launch']:
         for path in (PAR6_URDF/directory).rglob('*'):
@@ -420,7 +432,7 @@ def build():
               'mounting_geometry': mounting}
     (ROOT/'reports/parol6_build.json').write_text(json.dumps(report, indent=2)+'\n', encoding='utf-8')
     for package in [MJCF, URDF]:
-        (package/'PNEUMATIC.md').write_bytes((PAR6_MJCF/'PNEUMATIC.md').read_bytes())
+        (documentation(package)/'PNEUMATIC.md').write_bytes((documentation(PAR6_MJCF)/'PNEUMATIC.md').read_bytes())
     print(f'Built all {len(PROFILES)} PAROL6 URDF/MuJoCo profiles from included sources.', flush=True)
     return report
 

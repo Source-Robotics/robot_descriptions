@@ -9,6 +9,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parent))
 
 
 def build(models_only=False):
+    from package_layout import documentation
     if not models_only:
         import json
         import split_motor_visuals as motors
@@ -42,7 +43,7 @@ def build(models_only=False):
     print('MSG and SSG48 mesh, coupling and closing checks passed.',flush=True)
     audit()
     for package in [ROOT/'mujoco/par6',ROOT/'urdf/par6_description']:
-        (package/'DYNAMICS_AUDIT.md').write_bytes((ROOT/'reports/rcb_model_comparison.md').read_bytes())
+        (documentation(package)/'DYNAMICS_AUDIT.md').write_bytes((ROOT/'reports/rcb_model_comparison.md').read_bytes())
     from build_parol6 import build as parol6
     from verify_parol6 import verify as parol6_checks
     parol6();parol6_checks()
@@ -57,7 +58,7 @@ def build(models_only=False):
     (ROOT/'reports/grasp_checks.json').write_text(json.dumps(grasps,indent=2)+'\n',encoding='utf-8')
     for package in [ROOT/'mujoco/par6',ROOT/'mujoco/parol6',
                     ROOT/'urdf/par6_description',ROOT/'urdf/parol6_description']:
-        (package/'SSG48_CONTACTS.md').write_bytes((ROOT/'reports/ssg48_contact_diagnosis.md').read_bytes())
+        (documentation(package)/'SSG48_CONTACTS.md').write_bytes((ROOT/'reports/ssg48_contact_diagnosis.md').read_bytes())
         (package/'LICENSE').write_bytes((ROOT/'LICENSE').read_bytes())
     print('All 16 electric-gripper close/lift/hold/release checks passed.',flush=True)
     from build_review_sheets import build as reviews

@@ -14,6 +14,8 @@ from parol6_model import urdf_fk
 from verify_msg_jaws import canonical
 
 
+from package_layout import documentation, previews
+
 def pose(data, name, site=False):
     item = data.site(name) if site else data.body(name)
     result = np.eye(4)
@@ -138,7 +140,7 @@ def check_package(package, native):
     assert metadata['category'] == 'gripper' and metadata['rootFrame'] == 'flange'
     assert metadata['dof'] == 1 and len(metadata['variants']) == 2
     assert {v['id'] for v in metadata['variants']} == {x[0].replace('_','-') for x in config['profiles']}
-    assert all((package/name).is_file() for name in ['README.md','LICENSE','VALIDATION.md'])
+    assert all((package/name).is_file() for name in ['README.md','LICENSE','docs/VALIDATION.md'])
     for item in metadata['variants']:
         entry = package/item['entry']
         if item.get('preview'):

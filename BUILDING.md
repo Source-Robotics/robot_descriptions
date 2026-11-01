@@ -33,6 +33,12 @@ https://cairosvg.org/documentation/ for its platform installation guidance.
 
 ## What the build does
 
+Every runtime package keeps its model/scene entry files, README, license and
+metadata at the root. Detailed notes and dimensioned sheets are generated under
+`docs/`; catalog PNGs are under `previews/`. The generators write those locations
+directly. Packaging checks local documentation and catalog links again after
+extracting each ZIP, so the organized downloads remain portable.
+
 1. Regenerates visual partitions from the preserved original STL records.
 2. Bakes the editable SVG palette onto the cover texture.
    Reuses a checked SVG/configuration/generator-keyed raster cache to keep
@@ -93,7 +99,7 @@ gravity and mass matrices without importing it.
 
 `physical_measurements.json` supplies the corrected tool masses. Motor rotors
 remain uncalibrated estimates; tool COM/tensors and fixed-base properties have
-the same status documented in `DYNAMICS.md`.
+the same status documented in `docs/DYNAMICS.md`.
 
 Refreshing the snapshot is a separate maintainer operation, not part of build:
 
@@ -135,7 +141,7 @@ regenerates the numeric frame/DH documentation. Preview PNGs can be refreshed
 separately with `python tools/render_parol6_previews.py` on a machine with a
 working OpenGL backend, followed by a build to update preview metadata.
 The ordinary build and CI do not require offscreen rendering.
-Read `ACTUATION.md` in each package for the existing finite position-control
+Read `docs/ACTUATION.md` in each package for the existing finite position-control
 estimates. Open-loop hardware does not imply infinite simulation stiffness;
 URDF controller gains are configured in the consuming simulator/controller.
 
@@ -143,8 +149,8 @@ URDF controller gains are configured in the consuming simulator/controller.
 
 ### Dimensioned kinematic review
 
-All four packages contain `KINEMATIC_REVIEW.md` and six sheets under
-`kinematics_review/`, in SVG and PNG with companion JSON. The authoring
+All four packages contain `docs/KINEMATIC_REVIEW.md` and six sheets under
+`docs/kinematics_review/`, in SVG and PNG with companion JSON. The authoring
 checkout also contains an offline comparison page at
 `reports/kinematics_review/index.html`. All diagrams use the same zero-angle
 pose and orthographic camera. Dimensions are extracted from URDF joint origins

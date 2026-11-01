@@ -16,6 +16,7 @@ hundreds of individual STL files.
 | [`guides/`](guides/) | Short instructions for each product, including downloads and which model to open. | Start here. |
 | [`mujoco/`](mujoco/) | Four independent native MuJoCo packages: `par6/`, `parol6/`, `msg/`, `ssg48/`. | Using MuJoCo. |
 | [`urdf/`](urdf/) | Four independent URDF/ROS packages: `par6_description/`, `parol6_description/`, `msg_description/`, `ssg48_description/`. | Using URDF, RViz or another URDF consumer. |
+| [`docs/`](docs/) | Documentation images under `images/`, including robot-guide and feature previews. | Browsing illustrations. |
 | [`source/`](source/) | Original CAD exports, STEP jaws, editable logo, measured data, reference snapshots and checked rendering/geometry caches. | Changing or rebuilding models. |
 | [`tools/`](tools/) | Python generators, validators and packaging tools, plus geometry/benchmark records. | Maintaining the models. |
 | [`tests/`](tests/) | Automated regression tests for the generators and model data. | Checking a change. |
@@ -45,13 +46,11 @@ model input; these are also ignored by Git.
 | [`requirements-review.txt`](requirements-review.txt) | Additional dependencies for generating the optional review PDF. |
 | [`.gitattributes`](.gitattributes) | Protects hash-sensitive CAD/mesh inputs and controls Git line endings. |
 | [`.gitignore`](.gitignore) | Excludes local environments, caches, logs and generated `dist/` files. |
-| `motor_visuals_preview.png` | Illustration of the black actuator/gearbox visual partitions. |
-| `gripper_visuals_preview.png` | Illustration of the black MSG lens and motor partitions. |
-| `msg_jaws_preview.png` | Illustration of the MSG alternate-jaw work. |
-| `ssg48_jaws_preview.png` | Illustration of the SSG48 alternate-jaw work. |
-| `side_badge_preview.png` | Illustration of the side-panel logo. |
 
-The five root PNGs illustrate feature work; they are not simulator textures.
+The former loose PNGs now live in `docs/images/`: `motor_visuals_preview.png`,
+`gripper_visuals_preview.png`, `msg_jaws_preview.png`, `ssg48_jaws_preview.png`
+and `side_badge_preview.png`. They illustrate feature work; they are not simulator
+textures. The same folder contains the PAR6/PAROL6 getting-started guide images.
 
 ## What the file extensions mean
 
@@ -108,9 +107,9 @@ its two jaw options. They have a fixed mounting frame and moving fingers.
 | `bench/profiles.json` | Grasp-fixture settings, object dimensions and test positions. |
 | `bench/README.md` | How the fixtures and grasp checks work. |
 | `sim2bot.robot.json` | Optional package/variant index: entry paths, previews, actuator names and TCP names. MuJoCo itself loads XML without this file. |
-| `<product>_<option>.png` | A model preview for documentation/catalog viewers. Not a texture. |
-| `kinematics_comparison.svg` | PAR6/PAROL6 frame and dimension comparison, included with arm packages. |
-| `kinematics_review/` | Six arm/tool review sheets; see below. |
+| `previews/<product>_<option>.png` | A model preview for documentation/catalog viewers. Not a texture. |
+| `docs/kinematics_comparison.svg` | PAR6/PAROL6 frame and dimension comparison, included with arm packages. |
+| `docs/kinematics_review/` | Six arm/tool review sheets; see below. |
 
 Not every package needs every asset subfolder. Each contains its own required
 assets so it can be moved or downloaded independently. Meshes repeated across
@@ -121,6 +120,10 @@ Arm option suffixes are `flange`, `msg`, `msg_tpu_glue`, `ssg48`,
 `msg_tpu_glue` means **MSG Soft TPU**, and `ssg48_stock` means **SSG48 Fin-ray**.
 Standalone suffixes are `solid` / `soft_tpu` for MSG and `solid` / `fin_ray` for
 SSG48.
+
+Detailed notes are grouped in `docs/`, which has its own clickable index.
+Only the README, license, package metadata and model/scene entry files stay at
+the root. This layout is shared by all eight runtime packages.
 
 ## Inside a URDF package
 
@@ -148,27 +151,29 @@ data can also be consumed by ROS 2 with an appropriate launch setup.
 
 These copies let a downloaded ZIP carry its own operating and calibration
 notes. Most appear in all four arm/format packages; standalone grippers have
-the smaller README/LICENSE/VALIDATION set.
+a root README/LICENSE and `docs/VALIDATION.md`.
 
 | File | What it explains |
 | --- | --- |
 | `README.md` | How to open the package and select a configuration. |
 | `LICENSE` | License carried with the exported package. |
-| `CHANGELOG.md` | Package version history. |
-| `DH.md` | Joint-angle convention and DH parameter definitions. |
-| `KINEMATICS_COMPARISON.md` | Numeric PAR6/PAROL6 differences and frame conventions. |
-| `KINEMATIC_REVIEW.md` | How to read the dimensioned review sheets and their validation. |
-| `DYNAMICS.md` | Applied masses/reference data and remaining estimates. |
-| `DYNAMICS_AUDIT.md` | RCB-versus-description mass-property comparison. |
-| `ACTUATION.md` | Simulation drives, torque limits and finite position-control assumptions. |
-| `GRASP_FRAMES.md` | Proposal for measured jaw-specific grasp frames; it does not mean those proposed frames have already been added. |
-| `CONTACT_PERFORMANCE.md` | Recorded timing comparison for refined gripper collision shapes. |
-| `SSG48_CONTACTS.md` | Diagnosis and correction of SSG48 rack/contact and grasp-fixture issues. |
-| `PNEUMATIC.md` | Pneumatic jaw travel, coupling and estimated physical/control data. |
-| `MIGRATION.md` | Compatibility and changes from earlier exports. |
-| `VALIDATION.md` | Standalone-gripper preservation checks, travel and known endpoint/contact limitations. |
+| `docs/README.md` | Clickable index of the detailed notes. |
+| `docs/MODEL_DETAILS.md` | Retained longer PAR6 appearance, jaw and authoring notes. |
+| `docs/CHANGELOG.md` | Package version history. |
+| `docs/DH.md` | Joint-angle convention and DH parameter definitions. |
+| `docs/KINEMATICS_COMPARISON.md` | Numeric PAR6/PAROL6 differences and frame conventions. |
+| `docs/KINEMATIC_REVIEW.md` | How to read the dimensioned review sheets and their validation. |
+| `docs/DYNAMICS.md` | Applied masses/reference data and remaining estimates. |
+| `docs/DYNAMICS_AUDIT.md` | RCB-versus-description mass-property comparison. |
+| `docs/ACTUATION.md` | Simulation drives, torque limits and finite position-control assumptions. |
+| `docs/GRASP_FRAMES.md` | Proposal for measured jaw-specific grasp frames; it does not mean those proposed frames have already been added. |
+| `docs/CONTACT_PERFORMANCE.md` | Recorded timing comparison for refined gripper collision shapes. |
+| `docs/SSG48_CONTACTS.md` | Diagnosis and correction of SSG48 rack/contact and grasp-fixture issues. |
+| `docs/PNEUMATIC.md` | Pneumatic jaw travel, coupling and estimated physical/control data. |
+| `docs/MIGRATION.md` | Compatibility and changes from earlier exports. |
+| `docs/VALIDATION.md` | Standalone-gripper preservation checks, travel and known endpoint/contact limitations. |
 
-For each of the six options, `kinematics_review/<option>.svg` is the vector
+For each of the six options, `docs/kinematics_review/<option>.svg` is the vector
 dimensioned drawing, `.png` is its raster preview, and `.json` holds extracted
 dimensions, DH rows and validation data. The drawings are generated from model
 data; simulator code does not load them.
@@ -245,6 +250,7 @@ running every script manually is not the normal workflow.
 | `render_parol6_previews.py` | Optional OpenGL refresh of PAROL6 preview images. |
 | `benchmark_visuals.py` | Local timing comparison for rendering, physics and clearance queries. Timing records are measurements on a particular machine. |
 | `ros_urdf.py` | Converts relative URDF mesh references to ROS package URIs. |
+| `package_layout.py` | Shared docs/previews paths, documentation index and package-local link checks. |
 | `package_models.py` | Creates all eight independent ZIPs, extracts them and checks their contents/assets. |
 | `prepare_release.py` | Checks version consistency and prepares release assets, manifest and SHA-256 checksums. |
 | `export_hardware_guide.py` | Copies a product guide and its local previews to a hardware repository, linking model/docs paths to a chosen central revision. |
@@ -279,6 +285,7 @@ older packages; those packages are not required for the normal clean build.
 | File | Coverage |
 | --- | --- |
 | `conftest.py` | Shared test setup/import paths. |
+| `test_package_layout.py` | All eight packages have portable documentation/catalog links and the organized layout. |
 | `test_models.py` | Measured masses and COM/inertia coordinate conversion. |
 | `test_reference.py` | Captured-reference FK/dynamics regression samples. |
 | `test_parol6.py` | PAROL6 geometry, frames and shared model policy. |
@@ -291,7 +298,7 @@ older packages; those packages are not required for the normal clean build.
 | `test_portability.py` | Authoring tools import without application/runtime dependencies. |
 | `test_release.py` | Release versions, archive safety and generated release metadata. |
 
-The full suite currently expands into 105 test cases. Simulation checks protect
+The full suite currently expands into 113 test cases. Simulation checks protect
 model behavior; they do not turn estimated material/contact parameters into
 measured hardware values.
 
@@ -345,7 +352,7 @@ runs and release manifests identify the built revision.
 
 - [`output/pdf/robot_kinematics_review.pdf`](output/pdf/robot_kinematics_review.pdf)
   is the twelve-page booklet: PAR6 and PAROL6, each with six tool configurations.
-- `releases/v2.12.1.md` and `releases/v2.13.0.md` are release-note sources.
+- `releases/v2.12.1.md`, `releases/v2.13.0.md` and `releases/v2.14.0.md` are release-note sources.
 - A local build produces eight ZIPs under `dist/`. `prepare_release.py` adds the
   release PDF, `release_manifest.json` and `SHA256SUMS`.
 - The manifest describes the packaged revision/assets; checksums verify the

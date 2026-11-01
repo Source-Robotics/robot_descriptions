@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.14.0 - 2026-11-01
+
+- Organized all eight runtime packages: detailed notes, comparison diagrams and review sheets in `docs/`; catalog images in `previews/`.
+- Kept model/scene entry paths, assets, joints, collision shapes and physical properties unchanged.
+- Updated catalog image paths, ROS installation, generators and portable-package link checks.
+- Made PAR6/PAROL6 guide previews prominent and grouped loose repository feature PNGs under `docs/images/`.
+
 ## 2.13.0 - 2026-11-01
 
 - Added independent MSG and SSG48 URDF/MuJoCo packages, each with both requested jaw options.

@@ -12,6 +12,8 @@ import mujoco
 from split_motor_visuals import ROOT, MJCF, URDF
 
 
+from package_layout import write_index, verify as verify_layout
+
 def expected_masses(profile, measurements):
     if profile == 'pneumatic':
         report = json.loads((ROOT/'reports/pneumatic_geometry.json').read_text())
@@ -34,6 +36,7 @@ def build():
                    (ROOT/'urdf/ssg48_description','ssg48_urdf.zip',False)]
     for package,filename,native in distributions:
         if not package.is_dir():raise ValueError(f'Build the missing package first: {package.name}')
+        write_index(package);verify_layout(package)
         archive=destination/filename
         with zipfile.ZipFile(archive,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=9) as output:
             for path in sorted(package.rglob('*')):
@@ -54,6 +57,7 @@ def build():
                 assert all((directory/name).resolve().is_relative_to(directory) for name in source.namelist())
                 source.extractall(directory)
             unpacked=directory/package.name
+            verify_layout(unpacked)
             metadata=json.loads((unpacked/'sim2bot.robot.json').read_text())
             assert metadata['packageVersion']==version
             if metadata.get('category')=='gripper':
@@ -63,12 +67,12 @@ def build():
                 continue
             assert {item['label'] for item in metadata['variants']}=={
                 'Flange only','MSG - Solid jaws','MSG - Soft TPU jaws','SSG48 - Solid jaws','SSG48 - Fin-ray jaws','Pneumatic gripper'}
-            assert all((unpacked/name).is_file() for name in ['README.md','DYNAMICS.md','DYNAMICS_AUDIT.md','GRASP_FRAMES.md','CONTACT_PERFORMANCE.md','DH.md','KINEMATICS_COMPARISON.md','kinematics_comparison.svg','ACTUATION.md','KINEMATIC_REVIEW.md','PNEUMATIC.md','SSG48_CONTACTS.md'])
+            assert all((unpacked/name).is_file() for name in ['README.md','docs/DYNAMICS.md','docs/DYNAMICS_AUDIT.md','docs/GRASP_FRAMES.md','docs/CONTACT_PERFORMANCE.md','docs/DH.md','docs/KINEMATICS_COMPARISON.md','docs/kinematics_comparison.svg','docs/ACTUATION.md','docs/KINEMATIC_REVIEW.md','docs/PNEUMATIC.md','docs/SSG48_CONTACTS.md'])
             for variant in metadata['variants']:
                 profile=variant['id'].replace('-','_')
                 entry=unpacked/variant['entry'];assert entry.is_file()
                 for suffix in ['svg','png','json']:
-                    assert (unpacked/f'kinematics_review/{profile}.{suffix}').is_file()
+                    assert (unpacked/f'docs/kinematics_review/{profile}.{suffix}').is_file()
                 if 'preview' in variant:assert (unpacked/variant['preview']).is_file()
                 if native:
                     model=mujoco.MjModel.from_xml_path(str(entry))

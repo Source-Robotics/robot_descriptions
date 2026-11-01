@@ -23,6 +23,7 @@ import numpy as np
 from PIL import Image
 from scipy.spatial.transform import Rotation
 
+from package_layout import documentation
 from parol6_model import ROOT, PROFILES, ARM_JOINTS, ARM_LINKS, origin, urdf_fk
 
 ROBOTS = ('par6', 'parol6')
@@ -40,7 +41,6 @@ CAMERA = {'lookat': [.11, 0., .192], 'distance': 1., 'azimuth': 270.,
 RENDER_REVISION = 2
 THETA = ('q1', 'q2 - pi/2', 'q3 + pi', 'q4', 'q5', 'q6 + pi')
 ALPHA = np.array([-np.pi/2, np.pi, np.pi/2, -np.pi/2, np.pi/2, np.pi])
-
 
 def paths(robot, profile):
     return (ROOT/f'urdf/{robot}_description/{robot}_{profile}.urdf',
@@ -457,7 +457,7 @@ def viewer(entries):
     # No server, fetching, or external assets: works directly as file:// HTML.
     encoded = json.dumps([{'id': f'{d["robot"]}_{d["profile"]}',
         'label': f'{d["robot"].upper()} / {d["label"]}',
-        'src': f'../../mujoco/{d["robot"]}/kinematics_review/{d["profile"]}.svg'} for d in entries])
+        'src': f'../../mujoco/{d["robot"]}/docs/kinematics_review/{d["profile"]}.svg'} for d in entries])
     html = '''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Robot kinematics comparison</title><style>
 *{box-sizing:border-box}body{margin:0;background:#edf2f5;color:#18364b;font:16px system-ui,sans-serif}header{padding:24px 28px;background:white;border-top:7px solid #16838c}h1{margin:0 0 8px;font-size:26px}p{margin:7px 0;max-width:1100px;line-height:1.5}main{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:20px}section{min-width:0}select{width:100%;font:inherit;padding:12px;background:white;color:inherit;border:1px solid #a8bbc6;border-radius:5px;margin-bottom:12px}img{display:block;width:100%;background:white;box-shadow:0 2px 10px #173c531a}a{color:#086f7a}@media(max-width:800px){main{grid-template-columns:1fr}}.hint{font-size:14px;color:#486173}</style>
@@ -546,15 +546,15 @@ def build(refresh=False, pdf=False):
             svg = sheet(data, image, projection, len(entries)+1)
             png = cairosvg.svg2png(bytestring=svg.encode(), output_width=1200, output_height=PAGE_HEIGHT)
             for directory in [ROOT/f'mujoco/{robot}', ROOT/f'urdf/{robot}_description']:
-                dest = directory/'kinematics_review'
-                dest.mkdir(exist_ok=True)
+                dest = documentation(directory)/'kinematics_review'
+                dest.mkdir(parents=True, exist_ok=True)
                 (dest/f'{profile}.svg').write_text(svg, encoding='utf-8')
                 (dest/f'{profile}.png').write_bytes(png)
                 (dest/f'{profile}.json').write_text(json.dumps(data, indent=2)+'\n', encoding='utf-8')
             family.append(data); entries.append(data); svgs.append(svg)
             print(f'{robot}/{profile}: review sheet and 128-pose DH/TCP checks passed.', flush=True)
         for directory in [ROOT/f'mujoco/{robot}', ROOT/f'urdf/{robot}_description']:
-            (directory/'KINEMATIC_REVIEW.md').write_text(markdown(robot, family), encoding='utf-8')
+            (documentation(directory)/'KINEMATIC_REVIEW.md').write_text(markdown(robot, family), encoding='utf-8')
     (REPORT/'validation.json').write_text(json.dumps(entries, indent=2)+'\n', encoding='utf-8')
     viewer(entries)
     report_summary(entries)

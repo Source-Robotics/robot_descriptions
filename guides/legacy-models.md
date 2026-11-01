@@ -22,7 +22,7 @@ Keep the whole extracted package together in your working directory.
 
 Update your loader paths and keep the package assets together. Use the robot
 guides to choose the equivalent end effector, and check the
-[public name migration table](../urdf/par6_description/MIGRATION.md) for code
+[public name migration table](../urdf/par6_description/docs/MIGRATION.md) for code
 that refers to older joint or link names. PAROL6 now uses the shared PAR6 public
 axis directions and J6 orientation; its corrected geometry is documented in the
 [kinematics comparison](../reports/par6_parol6_kinematics.md).

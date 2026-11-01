@@ -28,6 +28,8 @@ CONFIG = ROOT/'source/pneumatic/model.json'
 PARTS = ('pneumatic_gripper_link', 'left_finger_link', 'right_finger_link')
 
 
+from package_layout import documentation as docs_directory, previews
+
 def configuration():
     return json.loads(CONFIG.read_text(encoding='utf-8'))
 
@@ -164,7 +166,7 @@ def metadata():
         entry = {'id': 'pneumatic', 'label': 'Pneumatic gripper',
                  'entry': 'scene_pneumatic.xml' if native else 'par6_pneumatic.urdf',
                  'endEffectorBodies': [PARTS[0]], 'gripperActuators': ['gripper_actuator'] if native else []}
-        if (package/'par6_pneumatic.png').exists(): entry['preview'] = 'par6_pneumatic.png'
+        if (previews(package)/'par6_pneumatic.png').exists(): entry['preview'] = 'previews/par6_pneumatic.png'
         data['variants'].append(entry)
         path.write_text(json.dumps(data, indent=2)+'\n', encoding='utf-8')
 
@@ -235,7 +237,7 @@ The authoring inputs are `source/pneumatic/model.json` and the byte-preserved
 checkout. See `kinematics_review/pneumatic.json` for FK checks and transforms.
 '''
     for package in [MJCF, URDF]:
-        (package/'PNEUMATIC.md').write_text(text, encoding='utf-8')
+        (docs_directory(package)/'PNEUMATIC.md').write_text(text, encoding='utf-8')
 
 
 def build():

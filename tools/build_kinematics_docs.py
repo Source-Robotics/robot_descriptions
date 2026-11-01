@@ -6,6 +6,7 @@ import xml.etree.ElementTree as ET
 
 import numpy as np
 
+from package_layout import documentation
 from parol6_model import (ROOT, URDF, MJCF, ARM_JOINTS, ARM_LINKS, urdf_fk,
                           FOREARM_DISTANCE, FLANGE_DISTANCE, PAR6_FLANGE_DISTANCE)
 
@@ -269,9 +270,9 @@ data, finite servo settings and calibration limits. Machine-readable results:
 '''
     svg, actuation = diagram(), actuation_document()
     for directory in [ROOT/'mujoco/par6', ROOT/'urdf/par6_description', MJCF, URDF]:
-        (directory/'KINEMATICS_COMPARISON.md').write_text(text, encoding='utf-8')
-        (directory/'kinematics_comparison.svg').write_text(svg, encoding='utf-8')
-        (directory/'ACTUATION.md').write_text(actuation, encoding='utf-8')
+        (documentation(directory)/'KINEMATICS_COMPARISON.md').write_text(text, encoding='utf-8')
+        (documentation(directory)/'kinematics_comparison.svg').write_text(svg, encoding='utf-8')
+        (documentation(directory)/'ACTUATION.md').write_text(actuation, encoding='utf-8')
     (ROOT/'reports/par6_parol6_kinematics.md').write_text(text, encoding='utf-8')
     (ROOT/'reports/kinematics_comparison.svg').write_text(svg, encoding='utf-8')
     dh = '''# PAROL6 DH and joint convention
@@ -294,8 +295,8 @@ behavior; open-loop hardware does not imply infinite simulated stiffness.
     audit += ['', f"Each profile uses {report['poses_per_profile']} configurations. Generalized dynamics differences include the 6.6 mm shorter tool lever arm. Local mass/COM/tensors and gains remain inherited estimates.", '',
               'See `KINEMATICS_COMPARISON.md`, `DYNAMICS.md`, and `ACTUATION.md` for assumptions and calibration status.', '']
     for directory in [MJCF, URDF]:
-        (directory/'DH.md').write_text(dh, encoding='utf-8')
-        (directory/'DYNAMICS_AUDIT.md').write_text('\n'.join(audit), encoding='utf-8')
+        (documentation(directory)/'DH.md').write_text(dh, encoding='utf-8')
+        (documentation(directory)/'DYNAMICS_AUDIT.md').write_text('\n'.join(audit), encoding='utf-8')
 
 
 if __name__ == '__main__':

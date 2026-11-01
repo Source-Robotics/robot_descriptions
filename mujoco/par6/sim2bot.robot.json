@@ -6,7 +6,7 @@
   "license": "Apache-2.0",
   "sourceUrl": "https://source-robotics.com/",
   "sourceRevision": "2025-02-10",
-  "packageVersion": "2.13.0",
+  "packageVersion": "2.14.0",
   "entry": "scene_msg.xml",
   "dof": 6,
   "tcpSites": [
@@ -26,7 +26,7 @@
   "gripperActuators": [
     "gripper_actuator"
   ],
-  "preview": "par6_msg.png",
+  "preview": "previews/par6_msg.png",
   "variants": [
     {
       "id": "flange",
@@ -41,7 +41,7 @@
       "id": "msg",
       "label": "MSG - Solid jaws",
       "entry": "scene_msg.xml",
-      "preview": "par6_msg.png",
+      "preview": "previews/par6_msg.png",
       "endEffectorBodies": [
         "msg_gripper_link"
       ],
@@ -53,7 +53,7 @@
       "id": "msg-tpu-glue",
       "label": "MSG - Soft TPU jaws",
       "entry": "scene_msg_tpu_glue.xml",
-      "preview": "par6_msg_tpu_glue.png",
+      "preview": "previews/par6_msg_tpu_glue.png",
       "endEffectorBodies": [
         "msg_gripper_link"
       ],
@@ -65,7 +65,7 @@
       "id": "ssg48",
       "label": "SSG48 - Solid jaws",
       "entry": "scene_ssg48.xml",
-      "preview": "par6_ssg48.png",
+      "preview": "previews/par6_ssg48.png",
       "endEffectorBodies": [
         "ssg48_gripper_link"
       ],
@@ -77,7 +77,7 @@
       "id": "ssg48-stock",
       "label": "SSG48 - Fin-ray jaws",
       "entry": "scene_ssg48_stock.xml",
-      "preview": "par6_ssg48_stock.png",
+      "preview": "previews/par6_ssg48_stock.png",
       "endEffectorBodies": [
         "ssg48_gripper_link"
       ],
@@ -95,7 +95,7 @@
       "gripperActuators": [
         "gripper_actuator"
       ],
-      "preview": "par6_pneumatic.png"
+      "preview": "previews/par6_pneumatic.png"
     }
   ]
 }

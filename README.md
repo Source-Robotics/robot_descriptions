@@ -66,9 +66,9 @@ geometry; deformation is not modeled.
 - [Mass and inertia status](reports/dynamics_sync_validation.md): measured masses, RCB references and remaining estimates.
 - [SSG48 collision and grasp checks](reports/ssg48_contact_diagnosis.md): jaw contacts and validation fixtures.
 
-Robot packages include `DH.md`, `DYNAMICS.md`, `ACTUATION.md` and
-`KINEMATIC_REVIEW.md`. Standalone gripper packages include their operating
-instructions and `VALIDATION.md`. Use those documents when integrating a model with a
+Robot packages include `docs/DH.md`, `docs/DYNAMICS.md`, `docs/ACTUATION.md` and
+`docs/KINEMATIC_REVIEW.md`. Standalone gripper packages include their operating
+instructions and `docs/VALIDATION.md`. Use those documents when integrating a model with a
 controller. Tool COM/inertia, rotor inertia and some actuation parameters remain
 estimates; simulation grip checks do not establish hardware grip force.
 

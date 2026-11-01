@@ -4,7 +4,7 @@ This self-contained package contains **only the SSG48 gripper**, with both jaw
 options, its fixed mounting frame and configured TCP. All required meshes and
 materials are included. Keep the whole folder together when moving or uploading it.
 
-![SSG48 with Solid jaws](ssg48_solid.png)
+![SSG48 with Solid jaws](previews/ssg48_solid.png)
 
 | Jaws | Viewer scene | Gripper model |
 | --- | --- | --- |
@@ -12,6 +12,10 @@ materials are included. Keep the whole folder together when moving or uploading 
 | Fin-ray jaws | `scene_fin_ray.xml` | `ssg48_fin_ray.xml` |
 
 The default is Solid jaws. `scene.xml` is an alias for `scene_solid.xml`.
+
+Detailed notes are in [docs/](docs/), model images in [previews/](previews/),
+and geometry in `assets/`. The model entry files
+remain at the package root.
 
 ## Open the model
 
@@ -51,4 +55,4 @@ The retained `tcp` is the operational control frame, not a newly measured
 jaw-specific grasp center. Frame and inertia definitions are copied from the
 maintained robot assembly; exporting does not infer new physical measurements.
 
-See `VALIDATION.md` for the extraction checks and `LICENSE` for Apache-2.0.
+See [validation notes](docs/VALIDATION.md) for the extraction checks and `LICENSE` for Apache-2.0.

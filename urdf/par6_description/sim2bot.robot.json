@@ -6,7 +6,7 @@
   "license": "Apache-2.0",
   "sourceUrl": "https://source-robotics.com/",
   "sourceRevision": "2025-02-10",
-  "packageVersion": "2.13.0",
+  "packageVersion": "2.14.0",
   "entry": "par6_msg.urdf",
   "dof": 6,
   "armActuators": [
@@ -47,7 +47,8 @@
       "gripperActuators": [
         "left_finger_joint",
         "right_finger_joint"
-      ]
+      ],
+      "preview": "previews/par6_msg.png"
     },
     {
       "id": "msg-tpu-glue",
@@ -62,7 +63,8 @@
       "gripperActuators": [
         "left_finger_joint",
         "right_finger_joint"
-      ]
+      ],
+      "preview": "previews/par6_msg_tpu_glue.png"
     },
     {
       "id": "ssg48",
@@ -77,7 +79,8 @@
       "gripperActuators": [
         "left_finger_joint",
         "right_finger_joint"
-      ]
+      ],
+      "preview": "previews/par6_ssg48.png"
     },
     {
       "id": "ssg48-stock",
@@ -92,7 +95,8 @@
       "gripperActuators": [
         "left_finger_joint",
         "right_finger_joint"
-      ]
+      ],
+      "preview": "previews/par6_ssg48_stock.png"
     },
     {
       "id": "pneumatic",
@@ -102,7 +106,8 @@
         "pneumatic_gripper_link"
       ],
       "gripperActuators": [],
-      "preview": "par6_pneumatic.png"
+      "preview": "previews/par6_pneumatic.png"
     }
-  ]
+  ],
+  "preview": "previews/par6_msg.png"
 }
