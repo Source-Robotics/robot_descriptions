@@ -1,5 +1,11 @@
 # Changelog - Source Robotics robot descriptions
 
+## 2.15.0 - 2026-11-01
+
+- Licensed current model/data/assets/documentation under CC BY 4.0; Python/ROS support code remains Apache-2.0. Added attribution and explicit scope to all eight packages. Earlier releases retain their existing license grants.
+- Added a dedicated color guide with editable palettes, named materials, RGBA examples and regeneration steps; linked it from all four product guides.
+- Removed the PAROL6 gallery footer, retaining the six robot renders and end-effector labels only.
+
 ## 2.14.0 - 2026-11-01
 
 - Organized all eight runtime packages: detailed notes, comparison diagrams and review sheets in `docs/`; catalog images in `previews/`.

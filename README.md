@@ -93,6 +93,10 @@ repository as a submodule. See [release and integration maintenance](RELEASING.m
 
 ## Build or customize
 
+For recoloring examples and exact material/configuration names, start with
+the [color and appearance guide](docs/COLORS.md). Badge/jaw palettes use HEX
+settings; general part colors currently use model material values.
+
 The exported packages work independently. To regenerate them, change jaw colors,
 edit branding, or contribute a model, see the [build guide](BUILDING.md),
 [model details and authoring notes](MODEL_DETAILS.md), and [changelog](CHANGELOG.md).
@@ -104,5 +108,10 @@ build tools, reports and generated files. Most users only need one model package
 
 ## License
 
-The description packages are provided under [Apache-2.0](LICENSE). Hardware,
-firmware and other projects linked from this repository retain their own licenses.
+The models, meshes, artwork and documentation are licensed under
+**[CC BY 4.0](LICENSE)**. Credit Source Robotics, link the source/license and
+indicate changes when sharing. See [attribution and license scope](ATTRIBUTION.md).
+
+Authoring tools and ROS support code remain
+[Apache-2.0](LICENSES/Apache-2.0.txt). Releases through v2.14.0 retain their
+original licenses. Hardware, firmware and external dependencies keep their own licenses.

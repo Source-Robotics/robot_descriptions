@@ -13,6 +13,7 @@ from split_motor_visuals import ROOT, MJCF, URDF
 
 
 from package_layout import write_index, verify as verify_layout
+from model_licensing import apply as apply_license
 
 def expected_masses(profile, measurements):
     if profile == 'pneumatic':
@@ -36,6 +37,7 @@ def build():
                    (ROOT/'urdf/ssg48_description','ssg48_urdf.zip',False)]
     for package,filename,native in distributions:
         if not package.is_dir():raise ValueError(f'Build the missing package first: {package.name}')
+        apply_license(package)
         write_index(package);verify_layout(package)
         archive=destination/filename
         with zipfile.ZipFile(archive,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=9) as output:

@@ -47,3 +47,9 @@ See [KINEMATIC_REVIEW.md](docs/KINEMATIC_REVIEW.md) for dimensioned model snapsh
 and tool-specific DH tables for all six configurations.
 
 The authoring repository is https://github.com/Source-Robotics/robot_descriptions.
+
+## License and attribution
+
+Models and assets: **CC BY 4.0**. See [attribution and license scope](docs/ATTRIBUTION.md).
+
+[Changing colors](docs/COLORS.md): material names, editable palettes and examples.

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
 """Print a portable URDF with ROS package:// mesh URIs; no ROS import needed."""
 
 from pathlib import Path

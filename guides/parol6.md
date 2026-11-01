@@ -1,6 +1,6 @@
 # PAROL6 models: getting started
 
-[All models](../README.md) | [MSG jaws](msg.md) | [SSG48 jaws](ssg48.md)
+[All models](../README.md) | [MSG jaws](msg.md) | [SSG48 jaws](ssg48.md) | [Change colors](../docs/COLORS.md) | [License and attribution](../ATTRIBUTION.md)
 
 PAROL6 is available in **MuJoCo and URDF**, with all six configurations below.
 The default `scene.xml` in the MuJoCo package opens the MSG with Solid jaws.

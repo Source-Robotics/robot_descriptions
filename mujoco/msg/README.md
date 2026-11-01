@@ -59,4 +59,10 @@ The retained `tcp` is the operational control frame, not a newly measured
 jaw-specific grasp center. Frame and inertia definitions are copied from the
 maintained robot assembly; exporting does not infer new physical measurements.
 
-See [validation notes](docs/VALIDATION.md) for the extraction checks and `LICENSE` for Apache-2.0.
+See [validation notes](docs/VALIDATION.md) for the extraction checks and `LICENSE` for CC BY 4.0.
+
+## License and attribution
+
+Models and assets: **CC BY 4.0**. See [attribution and license scope](docs/ATTRIBUTION.md).
+
+[Changing colors](docs/COLORS.md): material names, editable palettes and examples.

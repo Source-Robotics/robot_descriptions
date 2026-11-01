@@ -16,7 +16,8 @@ hundreds of individual STL files.
 | [`guides/`](guides/) | Short instructions for each product, including downloads and which model to open. | Start here. |
 | [`mujoco/`](mujoco/) | Four independent native MuJoCo packages: `par6/`, `parol6/`, `msg/`, `ssg48/`. | Using MuJoCo. |
 | [`urdf/`](urdf/) | Four independent URDF/ROS packages: `par6_description/`, `parol6_description/`, `msg_description/`, `ssg48_description/`. | Using URDF, RViz or another URDF consumer. |
-| [`docs/`](docs/) | Documentation images under `images/`, including robot-guide and feature previews. | Browsing illustrations. |
+| [`docs/`](docs/) | The color-customization guide in `COLORS.md` and images under `images/`. | Browsing illustrations. |
+| [`LICENSES/`](LICENSES/) | Apache-2.0 software license text. | Maintaining or redistributing support code. |
 | [`source/`](source/) | Original CAD exports, STEP jaws, editable logo, measured data, reference snapshots and checked rendering/geometry caches. | Changing or rebuilding models. |
 | [`tools/`](tools/) | Python generators, validators and packaging tools, plus geometry/benchmark records. | Maintaining the models. |
 | [`tests/`](tests/) | Automated regression tests for the generators and model data. | Checking a change. |
@@ -40,7 +41,8 @@ model input; these are also ignored by Git.
 | [`RELEASING.md`](RELEASING.md) | How to publish a version and update the hardware-repository guides. |
 | [`CHANGELOG.md`](CHANGELOG.md) | Version-by-version changes. |
 | [`MODEL_DETAILS.md`](MODEL_DETAILS.md) | Longer model/authoring notes, including earlier visual and jaw changes. Some sections describe historical work; use current product guides and package documentation for current entry files. |
-| [`LICENSE`](LICENSE) | Apache-2.0 license text for these description packages. |
+| [`ATTRIBUTION.md`](ATTRIBUTION.md) | Source Robotics model credit, license scope and prior-release history. |
+| [`LICENSE`](LICENSE) | CC BY 4.0 license text for the models and assets. |
 | [`requirements-build.txt`](requirements-build.txt) | Direct Python dependencies used by the authoring tools. |
 | [`requirements-build.lock.txt`](requirements-build.lock.txt) | Pinned, tested dependency versions, including transitive dependencies. Use this for a reproducible build. |
 | [`requirements-review.txt`](requirements-review.txt) | Additional dependencies for generating the optional review PDF. |
@@ -157,6 +159,8 @@ a root README/LICENSE and `docs/VALIDATION.md`.
 | --- | --- |
 | `README.md` | How to open the package and select a configuration. |
 | `LICENSE` | License carried with the exported package. |
+| `docs/ATTRIBUTION.md` | Source Robotics credit and CC BY 4.0 model-license scope; URDF packages also include `docs/LICENSE-CODE.txt` for Apache-2.0 support code. |
+| `docs/COLORS.md` | Material names, editable badge/jaw palettes, RGBA examples and regeneration steps. |
 | `docs/README.md` | Clickable index of the detailed notes. |
 | `docs/MODEL_DETAILS.md` | Retained longer PAR6 appearance, jaw and authoring notes. |
 | `docs/CHANGELOG.md` | Package version history. |
@@ -235,6 +239,7 @@ running every script manually is not the normal workflow.
 | `jaw_build_common.py` | Shared jaw-generation helpers. |
 | `build_gripper_contacts.py` | Generates the convex finger collision pieces while preserving inertia. |
 | `sync_model_dynamics.py` | Applies reference arm mass properties and corrected tool masses to the models. |
+| `model_licensing.py` | Ships CC BY 4.0 model attribution and Apache-2.0 support-code notices in each package. |
 | `model_reference.py` | Portable NumPy DH/dynamics implementation and repository paths, used instead of requiring the live RCB runtime. |
 | `import_rcb_reference.py` | Explicitly imports a fresh snapshot from a specified RCB checkout. This optional operation needs that external checkout; the normal build does not. |
 | `audit_rcb_dynamics.py` | Compares reference and model physical properties in consistent frames. |
@@ -286,6 +291,7 @@ older packages; those packages are not required for the normal clean build.
 | --- | --- |
 | `conftest.py` | Shared test setup/import paths. |
 | `test_package_layout.py` | All eight packages have portable documentation/catalog links and the organized layout. |
+| `test_licensing.py` | All eight packages have consistent model-license and support-code notices. |
 | `test_models.py` | Measured masses and COM/inertia coordinate conversion. |
 | `test_reference.py` | Captured-reference FK/dynamics regression samples. |
 | `test_parol6.py` | PAROL6 geometry, frames and shared model policy. |
@@ -298,7 +304,7 @@ older packages; those packages are not required for the normal clean build.
 | `test_portability.py` | Authoring tools import without application/runtime dependencies. |
 | `test_release.py` | Release versions, archive safety and generated release metadata. |
 
-The full suite currently expands into 113 test cases. Simulation checks protect
+The full suite currently expands into 121 test cases. Simulation checks protect
 model behavior; they do not turn estimated material/contact parameters into
 measured hardware values.
 
@@ -352,7 +358,7 @@ runs and release manifests identify the built revision.
 
 - [`output/pdf/robot_kinematics_review.pdf`](output/pdf/robot_kinematics_review.pdf)
   is the twelve-page booklet: PAR6 and PAROL6, each with six tool configurations.
-- `releases/v2.12.1.md`, `releases/v2.13.0.md` and `releases/v2.14.0.md` are release-note sources.
+- `releases/v2.12.1.md`, `releases/v2.13.0.md` and `releases/v2.14.0.md` and `releases/v2.15.0.md` are release-note sources.
 - A local build produces eight ZIPs under `dist/`. `prepare_release.py` adds the
   release PDF, `release_manifest.json` and `SHA256SUMS`.
 - The manifest describes the packaged revision/assets; checksums verify the

@@ -1,48 +1,48 @@
 {
   "par6_mujoco.zip": {
-    "bytes": 8511562,
+    "bytes": 8517250,
     "variants_checked": 6,
     "grasp_scenes_compiled": 8,
     "crc_and_assets_valid": true
   },
   "par6_urdf.zip": {
-    "bytes": 8477855,
+    "bytes": 8487799,
     "variants_checked": 6,
     "grasp_scenes_compiled": 0,
     "crc_and_assets_valid": true
   },
   "parol6_mujoco.zip": {
-    "bytes": 8656282,
+    "bytes": 8661843,
     "variants_checked": 6,
     "grasp_scenes_compiled": 8,
     "crc_and_assets_valid": true
   },
   "parol6_urdf.zip": {
-    "bytes": 8640117,
+    "bytes": 8649958,
     "variants_checked": 6,
     "grasp_scenes_compiled": 0,
     "crc_and_assets_valid": true
   },
   "msg_mujoco.zip": {
-    "bytes": 2402046,
+    "bytes": 2407514,
     "variants_checked": 2,
     "standalone_gripper": true,
     "crc_and_assets_valid": true
   },
   "msg_urdf.zip": {
-    "bytes": 2399435,
+    "bytes": 2409132,
     "variants_checked": 2,
     "standalone_gripper": true,
     "crc_and_assets_valid": true
   },
   "ssg48_mujoco.zip": {
-    "bytes": 310303,
+    "bytes": 315777,
     "variants_checked": 2,
     "standalone_gripper": true,
     "crc_and_assets_valid": true
   },
   "ssg48_urdf.zip": {
-    "bytes": 312475,
+    "bytes": 322182,
     "variants_checked": 2,
     "standalone_gripper": true,
     "crc_and_assets_valid": true

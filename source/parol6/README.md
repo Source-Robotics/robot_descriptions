@@ -20,7 +20,8 @@ shared PAR6 tool is selected in the generated model.
 
 The original L1-L5 arm mass properties are superseded by PAR6 properties in
 the corresponding CAD part frames, per the user's instruction. New packages
-carry the repository's Apache-2.0 declaration. This is model-data inheritance,
+carry the repository's CC BY 4.0 model declaration; support code remains
+Apache-2.0. This is model-data inheritance,
 not an independent PAROL6 weighing or inertia measurement.
 
 The original source's 176.35 mm forearm and rounded RPY entries are preserved

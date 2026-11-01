@@ -226,6 +226,11 @@ def metadata_and_support():
 
 ## {version} - 2026-11-01
 
+- Licensed model data/assets under CC BY 4.0, retaining Apache-2.0 for support code.
+- Added packaged attribution and color-customization documentation links.
+
+## 2.14.0 - 2026-11-01
+
 - Moved detailed notes and review sheets into docs/, and catalog images into previews/.
 - Retained runtime model, scene, mesh and ROS launch entry paths and all physical data.
 
@@ -433,6 +438,8 @@ def build():
     (ROOT/'reports/parol6_build.json').write_text(json.dumps(report, indent=2)+'\n', encoding='utf-8')
     for package in [MJCF, URDF]:
         (documentation(package)/'PNEUMATIC.md').write_bytes((documentation(PAR6_MJCF)/'PNEUMATIC.md').read_bytes())
+        from model_licensing import apply as apply_license
+        apply_license(package)
     print(f'Built all {len(PROFILES)} PAROL6 URDF/MuJoCo profiles from included sources.', flush=True)
     return report
 

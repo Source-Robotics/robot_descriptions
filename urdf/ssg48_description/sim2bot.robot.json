@@ -3,9 +3,9 @@
   "name": "Source Robotics SSG48 gripper",
   "manufacturer": "Source Robotics",
   "category": "gripper",
-  "license": "Apache-2.0",
+  "license": "CC-BY-4.0",
   "sourceUrl": "https://github.com/Source-Robotics/robot_descriptions",
-  "packageVersion": "2.14.0",
+  "packageVersion": "2.15.0",
   "entry": "ssg48_solid.urdf",
   "dof": 1,
   "rootFrame": "flange",
@@ -38,5 +38,6 @@
       "gripperActuators": [],
       "preview": "previews/ssg48_fin_ray.png"
     }
-  ]
+  ],
+  "codeLicense": "Apache-2.0"
 }

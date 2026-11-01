@@ -6,6 +6,8 @@ another repository as a Git submodule. The normal build needs no `IK`,
 All source models, meshes, STEP files, artwork and reference data are contained
 here. Exported packages remain independent of the authoring tools.
 
+For appearance settings and material examples, see [Changing model colors](docs/COLORS.md).
+
 ## Setup
 
 Use 64-bit CPython 3.11 and an isolated virtual environment:

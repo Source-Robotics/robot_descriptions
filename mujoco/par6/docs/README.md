@@ -3,7 +3,9 @@
 [Back to the model instructions](../README.md)
 
 - [Position actuation and open-loop hardware](ACTUATION.md)
+- [Model license and attribution](ATTRIBUTION.md)
 - [Changelog](CHANGELOG.md)
+- [Changing model colors](COLORS.md)
 - [Local contact-refinement timing check](CONTACT_PERFORMANCE.md)
 - [PAR6 DH convention](DH.md)
 - [Dynamics data in version 2.8.0](DYNAMICS.md)

@@ -149,7 +149,7 @@ def metadata(family, native, version):
         if (ROOT/f'source/grippers/previews/{family}_{suffix}.png').is_file():
             variants[-1]['preview'] = f'previews/{family}_{suffix}.png'
     return {'version': 1, 'name': f'Source Robotics {config["label"]} gripper',
-            'manufacturer': 'Source Robotics', 'category': 'gripper', 'license': 'Apache-2.0',
+            'manufacturer': 'Source Robotics', 'category': 'gripper', 'license': 'CC-BY-4.0',
             'sourceUrl': 'https://github.com/Source-Robotics/robot_descriptions',
             'packageVersion': version, 'entry': variants[0]['entry'], 'dof': 1,
             'rootFrame': 'flange', 'tcpSites': ['tcp'], 'armActuators': [],
@@ -234,7 +234,7 @@ The retained `tcp` is the operational control frame, not a newly measured
 jaw-specific grasp center. Frame and inertia definitions are copied from the
 maintained robot assembly; exporting does not infer new physical measurements.
 
-See [validation notes](docs/VALIDATION.md) for the extraction checks and `LICENSE` for Apache-2.0.
+See [validation notes](docs/VALIDATION.md) for the extraction checks and `LICENSE` for CC BY 4.0.
 '''
 
 
@@ -297,7 +297,7 @@ These are model-preservation and simulation checks, not physical calibration.
                 ET.SubElement(package,'version').text=version
                 ET.SubElement(package,'description').text=f'Standalone Source Robotics {config["label"]} gripper with interchangeable jaws.'
                 ET.SubElement(package,'maintainer',email='petar@source-robotics.com').text='Source Robotics'
-                ET.SubElement(package,'license').text='Apache-2.0'
+                ET.SubElement(package,'license').text='CC-BY-4.0'
                 ET.SubElement(package,'buildtool_depend').text='catkin'
                 for dependency in ['joint_state_publisher_gui','robot_state_publisher','rviz']:
                     ET.SubElement(package,'exec_depend').text=dependency
@@ -317,6 +317,8 @@ install(FILES README.md LICENSE sim2bot.robot.json {family}_solid.urdf {family}_
                     ET.SubElement(launch,'node',pkg=pkg,type=node,name=node)
                 (destination/'launch').mkdir(exist_ok=True)
                 write_xml(destination/'launch/display.launch',launch)
+            from model_licensing import apply as apply_license
+            apply_license(destination)
     print('Exported four independent MSG/SSG48 packages, with both jaw options.',flush=True)
 
 

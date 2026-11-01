@@ -52,3 +52,9 @@ Measured tool masses are applied; tool COM/inertia, rotor inertia and some
 actuation/contact parameters remain estimates. See the linked notes for scope.
 
 Maintained in [robot_descriptions](https://github.com/Source-Robotics/robot_descriptions).
+
+## License and attribution
+
+Models and assets: **CC BY 4.0**. See [attribution and license scope](docs/ATTRIBUTION.md).
+
+[Changing colors](docs/COLORS.md): material names, editable palettes and examples.

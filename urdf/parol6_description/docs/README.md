@@ -3,7 +3,9 @@
 [Back to the model instructions](../README.md)
 
 - [Position actuation and open-loop hardware](ACTUATION.md)
+- [Model license and attribution](ATTRIBUTION.md)
 - [PAROL6 description changelog](CHANGELOG.md)
+- [Changing model colors](COLORS.md)
 - [Local contact-refinement timing check](CONTACT_PERFORMANCE.md)
 - [PAROL6 DH and joint convention](DH.md)
 - [PAROL6 dynamics inheritance](DYNAMICS.md)

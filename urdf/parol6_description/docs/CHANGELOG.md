@@ -1,5 +1,10 @@
 # PAROL6 description changelog
 
+## 2.15.0 - 2026-11-01
+
+- Licensed model data/assets under CC BY 4.0, retaining Apache-2.0 for support code.
+- Added packaged attribution and color-customization documentation links.
+
 ## 2.14.0 - 2026-11-01
 
 - Moved detailed notes and review sheets into docs/, and catalog images into previews/.

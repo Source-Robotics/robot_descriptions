@@ -1,6 +1,6 @@
 # SSG48 gripper: getting started
 
-[All models](../README.md) | [PAR6](par6.md) | [PAROL6](parol6.md)
+[All models](../README.md) | [PAR6](par6.md) | [PAROL6](parol6.md) | [Change colors](../docs/COLORS.md) | [License and attribution](../ATTRIBUTION.md)
 
 **Working with the gripper alone? Download a standalone package below.**
 Both formats include **Solid jaws** (default) and **Fin-ray jaws**, with all meshes,

@@ -1,11 +1,11 @@
-<?xml version="1.0"?>
+<?xml version='1.0' encoding='utf-8'?>
 <package format="2">
   <name>parol6_description</name>
-  <version>2.14.0</version>
+  <version>2.15.0</version>
   <description>Portable URDF descriptions for the Source Robotics PAROL6 arm.</description>
   <maintainer email="petar@source-robotics.com">Source Robotics</maintainer>
+  <license>CC-BY-4.0</license>
   <license>Apache-2.0</license>
-
   <buildtool_depend>catkin</buildtool_depend>
   <exec_depend>gazebo_ros</exec_depend>
   <exec_depend>joint_state_publisher_gui</exec_depend>
@@ -14,6 +14,5 @@
   <exec_depend>rviz</exec_depend>
   <exec_depend>std_msgs</exec_depend>
   <exec_depend>tf</exec_depend>
-
   <export />
 </package>
