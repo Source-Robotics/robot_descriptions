@@ -42,7 +42,7 @@ For an existing checkout of the PAR6 hardware repository with its submodule
 initialized, the equivalent path is:
 
 ```bash
-python -m mujoco.viewer --mjcf=models/descriptions/mujoco/par6/scene_msg.xml
+python -m mujoco.viewer --mjcf=description/source/mujoco/par6/scene_msg.xml
 ```
 
 **URDF viewer:** open `par6_description/par6_msg.urdf`, keeping the

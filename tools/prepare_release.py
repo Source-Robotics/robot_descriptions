@@ -11,7 +11,9 @@ import zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
 PACKAGES={'par6_mujoco.zip':'par6','par6_urdf.zip':'par6_description',
-          'parol6_mujoco.zip':'parol6','parol6_urdf.zip':'parol6_description'}
+          'parol6_mujoco.zip':'parol6','parol6_urdf.zip':'parol6_description',
+          'msg_mujoco.zip':'msg','msg_urdf.zip':'msg_description',
+          'ssg48_mujoco.zip':'ssg48','ssg48_urdf.zip':'ssg48_description'}
 
 
 def prepare(root=ROOT,tag=None):
@@ -47,7 +49,7 @@ def prepare(root=ROOT,tag=None):
     files.append(path)
     checksums=''.join(f'{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.name}\n' for p in files)
     (root/'dist/SHA256SUMS').write_text(checksums,encoding='ascii',newline='\n')
-    print(f'Prepared {expected}: four model ZIPs, review PDF, manifest and SHA256SUMS.',flush=True)
+    print(f'Prepared {expected}: eight model ZIPs, review PDF, manifest and SHA256SUMS.',flush=True)
     return manifest
 
 

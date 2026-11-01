@@ -1,51 +1,94 @@
-# MSG gripper models
+# MSG gripper: getting started
 
-[All models](../README.md) | [PAR6 guide](par6.md) | [PAROL6 guide](parol6.md)
+[All models](../README.md) | [PAR6](par6.md) | [PAROL6](parol6.md)
 
-Choose **Solid jaws** (default) or **Soft TPU jaws**. Both options are available
-mounted on PAR6 and PAROL6, in URDF and native MuJoCo formats.
+**Working with the gripper alone? Download a standalone package below.**
+Both formats include **Solid jaws** (default) and **Soft TPU jaws**, with all meshes,
+materials, finger joints, collision shapes and mass properties.
 
-![MSG alternate jaw geometry](../msg_jaws_preview.png)
+| Solid jaws (default) | Soft TPU jaws |
+| --- | --- |
+| ![MSG with Solid jaws](../source/grippers/previews/msg_solid.png) | ![MSG with Soft TPU jaws](../source/grippers/previews/msg_soft_tpu.png) |
 
-## Use the gripper on a robot
+## 1. Download the gripper-only package
 
-1. Choose [PAR6](par6.md) or [PAROL6](parol6.md).
-2. Download that robot's MuJoCo or URDF ZIP using its guide.
-3. Open the entry file for your jaw option:
+| Format | Download | Extracted folder |
+| --- | --- | --- |
+| MuJoCo | [Download msg_mujoco.zip](https://github.com/Source-Robotics/robot_descriptions/releases/latest/download/msg_mujoco.zip) | `msg/` |
+| URDF | [Download msg_urdf.zip](https://github.com/Source-Robotics/robot_descriptions/releases/latest/download/msg_urdf.zip) | `msg_description/` |
 
-| Jaws | Robot | MuJoCo entry file | URDF entry file |
-| --- | --- | --- | --- |
-| Solid jaws (default) | PAR6 | [`scene_msg.xml`](../mujoco/par6/scene_msg.xml) | [`par6_msg.urdf`](../urdf/par6_description/par6_msg.urdf) |
-| Solid jaws (default) | PAROL6 | [`scene_msg.xml`](../mujoco/parol6/scene_msg.xml) | [`parol6_msg.urdf`](../urdf/parol6_description/parol6_msg.urdf) |
-| Soft TPU jaws | PAR6 | [`scene_msg_tpu_glue.xml`](../mujoco/par6/scene_msg_tpu_glue.xml) | [`par6_msg_tpu_glue.urdf`](../urdf/par6_description/par6_msg_tpu_glue.urdf) |
-| Soft TPU jaws | PAROL6 | [`scene_msg_tpu_glue.xml`](../mujoco/parol6/scene_msg_tpu_glue.xml) | [`parol6_msg_tpu_glue.urdf`](../urdf/parol6_description/parol6_msg_tpu_glue.urdf) |
+These packages contain **only MSG**, with a fixed mounting frame and two
+moving fingers. No arm or grasp-test fixture is included. Keep the extracted
+folder together so the model can find its meshes.
 
-If you cloned the MSG hardware repository with its descriptions submodule,
-these files are under `models/descriptions/mujoco/` and
-`models/descriptions/urdf/`. The complete mesh folders must stay with them.
+## 2. Choose jaws and open the model
 
-## Use a gripper without an arm
+| Jaws | MuJoCo viewer scene | URDF entry file |
+| --- | --- | --- |
+| Solid jaws (default) | [`scene_solid.xml`](../mujoco/msg/scene_solid.xml) | [`msg_solid.urdf`](../urdf/msg_description/msg_solid.urdf) |
+| Soft TPU jaws | [`scene_soft_tpu.xml`](../mujoco/msg/scene_soft_tpu.xml) | [`msg_soft_tpu.urdf`](../urdf/msg_description/msg_soft_tpu.urdf) |
 
-The current shared release contains complete robot assemblies, rather than
-dedicated gripper-only URDF/MuJoCo packages. Its MuJoCo packages also include
-[`bench/`](../mujoco/par6/bench/README.md) fixtures that isolate each electric
-gripper for box/cylinder grasp checks. Those fixtures include a test object,
-table and a prescribed-motion mount; they are validation scenes.
+**MuJoCo:** from the directory where you extracted the download, run:
 
-The older [standalone MSG exports](https://github.com/Source-Robotics/MSG-compliant-AI-stepper-gripper/tree/main/MSG_gripper_description)
-are retained in the hardware repository for existing gripper-only integrations.
-They predate the shared jaw/color/mass/contact updates and do not include all
-the current options. Use the shared mounted models for the current model data.
+```bash
+python -m mujoco.viewer --mjcf=msg/scene_solid.xml
+```
 
-## What changes when selecting jaws?
+Choose the other `scene_*.xml` to change jaws. `scene.xml` also opens Solid jaws.
+The native gripper-only model files are `msg_solid.xml` and
+`msg_soft_tpu.xml`; the viewer scenes add lighting and a floor.
 
-The selected visual and external collision geometry changes. Joint travel,
-coupling, configured TCP and the measured moving-assembly mass are retained.
-The MSG complete mass used here is 380 g;
-each moving finger/jaw assembly is 39.3 g. Tool COM and inertia remain estimates.
-Soft-material deformation is not simulated.
+**URDF viewer:** load the selected `.urdf` from `msg_description/`, keeping
+its `meshes/` folder alongside it. Upload the whole extracted package if a web
+viewer requests a folder or ZIP.
 
-See [physical-data status](../mujoco/par6/DYNAMICS.md),
-[contact validation](../reports/ssg48_contact_diagnosis.md), and
-[jaw source/customization notes](../MODEL_DETAILS.md#rebuilding-jaws).
-The existing control TCP is not a measured jaw-specific grasp center.
+**ROS 1 / RViz:** put `msg_description` in `catkin_ws/src`, build and source
+your workspace, then run:
+
+```bash
+roslaunch msg_description display.launch jaws:=solid
+```
+
+Use `jaws:=soft_tpu` for Soft TPU jaws. The supplied launch is ROS 1; ROS 2 can
+consume the URDF using its own launch setup.
+
+## 3. Move or attach the gripper
+
+`flange` is the massless physical mounting frame. The gripper is fixed there
+for standalone viewing; attach that frame to your robot for a mounted assembly.
+The package does not add the robot's separate 55.5 g flange hardware.
+
+In native MuJoCo, `gripper_actuator` accepts meters: **0 opens** and
+**-0.0525 closes**. Each finger has 52.5 mm of commanded travel,
+with the retained joint equality coupling. The URDF uses the same named finger
+joints and its retained mimic relation; the consumer must implement mimic and
+adjacent-body collision filtering. See the [package README](../mujoco/msg/README.md)
+for endpoint and contact details.
+
+The complete modeled mass is **380 g**, including two **39.3 g** moving
+assemblies. Local COM/inertia and actuator settings retain their current
+estimates. Selecting jaws changes visible/contact geometry; soft-material
+deformation is not simulated. The existing `tcp` is a control frame rather
+than a newly measured jaw-specific grasp center.
+
+## Use MSG already mounted on PAR6 or PAROL6
+
+Download the **robot** package using the [PAR6](par6.md) or [PAROL6](parol6.md)
+guide, then choose the corresponding mounted entry:
+
+| Jaws | Robot MuJoCo scene | Robot URDF file |
+| --- | --- | --- |
+| Solid jaws | `scene_msg.xml` | `par6_msg.urdf` / `parol6_msg.urdf` |
+| Soft TPU jaws | `scene_msg_tpu_glue.xml` | `par6_msg_tpu_glue.urdf` / `parol6_msg_tpu_glue.urdf` |
+
+## Source checkout and validation
+
+In the MSG hardware repository, **`description/`** opens this product's
+instructions. Its shared source is at `description/source/`. Standalone models
+are under `description/source/mujoco/msg` and
+`description/source/urdf/msg_description`.
+
+[Standalone validation](../reports/standalone_grippers_validation.json) compares
+tool-relative FK, local inertia, masses and controls with the mounted models,
+then checks physical close/open behavior and relocated package assets.
+[Migration instructions](legacy-models.md) cover the older standalone exports.

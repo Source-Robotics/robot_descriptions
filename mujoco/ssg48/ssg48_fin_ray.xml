@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="SSG48 standalone gripper">
+  <compiler angle="radian" autolimits="true" />
+  <option integrator="implicitfast" />
+  <default>
+    <default class="SSG48_gripper">
+      <joint armature="0.1" damping="10.0" frictionloss="0" />
+      <position forcerange="-50 50" ctrlrange="-0.0235 0" kp="100" />
+    </default>
+  </default>
+  <asset>
+    <mesh name="gripper" file="assets/gripper_SSG48.STL" scale="1 1 1" />
+    <mesh name="left_finger_link" file="assets/jaw1_SSG48.STL" scale="1 1 1" />
+    <mesh name="right_finger_link" file="assets/jaw2_SSG48.STL" scale="1 1 1" />
+    <mesh name="contact_ssg48_fin_ray_left_00" file="assets/contacts/ssg48_fin_ray/left_00.STL" />
+    <mesh name="contact_ssg48_fin_ray_left_01" file="assets/contacts/ssg48_fin_ray/left_01.STL" />
+    <mesh name="contact_ssg48_fin_ray_left_02" file="assets/contacts/ssg48_fin_ray/left_02.STL" />
+    <mesh name="contact_ssg48_fin_ray_left_03" file="assets/contacts/ssg48_fin_ray/left_03.STL" />
+    <mesh name="contact_ssg48_fin_ray_left_04" file="assets/contacts/ssg48_fin_ray/left_04.STL" />
+    <mesh name="contact_ssg48_fin_ray_left_05" file="assets/contacts/ssg48_fin_ray/left_05.STL" />
+    <mesh name="contact_ssg48_fin_ray_right_00" file="assets/contacts/ssg48_fin_ray/right_00.STL" />
+    <mesh name="contact_ssg48_fin_ray_right_01" file="assets/contacts/ssg48_fin_ray/right_01.STL" />
+    <mesh name="contact_ssg48_fin_ray_right_02" file="assets/contacts/ssg48_fin_ray/right_02.STL" />
+    <mesh name="contact_ssg48_fin_ray_right_03" file="assets/contacts/ssg48_fin_ray/right_03.STL" />
+    <mesh name="contact_ssg48_fin_ray_right_04" file="assets/contacts/ssg48_fin_ray/right_04.STL" />
+    <mesh name="contact_ssg48_fin_ray_right_05" file="assets/contacts/ssg48_fin_ray/right_05.STL" />
+  </asset>
+  <worldbody>
+    <body name="flange" pos="0 0 0">
+      <body name="ssg48_gripper_link" pos="0 0 -0.0571" quat="0 0 1 0">
+        <inertial pos="-6.7987e-05 0.0001694 -0.077391" quat="0.464161 0.46546 -0.535128 0.530603" mass="0.3614" diaginertia="0.00014808 0.000127124 5.86313e-05" />
+        <geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="gripper" />
+        <body name="tcp_link" pos="0 0 -0.1409">
+          <site name="tcp" pos="0 0 0" quat="0 0 1 0" size="0.005" rgba="1 0 0 1" />
+        </body>
+        <body name="left_finger_link" pos="0 0 -0.11745" quat="1.34924e-11 3.67321e-06 1 3.67321e-06">
+          <inertial pos="0.0033269 0.029197 -0.0097237" quat="0.427918 0.661892 -0.405093 0.463342" mass="0.039300000000000002" diaginertia="4.64011e-06 3.93984e-06 1.21885e-06" />
+          <joint name="left_finger_joint" pos="0 0 0" axis="0 -1 0" type="slide" range="-0.0235 0" class="SSG48_gripper" />
+          <geom type="mesh" mesh="left_finger_link" rgba="0.29804 0.29804 0.29804 1" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" contype="0" conaffinity="0" mass="0" />
+          <geom name="contact_ssg48_fin_ray_left_00" type="mesh" mesh="contact_ssg48_fin_ray_left_00" rgba="0 0 0 0" group="3" mass="0" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" />
+          <geom name="contact_ssg48_fin_ray_left_01" type="mesh" mesh="contact_ssg48_fin_ray_left_01" rgba="0 0 0 0" group="3" mass="0" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" />
+          <geom name="contact_ssg48_fin_ray_left_02" type="mesh" mesh="contact_ssg48_fin_ray_left_02" rgba="0 0 0 0" group="3" mass="0" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" />
+          <geom name="contact_ssg48_fin_ray_left_03" type="mesh" mesh="contact_ssg48_fin_ray_left_03" rgba="0 0 0 0" group="3" mass="0" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" />
+          <geom name="contact_ssg48_fin_ray_left_04" type="mesh" mesh="contact_ssg48_fin_ray_left_04" rgba="0 0 0 0" group="3" mass="0" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" />
+          <geom name="contact_ssg48_fin_ray_left_05" type="mesh" mesh="contact_ssg48_fin_ray_left_05" rgba="0 0 0 0" group="3" mass="0" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" />
+        </body>
+        <body name="right_finger_link" pos="0 0 -0.11745" quat="1.34924e-11 3.67321e-06 1 3.67321e-06">
+          <inertial pos="-0.0033269 -0.029197 -0.0097237" quat="0.405093 0.463342 -0.427918 0.661892" mass="0.039300000000000002" diaginertia="4.64011e-06 3.93984e-06 1.21885e-06" />
+          <joint name="right_finger_joint" pos="0 0 0" axis="0 -1 0" type="slide" range="0 0.0235" class="SSG48_gripper" />
+          <geom type="mesh" mesh="right_finger_link" rgba="0.29804 0.29804 0.29804 1" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" contype="0" conaffinity="0" mass="0" />
+          <geom name="contact_ssg48_fin_ray_right_00" type="mesh" mesh="contact_ssg48_fin_ray_right_00" rgba="0 0 0 0" group="3" mass="0" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" />
+          <geom name="contact_ssg48_fin_ray_right_01" type="mesh" mesh="contact_ssg48_fin_ray_right_01" rgba="0 0 0 0" group="3" mass="0" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" />
+          <geom name="contact_ssg48_fin_ray_right_02" type="mesh" mesh="contact_ssg48_fin_ray_right_02" rgba="0 0 0 0" group="3" mass="0" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" />
+          <geom name="contact_ssg48_fin_ray_right_03" type="mesh" mesh="contact_ssg48_fin_ray_right_03" rgba="0 0 0 0" group="3" mass="0" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" />
+          <geom name="contact_ssg48_fin_ray_right_04" type="mesh" mesh="contact_ssg48_fin_ray_right_04" rgba="0 0 0 0" group="3" mass="0" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" />
+          <geom name="contact_ssg48_fin_ray_right_05" type="mesh" mesh="contact_ssg48_fin_ray_right_05" rgba="0 0 0 0" group="3" mass="0" friction="1.2 0.3 0.001" solref="0.002 1" solimp="0.9 0.95 0.001" />
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <contact>
+    <exclude body1="ssg48_gripper_link" body2="left_finger_link" />
+    <exclude body1="ssg48_gripper_link" body2="right_finger_link" />
+  </contact>
+  <equality>
+    <joint joint1="right_finger_joint" joint2="left_finger_joint" polycoef="0 -1 0 0 0" />
+  </equality>
+  <actuator>
+    <position name="gripper_actuator" joint="left_finger_joint" class="SSG48_gripper" />
+  </actuator>
+  <keyframe>
+    <key name="open" qpos="0 0" ctrl="0" />
+    <key name="closed" qpos="-0.0235 0.0235" ctrl="-0.0235" />
+  </keyframe>
+</mujoco>

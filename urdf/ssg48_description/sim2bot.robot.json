@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "name": "Source Robotics SSG48 gripper",
+  "manufacturer": "Source Robotics",
+  "category": "gripper",
+  "license": "Apache-2.0",
+  "sourceUrl": "https://github.com/Source-Robotics/robot_descriptions",
+  "packageVersion": "2.13.0",
+  "entry": "ssg48_solid.urdf",
+  "dof": 1,
+  "rootFrame": "flange",
+  "tcpSites": [
+    "tcp"
+  ],
+  "armActuators": [],
+  "gripperActuators": [],
+  "endEffectorBodies": [
+    "ssg48_gripper_link"
+  ],
+  "variants": [
+    {
+      "id": "solid",
+      "label": "SSG48 - Solid jaws",
+      "entry": "ssg48_solid.urdf",
+      "endEffectorBodies": [
+        "ssg48_gripper_link"
+      ],
+      "gripperActuators": [],
+      "preview": "ssg48_solid.png"
+    },
+    {
+      "id": "fin-ray",
+      "label": "SSG48 - Fin-ray jaws",
+      "entry": "ssg48_fin_ray.urdf",
+      "endEffectorBodies": [
+        "ssg48_gripper_link"
+      ],
+      "gripperActuators": [],
+      "preview": "ssg48_fin_ray.png"
+    }
+  ]
+}

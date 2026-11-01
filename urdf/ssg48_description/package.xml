@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package format="2">
+  <name>ssg48_description</name>
+  <version>2.13.0</version>
+  <description>Standalone Source Robotics SSG48 gripper with interchangeable jaws.</description>
+  <maintainer email="petar@source-robotics.com">Source Robotics</maintainer>
+  <license>Apache-2.0</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>joint_state_publisher_gui</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>rviz</exec_depend>
+</package>

@@ -1,0 +1,69 @@
+{
+  "scope": "Independent MSG and SSG48 URDF/MuJoCo exports, relative to physical flange frame.",
+  "results": [
+    {
+      "gripper": "msg",
+      "jaws": "solid",
+      "samples": 41,
+      "mass_kg": 0.38,
+      "maximum_native_transform_error": 4.440892098500626e-16,
+      "maximum_urdf_transform_error": 1.1102230246251565e-16,
+      "forced_pose_maximum_overlap_m": 0.0008000025630999699,
+      "maximum_contact_change_from_source_m": 2.7972416050126014e-17,
+      "local_physics_and_urdf_definitions_preserved": true,
+      "close_open_error_m": [
+        0.00039368727796806197,
+        1.65361624782077e-09
+      ],
+      "maximum_internal_penetration_m": 5.2612227666085e-06
+    },
+    {
+      "gripper": "msg",
+      "jaws": "soft_tpu",
+      "samples": 41,
+      "mass_kg": 0.38,
+      "maximum_native_transform_error": 4.440892098500626e-16,
+      "maximum_urdf_transform_error": 1.1102230246251565e-16,
+      "forced_pose_maximum_overlap_m": 0.0008000023513868639,
+      "maximum_contact_change_from_source_m": 8.023096076392733e-18,
+      "local_physics_and_urdf_definitions_preserved": true,
+      "close_open_error_m": [
+        0.0003936933838482315,
+        1.653616247813653e-09
+      ],
+      "maximum_internal_penetration_m": 5.261087020484215e-06
+    },
+    {
+      "gripper": "ssg48",
+      "jaws": "solid",
+      "samples": 41,
+      "mass_kg": 0.44,
+      "maximum_native_transform_error": 4.440892098500626e-16,
+      "maximum_urdf_transform_error": 1.1102230246251565e-16,
+      "forced_pose_maximum_overlap_m": 1.9908677674176873e-09,
+      "maximum_contact_change_from_source_m": 1.7015721036181825e-17,
+      "local_physics_and_urdf_definitions_preserved": true,
+      "close_open_error_m": [
+        1.50084472627654e-10,
+        1.6536162479253084e-09
+      ],
+      "maximum_internal_penetration_m": 1.908193794299873e-12
+    },
+    {
+      "gripper": "ssg48",
+      "jaws": "fin_ray",
+      "samples": 41,
+      "mass_kg": 0.44,
+      "maximum_native_transform_error": 4.440892098500626e-16,
+      "maximum_urdf_transform_error": 1.1102230246251565e-16,
+      "forced_pose_maximum_overlap_m": 0.0,
+      "maximum_contact_change_from_source_m": 0.0,
+      "local_physics_and_urdf_definitions_preserved": true,
+      "close_open_error_m": [
+        1.413894001878191e-11,
+        1.6536162479253102e-09
+      ],
+      "maximum_internal_penetration_m": 0.0
+    }
+  ]
+}

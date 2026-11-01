@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "name": "Source Robotics MSG gripper",
+  "manufacturer": "Source Robotics",
+  "category": "gripper",
+  "license": "Apache-2.0",
+  "sourceUrl": "https://github.com/Source-Robotics/robot_descriptions",
+  "packageVersion": "2.13.0",
+  "entry": "scene_solid.xml",
+  "dof": 1,
+  "rootFrame": "flange",
+  "tcpSites": [
+    "tcp"
+  ],
+  "armActuators": [],
+  "gripperActuators": [
+    "gripper_actuator"
+  ],
+  "endEffectorBodies": [
+    "msg_gripper_link"
+  ],
+  "variants": [
+    {
+      "id": "solid",
+      "label": "MSG - Solid jaws",
+      "entry": "scene_solid.xml",
+      "endEffectorBodies": [
+        "msg_gripper_link"
+      ],
+      "gripperActuators": [
+        "gripper_actuator"
+      ],
+      "preview": "msg_solid.png"
+    },
+    {
+      "id": "soft-tpu",
+      "label": "MSG - Soft TPU jaws",
+      "entry": "scene_soft_tpu.xml",
+      "endEffectorBodies": [
+        "msg_gripper_link"
+      ],
+      "gripperActuators": [
+        "gripper_actuator"
+      ],
+      "preview": "msg_soft_tpu.png"
+    }
+  ]
+}

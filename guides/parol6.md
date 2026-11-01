@@ -42,7 +42,7 @@ For an existing checkout of the PAROL6 hardware repository with its submodule
 initialized, the equivalent path is:
 
 ```bash
-python -m mujoco.viewer --mjcf=models/descriptions/mujoco/parol6/scene_msg.xml
+python -m mujoco.viewer --mjcf=description/source/mujoco/parol6/scene_msg.xml
 ```
 
 **URDF viewer:** open `parol6_description/parol6_msg.urdf`, keeping the

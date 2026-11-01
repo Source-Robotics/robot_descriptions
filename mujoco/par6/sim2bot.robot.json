@@ -6,7 +6,7 @@
   "license": "Apache-2.0",
   "sourceUrl": "https://source-robotics.com/",
   "sourceRevision": "2025-02-10",
-  "packageVersion": "2.12.1",
+  "packageVersion": "2.13.0",
   "entry": "scene_msg.xml",
   "dof": 6,
   "tcpSites": [

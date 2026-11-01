@@ -77,6 +77,8 @@ jobs:
           gh release create "$GITHUB_REF_NAME" \
             dist/par6_mujoco.zip dist/par6_urdf.zip \
             dist/parol6_mujoco.zip dist/parol6_urdf.zip \
+            dist/msg_mujoco.zip dist/msg_urdf.zip \
+            dist/ssg48_mujoco.zip dist/ssg48_urdf.zip \
             dist/robot_kinematics_review.pdf dist/release_manifest.json dist/SHA256SUMS \
             --repo "$GITHUB_REPOSITORY" --verify-tag \
             --title "Robot descriptions $GITHUB_REF_NAME" \

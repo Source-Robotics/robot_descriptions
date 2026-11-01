@@ -36,9 +36,9 @@ def test_release_rejects_mixed_package_versions(tmp_path):
 
 def test_release_checksums_match_every_downloadable_asset(tmp_path):
     release_fixture(tmp_path);manifest=prepare(tmp_path,tag='v2.12.1')
-    assert len(manifest['assets'])==5
+    assert len(manifest['assets'])==9
     lines=(tmp_path/'dist/SHA256SUMS').read_text().splitlines()
-    assert len(lines)==6
+    assert len(lines)==10
     for line in lines:
         digest,name=line.split('  ')
         assert digest==hashlib.sha256((tmp_path/'dist'/name).read_bytes()).hexdigest()

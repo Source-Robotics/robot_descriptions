@@ -27,7 +27,11 @@ def build():
     result={}
     distributions=[(MJCF,'par6_mujoco.zip',True),(URDF,'par6_urdf.zip',False),
                    (ROOT/'mujoco/parol6','parol6_mujoco.zip',True),
-                   (ROOT/'urdf/parol6_description','parol6_urdf.zip',False)]
+                   (ROOT/'urdf/parol6_description','parol6_urdf.zip',False),
+                   (ROOT/'mujoco/msg','msg_mujoco.zip',True),
+                   (ROOT/'urdf/msg_description','msg_urdf.zip',False),
+                   (ROOT/'mujoco/ssg48','ssg48_mujoco.zip',True),
+                   (ROOT/'urdf/ssg48_description','ssg48_urdf.zip',False)]
     for package,filename,native in distributions:
         if not package.is_dir():raise ValueError(f'Build the missing package first: {package.name}')
         archive=destination/filename
@@ -52,6 +56,11 @@ def build():
             unpacked=directory/package.name
             metadata=json.loads((unpacked/'sim2bot.robot.json').read_text())
             assert metadata['packageVersion']==version
+            if metadata.get('category')=='gripper':
+                from verify_standalone_grippers import check_package
+                result[filename]={'bytes':archive.stat().st_size,**check_package(unpacked,native)}
+                print(filename,result[filename],flush=True)
+                continue
             assert {item['label'] for item in metadata['variants']}=={
                 'Flange only','MSG - Solid jaws','MSG - Soft TPU jaws','SSG48 - Solid jaws','SSG48 - Fin-ray jaws','Pneumatic gripper'}
             assert all((unpacked/name).is_file() for name in ['README.md','DYNAMICS.md','DYNAMICS_AUDIT.md','GRASP_FRAMES.md','CONTACT_PERFORMANCE.md','DH.md','KINEMATICS_COMPARISON.md','kinematics_comparison.svg','ACTUATION.md','KINEMATIC_REVIEW.md','PNEUMATIC.md','SSG48_CONTACTS.md'])

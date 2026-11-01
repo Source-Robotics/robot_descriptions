@@ -62,6 +62,9 @@ def build(models_only=False):
     print('All 16 electric-gripper close/lift/hold/release checks passed.',flush=True)
     from build_review_sheets import build as reviews
     reviews()
+    from build_standalone_grippers import build as grippers
+    from verify_standalone_grippers import verify as gripper_checks
+    grippers();gripper_checks()
     packages()
     print('Standalone build, dynamics/jaw validation and release archive checks passed.',flush=True)
 

@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="MSG gripper viewer">
+  <include file="msg_solid.xml" />
+  <statistic center="0 0 .045" extent=".22" />
+  <visual>
+    <headlight ambient=".35 .35 .35" diffuse=".8 .8 .8" specular=".15 .15 .15" />
+    <global azimuth="135" elevation="-24" />
+  </visual>
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1=".22 .28 .34" rgb2=".38 .46 .55" width="64" height="384" />
+    <material name="floor_material" rgba=".19 .24 .3 1" />
+  </asset>
+  <worldbody>
+    <light pos=".2 -.2 .6" dir="0 0 -1" />
+    <geom name="floor" type="plane" pos="0 0 -.04" size=".5 .5 .01" material="floor_material" />
+  </worldbody>
+</mujoco>

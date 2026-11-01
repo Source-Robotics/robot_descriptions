@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.13.0 - 2026-11-01
+
+- Added independent MSG and SSG48 URDF/MuJoCo packages, each with both requested jaw options.
+- Reused tool-relative frames, local physical properties, collision geometry and controls from the maintained robot models.
+- Added standalone FK/inertia preservation, physical close/open and relocated-package validation.
+- Expanded checked releases to eight model ZIPs and added product-specific `description/` entry pages for hardware repositories.
+- Kept the existing PAR6/PAROL6 robot definitions and their measured mass targets unchanged.
+
 ## 2.12.1 - 2026-10-31
 
 - Corrected SSG48 URDF contact proxies to omit internal rack collisions while preserving complete visuals, mass properties and joint/drive settings.

@@ -1,51 +1,94 @@
-# SSG48 gripper models
+# SSG48 gripper: getting started
 
-[All models](../README.md) | [PAR6 guide](par6.md) | [PAROL6 guide](parol6.md)
+[All models](../README.md) | [PAR6](par6.md) | [PAROL6](parol6.md)
 
-Choose **Solid jaws** (default) or **Fin-ray jaws**. Both options are available
-mounted on PAR6 and PAROL6, in URDF and native MuJoCo formats.
+**Working with the gripper alone? Download a standalone package below.**
+Both formats include **Solid jaws** (default) and **Fin-ray jaws**, with all meshes,
+materials, finger joints, collision shapes and mass properties.
 
-![SSG48 alternate jaw geometry](../ssg48_jaws_preview.png)
+| Solid jaws (default) | Fin-ray jaws |
+| --- | --- |
+| ![SSG48 with Solid jaws](../source/grippers/previews/ssg48_solid.png) | ![SSG48 with Fin-ray jaws](../source/grippers/previews/ssg48_fin_ray.png) |
 
-## Use the gripper on a robot
+## 1. Download the gripper-only package
 
-1. Choose [PAR6](par6.md) or [PAROL6](parol6.md).
-2. Download that robot's MuJoCo or URDF ZIP using its guide.
-3. Open the entry file for your jaw option:
+| Format | Download | Extracted folder |
+| --- | --- | --- |
+| MuJoCo | [Download ssg48_mujoco.zip](https://github.com/Source-Robotics/robot_descriptions/releases/latest/download/ssg48_mujoco.zip) | `ssg48/` |
+| URDF | [Download ssg48_urdf.zip](https://github.com/Source-Robotics/robot_descriptions/releases/latest/download/ssg48_urdf.zip) | `ssg48_description/` |
 
-| Jaws | Robot | MuJoCo entry file | URDF entry file |
-| --- | --- | --- | --- |
-| Solid jaws (default) | PAR6 | [`scene_ssg48.xml`](../mujoco/par6/scene_ssg48.xml) | [`par6_ssg48.urdf`](../urdf/par6_description/par6_ssg48.urdf) |
-| Solid jaws (default) | PAROL6 | [`scene_ssg48.xml`](../mujoco/parol6/scene_ssg48.xml) | [`parol6_ssg48.urdf`](../urdf/parol6_description/parol6_ssg48.urdf) |
-| Fin-ray jaws | PAR6 | [`scene_ssg48_stock.xml`](../mujoco/par6/scene_ssg48_stock.xml) | [`par6_ssg48_stock.urdf`](../urdf/par6_description/par6_ssg48_stock.urdf) |
-| Fin-ray jaws | PAROL6 | [`scene_ssg48_stock.xml`](../mujoco/parol6/scene_ssg48_stock.xml) | [`parol6_ssg48_stock.urdf`](../urdf/parol6_description/parol6_ssg48_stock.urdf) |
+These packages contain **only SSG48**, with a fixed mounting frame and two
+moving fingers. No arm or grasp-test fixture is included. Keep the extracted
+folder together so the model can find its meshes.
 
-If you cloned the SSG48 hardware repository with its descriptions submodule,
-these files are under `models/descriptions/mujoco/` and
-`models/descriptions/urdf/`. The complete mesh folders must stay with them.
+## 2. Choose jaws and open the model
 
-## Use a gripper without an arm
+| Jaws | MuJoCo viewer scene | URDF entry file |
+| --- | --- | --- |
+| Solid jaws (default) | [`scene_solid.xml`](../mujoco/ssg48/scene_solid.xml) | [`ssg48_solid.urdf`](../urdf/ssg48_description/ssg48_solid.urdf) |
+| Fin-ray jaws | [`scene_fin_ray.xml`](../mujoco/ssg48/scene_fin_ray.xml) | [`ssg48_fin_ray.urdf`](../urdf/ssg48_description/ssg48_fin_ray.urdf) |
 
-The current shared release contains complete robot assemblies, rather than
-dedicated gripper-only URDF/MuJoCo packages. Its MuJoCo packages also include
-[`bench/`](../mujoco/par6/bench/README.md) fixtures that isolate each electric
-gripper for box/cylinder grasp checks. Those fixtures include a test object,
-table and a prescribed-motion mount; they are validation scenes.
+**MuJoCo:** from the directory where you extracted the download, run:
 
-The older [standalone SSG48 exports](https://github.com/Source-Robotics/SSG-48-adaptive-electric-gripper/tree/main/SSG48_gripper_description)
-are retained in the hardware repository for existing gripper-only integrations.
-They predate the shared jaw/color/mass/contact updates and do not include all
-the current options. Use the shared mounted models for the current model data.
+```bash
+python -m mujoco.viewer --mjcf=ssg48/scene_solid.xml
+```
 
-## What changes when selecting jaws?
+Choose the other `scene_*.xml` to change jaws. `scene.xml` also opens Solid jaws.
+The native gripper-only model files are `ssg48_solid.xml` and
+`ssg48_fin_ray.xml`; the viewer scenes add lighting and a floor.
 
-The selected visual and external collision geometry changes. Joint travel,
-coupling, configured TCP and the measured moving-assembly mass are retained.
-The SSG48 complete mass used here is 440 g;
-each moving finger/jaw assembly is 39.3 g. Tool COM and inertia remain estimates.
-Soft-material deformation is not simulated.
+**URDF viewer:** load the selected `.urdf` from `ssg48_description/`, keeping
+its `meshes/` folder alongside it. Upload the whole extracted package if a web
+viewer requests a folder or ZIP.
 
-See [physical-data status](../mujoco/par6/DYNAMICS.md),
-[contact validation](../reports/ssg48_contact_diagnosis.md), and
-[jaw source/customization notes](../MODEL_DETAILS.md#rebuilding-jaws).
-The existing control TCP is not a measured jaw-specific grasp center.
+**ROS 1 / RViz:** put `ssg48_description` in `catkin_ws/src`, build and source
+your workspace, then run:
+
+```bash
+roslaunch ssg48_description display.launch jaws:=solid
+```
+
+Use `jaws:=fin_ray` for Fin-ray jaws. The supplied launch is ROS 1; ROS 2 can
+consume the URDF using its own launch setup.
+
+## 3. Move or attach the gripper
+
+`flange` is the massless physical mounting frame. The gripper is fixed there
+for standalone viewing; attach that frame to your robot for a mounted assembly.
+The package does not add the robot's separate 55.5 g flange hardware.
+
+In native MuJoCo, `gripper_actuator` accepts meters: **0 opens** and
+**-0.0235 closes**. Each finger has 23.5 mm of commanded travel,
+with the retained joint equality coupling. The URDF uses the same named finger
+joints and its retained mimic relation; the consumer must implement mimic and
+adjacent-body collision filtering. See the [package README](../mujoco/ssg48/README.md)
+for endpoint and contact details.
+
+The complete modeled mass is **440 g**, including two **39.3 g** moving
+assemblies. Local COM/inertia and actuator settings retain their current
+estimates. Selecting jaws changes visible/contact geometry; soft-material
+deformation is not simulated. The existing `tcp` is a control frame rather
+than a newly measured jaw-specific grasp center.
+
+## Use SSG48 already mounted on PAR6 or PAROL6
+
+Download the **robot** package using the [PAR6](par6.md) or [PAROL6](parol6.md)
+guide, then choose the corresponding mounted entry:
+
+| Jaws | Robot MuJoCo scene | Robot URDF file |
+| --- | --- | --- |
+| Solid jaws | `scene_ssg48.xml` | `par6_ssg48.urdf` / `parol6_ssg48.urdf` |
+| Fin-ray jaws | `scene_ssg48_stock.xml` | `par6_ssg48_stock.urdf` / `parol6_ssg48_stock.urdf` |
+
+## Source checkout and validation
+
+In the SSG48 hardware repository, **`description/`** opens this product's
+instructions. Its shared source is at `description/source/`. Standalone models
+are under `description/source/mujoco/ssg48` and
+`description/source/urdf/ssg48_description`.
+
+[Standalone validation](../reports/standalone_grippers_validation.json) compares
+tool-relative FK, local inertia, masses and controls with the mounted models,
+then checks physical close/open behavior and relocated package assets.
+[Migration instructions](legacy-models.md) cover the older standalone exports.

@@ -1,8 +1,9 @@
 # Source Robotics robot descriptions
 
-Ready-to-use **URDF and MuJoCo models for PAR6 and PAROL6**, with MSG, SSG48,
-flange-only and pneumatic end effectors. Meshes, materials, collision geometry,
-joint definitions and physical properties are included in each package.
+Ready-to-use **URDF and MuJoCo models for PAR6, PAROL6, MSG and SSG48**.
+The grippers are available on their own or mounted on either robot. Robot
+packages also include flange-only and pneumatic configurations. Meshes,
+materials, collision geometry, joints and physical properties are included.
 
 **Start here:** choose your robot or gripper below, then follow its download and
 opening instructions. You do not need to build the models from source.
@@ -13,21 +14,23 @@ opening instructions. You do not need to build the models from source.
 | --- | --- | --- |
 | **PAR6** | [PAR6 guide](guides/par6.md) | All six end-effector configurations, URDF and MuJoCo |
 | **PAROL6** | [PAROL6 guide](guides/parol6.md) | All six end-effector configurations, URDF and MuJoCo |
-| **MSG gripper** | [MSG guide](guides/msg.md) | Solid jaws (default), Soft TPU jaws; mounted on either arm |
-| **SSG48 gripper** | [SSG48 guide](guides/ssg48.md) | Solid jaws (default), Fin-ray jaws; mounted on either arm |
+| **MSG gripper** | [MSG guide](guides/msg.md) | Solid jaws (default), Soft TPU jaws; standalone or mounted |
+| **SSG48 gripper** | [SSG48 guide](guides/ssg48.md) | Solid jaws (default), Fin-ray jaws; standalone or mounted |
 
 ![PAROL6 with the six available end-effector configurations](reports/parol6_models.png)
 
 ## Download a ready-to-use package
 
-| Robot | MuJoCo | URDF |
+| Robot / gripper | MuJoCo | URDF |
 | --- | --- | --- |
 | PAR6 | [par6_mujoco.zip](https://github.com/Source-Robotics/robot_descriptions/releases/latest/download/par6_mujoco.zip) | [par6_urdf.zip](https://github.com/Source-Robotics/robot_descriptions/releases/latest/download/par6_urdf.zip) |
 | PAROL6 | [parol6_mujoco.zip](https://github.com/Source-Robotics/robot_descriptions/releases/latest/download/parol6_mujoco.zip) | [parol6_urdf.zip](https://github.com/Source-Robotics/robot_descriptions/releases/latest/download/parol6_urdf.zip) |
+| MSG (gripper only) | [msg_mujoco.zip](https://github.com/Source-Robotics/robot_descriptions/releases/latest/download/msg_mujoco.zip) | [msg_urdf.zip](https://github.com/Source-Robotics/robot_descriptions/releases/latest/download/msg_urdf.zip) |
+| SSG48 (gripper only) | [ssg48_mujoco.zip](https://github.com/Source-Robotics/robot_descriptions/releases/latest/download/ssg48_mujoco.zip) | [ssg48_urdf.zip](https://github.com/Source-Robotics/robot_descriptions/releases/latest/download/ssg48_urdf.zip) |
 
-1. Download the ZIP for your robot and simulator from the table.
+1. Download the ZIP for your robot or gripper and simulator from the table.
 2. Extract it and keep the whole extracted folder together.
-3. Open a `scene_*.xml` file for MuJoCo, or a `par6_*.urdf` / `parol6_*.urdf`
+3. Open a `scene_*.xml` file for MuJoCo, or a `par6_*.urdf`, `parol6_*.urdf`, `msg_*.urdf` or `ssg48_*.urdf`
    file for a URDF viewer. The robot guides list the exact files for every option.
 
 The [release page](https://github.com/Source-Robotics/robot_descriptions/releases/latest)
@@ -36,10 +39,10 @@ upload one extracted model package, including its meshes/textures, rather than
 this entire authoring repository. The source checkout contains the same models
 under [`mujoco/`](mujoco/) and [`urdf/`](urdf/).
 
-The four release ZIPs contain complete robot assemblies. Dedicated gripper-only
-URDF/MuJoCo distributions are not included in this release. The gripper guides
-explain the mounted models, isolated MuJoCo grasp fixtures, and the older
-standalone exports retained in the gripper hardware repositories.
+There are **eight independent packages**: PAR6, PAROL6, MSG and SSG48, each
+in URDF and MuJoCo. The MSG/SSG48 downloads contain only the gripper and both
+of its jaw options. The robot downloads include all six mounted end-effectors.
+Choose a gripper guide below if you are working without an arm.
 
 ## End-effector options
 
@@ -70,9 +73,11 @@ estimates; simulation grip checks do not establish hardware grip force.
 
 ## Using the shared descriptions from a hardware repository
 
-PAR6, PAROL6, MSG and SSG48 can all reference this repository at
-`models/descriptions`. Clicking that submodule on GitHub opens this landing
-page at the exact version selected by the hardware repository.
+In each PAR6, PAROL6, MSG and SSG48 hardware repository, open **`description/`**
+for that product's download and opening instructions. The shared Git submodule
+is nested at `description/source/`. Clicking the submodule itself opens this
+repository at its pinned commit; the normal `description/` folder provides the
+product-specific landing page without navigating through the shared repository.
 
 For an existing local checkout of a hardware repository, run:
 

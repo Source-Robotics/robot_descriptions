@@ -56,8 +56,12 @@ https://cairosvg.org/documentation/ for its platform installation guidance.
 9. Regenerates twelve dimensioned kinematic review sheets and validates each
    six-row DH table against both formats at 128 poses. Uses checked snapshot
    caches, without requiring OpenGL during a normal build.
-10. Writes and checks `dist/par6_mujoco.zip`, `dist/par6_urdf.zip`,
-   `dist/parol6_mujoco.zip` and `dist/parol6_urdf.zip`.
+10. Exports independent MSG/SSG48 packages with both jaw options, compares
+   their tool-relative FK, inertials, controls and contacts against the mounted
+   models, and runs finite close/open cycles.
+11. Writes and extracts all eight ZIPs: `par6_mujoco.zip`, `par6_urdf.zip`,
+   `parol6_mujoco.zip`, `parol6_urdf.zip`, `msg_mujoco.zip`, `msg_urdf.zip`,
+   `ssg48_mujoco.zip` and `ssg48_urdf.zip`. Each uses only its own assets.
 
 Byte-hashed STEP/STL/SVG inputs are protected from Git line-ending conversion
 by `.gitattributes`. Reference snapshot inputs use LF. Release ZIPs use fixed

@@ -1,6 +1,6 @@
 # PAROL6 description changelog
 
-## 2.12.1 - 2026-10-31
+## 2.13.0 - 2026-10-31
 
 - Corrected SSG48 URDF collision proxies to omit internal transmission racks while preserving their visuals and all inertial properties.
 - Corrected short-jaw grasp fixture clearance and added full-stroke internal contact and close/lift/hold/release regression checks.

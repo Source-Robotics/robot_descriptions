@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="ssg48_gripper">
+  <link name="ssg48_gripper_link">
+    <inertial>
+      <origin xyz="-6.7987E-05 0.0001694 -0.077391" rpy="0 0 0" />
+      <mass value="0.3614" />
+      <inertia ixx="0.00012751" ixy="-1.7736E-07" ixz="-2.8206E-06" iyy="5.8635E-05" iyz="-5.29E-07" izz="0.00014769" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ssg48/gripper.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ssg48/gripper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="flange" />
+  <link name="left_finger_link">
+    <inertial>
+      <origin xyz="0.0033269 0.029197 -0.0097237" rpy="0 0 0" />
+      <mass value="0.039300000000000002" />
+      <inertia ixx="3.7875E-06" ixy="6.5971E-07" ixz="3.113E-07" iyy="1.5397E-06" iyz="-6.1777E-07" izz="4.4716E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ssg48/jaws/pinch/left.STL" />
+      </geometry>
+      <material name="ssg48_jaw_material">
+        <color rgba="0.298039216 0.298039216 0.298039216 1" />
+      </material>
+    </visual>
+    <collision name="contact_ssg48_solid_left_00">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/contacts/ssg48_solid/left_00.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_ssg48_solid_left_01">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/contacts/ssg48_solid/left_01.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_ssg48_solid_left_02">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/contacts/ssg48_solid/left_02.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_ssg48_solid_left_03">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/contacts/ssg48_solid/left_03.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_ssg48_solid_left_04">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/contacts/ssg48_solid/left_04.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_ssg48_solid_left_05">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/contacts/ssg48_solid/left_05.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_finger_link">
+    <inertial>
+      <origin xyz="-0.0033269 -0.029197 -0.0097237" rpy="0 0 0" />
+      <mass value="0.039300000000000002" />
+      <inertia ixx="3.7875E-06" ixy="6.5971E-07" ixz="-3.113E-07" iyy="1.5397E-06" iyz="6.1777E-07" izz="4.4716E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/ssg48/jaws/pinch/right.STL" />
+      </geometry>
+      <material name="ssg48_jaw_material">
+        <color rgba="0.298039216 0.298039216 0.298039216 1" />
+      </material>
+    </visual>
+    <collision name="contact_ssg48_solid_right_00">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/contacts/ssg48_solid/right_00.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_ssg48_solid_right_01">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/contacts/ssg48_solid/right_01.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_ssg48_solid_right_02">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/contacts/ssg48_solid/right_02.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_ssg48_solid_right_03">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/contacts/ssg48_solid/right_03.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_ssg48_solid_right_04">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/contacts/ssg48_solid/right_04.STL" />
+      </geometry>
+    </collision>
+    <collision name="contact_ssg48_solid_right_05">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/contacts/ssg48_solid/right_05.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="tcp" />
+  <joint name="ssg48_gripper_fixed_joint" type="fixed">
+    <parent link="flange" />
+    <child link="ssg48_gripper_link" />
+    <origin xyz="0 0 -0.0571" rpy="0 3.141592653589793 0" />
+  </joint>
+  <joint name="left_finger_joint" type="prismatic">
+    <origin xyz="0 0 -0.11745" rpy="-3.1416 0 -3.1416" />
+    <parent link="ssg48_gripper_link" />
+    <child link="left_finger_link" />
+    <axis xyz="0 -1 0" />
+    <limit lower="-0.0235" upper="0" effort="0" velocity="0" />
+  </joint>
+  <joint name="right_finger_joint" type="prismatic">
+    <mimic joint="left_finger_joint" multiplier="-1" offset="0" />
+    <origin xyz="0 0 -0.11745" rpy="-3.1416 0 -3.1416" />
+    <parent link="ssg48_gripper_link" />
+    <child link="right_finger_link" />
+    <axis xyz="0 -1 0" />
+    <limit lower="0" upper="0.0235" effort="0" velocity="0" />
+  </joint>
+  <joint name="tcp_fixed_joint" type="fixed">
+    <parent link="ssg48_gripper_link" />
+    <child link="tcp" />
+    <origin xyz="0 0 -0.1409" rpy="0 3.141592653589793 0" />
+  </joint>
+  <transmission name="gripper_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_finger_joint">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="gripper_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+</robot>
