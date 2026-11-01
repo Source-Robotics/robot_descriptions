@@ -66,29 +66,30 @@ geometry; deformation is not modeled.
 - [Mass and inertia status](reports/dynamics_sync_validation.md): measured masses, RCB references and remaining estimates.
 - [SSG48 collision and grasp checks](reports/ssg48_contact_diagnosis.md): jaw contacts and validation fixtures.
 
-Each model package includes its own `DH.md`, `DYNAMICS.md`, `ACTUATION.md` and
-`KINEMATIC_REVIEW.md`. Use those documents when integrating a model with a
+Robot packages include `DH.md`, `DYNAMICS.md`, `ACTUATION.md` and
+`KINEMATIC_REVIEW.md`. Standalone gripper packages include their operating
+instructions and `VALIDATION.md`. Use those documents when integrating a model with a
 controller. Tool COM/inertia, rotor inertia and some actuation parameters remain
 estimates; simulation grip checks do not establish hardware grip force.
 
-## Using the shared descriptions from a hardware repository
+## Product guides in the hardware repositories
 
-In each PAR6, PAROL6, MSG and SSG48 hardware repository, open **`description/`**
-for that product's download and opening instructions. The shared Git submodule
-is nested at `description/source/`. Clicking the submodule itself opens this
-repository at its pinned commit; the normal `description/` folder provides the
-product-specific landing page without navigating through the shared repository.
+Open the product-specific folder in its hardware repository:
 
-For an existing local checkout of a hardware repository, run:
+| Product | Guide folder |
+| --- | --- |
+| PAR6 | [par6_description/](https://github.com/Source-Robotics/PAR6-Collaborative-Robot-Arm/tree/main/par6_description) |
+| PAROL6 | [parol6_description/](https://github.com/Source-Robotics/PAROL6-Desktop-robot-arm/tree/main/parol6_description) |
+| MSG | [msg_description/](https://github.com/Source-Robotics/MSG-compliant-AI-stepper-gripper/tree/main/msg_description) |
+| SSG48 | [ssg48_description/](https://github.com/Source-Robotics/SSG-48-adaptive-electric-gripper/tree/main/ssg48_description) |
 
-```bash
-git submodule update --init --recursive
-```
+Each contains a README, local previews and model download links. Hardware
+repositories do not include the model source or a descriptions submodule.
+Download and extract a model ZIP into your working directory to use it.
+All maintained model files live in this central repository.
 
-For a new checkout, use `git clone --recurse-submodules` with that hardware
-repository's URL. GitHub's **Download ZIP** does not include submodule contents;
-use the model downloads above if you do not use Git. The models are maintained
-here and consumers pin an exact commit. See [submodule and release maintenance](RELEASING.md).
+Software projects that load models directly from their checkout can pin this
+repository as a submodule. See [release and integration maintenance](RELEASING.md).
 
 ## Build or customize
 

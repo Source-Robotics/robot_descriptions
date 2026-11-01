@@ -83,10 +83,14 @@ guide, then choose the corresponding mounted entry:
 
 ## Source checkout and validation
 
-In the SSG48 hardware repository, **`description/`** opens this product's
-instructions. Its shared source is at `description/source/`. Standalone models
-are under `description/source/mujoco/ssg48` and
-`description/source/urdf/ssg48_description`.
+In the SSG48 hardware repository, **`ssg48_description/`** contains this
+product's guide and local previews. Download and extract the model ZIP into a
+separate working directory or ROS workspace. The hardware guide folder is
+documentation; the extracted URDF folder is the actual ROS/model package.
+
+All maintained models live in the central `robot_descriptions` repository,
+under `mujoco/ssg48` and `urdf/ssg48_description`. A software project
+can load those paths from a pinned checkout if it needs local model sources.
 
 [Standalone validation](../reports/standalone_grippers_validation.json) compares
 tool-relative FK, local inertia, masses and controls with the mounted models,

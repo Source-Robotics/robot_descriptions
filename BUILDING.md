@@ -194,14 +194,16 @@ geometry and drive preservation checks, optionally supply both
 verification commands also require explicitly supplied comparison packages;
 those archived baselines are not required to build a clean checkout.
 
-## PAR6 main-repository integration
+## Hardware guides and software integration
 
-Keep model maintenance here and add this repository as a submodule such as
-`models/descriptions` in the PAR6 main repository. Pin a tested commit; a model
-update becomes a deliberate submodule-pointer change in a normal PR. A
-submodule references an entire repository, so a central descriptions repo
-includes all its products even when PAR6 uses only its own package paths.
+Keep model maintenance here. The hardware repositories contain ordinary
+`par6_description/`, `parol6_description/`, `msg_description/` or
+`ssg48_description/` guide folders, with README, previews and release-download
+links. They do not include model copies or submodules. See `RELEASING.md` for
+`tools/export_hardware_guide.py`, which regenerates those guide folders.
 
-Users cloning the main repository use `git clone --recurse-submodules URL`,
-or initialize an existing clone with `git submodule update --init --recursive`.
-Keep ready-to-use release ZIP links in the product README as well.
+Software projects that load models directly from a checkout may include this
+repository as a submodule, for example `external/robot_descriptions`. Pin a
+tested commit or release and select the product's package paths within it.
+A submodule includes the whole central repository. Users of those software
+projects can initialize it with `git submodule update --init --recursive`.

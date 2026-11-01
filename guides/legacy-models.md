@@ -3,22 +3,22 @@
 [All models](../README.md) | [PAR6](par6.md) | [PAROL6](parol6.md)
 
 The maintained models now live in `Source-Robotics/robot_descriptions`.
-The hardware repositories include them through `description/source`.
+The hardware repositories provide product-specific guide folders and download
+links. Runtime model files are available from the central repository or its
+release packages.
 
-| Previous location in the hardware repository | Current location |
+| Previous location in the hardware repository | Current location in robot_descriptions |
 | --- | --- |
-| PAR6: `PAR6 Description/` MJCF files | `description/source/mujoco/par6/scene_*.xml` |
-| PAR6: `PAR6 Description/URDF/` | `description/source/urdf/par6_description/par6_*.urdf` |
-| PAROL6: `PAROL6_URDF/` | `description/source/urdf/parol6_description/parol6_*.urdf` |
-| MSG: `MSG_gripper_description/` | `description/source/mujoco/msg/` or `description/source/urdf/msg_description/` |
-| SSG48: `SSG48_gripper_description/` | `description/source/mujoco/ssg48/` or `description/source/urdf/ssg48_description/` |
-| PAROL6: native MuJoCo models | `description/source/mujoco/parol6/scene_*.xml` |
+| PAR6: `PAR6 Description/` MJCF files | `mujoco/par6/scene_*.xml` |
+| PAR6: `PAR6 Description/URDF/` | `urdf/par6_description/par6_*.urdf` |
+| PAROL6: `PAROL6_URDF/` | `urdf/parol6_description/parol6_*.urdf` |
+| MSG: `MSG_gripper_description/` | `mujoco/msg/` or `urdf/msg_description/` |
+| SSG48: `SSG48_gripper_description/` | `mujoco/ssg48/` or `urdf/ssg48_description/` |
+| PAROL6: native MuJoCo models | `mujoco/parol6/scene_*.xml` |
 
-Initialize an existing hardware checkout with:
-
-```bash
-git submodule update --init --recursive
-```
+Download the package matching your product and format using its guide:
+[PAR6](par6.md), [PAROL6](parol6.md), [MSG](msg.md) or [SSG48](ssg48.md).
+Keep the whole extracted package together in your working directory.
 
 Update your loader paths and keep the package assets together. Use the robot
 guides to choose the equivalent end effector, and check the
@@ -40,17 +40,13 @@ Their older exports are replaced by those packages and remain accessible in hist
 - [Previous MSG standalone folder](https://github.com/Source-Robotics/MSG-compliant-AI-stepper-gripper/tree/704e557111701975dab7fa7ca32851c4c161cf2d/MSG_gripper_description)
 - [Previous SSG48 standalone folder](https://github.com/Source-Robotics/SSG-48-adaptive-electric-gripper/tree/df776202ba9045acf792f4d5cdceda8d71072c81/SSG48_gripper_description)
 
-The initial shared integrations used `models/descriptions`. The current layout
-uses **`description/README.md`** as the product-specific entry and nests the Git
-submodule at **`description/source`**. After pulling that move in an existing
-checkout, run:
+Earlier integrations used model submodules at `models/descriptions` and later
+`description/source`. The hardware repositories now use ordinary guide folders:
+`par6_description/`, `parol6_description/`, `msg_description/` and
+`ssg48_description/`. These contain README/previews/download links; hardware
+checkouts no longer need submodule initialization.
 
-```bash
-git submodule sync --recursive
-git submodule update --init --recursive
-```
-
-If Git leaves the old initialized `models/descriptions` directory behind,
-check it for local work before removing that untracked copy. A fresh recursive
-clone uses the current layout directly. This layout change does not alter model
-geometry or the robot's kinematics/dynamics.
+After pulling this change, Git may leave an old initialized submodule directory
+on disk as an untracked copy. Check that copy for local work before removing it.
+The current tracked guides do not depend on it. The layout change does not alter
+the released models, geometry, kinematics or dynamics.

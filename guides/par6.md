@@ -5,6 +5,10 @@
 PAR6 is available in **MuJoCo and URDF**, with all six configurations below.
 The default `scene.xml` in the MuJoCo package opens the MSG with Solid jaws.
 
+| PAR6 with MSG | PAR6 with SSG48 |
+| --- | --- |
+| ![PAR6 with MSG](../source/reviews/render_cache/par6_msg.png) | ![PAR6 with SSG48](../source/reviews/render_cache/par6_ssg48.png) |
+
 ## 1. Download
 
 - **MuJoCo:** [download par6_mujoco.zip](https://github.com/Source-Robotics/robot_descriptions/releases/latest/download/par6_mujoco.zip), then extract the `par6/` folder.
@@ -38,12 +42,16 @@ extracted the ZIP:
 python -m mujoco.viewer --mjcf=par6/scene_msg.xml
 ```
 
-For an existing checkout of the PAR6 hardware repository with its submodule
-initialized, the equivalent path is:
+For a checkout of the central `robot_descriptions` repository, run this
+from its root:
 
 ```bash
-python -m mujoco.viewer --mjcf=description/source/mujoco/par6/scene_msg.xml
+python -m mujoco.viewer --mjcf=mujoco/par6/scene_msg.xml
 ```
+
+The hardware repository's `par6_description/` folder contains this guide
+and previews. Extract the model download into a separate working directory
+or ROS workspace to use the actual model package.
 
 **URDF viewer:** open `par6_description/par6_msg.urdf`, keeping the
 `meshes/` directory alongside it. If a web viewer asks for a ZIP or folder,
