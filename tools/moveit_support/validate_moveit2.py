@@ -56,13 +56,18 @@ class Probe:
         from rclpy.action.graph import get_action_client_names_and_types_by_node
         expected={'/arm_controller/follow_joint_trajectory'}
         if data['has_gripper']:expected.add('/gripper_controller/follow_joint_trajectory')
+        discovered=set()
         def moveit_clients_discovered():
-            clients=set()
+            discovered.clear()
             for name,namespace in self.node.get_node_names_and_namespaces():
-                if 'move_group' in name:
-                    clients.update(n for n,_ in get_action_client_names_and_types_by_node(self.node,name,namespace))
-            return expected <= clients
-        self.until(moveit_clients_discovered,timeout=30)
+                # MoveIt's controller manager owns a separate node; exclude
+                # only this probe's own preflight clients from the evidence.
+                if name != self.node.get_name():
+                    discovered.update(n for n,_ in get_action_client_names_and_types_by_node(self.node,name,namespace))
+            return expected <= discovered
+        try:self.until(moveit_clients_discovered,timeout=30)
+        except AssertionError:
+            raise AssertionError(f'Controller clients not discovered: expected={expected}, actual={discovered}') from None
         # DDS discovers each newly created action client separately. The
         # installed MoveIt simple manager checks readiness without waiting;
         # allow discovery to settle before this automated, immediate client
