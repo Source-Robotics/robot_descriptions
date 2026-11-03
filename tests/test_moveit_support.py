@@ -33,6 +33,8 @@ def test_moveit_adapter_preserves_all_physical_data_and_bounds_every_actuated_jo
         limit = new.find('limit')
         bounds = data['position_limits'][new.get('name')]
         assert [float(limit.get(k)) for k in ['lower', 'upper']] == bounds
+        old_effort=float(old.find('limit').get('effort'))
+        if old_effort > 0:assert float(limit.get('effort')) == old_effort
         assert bounds[0] <= data['initial_positions'][new.get('name')] <= bounds[1]
         assert limits[new.get('name')]['has_acceleration_limits']
         new.set('type', old.get('type'))

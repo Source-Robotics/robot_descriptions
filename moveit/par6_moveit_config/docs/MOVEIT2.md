@@ -93,6 +93,9 @@ RViz. It needs no external simulator, `/clock` or joint sliders.
    follows its URDF mimic relation. Flange-only has no gripper group/controller.
 5. Return the arm to its named **home** pose when desired.
 
+The translucent orange robot shows the requested goal pose. The solid robot
+shows the current mock-controller state, using the model's normal colors.
+
 Pneumatic hardware is endpoint-only. Its `open` and `closed` presets demonstrate
 the two endpoints; the mock trajectory interpolates between them and is not a
 binary valve/controller implementation. Intermediate RViz targets are preview
@@ -121,6 +124,8 @@ shapes are changed. The raw URDFs and MuJoCo models remain unchanged.
 0.5 rad/s and 1 rad/s² for the arm, 0.03 m/s and 0.1 m/s² per finger. These
 rates and effort placeholders are not measured hardware capabilities. MoveIt
 applies trajectory scaling in addition to these maxima.
+Positive URDF effort values are retained; the effort defaults only fill the
+historical zero placeholders. Mock controllers use position commands.
 
 SRDF collision exemptions cover links in the **same rigid assembly** and
 directly connected moving assemblies, where bearing/mounting geometry meets.
@@ -165,6 +170,8 @@ time-parameterizes trajectories; it does not validate dynamics or grip force.
   and choose a reachable TCP target. A target inside the robot should fail.
 - **KDL root inertia warning:** KDL ignores root-link inertia for its kinematic
   solve. The original base inertial data remains present.
+- **No 3D sensor plugin for octomap updates:** this demo has no depth-sensor
+  integration. Planning-scene collision objects still work normally.
 
 Sources: [MoveIt URDF/SRDF concepts](https://moveit.picknik.ai/main/doc/examples/urdf_srdf/urdf_srdf_tutorial.html),
 [controller integration](https://moveit.picknik.ai/humble/doc/examples/controller_configuration/controller_configuration_tutorial.html),

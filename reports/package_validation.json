@@ -6,7 +6,7 @@
     "crc_and_assets_valid": true
   },
   "par6_urdf.zip": {
-    "bytes": 8955849,
+    "bytes": 8956017,
     "variants_checked": 6,
     "grasp_scenes_compiled": 0,
     "crc_and_assets_valid": true
@@ -18,7 +18,7 @@
     "crc_and_assets_valid": true
   },
   "parol6_urdf.zip": {
-    "bytes": 9117656,
+    "bytes": 9117824,
     "variants_checked": 6,
     "grasp_scenes_compiled": 0,
     "crc_and_assets_valid": true
@@ -48,13 +48,13 @@
     "crc_and_assets_valid": true
   },
   "par6_moveit_config.zip": {
-    "bytes": 30012,
+    "bytes": 30216,
     "variants_checked": 6,
     "crc_and_assets_valid": true,
     "dependency": "par6_description"
   },
   "parol6_moveit_config.zip": {
-    "bytes": 29814,
+    "bytes": 30018,
     "variants_checked": 6,
     "crc_and_assets_valid": true,
     "dependency": "parol6_description"

@@ -1,7 +1,6 @@
 # SPDX-License-Identifier: Apache-2.0
 """Exercise a relocated Linux MoveIt install: real planning and mock execution."""
 import argparse
-import copy
 import json
 import math
 import os
@@ -164,7 +163,6 @@ class Probe:
 def run_case(index,family,tool,jaws,profile,output,gui=False):
     os.environ['ROS_DOMAIN_ID']=str(90+index)
     from ament_index_python.packages import get_package_share_directory
-    import yaml
     share=Path(get_package_share_directory(family+'_moveit_config'))
     data=json.loads((share/f'config/profiles/{profile}.json').read_text())
     name=f'{index:02d}_{family}_{profile}'+('_gui' if gui else '')

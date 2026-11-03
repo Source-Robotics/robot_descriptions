@@ -17,7 +17,7 @@ Visualization Manager:
       Robot Description: robot_description
       Planning Scene Topic: /monitored_planning_scene
       Planned Path:
-        Loop Animation: true
+        Loop Animation: false
         State Display Time: 0.05 s
         Trajectory Topic: /display_planned_path
       Planning Request:
@@ -25,6 +25,7 @@ Visualization Manager:
         Interactive Marker Size: 0.1
         Query Start State: false
         Query Goal State: true
+        Goal State Alpha: 0.3
       Scene Robot:
         Robot Visual Enabled: true
         Robot Collision Enabled: false
@@ -39,11 +40,11 @@ Visualization Manager:
     Current:
       Class: rviz_default_plugins/Orbit
       Name: Current View
-      Distance: 0.9
+      Distance: 1.3
       Focal Point:
         X: 0.1
         Y: 0
-        Z: 0.2
+        Z: 0.27
       Pitch: 0.4
       Yaw: 0.8
       Target Frame: <Fixed Frame>

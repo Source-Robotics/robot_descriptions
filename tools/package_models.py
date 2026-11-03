@@ -1,4 +1,4 @@
-"""Rebuild and check both formats for PAR6 and PAROL6, each self-contained."""
+"""Build and check eight model archives and two MoveIt configuration archives."""
 
 from pathlib import Path
 import json
@@ -106,7 +106,6 @@ def build():
                 assert benches==8
             result[filename]={'bytes':archive.stat().st_size,'variants_checked':len(metadata['variants']),'grasp_scenes_compiled':benches,'crc_and_assets_valid':True}
         print(filename,result[filename],flush=True)
-    (ROOT/'reports/package_validation.json').write_text(json.dumps(result,indent=2)+'\n')
     # Config-only MoveIt packages deliberately depend on the corresponding URDF
     # package rather than copying geometry and creating another model source.
     for family in ['par6', 'parol6']:

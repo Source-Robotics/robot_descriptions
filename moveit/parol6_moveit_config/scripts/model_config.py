@@ -46,8 +46,10 @@ def assemble_description(description_share, family, profile, data, limits, *,
         if joint.get('type') == 'continuous':
             joint.set('type', 'revolute')
         limit = joint.find('limit')
+        old_effort = float(limit.get('effort', '0'))
+        effort = old_effort if old_effort > 0 else settings['effort']
         for key, value in dict(lower=bounds[0], upper=bounds[1],
-                               velocity=settings['max_velocity'], effort=settings['effort']).items():
+                               velocity=settings['max_velocity'], effort=effort).items():
             limit.set(key, str(value))
         planning_limits[name] = dict(has_position_limits=True, min_position=bounds[0], max_position=bounds[1],
             has_velocity_limits=True, max_velocity=float(settings['max_velocity']),

@@ -42,7 +42,7 @@ def launch_nodes(context):
         **load('planning_parameters.yaml'))
     # Controller YAML contains settings scoped to several ROS nodes.
     import tempfile
-    # NamedTemporaryFile is closed before controller_manager opens it. The
+    # The temporary file is closed before controller_manager opens it. The
     # launch shutdown handler removes it on normal shutdown and on failure.
     fd, filename = tempfile.mkstemp(prefix=FAMILY+'_controllers_', suffix='.yaml')
     with os.fdopen(fd, 'w') as handle:
