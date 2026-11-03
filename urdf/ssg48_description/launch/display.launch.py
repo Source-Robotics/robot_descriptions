@@ -21,7 +21,8 @@ def launch_nodes(context):
     value = lambda name: LaunchConfiguration(name).perform(context)
     end_effector = value('end_effector') if FAMILY in ('par6', 'parol6') else 'msg'
     entry = helper.select_model(FAMILY, end_effector, value('jaws'))
-    description = ParameterValue(helper.load_description(share/entry, PACKAGE), value_type=str)
+    description = ParameterValue(helper.load_description(share/entry, PACKAGE,
+                                 rviz_materials=value('rviz_materials') == 'true'), value_type=str)
     parameters = {'robot_description': description, 'use_sim_time': value('use_sim_time') == 'true'}
     nodes = [LogInfo(msg=f'{FAMILY.upper()}: displaying {entry}'),
              Node(package='robot_state_publisher', executable='robot_state_publisher',
@@ -50,6 +51,7 @@ def generate_launch_description():
         ('gui', 'true', 'Use joint sliders; false publishes a fixed preview pose'),
         ('rviz', 'true', 'Open RViz with the saved product view'),
         ('publish_joint_states', 'true', 'Publish preview joint states; false uses an external source'),
+        ('rviz_materials', 'true', 'Preserve per-part materials using massless fixed visual frames'),
         ('use_sim_time', 'false', 'Use a simulator /clock topic')]:
         options.append(DeclareLaunchArgument(name, default_value=default, choices=['true', 'false'], description=help_text))
     options.append(DeclareLaunchArgument('rviz_config', default_value=str(share/'config/display.rviz')))

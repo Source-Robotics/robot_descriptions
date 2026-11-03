@@ -67,6 +67,7 @@ endif()
         fixed = 'base_link' if family in ('par6', 'parol6') else 'flange'
         distance = .85 if fixed == 'base_link' else .30
         center_z = .2 if fixed == 'base_link' else .035
+        center_x = .10 if fixed == 'base_link' else 0.
         (package/'config/display.rviz').write_text('''# SPDX-License-Identifier: Apache-2.0
 Panels:
   - Class: rviz_common/Displays
@@ -112,7 +113,7 @@ Visualization Manager:
       Name: Current View
       Distance: '''+str(distance)+'''
       Focal Point:
-        X: 0
+        X: '''+str(center_x)+'''
         Y: 0
         Z: '''+str(center_z)+'''
       Pitch: 0.4

@@ -36,7 +36,33 @@ def select_model(family, end_effector='msg', jaws='default'):
     return f'{family}_{profile}.urdf'
 
 
-def load_description(path, package):
+def separate_rviz_visuals(root):
+    """Work around RViz applying the first visual material to an entire link.
+
+    Move additional visuals to massless fixed children. Physical links, their
+    inertials/collisions and all existing joint/frame transforms stay intact.
+    """
+    existing = {element.get('name') for element in root if element.tag in ('link', 'joint')}
+    for link in root.findall('link'):
+        visuals = link.findall('visual')
+        for index, visual in enumerate(visuals):
+            material = visual.find('material')
+            if material is not None and not material.get('name'):
+                material.set('name', f'{link.get("name")}_rviz_material_{index}')
+        for index, visual in enumerate(visuals[1:], 1):
+            name = f'{link.get("name")}_rviz_visual_{index}'
+            if name in existing or name+'_fixed' in existing:
+                raise ValueError(f'RViz visual frame conflicts with an existing name: {name}')
+            existing.update([name, name+'_fixed'])
+            child = ET.SubElement(root, 'link', name=name)
+            link.remove(visual); child.append(visual)
+            joint = ET.SubElement(root, 'joint', name=name+'_fixed', type='fixed')
+            ET.SubElement(joint, 'parent', link=link.get('name'))
+            ET.SubElement(joint, 'child', link=name)
+            ET.SubElement(joint, 'origin', xyz='0 0 0', rpy='0 0 0')
+
+
+def load_description(path, package, rviz_materials=False):
     """Resolve asset URIs in memory; never rewrite model or physical data."""
     path = Path(path)
     root = ET.parse(path).getroot()
@@ -51,4 +77,6 @@ def load_description(path, package):
         if not target.is_file():
             raise FileNotFoundError(f'Missing model asset: {target}')
         entry.set('filename', f'package://{package}/{relative.as_posix()}')
+    if rviz_materials:
+        separate_rviz_visuals(root)
     return ET.tostring(root, encoding='unicode')

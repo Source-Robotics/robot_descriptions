@@ -316,7 +316,7 @@ older packages; those packages are not required for the normal clean build.
 | `test_portability.py` | Authoring tools import without application/runtime dependencies. |
 | `test_release.py` | Release versions, archive safety and generated release metadata. |
 
-The full suite currently expands into 191 test cases. ROS 2 CI additionally runs
+The full suite currently expands into 207 test cases. ROS 2 CI additionally runs
 24 installed launch/TF/GUI cases per distribution. Simulation checks protect
 model behavior; they do not turn estimated material/contact parameters into
 measured hardware values.

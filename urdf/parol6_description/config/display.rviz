@@ -43,7 +43,7 @@ Visualization Manager:
       Name: Current View
       Distance: 0.85
       Focal Point:
-        X: 0
+        X: 0.1
         Y: 0
         Z: 0.2
       Pitch: 0.4

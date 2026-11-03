@@ -1,3 +1,4 @@
+import copy
 import xml.etree.ElementTree as ET
 
 import pytest
@@ -31,6 +32,36 @@ def test_ros_selection_and_in_memory_asset_resolution_preserve_each_model(family
     # mimic relations, camera frames and every other model definition.
     assert ET.tostring(original) == ET.tostring(resolved)
     assert path.read_bytes() == before
+
+
+@pytest.mark.parametrize('family,tool,jaws,profile', CASES)
+def test_rviz_visual_adapter_preserves_physical_frames_properties_and_visual_poses(family, tool, jaws, profile):
+    package = ROOT/f'urdf/{family}_description'; path = package/f'{family}_{profile}.urdf'
+    before = ET.fromstring(load_description(path, package.name))
+    after = ET.fromstring(load_description(path, package.name, rviz_materials=True))
+    original_joint_names = {j.get('name') for j in before.findall('joint')}
+    for joint in before.findall('joint'):
+        assert ET.tostring(joint) == ET.tostring(after.find(f'joint[@name="{joint.get("name")}"]'))
+    def visual_definition(visual):
+        visual = copy.deepcopy(visual)
+        material = visual.find('material')
+        if material is not None:material.set('name','')
+        return ET.tostring(visual)
+    for link in before.findall('link'):
+        selected = after.find(f'link[@name="{link.get("name")}"]')
+        assert [ET.tostring(x) for x in link if x.tag != 'visual'] == [
+            ET.tostring(x) for x in selected if x.tag != 'visual']
+        visuals = selected.findall('visual')
+        for joint in after.findall('joint'):
+            if joint.get('name') in original_joint_names:continue
+            if joint.find('parent').get('link') != link.get('name'):continue
+            assert joint.get('type') == 'fixed'
+            assert joint.find('origin').attrib == {'xyz':'0 0 0','rpy':'0 0 0'}
+            child = after.find(f'link[@name="{joint.find("child").get("link")}"]')
+            assert child.find('inertial') is None and child.find('collision') is None
+            visuals += child.findall('visual')
+        assert [visual_definition(v) for v in link.findall('visual')] == [visual_definition(v) for v in visuals]
+    assert all(len(link.findall('visual')) <= 1 for link in after.findall('link'))
 
 
 @pytest.mark.parametrize('family', ['par6','parol6'])

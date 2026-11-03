@@ -102,6 +102,7 @@ configured for the appropriate fixed frame, visual materials and model scale.
 | `gui` | `true` | `false` uses the non-GUI joint-state publisher at its initial pose. |
 | `rviz` | `true` | `false` publishes the model/TF without opening RViz. |
 | `publish_joint_states` | `true` | `false` uses joint states from your own simulator/controller. |
+| `rviz_materials` | `true` | Preserves individual part colors in RViz; see the display compatibility note below. |
 | `use_sim_time` | `false` | `true` uses an external simulator's `/clock`. |
 | `rviz_config` | Installed `config/display.rviz` | Path to your own RViz configuration. |
 
@@ -130,6 +131,16 @@ ROS launch resolves the selected URDF's relative asset references to
 portable filenames, physical properties, colors, joint names and frames. Meshes
 and the PAR6 badge texture are installed with the package, so a normal colcon
 install works without the source directory.
+
+Humble/Jazzy RViz applies one material to multiple visuals on the same URDF
+link. The display launcher therefore moves additional visuals to massless
+fixed child frames in its in-memory description. Names end in
+`_rviz_visual_<n>`; each is attached to the original link by an identity fixed
+transform. This preserves separate motor/lens/jaw colors and the textured
+badge, while keeping every original joint/frame transform, collision and
+inertial definition intact. No model files or meshes on disk are rewritten.
+Use `rviz_materials:=false` when another application requires the original
+link/joint tree rather than the RViz-compatible display tree.
 
 ROS 1 users retain `display.launch` and the conditional catkin build path when
 working in a sourced ROS 1 environment. ROS 2 users should use

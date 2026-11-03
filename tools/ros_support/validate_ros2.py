@@ -113,6 +113,8 @@ def run_case(index, family, tool, jaws, output, gui=False, external=False):
                     msg.name = list(desired); msg.position = list(desired.values()); publisher.publish(msg)
                 executor.spin_once(timeout_sec=.05)
                 if not state['description'] or not state['joints']:continue
+                displayed = ET.fromstring(state['description'])
+                expected_tf = {j.find('child').get('link'):j for j in displayed.findall('joint')}
                 if not external:
                     # The GUI may choose a centered pose for asymmetric limits.
                     # Check its actual published pose, limits and mimic relation.
@@ -140,6 +142,7 @@ def run_case(index, family, tool, jaws, output, gui=False, external=False):
                 raise AssertionError(f'{name}: missing={missing}, incorrect={bad_tf}, joints={state["joints"]}\n'+log_path.read_text())
             resolved = ET.fromstring(state['description'])
             assert resolved.get('name') == root.get('name')
+            assert all(len(link.findall('visual')) <= 1 for link in resolved.findall('link'))
             for mesh in resolved.findall('.//mesh'):
                 uri = mesh.get('filename'); prefix = f'package://{family}_description/'
                 assert uri.startswith(prefix) and (share/uri.removeprefix(prefix)).is_file(),uri
