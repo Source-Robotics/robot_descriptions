@@ -113,10 +113,21 @@ def run_case(index, family, tool, jaws, output, gui=False, external=False):
                     msg.name = list(desired); msg.position = list(desired.values()); publisher.publish(msg)
                 executor.spin_once(timeout_sec=.05)
                 if not state['description'] or not state['joints']:continue
+                if not external:
+                    # The GUI may choose a centered pose for asymmetric limits.
+                    # Check its actual published pose, limits and mimic relation.
+                    if set(state['joints']) != set(expected_joints):continue
+                    values = dict(state['joints'])
+                    for joint in expected_joints.values():
+                        q = values[joint.get('name')]; limit = joint.find('limit')
+                        if joint.get('type') != 'continuous':
+                            assert float(limit.get('lower'))-1e-10 <= q <= float(limit.get('upper'))+1e-10
+                        mimic = joint.find('mimic')
+                        if mimic is not None:
+                            expected = values[mimic.get('joint')]*float(mimic.get('multiplier','1'))+float(mimic.get('offset','0'))
+                            assert abs(q-expected)<1e-10
                 if not all(child in state['tf'] and transform_matches(state['tf'][child],joint,values)
                            for child,joint in expected_tf.items()):continue
-                if not external and (set(state['joints']) != set(expected_joints) or
-                                     any(abs(state['joints'][j]-q)>1e-10 for j,q in values.items())):continue
                 names = {n for n,_ in node.get_node_names_and_namespaces()}
                 if gui and not {'rviz2','joint_state_publisher_gui'} <= names:continue
                 if gui and not any(info.node_name == 'rviz2' for info in
@@ -124,7 +135,9 @@ def run_case(index, family, tool, jaws, output, gui=False, external=False):
                 break
             else:
                 missing = set(expected_tf)-state['tf'].keys()
-                raise AssertionError(f'{name}: missing/incorrect TF or joint states; missing={missing}\n'+log_path.read_text())
+                bad_tf = [child for child,joint in expected_tf.items() if child in state['tf'] and
+                          not transform_matches(state['tf'][child],joint,values)]
+                raise AssertionError(f'{name}: missing={missing}, incorrect={bad_tf}, joints={state["joints"]}\n'+log_path.read_text())
             resolved = ET.fromstring(state['description'])
             assert resolved.get('name') == root.get('name')
             for mesh in resolved.findall('.//mesh'):
