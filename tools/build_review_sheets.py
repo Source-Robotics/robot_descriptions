@@ -548,7 +548,7 @@ def build(refresh=False, pdf=False):
             for directory in [ROOT/f'mujoco/{robot}', ROOT/f'urdf/{robot}_description']:
                 dest = documentation(directory)/'kinematics_review'
                 dest.mkdir(parents=True, exist_ok=True)
-                (dest/f'{profile}.svg').write_text(svg, encoding='utf-8')
+                (dest/f'{profile}.svg').write_text(svg, encoding='utf-8', newline='\n')
                 (dest/f'{profile}.png').write_bytes(png)
                 (dest/f'{profile}.json').write_text(json.dumps(data, indent=2)+'\n', encoding='utf-8')
             family.append(data); entries.append(data); svgs.append(svg)

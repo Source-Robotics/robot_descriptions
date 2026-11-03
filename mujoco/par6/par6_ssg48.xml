@@ -30,8 +30,6 @@
     <mesh name="shoulder_structure_visual" file="visual/shoulder_structure_visual.STL" scale="1 1 1" />
     <mesh name="j3_actuator_visual" file="visual/j3_actuator_visual.STL" scale="1 1 1" />
     <mesh name="upper_arm_structure_visual" file="branding/upper_arm_structure_badged.obj" scale="1 1 1" />
-    <texture name="par6_badge_texture" type="2d" file="assets/branding/par6_badge.png" />
-    <material name="par6_badge_material" texture="par6_badge_texture" rgba="1 1 1 1" />
     <material name="ssg48_jaw_material" rgba="0.298039216 0.298039216 0.298039216 1" specular="0.2" shininess="0.2" />
     <mesh name="contact_ssg48_solid_left_00" file="contacts/ssg48_solid/left_00.STL" />
     <mesh name="contact_ssg48_solid_left_01" file="contacts/ssg48_solid/left_01.STL" />
@@ -45,15 +43,17 @@
     <mesh name="contact_ssg48_solid_right_03" file="contacts/ssg48_solid/right_03.STL" />
     <mesh name="contact_ssg48_solid_right_04" file="contacts/ssg48_solid/right_04.STL" />
     <mesh name="contact_ssg48_solid_right_05" file="contacts/ssg48_solid/right_05.STL" />
+    <texture name="par6_badge_texture" type="2d" file="assets/branding/par6_badge.png" />
+    <material name="par6_badge_material" texture="par6_badge_texture" rgba="1 1 1 1" />
   </asset>
   <worldbody>
     <body name="base_link">
-      <geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="base_link" />
+      <geom type="mesh" rgba="0.792156863 0.819607843 0.933333333 1" mesh="base_link" />
       <body name="shoulder_link">
         <inertial mass="1.9931400000000001" pos="0.0055100000000000045 0.01797 0.10725999999999999" quat="0.16922304146398287 0.76381155402360357 0.61096037987256457 0.12117296069543843" diaginertia="0.0019733479435563878 0.013265176356982655 0.013576698569460956" />
         <joint name="base_joint" pos="0 0 0" axis="0 0 1" class="Y" />
         <geom type="mesh" rgba="0 0 0 0" mesh="shoulder_link" group="3" />
-        <geom name="shoulder_structure_visual" type="mesh" mesh="shoulder_structure_visual" rgba="0.79216 0.81961 0.93333 1" contype="0" conaffinity="0" mass="0" group="2" />
+        <geom name="shoulder_structure_visual" type="mesh" mesh="shoulder_structure_visual" rgba="0.792156863 0.819607843 0.933333333 1" contype="0" conaffinity="0" mass="0" group="2" />
         <geom name="j1_actuator_visual" type="mesh" mesh="j1_actuator_visual" material="j1_actuator_black" contype="0" conaffinity="0" mass="0" group="2" />
         <geom name="j2_actuator_visual" type="mesh" mesh="j2_actuator_visual" material="j2_actuator_black" contype="0" conaffinity="0" mass="0" group="2" />
         <body name="upper_arm_link" pos="0.023421 0 0.1105" quat="0.707105 -0.707108 0 0">
@@ -65,21 +65,21 @@
           <body name="forearm_link" pos="0 -0.18 0" quat="-2.59734e-06 0.707105 -0.707108 2.59735e-06">
             <inertial mass="0.68511" pos="0.009579921725692964 -0.022189068113424793 -0.0037390326700816288" quat="0.95017743248201225 0.27055221356823922 0.05447127762204923 0.14490419748730013" diaginertia="0.00058995072364846472 0.00075780807896230697 0.00089575254738922801" />
             <joint name="elbow_joint" pos="0 0 0" axis="0 0 1" class="Y" />
-            <geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="forearm_link" />
+            <geom type="mesh" rgba="0.792156863 0.819607843 0.933333333 1" mesh="forearm_link" />
             <body name="wrist_1_link" pos="0.0435 0 0" quat="-2.59734e-06 -2.59735e-06 -0.707108 -0.707105">
               <inertial mass="0.57955999999999996" pos="-9.04185253414453e-05 -0.017128705537790025 -0.11142923743879764" quat="0.69732013010439631 0.11967668477403055 -0.69525822075856802 -0.12664175354248516" diaginertia="0.00025344979304637043 0.0011455583122489197 0.0011704694247047097" />
               <joint name="wrist_1_joint" pos="0 0 0" axis="0 0 1" class="Y" />
-              <geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="wrist_1_link" />
+              <geom type="mesh" rgba="0.792156863 0.819607843 0.933333333 1" mesh="wrist_1_link" />
               <body name="wrist_2_link" pos="0 0 -0.177" quat="0.707105 -0.707108 0 0">
                 <inertial mass="0.52381" pos="-5.3936154437558936e-07 -0.0035508136928119214 -0.00023852848940545109" quat="-0.49952562668094996 -0.50055209146268598 0.50254722259141493 0.49736107717330463" diaginertia="0.00018258716232339353 0.00040956445886035239 0.00041379123881625426" />
                 <joint name="wrist_2_joint" pos="0 0 0" axis="0 0 1" class="Y" />
-                <geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="wrist_2_link" />
+                <geom type="mesh" rgba="0.792156863 0.819607843 0.933333333 1" mesh="wrist_2_link" />
                 <body name="wrist_3_link" quat="0 0 0.707105 0.707108">
                   <joint name="wrist_3_joint" pos="0 0 0" axis="0 0 -1" class="Y" />
                   <body name="flange" pos="0 0 0.0571">
                     <body name="ssg48_gripper_link" pos="0 0 -0.0571" quat="0 0 1 0">
                       <inertial pos="-6.7987e-05 0.0001694 -0.077391" quat="0.464161 0.46546 -0.535128 0.530603" mass="0.3614" diaginertia="0.00014808 0.000127124 5.86313e-05" />
-                      <geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="gripper" />
+                      <geom type="mesh" rgba="0.792156863 0.819607843 0.933333333 1" mesh="gripper" />
                       <body name="tcp_link" pos="0 0 -0.1409">
                         <site name="tcp" pos="0 0 0" quat="0 0 1 0" size="0.005" rgba="1 0 0 1" />
                       </body>

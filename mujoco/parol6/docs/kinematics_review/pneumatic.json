@@ -48,8 +48,8 @@
   "dimension_source": "urdf/parol6_description/parol6_pneumatic.urdf",
   "snapshot_source": "mujoco/parol6/scene_pneumatic.xml",
   "source_hash_encoding": "SHA-256 of source text bytes with CRLF normalized to LF",
-  "urdf_sha256": "a775e1d2df37d797677ceb7498e17d380c5f0948652a401f8398afdd50b5b03b",
-  "native_model_sha256": "5e296f0b44f3cd131bcfb6b6690ca940cc49748f4d43ac8919b2afa98f4835d7",
+  "urdf_sha256": "e0e2fcc587dd8349c896f4520b70b06aa7fc59accccdf1cbfc1e8da8d5f9a0a4",
+  "native_model_sha256": "2a0e2bf87f933c541ce5c767d675c78019d11d16c7c38b001d3bd6338e763aa7",
   "wrist3_to_configured_tcp_m": [
     [
       1.0,

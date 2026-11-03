@@ -12,7 +12,7 @@
         <mesh filename="meshes/common/base_link.STL" />
       </geometry>
       <material name="">
-        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+        <color rgba="0.792156863 0.819607843 0.933333333 1" />
       </material>
     </visual>
     <collision>
@@ -34,7 +34,7 @@
         <mesh filename="meshes/common/visual/shoulder_structure_visual.STL" />
       </geometry>
       <material name="">
-        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+        <color rgba="0.792156863 0.819607843 0.933333333 1" />
       </material>
     </visual>
     <visual name="j1_actuator_visual">
@@ -116,7 +116,7 @@
         <mesh filename="meshes/common/elbow.STL" />
       </geometry>
       <material name="">
-        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+        <color rgba="0.792156863 0.819607843 0.933333333 1" />
       </material>
     </visual>
     <collision>
@@ -145,7 +145,7 @@
         <mesh filename="meshes/common/lower_arm.STL" />
       </geometry>
       <material name="">
-        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+        <color rgba="0.792156863 0.819607843 0.933333333 1" />
       </material>
     </visual>
     <collision>
@@ -174,7 +174,7 @@
         <mesh filename="meshes/common/wrist.STL" />
       </geometry>
       <material name="">
-        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+        <color rgba="0.792156863 0.819607843 0.933333333 1" />
       </material>
     </visual>
     <collision>
@@ -203,7 +203,7 @@
         <mesh filename="meshes/ssg48/gripper.STL" />
       </geometry>
       <material name="">
-        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+        <color rgba="0.792156863 0.819607843 0.933333333 1" />
       </material>
     </visual>
     <collision>

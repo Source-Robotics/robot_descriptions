@@ -6,7 +6,7 @@
   "license": "CC-BY-4.0",
   "sourceUrl": "https://github.com/Source-Robotics/robot_descriptions",
   "sourceRevision": "PAROL6 included export; see source/parol6/model.json in the authoring repository",
-  "packageVersion": "2.15.1",
+  "packageVersion": "2.16.0",
   "entry": "scene_msg.xml",
   "dof": 6,
   "tcpSites": [

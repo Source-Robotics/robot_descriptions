@@ -19,6 +19,7 @@ from parol6_model import (ROOT, ORIGINAL, URDF, MJCF, PROFILES, ARM_JOINTS,
                           FLANGE_DISTANCE, PAR6_FLANGE_DISTANCE,
                           LOWER_ARM_MESH_OFFSET, wrist_mount_geometry)
 from verify_msg_jaws import canonical
+from model_colors import load as load_colors, color as part_color, rgba
 
 PAR6_MJCF = ROOT/'mujoco/par6'
 PAR6_URDF = ROOT/'urdf/par6_description'
@@ -64,6 +65,7 @@ def check_shared_properties(native, reference_native, urdf, reference_urdf, prof
 
 
 def verify(poses=160):
+    palette = load_colors()
     if poses < 3:
         raise ValueError('At least three poses are required')
     source_path = ORIGINAL/'urdf/parol6.urdf'
@@ -195,7 +197,8 @@ def verify(poses=160):
             geom = model.geom(part)
             assert geom.contype[0] == geom.conaffinity[0] == 0
             color = model.mat_rgba[geom.matid[0]]
-            assert np.max(color[:3]) < .1
+            expected = rgba(part_color(palette, part[:2]+'_motor'))
+            np.testing.assert_allclose(color, expected, rtol=0, atol=3e-8)
         if profile != 'flange':
             for side in ['left', 'right']:
                 link = urdf.find(f'link[@name="{side}_finger_link"]')

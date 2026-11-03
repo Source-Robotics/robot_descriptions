@@ -1,29 +1,5 @@
 {
-  "visual_signature": "0c4cbdf40c824420d694f4e0d96237542decce991887b2e683d79444d98727ff",
-  "projection": {
-    "pos": [
-      0.10999999940395355,
-      1.0,
-      0.19200000166893005
-    ],
-    "forward": [
-      -1.8369701465288538e-16,
-      -1.0,
-      0.0
-    ],
-    "up": [
-      0.0,
-      0.0,
-      1.0
-    ],
-    "top": 0.23499999940395355,
-    "bottom": -0.23499999940395355,
-    "center": 0.0,
-    "width": 0.0,
-    "orthographic": true,
-    "registration_error_max_px": 0.4088001034451091
-  },
-  "image_sha256": "26c4581a4f413f1d2d73114424160a85905cd9589e51d5d3e1b75b13dcaadf51",
+  "visual_signature": "60f8c7737a51110428ee33fdea8e159a4fce7c09d062e808af170f0ae11dcec0",
   "visual_inputs": {
     "mesh:arm/base_link.STL": "a775b6e791a3f8f49a669b20ad96bd9eb20544d9f54334a13f591034619d0931",
     "mesh:arm/L1.STL": "f4f7446b9fd8ddccee2e4948d14270d1bb1544ccc72d301315f316fe52d9d0db",
@@ -51,7 +27,31 @@
     "mesh:contacts/ssg48_solid/right_03.STL": "6adc1cac7916ab5d14573e8ff8d566cbd3a21ef7bdfab746f8d2ef1fba304fe5",
     "mesh:contacts/ssg48_solid/right_04.STL": "6cfe751a3ad1d0adef7a7fa3e1fc23f791882f3f17f47281b16c484943305924",
     "mesh:contacts/ssg48_solid/right_05.STL": "4b3272546ebcfc0f2586c1f1578a70371e410568ecceff2448d6f5a088d6a26c",
-    "xml:parol6_ssg48.xml": "1c17ec5b0528fe3a478e1679fb3c2aee2ac472896d306198a60d53b8777e80fb",
+    "xml:parol6_ssg48.xml": "233f6e6c9dc9e76b3360511728978b19b41c696b380210357429bf015a617a01",
     "xml:scene_ssg48.xml": "bd616e795980c56adcc2c5c618cdb06eca9eeaa8796287ec8bbd75607976a3ac"
-  }
+  },
+  "projection": {
+    "pos": [
+      0.10999999940395355,
+      1.0,
+      0.19200000166893005
+    ],
+    "forward": [
+      -1.8369701465288538e-16,
+      -1.0,
+      0.0
+    ],
+    "up": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "top": 0.23499999940395355,
+    "bottom": -0.23499999940395355,
+    "center": 0.0,
+    "width": 0.0,
+    "orthographic": true,
+    "registration_error_max_px": 0.4088001034451091
+  },
+  "image_sha256": "a1c154229c8b5a8a32314438bc07d50490fcfe86a1b2de53d99a0b5bcc8014a8"
 }

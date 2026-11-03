@@ -20,14 +20,12 @@
     "mujoco": {
       "triangles": 6960,
       "source_triangles_preserved": true,
-      "source_mesh_sha256": "36819c2eae87af2ae6129548423c6494164799de5b89a18f06326cd95762aab0",
-      "exported_triangles_verified_exact_float32": true
+      "source_mesh_sha256": "36819c2eae87af2ae6129548423c6494164799de5b89a18f06326cd95762aab0"
     },
     "urdf": {
       "triangles": 6960,
       "source_triangles_preserved": true,
-      "source_mesh_sha256": "230142a4e8be430e8f4da16e13ec4bcd14f19ed3993ac02a007d755180008993",
-      "exported_triangles_verified_exact_float32": true
+      "source_mesh_sha256": "230142a4e8be430e8f4da16e13ec4bcd14f19ed3993ac02a007d755180008993"
     }
   },
   "render_mode": "existing_cover_texture",
@@ -45,7 +43,5 @@
     "robot_name": "#FFFFFF",
     "tagline": "#FFFFFF",
     "divider": "#FFFFFF"
-  },
-  "deterministic_rebuild_verified": true,
-  "palette_recolor_verified": true
+  }
 }

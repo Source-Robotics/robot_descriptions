@@ -49,8 +49,8 @@
     "dimension_source": "urdf/par6_description/par6_flange.urdf",
     "snapshot_source": "mujoco/par6/scene_flange.xml",
     "source_hash_encoding": "SHA-256 of source text bytes with CRLF normalized to LF",
-    "urdf_sha256": "9739e0daddac1b5132494e60eb14fea798936a65217f41e59d89323dde9e0b0b",
-    "native_model_sha256": "c009dcb909d2c2e3baa174e8c9bb7bd6ff916c0e19652d9fd1b6c234ccf9ca76",
+    "urdf_sha256": "353e91c3c838cdae6047f1493a58bf3d80a817e1eba5ea268706f7a773f2a84f",
+    "native_model_sha256": "b6e0819df0137110772556c89f45f905211c6217a57e5c57f9b31b52992b9bbb",
     "wrist3_to_configured_tcp_m": [
       [
         1.0,
@@ -219,8 +219,8 @@
     "dimension_source": "urdf/par6_description/par6_msg.urdf",
     "snapshot_source": "mujoco/par6/scene_msg.xml",
     "source_hash_encoding": "SHA-256 of source text bytes with CRLF normalized to LF",
-    "urdf_sha256": "4eb3091979357474abd765cbb815e14b43584a42c9705d92180c0485ea4e7c53",
-    "native_model_sha256": "589eba044848ae2e5781e75618607c9ce86c0318dd730441ec511bd0b818efbe",
+    "urdf_sha256": "25d63047623997ee174a60d5ca3d930e2960ca7d3068bc0df3e2a550542dde06",
+    "native_model_sha256": "e90ad6e2b00174ae7c21db618d06bba5420e22d2497e3be48bd8094fbf5085b0",
     "wrist3_to_configured_tcp_m": [
       [
         1.0,
@@ -389,8 +389,8 @@
     "dimension_source": "urdf/par6_description/par6_msg_tpu_glue.urdf",
     "snapshot_source": "mujoco/par6/scene_msg_tpu_glue.xml",
     "source_hash_encoding": "SHA-256 of source text bytes with CRLF normalized to LF",
-    "urdf_sha256": "3edc3a91164533ab51144b8544e86519ab13b000175f0acff4ad86536beb089f",
-    "native_model_sha256": "bbc82f60f4e23cfd824c559b4c69c38442072a84d8631ed050faa4c94f6707ef",
+    "urdf_sha256": "3ba1f9606a29e99a2ce9763d7d33c7f78db1c8a23862bb3bb9e653c135cba73e",
+    "native_model_sha256": "5d5e678606c66e24453a87707af70718b5b6f9d3613c02d7576606f8d5553f3f",
     "wrist3_to_configured_tcp_m": [
       [
         1.0,
@@ -559,8 +559,8 @@
     "dimension_source": "urdf/par6_description/par6_ssg48.urdf",
     "snapshot_source": "mujoco/par6/scene_ssg48.xml",
     "source_hash_encoding": "SHA-256 of source text bytes with CRLF normalized to LF",
-    "urdf_sha256": "db223b93391ba0aea7a592edb1d6c088eef1f98783976ec3e0f3dbf1727084f5",
-    "native_model_sha256": "48ce3d9b99799eb6ac1f269fdd377980d59446dc000285019c0243c40f689dce",
+    "urdf_sha256": "1502215131eb3df0b6722f3d91ff6632cbfa8ed51ed005b75522761fa783649a",
+    "native_model_sha256": "2bd859d90e2a11d74f59406707ab8fe1212fe5c78894c8641c97d7b98c0eada3",
     "wrist3_to_configured_tcp_m": [
       [
         1.0,
@@ -729,8 +729,8 @@
     "dimension_source": "urdf/par6_description/par6_ssg48_stock.urdf",
     "snapshot_source": "mujoco/par6/scene_ssg48_stock.xml",
     "source_hash_encoding": "SHA-256 of source text bytes with CRLF normalized to LF",
-    "urdf_sha256": "42478fdc6be7f35d2c17448ee55953e12b91e90324a409a403f61e8e268f6686",
-    "native_model_sha256": "5532af89dcb12ee99d0c58882acc975b94a5d21cc61b8bb06c6b4eb183a21c73",
+    "urdf_sha256": "fe644ef8f40e300531b19c0151e9d5e82bf5a8dd05d41ac919426ab8bcccaf0e",
+    "native_model_sha256": "790aad95357fe2bd332c57c28d9ee2038ed65dab073133e0a45316c43933c0ff",
     "wrist3_to_configured_tcp_m": [
       [
         1.0,
@@ -899,8 +899,8 @@
     "dimension_source": "urdf/par6_description/par6_pneumatic.urdf",
     "snapshot_source": "mujoco/par6/scene_pneumatic.xml",
     "source_hash_encoding": "SHA-256 of source text bytes with CRLF normalized to LF",
-    "urdf_sha256": "e20cf73b82e5de74338e77f726c0c81e71895c4322fd15d10d3d4b6738101ce4",
-    "native_model_sha256": "bb4d71a9d6af97f0cd896870261485cb0ccd44db276106969234d8ed60bc9de7",
+    "urdf_sha256": "dd1d4f449abbac55f37b4930ac4a3f5a176c03f270199d9d6d0d1a743e3d6891",
+    "native_model_sha256": "95496e0e4c518a6a167c802230d3870380e3b36eec18c36ff0f76f672a1c72c3",
     "wrist3_to_configured_tcp_m": [
       [
         1.0,
@@ -1069,8 +1069,8 @@
     "dimension_source": "urdf/parol6_description/parol6_flange.urdf",
     "snapshot_source": "mujoco/parol6/scene_flange.xml",
     "source_hash_encoding": "SHA-256 of source text bytes with CRLF normalized to LF",
-    "urdf_sha256": "56b8b16e7308251c4e861cb77232316137cdd69f7a0fb6f0d7eb45191c7fc505",
-    "native_model_sha256": "e2803cb30e3d2398c2d6d7f70291627b34ed638b535940ea895bce6a81a6ced3",
+    "urdf_sha256": "f15629dbd8b32c53c94af00b61e543414d039211ca385c075fd3a45e241d92bf",
+    "native_model_sha256": "bcab3358caf71f81d7f4ddd67e0af1c360e341cefcd7bb1b9495f8dfc483b441",
     "wrist3_to_configured_tcp_m": [
       [
         1.0,
@@ -1239,8 +1239,8 @@
     "dimension_source": "urdf/parol6_description/parol6_msg.urdf",
     "snapshot_source": "mujoco/parol6/scene_msg.xml",
     "source_hash_encoding": "SHA-256 of source text bytes with CRLF normalized to LF",
-    "urdf_sha256": "c83193441de8252d1c4d70c233d24095d3245235f835ba757d36d4358d516073",
-    "native_model_sha256": "559a27064a633304fa273be5c375a03f5e41c3fbbe26e35fdaba69c95c70929a",
+    "urdf_sha256": "ab81504976dc109e5ac8892a081feb85961a72f6710e40528ea22b4d96d3fa44",
+    "native_model_sha256": "f2baddfb34046d8030a413c74f06f88b99b04d60a624cde2f2916167376ebca3",
     "wrist3_to_configured_tcp_m": [
       [
         1.0,
@@ -1409,8 +1409,8 @@
     "dimension_source": "urdf/parol6_description/parol6_msg_tpu_glue.urdf",
     "snapshot_source": "mujoco/parol6/scene_msg_tpu_glue.xml",
     "source_hash_encoding": "SHA-256 of source text bytes with CRLF normalized to LF",
-    "urdf_sha256": "9945225dddff89c26a989930a9bb974f44535e9491ab93cae9def254d4a7415e",
-    "native_model_sha256": "5fe0c5f1eda0b5f6f154562883d1cd7010f642a082eeb418b3c621a1c34d30ff",
+    "urdf_sha256": "84a400e692ca5f70893342990ad9951d176a65273ab05f41974850f3d7fd8d48",
+    "native_model_sha256": "a49d2ea730af7134d6ef91c7411f7002dc4b6b772074e668c95eb2a6980f56ba",
     "wrist3_to_configured_tcp_m": [
       [
         1.0,
@@ -1579,8 +1579,8 @@
     "dimension_source": "urdf/parol6_description/parol6_ssg48.urdf",
     "snapshot_source": "mujoco/parol6/scene_ssg48.xml",
     "source_hash_encoding": "SHA-256 of source text bytes with CRLF normalized to LF",
-    "urdf_sha256": "c974b3a957c5283beeb951c33eb9d5387e21f46256b6173fe395939455a7d944",
-    "native_model_sha256": "00ac0631effb0327002658f23082e7e21e89ecb795db312e195ca9a30902502a",
+    "urdf_sha256": "4c5bc887a40726dc500111da302236dd1d8db3fb2f48dfc1dfde4c404b169c3c",
+    "native_model_sha256": "99876cf6c453687d616d373939a94dab18118a637714860510691e30c0109533",
     "wrist3_to_configured_tcp_m": [
       [
         1.0,
@@ -1749,8 +1749,8 @@
     "dimension_source": "urdf/parol6_description/parol6_ssg48_stock.urdf",
     "snapshot_source": "mujoco/parol6/scene_ssg48_stock.xml",
     "source_hash_encoding": "SHA-256 of source text bytes with CRLF normalized to LF",
-    "urdf_sha256": "13871893b511ab396a6967a51f2b25eab4bb0c4afa60f0984212717555d5a7ac",
-    "native_model_sha256": "801ac8cd2dc64e6ae2bfb9bb0f74f17c1903731024f32f6e2a7a9104db74db57",
+    "urdf_sha256": "a373628e2583c389d55a7d005d21275161b236b931b506ebec31b4b2cc97c553",
+    "native_model_sha256": "93e31cee7c308fb2efe3a275704391b75108d03e39114fca999e70b13d5fd958",
     "wrist3_to_configured_tcp_m": [
       [
         1.0,
@@ -1919,8 +1919,8 @@
     "dimension_source": "urdf/parol6_description/parol6_pneumatic.urdf",
     "snapshot_source": "mujoco/parol6/scene_pneumatic.xml",
     "source_hash_encoding": "SHA-256 of source text bytes with CRLF normalized to LF",
-    "urdf_sha256": "a775e1d2df37d797677ceb7498e17d380c5f0948652a401f8398afdd50b5b03b",
-    "native_model_sha256": "5e296f0b44f3cd131bcfb6b6690ca940cc49748f4d43ac8919b2afa98f4835d7",
+    "urdf_sha256": "e0e2fcc587dd8349c896f4520b70b06aa7fc59accccdf1cbfc1e8da8d5f9a0a4",
+    "native_model_sha256": "2a0e2bf87f933c541ce5c767d675c78019d11d16c7c38b001d3bd6338e763aa7",
     "wrist3_to_configured_tcp_m": [
       [
         1.0,

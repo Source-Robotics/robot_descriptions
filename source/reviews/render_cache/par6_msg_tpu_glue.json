@@ -1,29 +1,5 @@
 {
-  "visual_signature": "8433fe70d9a228ada85b550d306b9a4c93d2f325dab36c621b7cd8ca9c015227",
-  "projection": {
-    "pos": [
-      0.10999999940395355,
-      1.0,
-      0.19200000166893005
-    ],
-    "forward": [
-      -1.8369701465288538e-16,
-      -1.0,
-      0.0
-    ],
-    "up": [
-      0.0,
-      0.0,
-      1.0
-    ],
-    "top": 0.23499999940395355,
-    "bottom": -0.23499999940395355,
-    "center": 0.0,
-    "width": 0.0,
-    "orthographic": true,
-    "registration_error_max_px": 0.4088001034451091
-  },
-  "image_sha256": "13a6fffaaf92e15e89612f087d0c52ccf4c8d50bb221811af2a6f7b0584d2569",
+  "visual_signature": "9f67e508cf5ed0548ed8dd8d13b17b0498a3cf07c038a698fc034d5ad0158c42",
   "visual_inputs": {
     "mesh:base_link.STL": "916731a1863cc0b2b4da0b64942dcb25cafbf31ab1c7fef280218f038e1c26d4",
     "mesh:shoulder.STL": "4b774a3b0902aa79c10e799201ef72c554bd0eacfc17b144e992a81fa37d254e",
@@ -61,7 +37,31 @@
     "mesh:contacts/msg_soft_tpu/right_04.STL": "ee2a948bdc1e51e52fe312944c0dcd75331356bcaef87ba61a1d62a23d3a648c",
     "mesh:contacts/msg_soft_tpu/right_05.STL": "aca208f65400a44d30b6753033e5bf1c5f935032af4e135f6da623eda566ff6c",
     "texture:assets/branding/par6_badge.png": "70c52397ef3928c5c1cb144b4b76bd6537c736d6bf1ce5d3fb675492e0ca08b9",
-    "xml:par6_msg_tpu_glue.xml": "4cf1dd221e5db435276460dd8f6bf4b0a7d76dd2f8f0e2fccdcfd86f173a2752",
+    "xml:par6_msg_tpu_glue.xml": "6744625247f7993bc6bc38127ffac5aa9d546d908741b8448305f3ca6b3b4410",
     "xml:scene_msg_tpu_glue.xml": "3e381aa14d7fc2307bf195873fc8d7f8074a9606d9e615f1f5e36f91960f4e9c"
-  }
+  },
+  "projection": {
+    "pos": [
+      0.10999999940395355,
+      1.0,
+      0.19200000166893005
+    ],
+    "forward": [
+      -1.8369701465288538e-16,
+      -1.0,
+      0.0
+    ],
+    "up": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "top": 0.23499999940395355,
+    "bottom": -0.23499999940395355,
+    "center": 0.0,
+    "width": 0.0,
+    "orthographic": true,
+    "registration_error_max_px": 0.4088001034451091
+  },
+  "image_sha256": "b1015021c21b32a20f549eb14a84d0efe94e227b836afe60f4124e2635bdebff"
 }

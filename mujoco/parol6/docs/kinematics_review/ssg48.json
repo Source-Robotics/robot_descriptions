@@ -48,8 +48,8 @@
   "dimension_source": "urdf/parol6_description/parol6_ssg48.urdf",
   "snapshot_source": "mujoco/parol6/scene_ssg48.xml",
   "source_hash_encoding": "SHA-256 of source text bytes with CRLF normalized to LF",
-  "urdf_sha256": "c974b3a957c5283beeb951c33eb9d5387e21f46256b6173fe395939455a7d944",
-  "native_model_sha256": "00ac0631effb0327002658f23082e7e21e89ecb795db312e195ca9a30902502a",
+  "urdf_sha256": "4c5bc887a40726dc500111da302236dd1d8db3fb2f48dfc1dfde4c404b169c3c",
+  "native_model_sha256": "99876cf6c453687d616d373939a94dab18118a637714860510691e30c0109533",
   "wrist3_to_configured_tcp_m": [
     [
       1.0,

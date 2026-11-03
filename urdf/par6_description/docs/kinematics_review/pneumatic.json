@@ -48,8 +48,8 @@
   "dimension_source": "urdf/par6_description/par6_pneumatic.urdf",
   "snapshot_source": "mujoco/par6/scene_pneumatic.xml",
   "source_hash_encoding": "SHA-256 of source text bytes with CRLF normalized to LF",
-  "urdf_sha256": "e20cf73b82e5de74338e77f726c0c81e71895c4322fd15d10d3d4b6738101ce4",
-  "native_model_sha256": "bb4d71a9d6af97f0cd896870261485cb0ccd44db276106969234d8ed60bc9de7",
+  "urdf_sha256": "dd1d4f449abbac55f37b4930ac4a3f5a176c03f270199d9d6d0d1a743e3d6891",
+  "native_model_sha256": "95496e0e4c518a6a167c802230d3870380e3b36eec18c36ff0f76f672a1c72c3",
   "wrist3_to_configured_tcp_m": [
     [
       1.0,

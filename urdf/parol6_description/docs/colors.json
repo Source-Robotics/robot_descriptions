@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "colors": {
+    "structure": "#CAD1EE",
+    "motors": [0.06, 0.06, 0.065, 1],
+    "camera_lens": [0.06, 0.06, 0.065, 1],
+    "msg_solid_jaws": [0.29804, 0.29804, 0.29804, 1],
+    "msg_soft_holders": "#0F0F11",
+    "msg_soft_inserts": "#FFD21A",
+    "ssg48_solid_jaws": "#4C4C4C",
+    "ssg48_fin_ray_jaws": [0.29804, 0.29804, 0.29804, 1],
+    "pneumatic_body": [0.72, 0.75, 0.8, 1],
+    "pneumatic_jaws": [0.12, 0.13, 0.15, 1]
+  },
+  "overrides": {},
+  "badge": {
+    "background": "#464545",
+    "emblem": "#FFFFFF",
+    "symbol": "#464545",
+    "wordmark": "#FFFFFF",
+    "robot_name": "#FFFFFF",
+    "tagline": "#FFFFFF",
+    "divider": "#FFFFFF"
+  }
+}

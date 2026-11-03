@@ -8,23 +8,28 @@ import sys
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 
 
-def build(models_only=False):
+def build(models_only=False, render=False):
+    import json
+    import build_side_badge as badge
+    from model_colors import load, badge_config, apply_package
     from package_layout import documentation
+    palette = load()  # Reject misspelled/invalid settings before changing models.
     if not models_only:
-        import json
         import split_motor_visuals as motors
-        import build_side_badge as badge
         import build_msg_jaws as msg
         import build_ssg48_jaws as ssg
         from build_gripper_contacts import build as contacts
         print('Rebuilding visual partitions, SVG texture, CAD jaws and contacts.',flush=True)
         motors.generate_meshes();motors.update_urdf();motors.update_mjcf()
-        config=json.loads(badge.CONFIG.read_text());badge.build_meshes(config);badge.update_models(config)
         config=json.loads(msg.CONFIG.read_text());report=msg.build_meshes(config);msg.update_models(config)
         (motors.ROOT/'tools/msg_jaw_geometry.json').write_text(json.dumps(report,indent=2)+'\n')
         config=json.loads(ssg.CONFIG.read_text());report=ssg.build_meshes(config);ssg.update_models(config)
         (motors.ROOT/'tools/ssg48_jaw_geometry.json').write_text(json.dumps(report,indent=2)+'\n')
         contacts()
+    # A color-only edit also updates the baked cover, without retessellating CAD.
+    config=badge_config(json.loads(badge.CONFIG.read_text()), palette)
+    report=badge.build_meshes(config);badge.update_models(config)
+    (badge.ROOT/'tools/side_badge_geometry.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     from sync_model_dynamics import synchronize
     from build_grasp_benches import build as benches
     from verify_dynamics_sync import verify
@@ -36,6 +41,8 @@ def build(models_only=False):
     synchronize()
     from build_pneumatic import build as pneumatic
     pneumatic()
+    for package in [ROOT/'mujoco/par6',ROOT/'urdf/par6_description']:
+        apply_package(package, 'par6', palette)
     benches();verify()
     import contextlib
     import io
@@ -62,7 +69,7 @@ def build(models_only=False):
         (package/'LICENSE').write_bytes((ROOT/'LICENSE').read_bytes())
     print('All 16 electric-gripper close/lift/hold/release checks passed.',flush=True)
     from build_review_sheets import build as reviews
-    reviews()
+    reviews(refresh=render)
     from build_standalone_grippers import build as grippers
     from verify_standalone_grippers import verify as gripper_checks
     grippers();gripper_checks()
@@ -73,4 +80,5 @@ def build(models_only=False):
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--models-only',action='store_true',help='Use committed visual/CAD assets; rebuild dynamics, fixtures, validation and ZIPs')
-    args=parser.parse_args();build(args.models_only)
+    parser.add_argument('--render',action='store_true',help='Refresh review snapshots with OpenGL after an appearance change')
+    args=parser.parse_args();build(args.models_only,args.render)

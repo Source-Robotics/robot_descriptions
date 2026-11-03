@@ -35,7 +35,7 @@
       <body name="msg_gripper_link" pos="0 0 -0.0571" quat="0 0 1 0">
         <inertial pos="-0.0064247 0.000282669 -0.0695192" quat="0.700694 0.703416 0.0814468 -0.0871836" mass="0.3014" diaginertia="0.000141544 0.000129702 2.45301e-05" />
         <geom type="mesh" rgba="0 0 0 0" mesh="gripper" group="3" />
-        <geom name="msg_gripper_structure_visual" type="mesh" mesh="msg_gripper_structure_visual" rgba="0.79216 0.81961 0.93333 1" contype="0" conaffinity="0" mass="0" group="2" />
+        <geom name="msg_gripper_structure_visual" type="mesh" mesh="msg_gripper_structure_visual" rgba="0.792156863 0.819607843 0.933333333 1" contype="0" conaffinity="0" mass="0" group="2" />
         <geom name="msg_camera_lens_visual" type="mesh" mesh="msg_camera_lens_visual" material="msg_camera_lens_black" contype="0" conaffinity="0" mass="0" group="2" />
         <geom name="msg_gripper_motor_visual" type="mesh" mesh="msg_gripper_motor_visual" material="msg_gripper_motor_black" contype="0" conaffinity="0" mass="0" group="2" />
         <camera name="msg_camera" mode="fixed" pos="-0.0513 0 -0.0897" xyaxes="0 1 0 -0.642788 0 -0.766044" fovy="51.50" resolution="1280 720" />

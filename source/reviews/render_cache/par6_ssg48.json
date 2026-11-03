@@ -1,29 +1,5 @@
 {
-  "visual_signature": "20c2a54eae32b95b4b34860079da71bb7457815a7ac65cdf01723cd301116cd2",
-  "projection": {
-    "pos": [
-      0.10999999940395355,
-      1.0,
-      0.19200000166893005
-    ],
-    "forward": [
-      -1.8369701465288538e-16,
-      -1.0,
-      0.0
-    ],
-    "up": [
-      0.0,
-      0.0,
-      1.0
-    ],
-    "top": 0.23499999940395355,
-    "bottom": -0.23499999940395355,
-    "center": 0.0,
-    "width": 0.0,
-    "orthographic": true,
-    "registration_error_max_px": 0.4088001034451091
-  },
-  "image_sha256": "7618ad0c79261fafe56af96e3c082775188cccad53475ee1fab77ec5ddf8b098",
+  "visual_signature": "c6977055bab694cc5b6f7bb1a500491f34280b185c5827aa72fbea3525cc1863",
   "visual_inputs": {
     "mesh:base_link.STL": "916731a1863cc0b2b4da0b64942dcb25cafbf31ab1c7fef280218f038e1c26d4",
     "mesh:shoulder.STL": "4b774a3b0902aa79c10e799201ef72c554bd0eacfc17b144e992a81fa37d254e",
@@ -52,7 +28,31 @@
     "mesh:contacts/ssg48_solid/right_04.STL": "6cfe751a3ad1d0adef7a7fa3e1fc23f791882f3f17f47281b16c484943305924",
     "mesh:contacts/ssg48_solid/right_05.STL": "4b3272546ebcfc0f2586c1f1578a70371e410568ecceff2448d6f5a088d6a26c",
     "texture:assets/branding/par6_badge.png": "70c52397ef3928c5c1cb144b4b76bd6537c736d6bf1ce5d3fb675492e0ca08b9",
-    "xml:par6_ssg48.xml": "2222ff95f4eff95b906733a9f6c63dbae00d374c8f498655a11a73391f56bdad",
+    "xml:par6_ssg48.xml": "8a0fd2f59e824453907f3800eb2a96b332acc0164a86b1fbb3189b3077ea1add",
     "xml:scene_ssg48.xml": "5ebc773cfb9ffe101d90ca9d4d287e4d3703b0e665940f35c437b4b827a54e2d"
-  }
+  },
+  "projection": {
+    "pos": [
+      0.10999999940395355,
+      1.0,
+      0.19200000166893005
+    ],
+    "forward": [
+      -1.8369701465288538e-16,
+      -1.0,
+      0.0
+    ],
+    "up": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "top": 0.23499999940395355,
+    "bottom": -0.23499999940395355,
+    "center": 0.0,
+    "width": 0.0,
+    "orthographic": true,
+    "registration_error_max_px": 0.4088001034451091
+  },
+  "image_sha256": "f23ad19dc3f7edd61412f47fc6668914593822ac40ed75ebe108bc72b2f74aea"
 }

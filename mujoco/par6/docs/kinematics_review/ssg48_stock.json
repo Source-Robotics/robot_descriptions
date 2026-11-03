@@ -48,8 +48,8 @@
   "dimension_source": "urdf/par6_description/par6_ssg48_stock.urdf",
   "snapshot_source": "mujoco/par6/scene_ssg48_stock.xml",
   "source_hash_encoding": "SHA-256 of source text bytes with CRLF normalized to LF",
-  "urdf_sha256": "42478fdc6be7f35d2c17448ee55953e12b91e90324a409a403f61e8e268f6686",
-  "native_model_sha256": "5532af89dcb12ee99d0c58882acc975b94a5d21cc61b8bb06c6b4eb183a21c73",
+  "urdf_sha256": "fe644ef8f40e300531b19c0151e9d5e82bf5a8dd05d41ac919426ab8bcccaf0e",
+  "native_model_sha256": "790aad95357fe2bd332c57c28d9ee2038ed65dab073133e0a45316c43933c0ff",
   "wrist3_to_configured_tcp_m": [
     [
       1.0,

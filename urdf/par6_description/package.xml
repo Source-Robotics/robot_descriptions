@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <package format="2">
   <name>par6_description</name>
-  <version>2.15.1</version>
+  <version>2.16.0</version>
   <description>Portable URDF descriptions for the Source Robotics PAR6 arm.</description>
   <maintainer email="petar@source-robotics.com">Source Robotics</maintainer>
   <license>CC-BY-4.0</license>

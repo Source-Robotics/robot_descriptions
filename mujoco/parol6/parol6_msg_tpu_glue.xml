@@ -58,39 +58,39 @@
   </asset>
   <worldbody>
     <body name="base_link">
-      <geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="base_link" />
+      <geom type="mesh" rgba="0.792156863 0.819607843 0.933333333 1" mesh="base_link" />
       <body name="shoulder_link">
         <inertial mass="1.9931400000000001" pos="0.0055100000000000045 0.01797 0.10725999999999999" quat="0.16922304146398287 0.76381155402360357 0.61096037987256457 0.12117296069543843" diaginertia="0.0019733479435563878 0.013265176356982655 0.013576698569460956" />
         <joint name="base_joint" pos="0 0 0" axis="0 0 1" class="Y" limited="true" range="-1.7 1.7" />
         <geom type="mesh" rgba="0 0 0 0" mesh="shoulder_link" group="3" />
-        <geom name="shoulder_structure_visual" type="mesh" mesh="shoulder_structure_visual" rgba="0.79216 0.81961 0.93333 1" contype="0" conaffinity="0" mass="0" group="2" />
+        <geom name="shoulder_structure_visual" type="mesh" mesh="shoulder_structure_visual" rgba="0.792156863 0.819607843 0.933333333 1" contype="0" conaffinity="0" mass="0" group="2" />
         <geom name="j1_actuator_visual" type="mesh" mesh="j1_actuator_visual" material="j1_actuator_black" contype="0" conaffinity="0" mass="0" group="2" />
         <geom name="j2_actuator_visual" type="mesh" mesh="j2_actuator_visual" material="j2_actuator_black" contype="0" conaffinity="0" mass="0" group="2" />
         <body name="upper_arm_link" pos="0.023421 0 0.1105" quat="0.707105 -0.707108 0 0">
           <inertial mass="1.3322400000000001" pos="-0.01108099999999999 -0.077150067372466546 0.01587967267999791" quat="-0.56470127149728311 0.42308511803304966 0.60924855430853131 -0.36183926810294736" diaginertia="0.0030989973993509959 0.0039179854648952687 0.0064772414957537392" />
           <joint name="shoulder_joint" pos="0 0 0" axis="0 0 1" class="Y" limited="true" range="-0.97999999999999998 1" />
           <geom type="mesh" rgba="0 0 0 0" mesh="upper_arm_link" group="3" />
-          <geom name="upper_arm_structure_visual" type="mesh" mesh="upper_arm_structure_visual" contype="0" conaffinity="0" mass="0" group="2" rgba="0.79216 0.81961 0.93333 1" />
+          <geom name="upper_arm_structure_visual" type="mesh" mesh="upper_arm_structure_visual" contype="0" conaffinity="0" mass="0" group="2" rgba="0.792156863 0.819607843 0.933333333 1" />
           <geom name="j3_actuator_visual" type="mesh" mesh="j3_actuator_visual" material="j3_actuator_black" contype="0" conaffinity="0" mass="0" group="2" />
           <body name="forearm_link" pos="0 -0.18 0" quat="-2.59734e-06 0.707105 -0.707108 2.59735e-06">
             <inertial mass="0.68511" pos="0.009579921725692964 -0.022189068113424793 -0.0037390326700816288" quat="0.95017743248201225 0.27055221356823922 0.05447127762204923 0.14490419748730013" diaginertia="0.00058995072364846472 0.00075780807896230697 0.00089575254738922801" />
             <joint name="elbow_joint" pos="0 0 0" axis="0 0 1" class="Y" limited="true" range="-1.3 2" />
-            <geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="forearm_link" />
+            <geom type="mesh" rgba="0.792156863 0.819607843 0.933333333 1" mesh="forearm_link" />
             <body name="wrist_1_link" pos="0.0435 0 0" quat="-2.59734e-06 -2.59735e-06 -0.707108 -0.707105">
               <inertial mass="0.57955999999999996" pos="-9.04185253414453e-05 -0.017128705537790025 -0.11142923743879764" quat="0.69732013010439631 0.11967668477403055 -0.69525822075856802 -0.12664175354248516" diaginertia="0.00025344979304637043 0.0011455583122489197 0.0011704694247047097" />
               <joint name="wrist_1_joint" pos="0 0 0" axis="0 0 1" class="Y" limited="true" range="-2 2" />
-              <geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="wrist_1_link" pos="0 0 -0.00064999999999998392" />
+              <geom type="mesh" rgba="0.792156863 0.819607843 0.933333333 1" mesh="wrist_1_link" pos="0 0 -0.00064999999999998392" />
               <body name="wrist_2_link" pos="0 0 -0.17699999999999999" quat="0.707105 -0.707108 0 0">
                 <inertial mass="0.52381" pos="-5.3936154437558936e-07 -0.0035508136928119214 -0.00023852848940545109" quat="-0.49952562668094996 -0.50055209146268598 0.50254722259141493 0.49736107717330463" diaginertia="0.00018258716232339353 0.00040956445886035239 0.00041379123881625426" />
                 <joint name="wrist_2_joint" pos="0 0 0" axis="0 0 1" class="Y" limited="true" range="-2.1000000000000001 2.1000000000000001" />
-                <geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="wrist_2_link" />
+                <geom type="mesh" rgba="0.792156863 0.819607843 0.933333333 1" mesh="wrist_2_link" />
                 <body name="wrist_3_link" quat="0 0 0.707105 0.707108">
                   <joint name="wrist_3_joint" pos="0 0 0" axis="0 0 -1" class="Y" limited="false" />
                   <body name="flange" pos="0 0 0.050500000000000003">
                     <body name="msg_gripper_link" pos="0 0 -0.0571" quat="0 0 1 0">
                       <inertial pos="-0.0064247 0.000282669 -0.0695192" quat="0.700694 0.703416 0.0814468 -0.0871836" mass="0.3014" diaginertia="0.000141544 0.000129702 2.45301e-05" />
                       <geom type="mesh" rgba="0 0 0 0" mesh="gripper" group="3" />
-                      <geom name="msg_gripper_structure_visual" type="mesh" mesh="msg_gripper_structure_visual" rgba="0.79216 0.81961 0.93333 1" contype="0" conaffinity="0" mass="0" group="2" />
+                      <geom name="msg_gripper_structure_visual" type="mesh" mesh="msg_gripper_structure_visual" rgba="0.792156863 0.819607843 0.933333333 1" contype="0" conaffinity="0" mass="0" group="2" />
                       <geom name="msg_camera_lens_visual" type="mesh" mesh="msg_camera_lens_visual" material="msg_camera_lens_black" contype="0" conaffinity="0" mass="0" group="2" />
                       <geom name="msg_gripper_motor_visual" type="mesh" mesh="msg_gripper_motor_visual" material="msg_gripper_motor_black" contype="0" conaffinity="0" mass="0" group="2" />
                       <camera name="msg_camera" mode="fixed" pos="-0.0513 0 -0.0897" xyaxes="0 1 0 -0.642788 0 -0.766044" fovy="51.50" resolution="1280 720" />

@@ -35,7 +35,7 @@
     <body name="ssg48_gripper_link" pos="0 0 0.25" quat="1 0 0 0">
       <freejoint name="tool_free" />
       <inertial pos="-6.7987e-05 0.0001694 -0.077391" quat="0.464161 0.46546 -0.535128 0.530603" mass="0.3614" diaginertia="0.00014808 0.000127124 5.86313e-05" />
-      <geom type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="gripper" />
+      <geom type="mesh" rgba="0.792156863 0.819607843 0.933333333 1" mesh="gripper" />
       <body name="tcp_link" pos="0 0 -0.1409">
         <site name="tcp" pos="0 0 0" quat="0 0 1 0" size="0.005" rgba="1 0 0 1" />
       </body>

@@ -26,6 +26,7 @@ def write_index(package):
     base=f'https://github.com/Source-Robotics/robot_descriptions/blob/v{data["packageVersion"]}/'
     colors=colors.replace('](../source/',']('+base+'source/').replace('](../BUILDING.md)',']('+base+'BUILDING.md)')
     (directory/'COLORS.md').write_text(colors,encoding='utf-8')
+    shutil.copyfile(source/'source/appearance/colors.json',directory/'colors.json')
     has_msg=Path(package).name in {'par6','parol6','msg','par6_description','parol6_description','msg_description'}
     if has_msg:
         camera=(source/'docs/MSG_CAMERA.md').read_text(encoding='utf-8')

@@ -1,5 +1,10 @@
 # PAROL6 description changelog
 
+## 2.16.0 - 2026-11-03
+
+- Added a shared color palette and individual-part overrides across both formats and all tools.
+- Kept all physical model and camera definitions unchanged.
+
 ## 2.15.1 - 2026-11-01
 
 - Added native MSG camera previews and rendering instructions to the package documentation.

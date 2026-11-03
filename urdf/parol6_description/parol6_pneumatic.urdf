@@ -12,7 +12,7 @@
         <mesh filename="meshes/arm/base_link.STL" />
       </geometry>
       <material name="parol6_structure">
-        <color rgba="0.79216 0.81961 0.93333 1" />
+        <color rgba="0.792156863 0.819607843 0.933333333 1" />
       </material>
     </visual>
     <collision>
@@ -34,7 +34,7 @@
         <mesh filename="meshes/arm/visual/shoulder_structure_visual.STL" />
       </geometry>
       <material name="parol6_structure">
-        <color rgba="0.79216 0.81961 0.93333 1" />
+        <color rgba="0.792156863 0.819607843 0.933333333 1" />
       </material>
     </visual>
     <visual name="j1_actuator_visual">
@@ -81,7 +81,7 @@
         <mesh filename="meshes/arm/visual/upper_arm_structure_visual.STL" />
       </geometry>
       <material name="parol6_structure">
-        <color rgba="0.79216 0.81961 0.93333 1" />
+        <color rgba="0.792156863 0.819607843 0.933333333 1" />
       </material>
     </visual>
     <visual name="j3_actuator_visual">
@@ -119,7 +119,7 @@
         <mesh filename="meshes/arm/L3.STL" />
       </geometry>
       <material name="parol6_structure">
-        <color rgba="0.79216 0.81961 0.93333 1" />
+        <color rgba="0.792156863 0.819607843 0.933333333 1" />
       </material>
     </visual>
     <collision>
@@ -148,7 +148,7 @@
         <mesh filename="meshes/arm/L4.STL" />
       </geometry>
       <material name="parol6_structure">
-        <color rgba="0.79216 0.81961 0.93333 1" />
+        <color rgba="0.792156863 0.819607843 0.933333333 1" />
       </material>
     </visual>
     <collision>
@@ -177,7 +177,7 @@
         <mesh filename="meshes/arm/L5.STL" />
       </geometry>
       <material name="parol6_structure">
-        <color rgba="0.79216 0.81961 0.93333 1" />
+        <color rgba="0.792156863 0.819607843 0.933333333 1" />
       </material>
     </visual>
     <collision>
@@ -281,7 +281,7 @@
         <mesh filename="meshes/pneumatic/pneumatic_gripper_link.STL" />
       </geometry>
       <material name="pneumatic_body">
-        <color rgba="0.72 0.75 0.80 1" />
+        <color rgba="0.72 0.75 0.8 1" />
       </material>
     </visual>
     <collision name="contact_pneumatic_gripper_link_00">

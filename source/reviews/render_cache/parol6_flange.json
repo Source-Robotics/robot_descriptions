@@ -1,5 +1,21 @@
 {
-  "visual_signature": "221c72c2626ac27616064e43db26fc6c6c2cf4a487b17bb0cfc884f3489f2b25",
+  "visual_signature": "44f5a4b75d1aeb2218d442e38e6aa7966c55d08bf9f0f0fe0610e4e83964bf2c",
+  "visual_inputs": {
+    "mesh:arm/base_link.STL": "a775b6e791a3f8f49a669b20ad96bd9eb20544d9f54334a13f591034619d0931",
+    "mesh:arm/L1.STL": "f4f7446b9fd8ddccee2e4948d14270d1bb1544ccc72d301315f316fe52d9d0db",
+    "mesh:arm/L2.STL": "41b54c4f747551fd494d0f0c7d73eb0d8fea60a4f97e23042032a7566b3a70d8",
+    "mesh:arm/L3.STL": "4a3584a29eee9266dc0c7bc22224f2c282aa275b65a35999f9316604b1483e2f",
+    "mesh:arm/L4.STL": "b34747db1d8fd1f60448a855a8470d9fe0aab7bc44b483f1ba69370c552f5f48",
+    "mesh:arm/L5.STL": "a6128037ab3bb73d8cc75e3b8c95ff617f3741da4d8e6eea566e4b6805ee11c4",
+    "mesh:gripper_flange.STL": "52b6e057f6a07b47cbbf19c9ee5832a8f5edbc14345ae104e3ec54823f51eac6",
+    "mesh:visual/j1_actuator_visual.STL": "aa1069d40ac09444fb9e5f2f879e05a768686efc9943d51955de1e5948672248",
+    "mesh:visual/j2_actuator_visual.STL": "a9891b56216c28b5e838d4ec78730e6ad3836f5fb959d531005a14b69f93964e",
+    "mesh:visual/shoulder_structure_visual.STL": "34fa4eb9571280e981692b539c9fec5c6ab48fe58cb68a74f85706d19dae1d20",
+    "mesh:visual/j3_actuator_visual.STL": "d5245d07ed1e0c5ba453dcc3a63c25ed9f22d5e81323e3239092112fbc1516e3",
+    "mesh:visual/upper_arm_structure_visual.STL": "9419c857079db4137e0be283b0c9e6d3f891a046d3e8c6bcd72b49adbe42720a",
+    "xml:parol6_flange.xml": "045ccd1ed461bc5f5570cae22067d2fca04a1a7ff85d9231af85504e10112f4d",
+    "xml:scene_flange.xml": "ec9fc4cf1907d9a3e0cbc9f1d785dab39dd740b0896570b0c716f3b3a1268741"
+  },
   "projection": {
     "pos": [
       0.10999999940395355,
@@ -23,21 +39,5 @@
     "orthographic": true,
     "registration_error_max_px": 0.4088001034451091
   },
-  "image_sha256": "ad69029da5a82473f2920858ca7a212929067724b83b7598084df00cd69026ee",
-  "visual_inputs": {
-    "mesh:arm/base_link.STL": "a775b6e791a3f8f49a669b20ad96bd9eb20544d9f54334a13f591034619d0931",
-    "mesh:arm/L1.STL": "f4f7446b9fd8ddccee2e4948d14270d1bb1544ccc72d301315f316fe52d9d0db",
-    "mesh:arm/L2.STL": "41b54c4f747551fd494d0f0c7d73eb0d8fea60a4f97e23042032a7566b3a70d8",
-    "mesh:arm/L3.STL": "4a3584a29eee9266dc0c7bc22224f2c282aa275b65a35999f9316604b1483e2f",
-    "mesh:arm/L4.STL": "b34747db1d8fd1f60448a855a8470d9fe0aab7bc44b483f1ba69370c552f5f48",
-    "mesh:arm/L5.STL": "a6128037ab3bb73d8cc75e3b8c95ff617f3741da4d8e6eea566e4b6805ee11c4",
-    "mesh:gripper_flange.STL": "52b6e057f6a07b47cbbf19c9ee5832a8f5edbc14345ae104e3ec54823f51eac6",
-    "mesh:visual/j1_actuator_visual.STL": "aa1069d40ac09444fb9e5f2f879e05a768686efc9943d51955de1e5948672248",
-    "mesh:visual/j2_actuator_visual.STL": "a9891b56216c28b5e838d4ec78730e6ad3836f5fb959d531005a14b69f93964e",
-    "mesh:visual/shoulder_structure_visual.STL": "34fa4eb9571280e981692b539c9fec5c6ab48fe58cb68a74f85706d19dae1d20",
-    "mesh:visual/j3_actuator_visual.STL": "d5245d07ed1e0c5ba453dcc3a63c25ed9f22d5e81323e3239092112fbc1516e3",
-    "mesh:visual/upper_arm_structure_visual.STL": "9419c857079db4137e0be283b0c9e6d3f891a046d3e8c6bcd72b49adbe42720a",
-    "xml:parol6_flange.xml": "d07ba44dc0316c546862a62e624dac9d22dc0222ed01df87e1c973f318ca71e5",
-    "xml:scene_flange.xml": "ec9fc4cf1907d9a3e0cbc9f1d785dab39dd740b0896570b0c716f3b3a1268741"
-  }
+  "image_sha256": "0607141bb9e1fd058c62f1bdaea4091a3d930175ace3f4165055ada509c01700"
 }

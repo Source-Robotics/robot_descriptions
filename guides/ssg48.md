@@ -6,6 +6,9 @@
 Both formats include **Solid jaws** (default) and **Fin-ray jaws**, with all meshes,
 materials, finger joints, collision shapes and mass properties.
 
+To customize appearance, edit the [shared color file](../source/appearance/colors.json)
+and follow the [color build guide](../docs/COLORS.md). Colors match standalone and arm-mounted versions.
+
 | Solid jaws (default) | Fin-ray jaws |
 | --- | --- |
 | ![SSG48 with Solid jaws](../source/grippers/previews/ssg48_solid.png) | ![SSG48 with Fin-ray jaws](../source/grippers/previews/ssg48_fin_ray.png) |

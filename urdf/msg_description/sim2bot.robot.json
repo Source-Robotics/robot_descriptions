@@ -5,7 +5,7 @@
   "category": "gripper",
   "license": "CC-BY-4.0",
   "sourceUrl": "https://github.com/Source-Robotics/robot_descriptions",
-  "packageVersion": "2.15.1",
+  "packageVersion": "2.16.0",
   "entry": "msg_solid.urdf",
   "dof": 1,
   "rootFrame": "flange",

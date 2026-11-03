@@ -1,29 +1,5 @@
 {
-  "visual_signature": "e1b6ec433c379cb44ddf60ba60d0c16386e7ea7d255c66b5291cd71accf36d99",
-  "projection": {
-    "pos": [
-      0.10999999940395355,
-      1.0,
-      0.19200000166893005
-    ],
-    "forward": [
-      -1.8369701465288538e-16,
-      -1.0,
-      0.0
-    ],
-    "up": [
-      0.0,
-      0.0,
-      1.0
-    ],
-    "top": 0.23499999940395355,
-    "bottom": -0.23499999940395355,
-    "center": 0.0,
-    "width": 0.0,
-    "orthographic": true,
-    "registration_error_max_px": 0.4088001034451091
-  },
-  "image_sha256": "d20f6e730b3fc8f9e94ebb2c404e95450effdac65ac011ee168c5ae8574ad8e8",
+  "visual_signature": "44cb39a0a514147e03ead0c656feef3867fa71aa1c5e253696404bf16e9076b5",
   "visual_inputs": {
     "mesh:base_link.STL": "916731a1863cc0b2b4da0b64942dcb25cafbf31ab1c7fef280218f038e1c26d4",
     "mesh:shoulder.STL": "4b774a3b0902aa79c10e799201ef72c554bd0eacfc17b144e992a81fa37d254e",
@@ -55,7 +31,31 @@
     "mesh:contacts/msg_solid/right_04.STL": "9226038de9cca7ef0f5f1b73eb2700093ccf1f508b5608b322491a02669eb598",
     "mesh:contacts/msg_solid/right_05.STL": "0f098090671076ee09b2ada15a5a8c7390a220b7e458f2371a766655d856cfb7",
     "texture:assets/branding/par6_badge.png": "70c52397ef3928c5c1cb144b4b76bd6537c736d6bf1ce5d3fb675492e0ca08b9",
-    "xml:par6_msg.xml": "8a7a92f94e4ff5e0796832a0ea38aecf43a8383932613b8f7dd3f0ba5a0762c8",
+    "xml:par6_msg.xml": "2e837bd1c47420b3c3c6647bd0efab3eef850970bb8b4b80dc7fd89f6d661b06",
     "xml:scene_msg.xml": "85a1163ce6249ea01ccb780529af6c936c7b4d65a7dbd32b9d641eaae70b85f2"
-  }
+  },
+  "projection": {
+    "pos": [
+      0.10999999940395355,
+      1.0,
+      0.19200000166893005
+    ],
+    "forward": [
+      -1.8369701465288538e-16,
+      -1.0,
+      0.0
+    ],
+    "up": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "top": 0.23499999940395355,
+    "bottom": -0.23499999940395355,
+    "center": 0.0,
+    "width": 0.0,
+    "orthographic": true,
+    "registration_error_max_px": 0.4088001034451091
+  },
+  "image_sha256": "50106ddc1f62218cc459a1897e5a82cb1107bc00cac3be42a230483f795bef75"
 }

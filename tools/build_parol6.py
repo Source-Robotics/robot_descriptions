@@ -25,6 +25,7 @@ from parol6_model import (ROOT, SOURCE, ORIGINAL, URDF, MJCF, PROFILES,
                           config, normalized_joint_limits, wrist_mount_geometry)
 from split_motor_visuals import read_parts, BLACK
 from sync_model_dynamics import numbers
+from model_colors import apply_tree, load as load_colors
 
 PAR6_URDF = ROOT / 'urdf/par6_description'
 PAR6_MJCF = ROOT / 'mujoco/par6'
@@ -224,7 +225,12 @@ def metadata_and_support():
             (documentation(target)/document).write_text(text, encoding='utf-8')
         (documentation(target)/'CHANGELOG.md').write_text(f'''# PAROL6 description changelog
 
-## {version} - 2026-11-01
+## {version} - 2026-11-03
+
+- Added a shared color palette and individual-part overrides across both formats and all tools.
+- Kept all physical model and camera definitions unchanged.
+
+## 2.15.1 - 2026-11-01
 
 - Added native MSG camera previews and rendering instructions to the package documentation.
 - Kept model camera settings, geometry, physical properties and controls unchanged.
@@ -409,6 +415,7 @@ remain existing estimates; see ACTUATION.md.
 
 
 def build():
+    palette = load_colors()
     settings = config()
     mounting = wrist_mount_geometry()
     for relative, expected in settings['original_sha256'].items():
@@ -422,11 +429,13 @@ def build():
         tree = ET.parse(PAR6_URDF/f'par6_{profile}.urdf')
         tree.getroot().set('name', f'parol6_{profile}')
         replace_urdf_arm(tree.getroot(), source, settings)
+        apply_tree(tree.getroot(), 'parol6', profile, palette)
         copy_urdf_assets(tree.getroot(), settings)
         write_xml(tree, URDF/f'parol6_{profile}.urdf')
         tree = ET.parse(PAR6_MJCF/f'par6_{profile}.xml')
         tree.getroot().set('model', f'PAROL6_{profile.upper()}')
         replace_native_arm(tree.getroot(), source, settings, profile)
+        apply_tree(tree.getroot(), 'parol6', profile, palette)
         copy_native_assets(tree.getroot(), settings)
         write_xml(tree, MJCF/f'parol6_{profile}.xml')
         scene = (PAR6_MJCF/f'scene_{profile}.xml').read_text().replace('PAR6', 'PAROL6').replace('par6_', 'parol6_')

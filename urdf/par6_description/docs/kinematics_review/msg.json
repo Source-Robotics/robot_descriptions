@@ -48,8 +48,8 @@
   "dimension_source": "urdf/par6_description/par6_msg.urdf",
   "snapshot_source": "mujoco/par6/scene_msg.xml",
   "source_hash_encoding": "SHA-256 of source text bytes with CRLF normalized to LF",
-  "urdf_sha256": "4eb3091979357474abd765cbb815e14b43584a42c9705d92180c0485ea4e7c53",
-  "native_model_sha256": "589eba044848ae2e5781e75618607c9ce86c0318dd730441ec511bd0b818efbe",
+  "urdf_sha256": "25d63047623997ee174a60d5ca3d930e2960ca7d3068bc0df3e2a550542dde06",
+  "native_model_sha256": "e90ad6e2b00174ae7c21db618d06bba5420e22d2497e3be48bd8094fbf5085b0",
   "wrist3_to_configured_tcp_m": [
     [
       1.0,

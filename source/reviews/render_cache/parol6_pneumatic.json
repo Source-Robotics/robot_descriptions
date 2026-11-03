@@ -1,29 +1,5 @@
 {
-  "visual_signature": "b6db4f9581d8c2e94726474a3aecf09d86eb0d0f7cfcb15d5ccb81cbbb1d1a99",
-  "projection": {
-    "pos": [
-      0.10999999940395355,
-      1.0,
-      0.19200000166893005
-    ],
-    "forward": [
-      -1.8369701465288538e-16,
-      -1.0,
-      0.0
-    ],
-    "up": [
-      0.0,
-      0.0,
-      1.0
-    ],
-    "top": 0.23499999940395355,
-    "bottom": -0.23499999940395355,
-    "center": 0.0,
-    "width": 0.0,
-    "orthographic": true,
-    "registration_error_max_px": 0.4088001034451091
-  },
-  "image_sha256": "c3ebf27930c12bc6df140a0075320f767c4e8681b441aba294dd4d077770dbe6",
+  "visual_signature": "6503e0e311ea430101a2afb98d88870ea49189393316a70ba6ae7a5fa0b99f82",
   "visual_inputs": {
     "mesh:arm/base_link.STL": "a775b6e791a3f8f49a669b20ad96bd9eb20544d9f54334a13f591034619d0931",
     "mesh:arm/L1.STL": "f4f7446b9fd8ddccee2e4948d14270d1bb1544ccc72d301315f316fe52d9d0db",
@@ -57,7 +33,31 @@
     "mesh:pneumatic/right_finger_link_contact_03.STL": "39f5fba40f9cdacd789e92244c8716485df0d7dfc9ba90df5b0835ae6b2df43c",
     "mesh:pneumatic/right_finger_link_contact_04.STL": "6c24b3bb9ae0d35685f62f6a4d823609fede8c75b0afc0ab6e30d2242ad0fe81",
     "mesh:pneumatic/right_finger_link_contact_05.STL": "e410645ce9134688e1a78ef2e0400131e805ab52789db86e877f148a842e34ea",
-    "xml:parol6_pneumatic.xml": "9be51dc8596acdff61d61c071ac3f52a44fa68c28fe1d022ab8b0c07f88bb702",
+    "xml:parol6_pneumatic.xml": "1d4e026aba8a4b6391a04c901e0d22b5b8ca250d4c722a4320b81982083b3ae7",
     "xml:scene_pneumatic.xml": "9de7b7d6e2dd7b6c678861a9b5ac07379446faf5750a30d1986949e1c7e0ebdb"
-  }
+  },
+  "projection": {
+    "pos": [
+      0.10999999940395355,
+      1.0,
+      0.19200000166893005
+    ],
+    "forward": [
+      -1.8369701465288538e-16,
+      -1.0,
+      0.0
+    ],
+    "up": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "top": 0.23499999940395355,
+    "bottom": -0.23499999940395355,
+    "center": 0.0,
+    "width": 0.0,
+    "orthographic": true,
+    "registration_error_max_px": 0.4088001034451091
+  },
+  "image_sha256": "16c369a0ad39e8930df630d0e946653f16ec224937d4f5d049e356159200857c"
 }

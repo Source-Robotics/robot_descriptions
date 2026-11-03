@@ -1,29 +1,5 @@
 {
-  "visual_signature": "f7521b6306d14c1f82310e215b035dc497d31f1bf8be65a6fc4925b819ec18c8",
-  "projection": {
-    "pos": [
-      0.10999999940395355,
-      1.0,
-      0.19200000166893005
-    ],
-    "forward": [
-      -1.8369701465288538e-16,
-      -1.0,
-      0.0
-    ],
-    "up": [
-      0.0,
-      0.0,
-      1.0
-    ],
-    "top": 0.23499999940395355,
-    "bottom": -0.23499999940395355,
-    "center": 0.0,
-    "width": 0.0,
-    "orthographic": true,
-    "registration_error_max_px": 0.4088001034451091
-  },
-  "image_sha256": "b2426be9b64428c15530214b10d460d2413cb4ba723c0b66ecdbfe977b31c534",
+  "visual_signature": "a535fa47f7cd16f1c2530c8528d18e1c49ec652ac04c5ebfd1e0c0c29f33d191",
   "visual_inputs": {
     "mesh:base_link.STL": "916731a1863cc0b2b4da0b64942dcb25cafbf31ab1c7fef280218f038e1c26d4",
     "mesh:shoulder.STL": "4b774a3b0902aa79c10e799201ef72c554bd0eacfc17b144e992a81fa37d254e",
@@ -58,7 +34,31 @@
     "mesh:pneumatic/right_finger_link_contact_04.STL": "6c24b3bb9ae0d35685f62f6a4d823609fede8c75b0afc0ab6e30d2242ad0fe81",
     "mesh:pneumatic/right_finger_link_contact_05.STL": "e410645ce9134688e1a78ef2e0400131e805ab52789db86e877f148a842e34ea",
     "texture:assets/branding/par6_badge.png": "70c52397ef3928c5c1cb144b4b76bd6537c736d6bf1ce5d3fb675492e0ca08b9",
-    "xml:par6_pneumatic.xml": "d7b9c7dff145fde9b4447a8f64b8aa3f3e5c192b9ddfcd0b5c3826d1885b56e7",
+    "xml:par6_pneumatic.xml": "9e48b1d6d0044b0c281875b536f6f117a6d2fe12c393d5d049bb29aaf58cda9a",
     "xml:scene_pneumatic.xml": "2bf1701059a5e31df3f2113c34ac0fddf80bad8f63602c6a38f09abb62488d22"
-  }
+  },
+  "projection": {
+    "pos": [
+      0.10999999940395355,
+      1.0,
+      0.19200000166893005
+    ],
+    "forward": [
+      -1.8369701465288538e-16,
+      -1.0,
+      0.0
+    ],
+    "up": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "top": 0.23499999940395355,
+    "bottom": -0.23499999940395355,
+    "center": 0.0,
+    "width": 0.0,
+    "orthographic": true,
+    "registration_error_max_px": 0.4088001034451091
+  },
+  "image_sha256": "9233e88eb8808df5f1ebf5b1191a209724de96ef7f284873ed23b472ab18ca47"
 }

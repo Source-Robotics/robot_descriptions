@@ -6,6 +6,9 @@
 Both formats include **Solid jaws** (default) and **Soft TPU jaws**, with all meshes,
 materials, finger joints, collision shapes and mass properties.
 
+To customize appearance, edit the [shared color file](../source/appearance/colors.json)
+and follow the [color build guide](../docs/COLORS.md). Colors match standalone and arm-mounted versions.
+
 | Solid jaws (default) | Soft TPU jaws |
 | --- | --- |
 | ![MSG with Solid jaws](../source/grippers/previews/msg_solid.png) | ![MSG with Soft TPU jaws](../source/grippers/previews/msg_soft_tpu.png) |

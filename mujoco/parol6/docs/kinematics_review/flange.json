@@ -48,8 +48,8 @@
   "dimension_source": "urdf/parol6_description/parol6_flange.urdf",
   "snapshot_source": "mujoco/parol6/scene_flange.xml",
   "source_hash_encoding": "SHA-256 of source text bytes with CRLF normalized to LF",
-  "urdf_sha256": "56b8b16e7308251c4e861cb77232316137cdd69f7a0fb6f0d7eb45191c7fc505",
-  "native_model_sha256": "e2803cb30e3d2398c2d6d7f70291627b34ed638b535940ea895bce6a81a6ced3",
+  "urdf_sha256": "f15629dbd8b32c53c94af00b61e543414d039211ca385c075fd3a45e241d92bf",
+  "native_model_sha256": "bcab3358caf71f81d7f4ddd67e0af1c360e341cefcd7bb1b9495f8dfc483b441",
   "wrist3_to_configured_tcp_m": [
     [
       1.0,

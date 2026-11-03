@@ -6,7 +6,9 @@ another repository as a Git submodule. The normal build needs no `IK`,
 All source models, meshes, STEP files, artwork and reference data are contained
 here. Exported packages remain independent of the authoring tools.
 
-For appearance settings and material examples, see [Changing model colors](docs/COLORS.md).
+All maintained appearance settings are in
+[`source/appearance/colors.json`](source/appearance/colors.json).
+For examples and individual-part overrides, see [Changing model colors](docs/COLORS.md).
 
 ## Setup
 
@@ -61,6 +63,9 @@ extracting each ZIP, so the organized downloads remain portable.
    export; its 50.5 mm flange reach matches PAR6 housing-to-tool spacing.
 8. Validates all PAROL6 profiles against the supplied source chain; writes
    the shared DH/frame comparison and diagram into all four packages.
+   Shared palette application changes only visual colors, with an XML guard
+   against changing physical definitions; both arms and extracted tools use
+   the same palette. Each exported package includes `docs/colors.json`.
 9. Regenerates twelve dimensioned kinematic review sheets and validates each
    six-row DH table against both formats at 128 poses. Uses checked snapshot
    caches, without requiring OpenGL during a normal build.
@@ -86,6 +91,18 @@ For a faster build using committed CAD/visual assets:
 ```bash
 python tools/build.py --models-only
 ```
+
+After editing the shared color file, refresh review snapshots during the same
+build (requires working OpenGL):
+
+```bash
+python tools/build.py --models-only --render
+```
+
+This also rebakes badge colors, without retessellating STEP geometry. The
+ordinary build and CI reuse the committed snapshots without OpenGL. Separate
+guide/gallery screenshots can be refreshed with the optional renderers listed
+in the color guide.
 
 The entry point also supports isolated Python mode and invocation by absolute
 path from another working directory: `python -I /path/to/checkout/tools/build.py`.

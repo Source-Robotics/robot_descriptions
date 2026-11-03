@@ -1,29 +1,5 @@
 {
-  "visual_signature": "10fc0d0f8377b3dd0690157cbe51bf5f197b39bbb87faa1d62390641bd17c4d9",
-  "projection": {
-    "pos": [
-      0.10999999940395355,
-      1.0,
-      0.19200000166893005
-    ],
-    "forward": [
-      -1.8369701465288538e-16,
-      -1.0,
-      0.0
-    ],
-    "up": [
-      0.0,
-      0.0,
-      1.0
-    ],
-    "top": 0.23499999940395355,
-    "bottom": -0.23499999940395355,
-    "center": 0.0,
-    "width": 0.0,
-    "orthographic": true,
-    "registration_error_max_px": 0.4088001034451091
-  },
-  "image_sha256": "441be223eb719a89af2e13cfcf0d6e4cb0ee0d952da7a354670e876cbdb4df1e",
+  "visual_signature": "43a2d86df562118e1cc4e99e9e071682f8f245f942cd8a2f74c6f5d0b353c43e",
   "visual_inputs": {
     "mesh:arm/base_link.STL": "a775b6e791a3f8f49a669b20ad96bd9eb20544d9f54334a13f591034619d0931",
     "mesh:arm/L1.STL": "f4f7446b9fd8ddccee2e4948d14270d1bb1544ccc72d301315f316fe52d9d0db",
@@ -51,7 +27,31 @@
     "mesh:contacts/ssg48_fin_ray/right_03.STL": "bcd525db42ee1c07485a46530778daf1b327fc01d2a57f9612cdcca1e19fd320",
     "mesh:contacts/ssg48_fin_ray/right_04.STL": "770f1cfeedcf733e4cf5d30a337bd36b364b3fd35b847308e04be946d61367b4",
     "mesh:contacts/ssg48_fin_ray/right_05.STL": "c20ff1ad759b1b2295f46ea5e70255600e3b8f7f32f7aa240a844ce0071d5e3e",
-    "xml:parol6_ssg48_stock.xml": "84e58b29a424aee5c3059da3522d85d6aaf037acc77408f67008551f32cf9c01",
+    "xml:parol6_ssg48_stock.xml": "eef61acd9699fac3b66f617b54e791a35e0a54a540a9ec60ff46545292ae7036",
     "xml:scene_ssg48_stock.xml": "37e2ae45e0c7a70ab96045f08a32ea87223756323c4a579727b91801b893d160"
-  }
+  },
+  "projection": {
+    "pos": [
+      0.10999999940395355,
+      1.0,
+      0.19200000166893005
+    ],
+    "forward": [
+      -1.8369701465288538e-16,
+      -1.0,
+      0.0
+    ],
+    "up": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "top": 0.23499999940395355,
+    "bottom": -0.23499999940395355,
+    "center": 0.0,
+    "width": 0.0,
+    "orthographic": true,
+    "registration_error_max_px": 0.4088001034451091
+  },
+  "image_sha256": "da112fde825872b5e7d9cc4bc972fb99c80bbde8bc8a1d60bfdb36df14fd514f"
 }

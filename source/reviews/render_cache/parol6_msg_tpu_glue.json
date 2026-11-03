@@ -1,29 +1,5 @@
 {
-  "visual_signature": "6242048cd2fbbc40f64d7bb1906da81a864ec8e4ff4e379ceeaaf3f008af14e6",
-  "projection": {
-    "pos": [
-      0.10999999940395355,
-      1.0,
-      0.19200000166893005
-    ],
-    "forward": [
-      -1.8369701465288538e-16,
-      -1.0,
-      0.0
-    ],
-    "up": [
-      0.0,
-      0.0,
-      1.0
-    ],
-    "top": 0.23499999940395355,
-    "bottom": -0.23499999940395355,
-    "center": 0.0,
-    "width": 0.0,
-    "orthographic": true,
-    "registration_error_max_px": 0.4088001034451091
-  },
-  "image_sha256": "d60ed1944992effb7bd6e7b7fca8cb6826a1ea118b35fefc727e7522031ce64b",
+  "visual_signature": "0884bbeb2334e216cea0882161007a47be22bac7d2b2df477399b7a63cfda97f",
   "visual_inputs": {
     "mesh:arm/base_link.STL": "a775b6e791a3f8f49a669b20ad96bd9eb20544d9f54334a13f591034619d0931",
     "mesh:arm/L1.STL": "f4f7446b9fd8ddccee2e4948d14270d1bb1544ccc72d301315f316fe52d9d0db",
@@ -60,7 +36,31 @@
     "mesh:contacts/msg_soft_tpu/right_03.STL": "87a4ec5507d4a27d4735ca8b3b99b95e7d2b00cc7f4c17569a8b4fd5a7c1a87b",
     "mesh:contacts/msg_soft_tpu/right_04.STL": "ee2a948bdc1e51e52fe312944c0dcd75331356bcaef87ba61a1d62a23d3a648c",
     "mesh:contacts/msg_soft_tpu/right_05.STL": "aca208f65400a44d30b6753033e5bf1c5f935032af4e135f6da623eda566ff6c",
-    "xml:parol6_msg_tpu_glue.xml": "dc2ed73e1f2f862683e9f914f5cae99d22f406c3d5beab506cd57f0362e6158d",
+    "xml:parol6_msg_tpu_glue.xml": "e502f1bc8b8559e0b57bbfd8634db4a340bdab597966f4d3cb5856df07c9c2b8",
     "xml:scene_msg_tpu_glue.xml": "2775ce91dc9801565c9da928a6d4ba5c97a69498739f11317bfef09e43850b8b"
-  }
+  },
+  "projection": {
+    "pos": [
+      0.10999999940395355,
+      1.0,
+      0.19200000166893005
+    ],
+    "forward": [
+      -1.8369701465288538e-16,
+      -1.0,
+      0.0
+    ],
+    "up": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "top": 0.23499999940395355,
+    "bottom": -0.23499999940395355,
+    "center": 0.0,
+    "width": 0.0,
+    "orthographic": true,
+    "registration_error_max_px": 0.4088001034451091
+  },
+  "image_sha256": "527760f05d214cfc4cf9d792620b44eff2ae4653aec01e088c53f8fae1c07163"
 }

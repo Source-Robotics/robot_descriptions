@@ -1,29 +1,5 @@
 {
-  "visual_signature": "7afe4449d9c2763ed33aff6a8a22b5aab84393990bfe70f3f292635b7637f197",
-  "projection": {
-    "pos": [
-      0.10999999940395355,
-      1.0,
-      0.19200000166893005
-    ],
-    "forward": [
-      -1.8369701465288538e-16,
-      -1.0,
-      0.0
-    ],
-    "up": [
-      0.0,
-      0.0,
-      1.0
-    ],
-    "top": 0.23499999940395355,
-    "bottom": -0.23499999940395355,
-    "center": 0.0,
-    "width": 0.0,
-    "orthographic": true,
-    "registration_error_max_px": 0.4088001034451091
-  },
-  "image_sha256": "1886a4634567416bf56a0381e1974cac49819b3c66f9d0b909a6cd9c38e4d9c0",
+  "visual_signature": "78b937751ad096e0ee7057e8b3a8b6a408be62999502fa246674da642350df10",
   "visual_inputs": {
     "mesh:base_link.STL": "916731a1863cc0b2b4da0b64942dcb25cafbf31ab1c7fef280218f038e1c26d4",
     "mesh:shoulder.STL": "4b774a3b0902aa79c10e799201ef72c554bd0eacfc17b144e992a81fa37d254e",
@@ -52,7 +28,31 @@
     "mesh:contacts/ssg48_fin_ray/right_04.STL": "770f1cfeedcf733e4cf5d30a337bd36b364b3fd35b847308e04be946d61367b4",
     "mesh:contacts/ssg48_fin_ray/right_05.STL": "c20ff1ad759b1b2295f46ea5e70255600e3b8f7f32f7aa240a844ce0071d5e3e",
     "texture:assets/branding/par6_badge.png": "70c52397ef3928c5c1cb144b4b76bd6537c736d6bf1ce5d3fb675492e0ca08b9",
-    "xml:par6_ssg48_stock.xml": "1cec9cc34c3e46cd41cbfb0bc4b6ca06a67ed9becbedd6de9afeee0d99ed44d9",
+    "xml:par6_ssg48_stock.xml": "1514f9b46e3863e7c43fd14ccd5fcd12a9bc08efc057f21fbd42c78472c2bad1",
     "xml:scene_ssg48_stock.xml": "3efb58cdf69b5a39ecc3cc6163504e7df7f879b6ead25fcc4b7a9acc4ea656ed"
-  }
+  },
+  "projection": {
+    "pos": [
+      0.10999999940395355,
+      1.0,
+      0.19200000166893005
+    ],
+    "forward": [
+      -1.8369701465288538e-16,
+      -1.0,
+      0.0
+    ],
+    "up": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "top": 0.23499999940395355,
+    "bottom": -0.23499999940395355,
+    "center": 0.0,
+    "width": 0.0,
+    "orthographic": true,
+    "registration_error_max_px": 0.4088001034451091
+  },
+  "image_sha256": "c932dd573351f84c5764877afeb8e8b8d8d64285d4d122dc58b9c2537adb61f6"
 }

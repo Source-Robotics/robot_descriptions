@@ -1,5 +1,12 @@
 # Changelog - Source Robotics robot descriptions
 
+## 2.16.0 - 2026-11-03
+
+- Added one shared appearance palette for both robots, standalone grippers, all jaw/tool options and both formats, with individual-part overrides and badge colors.
+- Added `build.py --render` for a single-command color rebuild with refreshed review snapshots, plus an applied-palette copy in every package.
+- Added non-default-theme regression checks across every model, including equality of all compiled physical/geometry arrays and unchanged URDF collision/inertial/joint definitions.
+- Kept existing geometry, kinematics, dynamics, contacts, controls and camera definitions. Starting colors retain the existing look, with shared precision across formats.
+
 ## 2.15.1 - 2026-11-01
 
 - Added simulated MSG built-in camera previews for Solid and Soft TPU jaws, using the existing orange-box grasp fixtures and unmodified camera geometry/FOV.

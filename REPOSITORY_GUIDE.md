@@ -161,7 +161,7 @@ a root README/LICENSE and `docs/VALIDATION.md`.
 | `LICENSE` | License carried with the exported package. |
 | `docs/ATTRIBUTION.md` | Source Robotics credit and CC BY 4.0 model-license scope; URDF packages also include `docs/LICENSE-CODE.txt` for Apache-2.0 support code. |
 | `docs/MSG_CAMERA.md` | Simulated built-in MSG camera views, FOV/frame information and a Python rendering example; included in arm/MSG packages. |
-| `docs/COLORS.md` | Material names, editable badge/jaw palettes, RGBA examples and regeneration steps. |
+| `docs/COLORS.md`, `docs/colors.json` | Shared appearance instructions and the applied palette snapshot carried by each package. |
 | `docs/README.md` | Clickable index of the detailed notes. |
 | `docs/MODEL_DETAILS.md` | Retained longer PAR6 appearance, jaw and authoring notes. |
 | `docs/CHANGELOG.md` | Package version history. |
@@ -188,7 +188,8 @@ data; simulator code does not load them.
 | Path | What it is |
 | --- | --- |
 | `artwork/par6_side_badge.svg` | Editable Figma artwork for the side-panel badge. |
-| `artwork/par6_side_badge.json` | Badge palette, size, placement and rendering configuration. |
+| `appearance/colors.json` | Shared colors and part overrides for all eight packages, including the badge palette. Edit this to recolor models. |
+| `artwork/par6_side_badge.json` | Badge size, placement and rendering configuration; historical colors are superseded by the shared palette during a complete build. |
 | `artwork/texture_cache/par6_badge.png` | Checked rasterization of the SVG, reused to avoid platform-dependent antialiasing changes. |
 | `artwork/texture_cache/par6_badge.json` | Input/generator hashes and cache metadata for that PNG. |
 | `dynamics/physical_measurements.json` | User-reported measured masses: flange, complete grippers and moving assemblies. This does not provide newly measured COM/inertia for every part. |
@@ -199,7 +200,7 @@ data; simulator code does not load them.
 | `grippers/previews/*.png` | Four standalone-gripper guide images, copied into exported packages and hardware guides. |
 | `jaws/msg_tpu_glue/MSG_JAW_TPU_GLUE.STEP` | Original two-solid CAD source for the MSG Soft TPU jaw option. |
 | `jaws/ssg48_pinch/solid_jaws_pinch.STEP` | Original CAD source for the default SSG48 Solid jaw option. |
-| `jaws/*/jaw.json` | Jaw tessellation, placement, body/color assignment and generation settings. |
+| `jaws/*/jaw.json` | Jaw tessellation, placement, body assignment and generation settings; maintained colors come from the shared palette. |
 | `jaws/*/tessellation_cache.json` | Checked CAD tessellation data and input/generator hashes. Allows unchanged CAD to reproduce the reviewed surface across platforms. |
 | `parol6/original/` | Unmodified supplied PAROL6 URDF, ROS metadata and seven STL exports. These preserve the original geometry/frame evidence. |
 | `parol6/model.json` | Source hashes, component/material assignments, geometry corrections, frame normalization and inheritance policy. |
@@ -234,6 +235,7 @@ running every script manually is not the normal workflow.
 | --- | --- |
 | `build.py` | Main build: generates assets, synchronizes physical data, builds all products, validates them and writes ZIPs. |
 | `split_motor_visuals.py` | Splits original triangle records into separately colored arm actuators and MSG lens/motor/structure visuals. |
+| `model_colors.py` | Validates the shared palette, resolves overrides and applies visual colors without changing physical definitions. |
 | `build_side_badge.py` | Bakes SVG/palette onto the side-panel visual texture. |
 | `build_msg_jaws.py` | Tessellates and installs the MSG Soft TPU jaw option. |
 | `build_ssg48_jaws.py` | Tessellates and installs default SSG48 Solid jaws while retaining Fin-ray as an option. |
@@ -302,11 +304,12 @@ older packages; those packages are not required for the normal clean build.
 | `test_gripper_contacts.py` | Grasp fixture/contact regression checks. |
 | `test_review_sheets.py` | Dimensioned sheets, DH checks and snapshot validation. |
 | `test_badge_cache.py` | Badge raster-cache reuse/invalidation. |
+| `test_model_colors.py` | Non-default themes across every model, override/badge handling, invalid settings and unchanged compiled physical arrays. |
 | `test_tessellation_cache.py` | Jaw CAD-cache reuse/invalidation. |
 | `test_portability.py` | Authoring tools import without application/runtime dependencies. |
 | `test_release.py` | Release versions, archive safety and generated release metadata. |
 
-The full suite currently expands into 121 test cases. Simulation checks protect
+The full suite currently expands into 161 test cases. Simulation checks protect
 model behavior; they do not turn estimated material/contact parameters into
 measured hardware values.
 
@@ -360,7 +363,7 @@ runs and release manifests identify the built revision.
 
 - [`output/pdf/robot_kinematics_review.pdf`](output/pdf/robot_kinematics_review.pdf)
   is the twelve-page booklet: PAR6 and PAROL6, each with six tool configurations.
-- `releases/v2.12.1.md`, `releases/v2.13.0.md` and `releases/v2.14.0.md` and `releases/v2.15.0.md` and `releases/v2.15.1.md` are release-note sources.
+- `releases/v*.md` are versioned release-note sources, including the shared palette in `v2.16.0.md`.
 - A local build produces eight ZIPs under `dist/`. `prepare_release.py` adds the
   release PDF, `release_manifest.json` and `SHA256SUMS`.
 - The manifest describes the packaged revision/assets; checksums verify the
@@ -374,8 +377,9 @@ runs and release manifests identify the built revision.
 | Use a robot/gripper | `guides/<product>.md`, then one runtime package or release ZIP. |
 | Edit a measured mass | `source/dynamics/physical_measurements.json`, then rebuild and validate. |
 | Refresh preferred arm reference data | Explicit `tools/import_rcb_reference.py` import, then review and rebuild. |
-| Change the side logo/palette | `source/artwork/par6_side_badge.svg` and `.json`. |
-| Change STEP jaw geometry/colors | The relevant `source/jaws/` STEP and `jaw.json`. |
+| Change model or badge colors | `source/appearance/colors.json`. |
+| Change the side logo shape/placement | `source/artwork/par6_side_badge.svg` and `.json`. |
+| Change STEP jaw geometry | The relevant `source/jaws/` STEP and `jaw.json`. |
 | Change motor/lens visual partition assignments | `tools/split_motor_visuals.py`; PAROL6-specific source assignments are in `source/parol6/model.json`. |
 | Change PAROL6 normalization/mounting policy | `source/parol6/model.json` and its generator, followed by frame/geometry review. |
 | Change a preview pose | The relevant `render_*` tool, then refresh the PNGs and export guides. |

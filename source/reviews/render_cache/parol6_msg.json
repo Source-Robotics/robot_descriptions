@@ -1,29 +1,5 @@
 {
-  "visual_signature": "398bf1406d0e86b6e12c4e864797704e65c6e1e2ede81681d0c6f3698be69b88",
-  "projection": {
-    "pos": [
-      0.10999999940395355,
-      1.0,
-      0.19200000166893005
-    ],
-    "forward": [
-      -1.8369701465288538e-16,
-      -1.0,
-      0.0
-    ],
-    "up": [
-      0.0,
-      0.0,
-      1.0
-    ],
-    "top": 0.23499999940395355,
-    "bottom": -0.23499999940395355,
-    "center": 0.0,
-    "width": 0.0,
-    "orthographic": true,
-    "registration_error_max_px": 0.4088001034451091
-  },
-  "image_sha256": "02e32f31b34899ef271b8f7e65bf93eea1c606bc98f667d66df2e3d97046c2d1",
+  "visual_signature": "d8c94a8c85c0c986554d797e2c27065c47361decf61e674b13578fafefe9d2b3",
   "visual_inputs": {
     "mesh:arm/base_link.STL": "a775b6e791a3f8f49a669b20ad96bd9eb20544d9f54334a13f591034619d0931",
     "mesh:arm/L1.STL": "f4f7446b9fd8ddccee2e4948d14270d1bb1544ccc72d301315f316fe52d9d0db",
@@ -54,7 +30,31 @@
     "mesh:contacts/msg_solid/right_03.STL": "289ed4b29e2d2b94eee831dd8d034795a1913ab1f5adffd97b40f90a5c2b0500",
     "mesh:contacts/msg_solid/right_04.STL": "9226038de9cca7ef0f5f1b73eb2700093ccf1f508b5608b322491a02669eb598",
     "mesh:contacts/msg_solid/right_05.STL": "0f098090671076ee09b2ada15a5a8c7390a220b7e458f2371a766655d856cfb7",
-    "xml:parol6_msg.xml": "379765daa3b9ac80d57e532c02963fa3a04109e18eb3073f04fd4be59e4691a0",
+    "xml:parol6_msg.xml": "9cd0d128b6a9961760d7abc0ead72e33b189a1b3ba33f1a5df27c73d37c6c7cc",
     "xml:scene_msg.xml": "abe0ad9d9349ccfc14a3c8dd68c51a4a95dc8131f5ec16850aa037aa71d3f1e2"
-  }
+  },
+  "projection": {
+    "pos": [
+      0.10999999940395355,
+      1.0,
+      0.19200000166893005
+    ],
+    "forward": [
+      -1.8369701465288538e-16,
+      -1.0,
+      0.0
+    ],
+    "up": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "top": 0.23499999940395355,
+    "bottom": -0.23499999940395355,
+    "center": 0.0,
+    "width": 0.0,
+    "orthographic": true,
+    "registration_error_max_px": 0.4088001034451091
+  },
+  "image_sha256": "2c4632ea367637c5e391f732d3fcdcd07c5414f0b18c093f558a7784f33a255f"
 }
