@@ -10,7 +10,7 @@ from prepare_release import PACKAGES,MOVEIT_PACKAGES,prepare
 def release_fixture(root,version='2.12.1'):
     package=root/'urdf/par6_description';package.mkdir(parents=True)
     (package/'package.xml').write_text(f'<package><version>{version}</version></package>')
-    (root/'releases').mkdir();(root/f'releases/v{version}.md').write_text('Release notes')
+    (root/'docs/releases').mkdir(parents=True);(root/f'docs/releases/v{version}.md').write_text('Release notes')
     (root/'dist').mkdir()
     for filename,name in PACKAGES.items():
         with zipfile.ZipFile(root/'dist'/filename,'w') as archive:
@@ -18,8 +18,8 @@ def release_fixture(root,version='2.12.1'):
     for filename,name in MOVEIT_PACKAGES.items():
         with zipfile.ZipFile(root/'dist'/filename,'w') as archive:
             archive.writestr(f'{name}/package.xml',f'<package><version>{version}</version></package>')
-    (root/'output/pdf').mkdir(parents=True)
-    (root/'output/pdf/robot_kinematics_review.pdf').write_bytes(b'%PDF-1.4\nfixture')
+    (root/'docs/kinematics').mkdir(parents=True)
+    (root/'docs/kinematics/robot_kinematics_review.pdf').write_bytes(b'%PDF-1.4\nfixture')
 
 
 def test_release_rejects_a_tag_for_another_version(tmp_path):

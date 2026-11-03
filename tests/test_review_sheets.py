@@ -59,7 +59,7 @@ def test_render_signature_tracks_geometry_assets_and_ignores_inertia(tmp_path):
 
 def test_all_profiles_share_one_camera_scale_and_have_passing_audits():
     from parol6_model import ROOT
-    audits = json.loads((ROOT/'reports/kinematics_review/validation.json').read_text())
+    audits = json.loads((ROOT/'reports/kinematics/review/validation.json').read_text())
     assert len(audits) == len(ROBOTS)*len(PROFILES)
     assert {(d['robot'], d['profile']) for d in audits} == {(r, p) for r in ROBOTS for p in PROFILES}
     for item in audits:

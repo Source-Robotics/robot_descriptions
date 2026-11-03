@@ -41,7 +41,7 @@ jobs:
             mujoco/par6/assets/branding
             mujoco/par6/par6_flange.xml
             source/reviews/render_cache/par6_flange.json
-            tools/side_badge_geometry.json
+            reports/appearance/side_badge_geometry.json
       - name: Prepare checked release assets
         shell: bash
         run: |
@@ -101,13 +101,13 @@ jobs:
           source /opt/ros/${ROS_DISTRO}/setup.bash
           source ${RUNNER_TEMP}/description_ros2_ws/relocated_install/setup.bash
           xvfb-run -a -s '-screen 0 1600x1000x24' \
-            python3 tools/ros_support/validate_ros2.py --output reports/ros2_smoke/${ROS_DISTRO}
+            python3 tools/ros_support/validate_ros2.py --output reports/integration/ros2/${ROS_DISTRO}
       - name: Save ROS display checks and screenshots
         if: always()
         uses: actions/upload-artifact@v7
         with:
           name: ros2-${{ matrix.distro }}-validation
-          path: reports/ros2_smoke/${{ matrix.distro }}/
+          path: reports/integration/ros2/${{ matrix.distro }}/
           if-no-files-found: warn
 
   moveit2:
@@ -152,13 +152,13 @@ jobs:
           source /opt/ros/${ROS_DISTRO}/setup.bash
           source ${RUNNER_TEMP}/description_moveit_ws/relocated_install/setup.bash
           xvfb-run -a -s '-screen 0 1600x1100x24' \
-            python3 tools/moveit_support/validate_moveit2.py --output reports/moveit2_smoke/${ROS_DISTRO}
+            python3 tools/moveit_support/validate_moveit2.py --output reports/integration/moveit2/${ROS_DISTRO}
       - name: Save MoveIt checks and RViz screenshots
         if: always()
         uses: actions/upload-artifact@v7
         with:
           name: moveit2-${{ matrix.distro }}-validation
-          path: reports/moveit2_smoke/${{ matrix.distro }}/
+          path: reports/integration/moveit2/${{ matrix.distro }}/
           if-no-files-found: warn
 
   release:
@@ -186,4 +186,4 @@ jobs:
             dist/robot_kinematics_review.pdf dist/release_manifest.json dist/SHA256SUMS \
             --repo "$GITHUB_REPOSITORY" --verify-tag \
             --title "Robot descriptions $GITHUB_REF_NAME" \
-            --notes-file "releases/$GITHUB_REF_NAME.md"
+            --notes-file "docs/releases/$GITHUB_REF_NAME.md"

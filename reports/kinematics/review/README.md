@@ -1,6 +1,6 @@
 # Dimensioned kinematic review
 
-[Open the offline two-model comparison](index.html) or [the twelve-page printable booklet](../../output/pdf/robot_kinematics_review.pdf).
+[Open the offline two-model comparison](index.html) or [the twelve-page printable booklet](../../../docs/kinematics/robot_kinematics_review.pdf).
 
 Two robots, each with six configurations: flange, MSG Solid jaws, MSG Soft TPU jaws, SSG48 Solid jaws, SSG48 Fin-ray jaws and the original side-gripping pneumatic gripper. Each sheet shows the actual native visual meshes at zero model-joint angles, using one orthographic camera and scale. No mesh dimensions were measured from pixels. The dimensions and TCP transforms come from URDF.
 

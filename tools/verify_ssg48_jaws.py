@@ -67,7 +67,7 @@ def verify():
             'urdf_non_jaw_definitions_unchanged':True,'jaw_closing_steps':1000,
             'closing_coupling_error_m':coupling_error,'geoms_before':old.ngeom,'geoms_after':new.ngeom,
             'meshes':meshes,'inertia_scope':'Existing finger mass and inertia retained as an approximation; new collision geometry is intentional.'}
-    (ROOT/'tools/ssg48_jaw_validation.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
+    (ROOT/'reports/grippers/ssg48_jaw_validation.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(report,indent=2))
 
 

@@ -134,5 +134,5 @@ if __name__=='__main__':
     update_models(config)
     from jaw_build_common import refresh_contacts
     refresh_contacts()
-    (ROOT/'tools/ssg48_jaw_geometry.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
+    (ROOT/'reports/grippers/ssg48_jaw_geometry.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(report,indent=2))

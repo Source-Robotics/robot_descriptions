@@ -31,7 +31,7 @@ LABELS = dict(zip(PROFILES, ('Flange only', 'MSG / Solid jaws',
                            'MSG / Soft TPU jaws', 'SSG48 / Solid jaws',
                            'SSG48 / Fin-ray jaws', 'Pneumatic gripper')))
 CACHE = ROOT/'source/reviews/render_cache'
-REPORT = ROOT/'reports/kinematics_review'
+REPORT = ROOT/'reports/kinematics/review'
 W, H = 1060, 790
 PAGE_HEIGHT = 1697
 # Identical orthographic scale and framing on all sheets. At azimuth 270,
@@ -457,7 +457,7 @@ def viewer(entries):
     # No server, fetching, or external assets: works directly as file:// HTML.
     encoded = json.dumps([{'id': f'{d["robot"]}_{d["profile"]}',
         'label': f'{d["robot"].upper()} / {d["label"]}',
-        'src': f'../../mujoco/{d["robot"]}/docs/kinematics_review/{d["profile"]}.svg'} for d in entries])
+        'src': f'../../../mujoco/{d["robot"]}/docs/kinematics_review/{d["profile"]}.svg'} for d in entries])
     html = '''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Robot kinematics comparison</title><style>
 *{box-sizing:border-box}body{margin:0;background:#edf2f5;color:#18364b;font:16px system-ui,sans-serif}header{padding:24px 28px;background:white;border-top:7px solid #16838c}h1{margin:0 0 8px;font-size:26px}p{margin:7px 0;max-width:1100px;line-height:1.5}main{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:20px}section{min-width:0}select{width:100%;font:inherit;padding:12px;background:white;color:inherit;border:1px solid #a8bbc6;border-radius:5px;margin-bottom:12px}img{display:block;width:100%;background:white;box-shadow:0 2px 10px #173c531a}a{color:#086f7a}@media(max-width:800px){main{grid-template-columns:1fr}}.hint{font-size:14px;color:#486173}</style>
@@ -472,7 +472,7 @@ def report_summary(entries):
     um, du, dm = (maximum(key) for key in ('urdf_mujoco', 'dh_urdf', 'dh_mujoco'))
     lines = ['# Dimensioned kinematic review', '',
         '[Open the offline two-model comparison](index.html) or '
-        '[the twelve-page printable booklet](../../output/pdf/robot_kinematics_review.pdf).', '',
+        '[the twelve-page printable booklet](../../../docs/kinematics/robot_kinematics_review.pdf).', '',
         'Two robots, each with six configurations: flange, MSG Solid jaws, '
         'MSG Soft TPU jaws, SSG48 Solid jaws, SSG48 Fin-ray jaws and the '
         'original side-gripping pneumatic gripper. Each sheet '
@@ -568,7 +568,7 @@ def build(refresh=False, pdf=False):
             book.add_page(PdfReader(io.BytesIO(rendered)).pages[0])
         book.add_metadata({'/Title': 'PAR6 and PAROL6 - Kinematic review', '/Author': 'Source Robotics',
                            '/Subject': 'Model-derived zero-pose dimensions and standard DH tables for twelve configurations'})
-        dest = ROOT/'output/pdf/robot_kinematics_review.pdf'
+        dest = ROOT/'docs/kinematics/robot_kinematics_review.pdf'
         dest.parent.mkdir(parents=True, exist_ok=True)
         with dest.open('wb') as output:
             book.write(output)

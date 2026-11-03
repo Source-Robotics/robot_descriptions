@@ -244,7 +244,7 @@ def build():
     config = configuration()
     report = assets(config)
     build_urdf(config, report); build_native(config, report); metadata(); documentation(report)
-    (ROOT/'reports/pneumatic_geometry.json').write_text(json.dumps(report, indent=2)+'\n', encoding='utf-8')
+    (ROOT/'reports/grippers/pneumatic_geometry.json').write_text(json.dumps(report, indent=2)+'\n', encoding='utf-8')
     print('Built pneumatic gripper with two moving jaws; legacy 195 g total and finite servo settings are estimates.', flush=True)
     return report
 

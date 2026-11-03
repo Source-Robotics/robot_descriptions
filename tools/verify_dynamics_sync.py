@@ -133,7 +133,7 @@ def verify(baseline_mujoco=None,baseline_urdf=None,poses=160):
             for name in ['geometry_and_kinematics_unchanged','motor_armature_and_drive_parameters_unchanged',
                          'fixed_base_unchanged','tool_com_and_central_inertia_unchanged']:
                 entry.pop(name,None)
-    (ROOT/'reports/dynamics_sync_validation.json').write_text(json.dumps(report,indent=2)+'\n')
+    (ROOT/'reports/dynamics/dynamics_sync_validation.json').write_text(json.dumps(report,indent=2)+'\n')
     return report
 
 

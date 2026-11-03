@@ -166,7 +166,7 @@ def verify():
                for family,config in GRIPPERS.items() for suffix,profile,_ in config['profiles']]
     report = {'scope':'Independent MSG and SSG48 URDF/MuJoCo exports, relative to physical flange frame.',
               'results':results}
-    (ROOT/'reports/standalone_grippers_validation.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
+    (ROOT/'reports/grippers/standalone_grippers_validation.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     print('Standalone MSG/SSG48: all four jaw profiles preserve FK/physics and pass close/open/contact checks.',flush=True)
     return report
 

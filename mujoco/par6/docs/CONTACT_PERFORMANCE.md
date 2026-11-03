@@ -16,5 +16,5 @@ Frame differences vary in direction between the two tools; rendering includes
 scene update and RGB readback, not GUI presentation or Haply I/O. These values
 do not measure end-to-end teleoperation latency or guarantee a tick deadline.
 
-See `reports/gripper_contact_performance.json` in the source description
+See `reports/grippers/gripper_contact_performance.json` in the source description
 repository for every sample, configuration and timing range.

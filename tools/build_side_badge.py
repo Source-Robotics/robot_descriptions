@@ -401,5 +401,5 @@ if __name__ == '__main__':
     config = json.loads(CONFIG.read_text(encoding='utf-8'))
     report = build_meshes(config)
     update_models(config)
-    (ROOT / 'tools/side_badge_geometry.json').write_text(json.dumps(report, indent=2)+'\n', encoding='utf-8')
+    (ROOT / 'reports/appearance/side_badge_geometry.json').write_text(json.dumps(report, indent=2)+'\n', encoding='utf-8')
     print(json.dumps(report, indent=2))

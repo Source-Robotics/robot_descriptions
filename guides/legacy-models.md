@@ -25,7 +25,7 @@ guides to choose the equivalent end effector, and check the
 [public name migration table](../urdf/par6_description/docs/MIGRATION.md) for code
 that refers to older joint or link names. PAROL6 now uses the shared PAR6 public
 axis directions and J6 orientation; its corrected geometry is documented in the
-[kinematics comparison](../reports/par6_parol6_kinematics.md).
+[kinematics comparison](../reports/kinematics/par6_parol6_kinematics.md).
 
 The old folders are removed from the current robot branches to avoid maintaining
 two model sources. Their history remains available:

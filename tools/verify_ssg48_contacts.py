@@ -73,7 +73,7 @@ def verify():
     report={'scope':'MuJoCo native and imported URDF collision meshes, with adjacent-body filtering. Housing/finger overlap in a slide joint is not a simulated transmission contact.',
             'ssg48_collision_policy':'Keep the complete rack visual; use the rack-free external carriage/jaw contact envelope in both formats.',
             'results':results}
-    (ROOT/'reports/ssg48_internal_contacts.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
+    (ROOT/'reports/grippers/ssg48_internal_contacts.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     print('SSG48: eight robot/jaw/format combinations passed 201-point internal contact sweeps.',flush=True)
     return report
 

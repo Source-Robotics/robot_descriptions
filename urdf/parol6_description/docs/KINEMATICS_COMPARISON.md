@@ -128,4 +128,4 @@ The shorter PAROL6 flange reference is derived from the supplied housing
 geometry. The original export has no independently named flange marker.
 See `DYNAMICS.md`, `DYNAMICS_AUDIT.md`, and `ACTUATION.md` for inherited physical
 data, finite servo settings and calibration limits. Machine-readable results:
-`reports/parol6_validation.json` in the authoring repository.
+`reports/kinematics/parol6_validation.json` in the authoring repository.

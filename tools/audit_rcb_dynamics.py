@@ -178,7 +178,7 @@ def audit():
             'mass_matrix_max_relative_difference':max(mass_errors),
             'mass_matrix_without_rotor_max_relative_difference':max(rigid_mass_errors),
             'rotor_reference_status':'Uncalibrated estimates; correction deferred by user'}
-    output=ROOT/'reports';output.mkdir(exist_ok=True)
+    output=ROOT/'reports/dynamics';output.mkdir(parents=True,exist_ok=True)
     (output/'rcb_model_comparison.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     lines=['# RCB / MuJoCo / URDF mass-property comparison','',
            'RCB arm link mass, COM and central inertia are the user-preferred reference. This report changes no dynamics data.',

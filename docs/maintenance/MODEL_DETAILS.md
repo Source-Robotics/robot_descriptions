@@ -1,4 +1,8 @@
-# Source Robotics robot descriptions
+# Historical model-authoring notes
+
+These notes record earlier implementation milestones and may mention older
+package versions. For current usage, start with the [product guides](../../guides/README.md).
+For current authoring commands, use [the build guide](BUILDING.md).
 
 This repository contains independently portable PAR6 and PAROL6 model distributions,
 each in URDF and MuJoCo formats.
@@ -13,9 +17,9 @@ Every package includes `docs/DH.md` and `KINEMATICS_COMPARISON.md`, documenting
 its coordinate convention and the differences between the two robot families.
 It also includes `docs/KINEMATIC_REVIEW.md` and dimensioned SVG/PNG sheets with a
 tool-specific DH table for each profile. Open the
-[offline comparison page](reports/kinematics_review/index.html) to compare any
-two configurations, or the [printable booklet](output/pdf/robot_kinematics_review.pdf)
-for all twelve sheets. See [the numerical review](reports/kinematics_review/README.md)
+[offline comparison page](../../reports/kinematics/review/index.html) to compare any
+two configurations, or the [printable booklet](../kinematics/robot_kinematics_review.pdf)
+for all twelve sheets. See [the numerical review](../../reports/kinematics/review/README.md)
 for the model-derived dimensions and checks.
 
 ## Independent checkout and authoring
@@ -24,10 +28,10 @@ Version **2.12.1** builds from this repository alone. See [BUILDING.md](BUILDING
 for the locked Python environment and `python tools/build.py`. The build uses
 versioned reference data and needs no local IK, RCB runtime or motion app.
 A GitHub Actions workflow is included for the same standalone tests and full
-build. The [2.8.1 portability validation](reports/standalone_build_validation.md)
+build. The [2.8.1 portability validation](../../reports/history/standalone_build_validation.md)
 records the earlier standalone-workflow checks; the
-[2.9.0 PAROL6 validation](reports/parol6_build_validation.md) records that
-earlier release. The [frame-normalization validation](reports/parol6_frame_normalization_validation.md)
+[2.9.0 PAROL6 validation](../../reports/history/parol6_build_validation.md) records that
+earlier release. The [frame-normalization validation](../../reports/history/parol6_frame_normalization_validation.md)
 records the common-coordinate build before the review documentation update.
 
 ## PAROL6 and the PAR6 frame comparison
@@ -42,7 +46,7 @@ applied to PAROL6.
 | PAR6 | `mujoco/par6` | `urdf/par6_description` |
 | PAROL6 | `mujoco/parol6` | `urdf/parol6_description` |
 
-Read [the DH and frame comparison](reports/par6_parol6_kinematics.md) for the
+Read [the DH and frame comparison](../../reports/kinematics/par6_parol6_kinematics.md) for the
 common 177 mm forearm, joint-angle directions and corrected wrist flange adapter.
 That document and its diagram are included in all four portable packages.
 PAROL6 now uses PAR6's public joint directions and origin orientations,
@@ -57,7 +61,7 @@ A physical controller's encoder/homing mapping is not inferred from the model.
 See `docs/ACTUATION.md` in each package for finite servo settings and the distinction
 between open-loop hardware and simulated joint stiffness.
 
-![PAROL6 tool profiles](reports/parol6_models.png)
+![PAROL6 tool profiles](../images/robots/parol6_models.png)
 
 The build writes four ZIPs under `dist/`: `par6_mujoco.zip`, `par6_urdf.zip`,
 `parol6_mujoco.zip` and `parol6_urdf.zip`.
@@ -69,7 +73,7 @@ The original side-gripping pneumatic assembly is available on both arms as
 `par6_pneumatic.urdf` / `parol6_pneumatic.urdf`. Jaws move symmetrically through
 3.5 mm each, with native coupling, URDF mimic joints and convex collisions.
 Its legacy 195 g total, CAD mass distribution and finite actuator settings
-remain estimates. See [PNEUMATIC.md](mujoco/par6/docs/PNEUMATIC.md) for mounting,
+remain estimates. See [PNEUMATIC.md](../../mujoco/par6/docs/PNEUMATIC.md) for mounting,
 TCPs, open/close controls and calibration status. Existing measured electric
 gripper masses and the five earlier profiles are retained.
 
@@ -86,9 +90,9 @@ MJCF's added visual geoms have zero mass and disabled collisions; the affected
 original collision geoms have transparent rendering. URDF changes are confined
 to the affected links' visual elements.
 
-See [the appearance preview](docs/images/motor_visuals_preview.png), the reproducible
-[mesh partition script](tools/split_motor_visuals.py), and
-[validation results](tools/motor_visual_validation.json). Every source triangle
+See [the appearance preview](../images/motor_visuals_preview.png), the reproducible
+[mesh partition script](../../tools/split_motor_visuals.py), and
+[validation results](../../reports/appearance/motor_visual_validation.json). Every source triangle
 record is preserved exactly across the visual partitions. Each package's own
 original STL is used, preserving its existing vertex order and normals.
 
@@ -99,12 +103,12 @@ independent `msg_camera_lens_black` and `msg_gripper_motor_black` materials.
 The camera enclosure, printed brackets, rails, and other gripper parts keep
 their previous colors. The original complete gripper mesh remains the collision
 shape, and the camera pose, intrinsics, gripper mechanism, and inertial data are
-unchanged. See [the gripper preview](docs/images/gripper_visuals_preview.png).
+unchanged. See [the gripper preview](../images/gripper_visuals_preview.png).
 
 Visual partitions are in `mujoco/par6/assets/visual/` and, for the URDF MSG
 variant, `urdf/par6_description/meshes/msg/visual/`.
 
-Earlier [visual performance measurements](tools/visual_performance.json)
+Earlier [visual performance measurements](../../reports/appearance/visual_performance.json)
 refer to the appearance-only update before the badge and contact refinement.
 Current contact timing is recorded separately under `reports/`.
 
@@ -167,7 +171,7 @@ meet the 35 mm retained-lift and 25 mm release-drop thresholds. Objects keep
 50 g mass and are shortened where needed to leave 5 mm housing clearance;
 SSG48 Solid jaws use a 41.2 mm object rather than the former overlapping
 60 mm fixture. Its box retains about 37.3 mm of lift. Force, friction and
-pass thresholds are unchanged. See [SSG48 contact diagnosis](reports/ssg48_contact_diagnosis.md)
+pass thresholds are unchanged. See [SSG48 contact diagnosis](../../reports/grippers/ssg48_contact_diagnosis.md)
 for internal rack filtering and the fixture correction. These checks do not
 establish measured hardware grip force or compliance. The command returns a
 nonzero exit status when any case misses its threshold.
@@ -182,10 +186,10 @@ refresh contact pieces and grasp fixtures after rebuilding the selected jaws.
 Build dependencies include numpy, scipy, trimesh, gmsh, vhacdx and mujoco;
 exported models do not require the CAD conversion tools.
 
-See [contact geometry](reports/gripper_contact_geometry.json),
-[contact-refinement validation before the inertia synchronization](reports/gripper_contact_validation.json),
-[grasp results](reports/grasp_checks.json), and
-[local timing measurements](reports/gripper_contact_performance.md).
+See [contact geometry](../../reports/grippers/gripper_contact_geometry.json),
+[contact-refinement validation before the inertia synchronization](../../reports/grippers/gripper_contact_validation.json),
+[grasp results](../../reports/grippers/grasp_checks.json), and
+[local timing measurements](../../reports/grippers/gripper_contact_performance.md).
 The older timing reports under `tools/` describe earlier package versions.
 
 ## Synchronized dynamics in version 2.8.0
@@ -196,9 +200,9 @@ converted into their existing CAD body frames. The measured flange mass is
 440 g (361.4 g fixed + two 39.3 g moving assemblies). All five jaw/tool variants
 use these targets. Source measurements and policies are under `source/dynamics/`.
 
-See the [synchronization results and remaining estimates](reports/dynamics_sync_validation.md),
-[detailed validation](reports/dynamics_sync_validation.json), and
-[whole-model comparison](reports/rcb_model_comparison.md). The arm-only check
+See the [synchronization results and remaining estimates](../../reports/dynamics/dynamics_sync_validation.md),
+[detailed validation](../../reports/dynamics/dynamics_sync_validation.json), and
+[whole-model comparison](../../reports/dynamics/rcb_model_comparison.md). The arm-only check
 covers 160 poses per variant. Geometry, kinematics, collisions, limits and
 actuator settings are unchanged.
 
@@ -206,7 +210,7 @@ Gripper COM and central inertia remain the existing unverified estimates;
 motor rotor/armature values are explicitly deferred, and fixed-base properties
 are unchanged. The working RCB runtime files remain read-only, including its
 older configured tool masses. Therefore whole-model dynamics do not yet fully
-match. The [action plan](reports/dynamics_alignment_plan.md) records what remains.
+match. The [action plan](../../reports/dynamics/dynamics_alignment_plan.md) records what remains.
 
 Run `python tools/build.py` for the complete standalone build, or
 `python tools/sync_model_dynamics.py` to regenerate arm properties and tool
@@ -216,7 +220,7 @@ Use `python tools/audit_rcb_dynamics.py` for the whole-model comparison and
 `python tools/package_models.py` to rebuild and check the portable ZIPs.
 
 For a calibrated gripping reference distinct from the retained control TCP,
-see [the grasp-frame proposal](reports/grasp_frames.md).
+see [the grasp-frame proposal](../../reports/grippers/grasp_frames.md).
 
 ## Names and logos
 
@@ -230,7 +234,7 @@ asset workflow. The current STL meshes have no UV coordinates.
 The supplied Source Robotics / PAR6 / Collaborative SVG is now fitted to the
 flat outer cover of `upper_arm_link`, on the side shown in the placement
 reference. It follows the panel's long axis, with the emblem toward the elbow.
-See [the side-badge preview](docs/images/side_badge_preview.png).
+See [the side-badge preview](../images/side_badge_preview.png).
 
 The badge is now a 1024x384 RGB PNG painted onto the existing cover visual,
 using a UV-mapped OBJ in MJCF and a textured DAE in URDF. It replaces the
@@ -241,7 +245,7 @@ preserved, including MuJoCo 3.3's sharp-edge normal fallback.
 
 To change the background, emblem, symbol, wordmark, robot name, tagline, or
 divider color, edit the seven `colors` entries in
-[`source/artwork/par6_side_badge.json`](source/artwork/par6_side_badge.json)
+[`source/artwork/par6_side_badge.json`](../../source/artwork/par6_side_badge.json)
 and run `python tools/build_side_badge.py` from this description directory.
 The `texture_width_px` and `texture_height_px` settings control image resolution.
 Rebuilding updates all three variants in both formats. Colors are baked into
@@ -250,7 +254,7 @@ The original SVG is preserved beside the configuration and bundled with the
 generated cover and PNG in each package's `branding/` mesh directory. The
 builder checks that the artwork remains inside the panel's flat face.
 
-The [optimized badge timing comparison](tools/side_badge_optimization_performance.json)
+The [optimized badge timing comparison](../../reports/appearance/side_badge_optimization_performance.json)
 used nine interleaved batches of 50 frames with the badge-facing view at
 1280x720. Median frame times were 5.60 ms for the previous seven-mesh badge,
 5.30 ms for the textured cover, and 5.31 ms without a badge. The new version's
@@ -264,7 +268,7 @@ see the current contact validation and performance reports above.
 
 ### MuJoCo / MJCF
 
-Use [`mujoco/par6`](mujoco/par6/). It follows the MuJoCo Menagerie convention:
+Use [`mujoco/par6`](../../mujoco/par6). It follows the MuJoCo Menagerie convention:
 entry scenes and robot definitions at the package root, one shared `assets/`
 directory, plus README, licence, changelog, previews, and Sim2Bot metadata.
 
@@ -278,7 +282,7 @@ Available entries:
 
 ### URDF / ROS
 
-Use [`urdf/par6_description`](urdf/par6_description/). It is both a ROS 1
+Use [`urdf/par6_description`](../../urdf/par6_description). It is both a ROS 1
 description package and a portable folder for viewers that accept relative mesh
 paths.
 

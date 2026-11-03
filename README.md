@@ -8,6 +8,9 @@ materials, collision geometry, joints and physical properties are included.
 **Start here:** choose your robot or gripper below, then follow its download and
 opening instructions. You do not need to build the models from source.
 
+**Browse:** [Documentation](docs/README.md) · [Current model status](docs/MODEL_STATUS.md) ·
+[Folder map](REPOSITORY_GUIDE.md)
+
 ## Choose your model
 
 | Model | Getting started | Available configurations |
@@ -17,7 +20,7 @@ opening instructions. You do not need to build the models from source.
 | **MSG gripper** | [MSG guide](guides/msg.md) | Solid jaws (default), Soft TPU jaws; standalone or mounted |
 | **SSG48 gripper** | [SSG48 guide](guides/ssg48.md) | Solid jaws (default), Fin-ray jaws; standalone or mounted |
 
-![PAROL6 with the six available end-effector configurations](reports/parol6_models.png)
+![PAROL6 with the six available end-effector configurations](docs/images/robots/parol6_models.png)
 
 ## Download a ready-to-use package
 
@@ -37,7 +40,7 @@ The [release page](https://github.com/Source-Robotics/robot_descriptions/release
 also includes the dimensioned review PDF and checksums. For an online viewer,
 upload one extracted model package, including its meshes/textures, rather than
 this entire authoring repository. The source checkout contains the same models
-under [`mujoco/`](mujoco/) and [`urdf/`](urdf/).
+under [`mujoco/`](mujoco) and [`urdf/`](urdf).
 
 There are **eight independent packages**: PAR6, PAROL6, MSG and SSG48, each
 in URDF and MuJoCo. The MSG/SSG48 downloads contain only the gripper and both
@@ -94,10 +97,10 @@ geometry; deformation is not modeled.
 
 ## Dimensions, DH tables and physical data
 
-- [Dimensioned review booklet](output/pdf/robot_kinematics_review.pdf): all twelve robot/tool configurations.
-- [PAR6 / PAROL6 kinematic comparison](reports/par6_parol6_kinematics.md): axes, DH tables and wrist dimensions.
-- [Mass and inertia status](reports/dynamics_sync_validation.md): measured masses, RCB references and remaining estimates.
-- [SSG48 collision and grasp checks](reports/ssg48_contact_diagnosis.md): jaw contacts and validation fixtures.
+- [Dimensioned review booklet](docs/kinematics/robot_kinematics_review.pdf): all twelve robot/tool configurations.
+- [PAR6 / PAROL6 kinematic comparison](reports/kinematics/par6_parol6_kinematics.md): axes, DH tables and wrist dimensions.
+- [Mass and inertia status](reports/dynamics/dynamics_sync_validation.md): measured masses, RCB references and remaining estimates.
+- [SSG48 collision and grasp checks](reports/grippers/ssg48_contact_diagnosis.md): jaw contacts and validation fixtures.
 - [MSG built-in camera](docs/MSG_CAMERA.md): simulated views with both jaw options and a rendering example.
 
 Robot packages include `docs/DH.md`, `docs/DYNAMICS.md`, `docs/ACTUATION.md` and
@@ -123,7 +126,7 @@ Download and extract a model ZIP into your working directory to use it.
 All maintained model files live in this central repository.
 
 Software projects that load models directly from their checkout can pin this
-repository as a submodule. See [release and integration maintenance](RELEASING.md).
+repository as a submodule. See [release and integration maintenance](docs/maintenance/RELEASING.md).
 
 ## Build or customize
 
@@ -133,8 +136,8 @@ See the [color and appearance guide](docs/COLORS.md) for illustrated motor, jaw
 and badge examples, individual-part overrides and the build command.
 
 The exported packages work independently. To regenerate them, change jaw colors,
-edit branding, or contribute a model, see the [build guide](BUILDING.md),
-[model details and authoring notes](MODEL_DETAILS.md), and [changelog](CHANGELOG.md).
+edit branding, or contribute a model, see the [build guide](docs/maintenance/BUILDING.md),
+[model details and authoring notes](docs/maintenance/MODEL_DETAILS.md), and [changelog](CHANGELOG.md).
 The build uses only the files in this repository.
 
 **Wondering what all the folders and files are?** Read the

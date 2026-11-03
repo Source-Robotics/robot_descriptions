@@ -22,14 +22,14 @@ def build(models_only=False, render=False):
         print('Rebuilding visual partitions, SVG texture, CAD jaws and contacts.',flush=True)
         motors.generate_meshes();motors.update_urdf();motors.update_mjcf()
         config=json.loads(msg.CONFIG.read_text());report=msg.build_meshes(config);msg.update_models(config)
-        (motors.ROOT/'tools/msg_jaw_geometry.json').write_text(json.dumps(report,indent=2)+'\n')
+        (motors.ROOT/'reports/grippers/msg_jaw_geometry.json').write_text(json.dumps(report,indent=2)+'\n')
         config=json.loads(ssg.CONFIG.read_text());report=ssg.build_meshes(config);ssg.update_models(config)
-        (motors.ROOT/'tools/ssg48_jaw_geometry.json').write_text(json.dumps(report,indent=2)+'\n')
+        (motors.ROOT/'reports/grippers/ssg48_jaw_geometry.json').write_text(json.dumps(report,indent=2)+'\n')
         contacts()
     # A color-only edit also updates the baked cover, without retessellating CAD.
     config=badge_config(json.loads(badge.CONFIG.read_text()), palette)
     report=badge.build_meshes(config);badge.update_models(config)
-    (badge.ROOT/'tools/side_badge_geometry.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
+    (badge.ROOT/'reports/appearance/side_badge_geometry.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     from sync_model_dynamics import synchronize
     from build_grasp_benches import build as benches
     from verify_dynamics_sync import verify
@@ -50,7 +50,7 @@ def build(models_only=False, render=False):
     print('MSG and SSG48 mesh, coupling and closing checks passed.',flush=True)
     audit()
     for package in [ROOT/'mujoco/par6',ROOT/'urdf/par6_description']:
-        (documentation(package)/'DYNAMICS_AUDIT.md').write_bytes((ROOT/'reports/rcb_model_comparison.md').read_bytes())
+        (documentation(package)/'DYNAMICS_AUDIT.md').write_bytes((ROOT/'reports/dynamics/rcb_model_comparison.md').read_bytes())
     from build_parol6 import build as parol6
     from verify_parol6 import verify as parol6_checks
     parol6();parol6_checks()
@@ -62,10 +62,10 @@ def build(models_only=False, render=False):
             for robot in ['par6','parol6'] for profile in grasp_profiles
             for shape in ['box','cylinder']]
     assert all(result['passed'] for result in grasps),grasps
-    (ROOT/'reports/grasp_checks.json').write_text(json.dumps(grasps,indent=2)+'\n',encoding='utf-8')
+    (ROOT/'reports/grippers/grasp_checks.json').write_text(json.dumps(grasps,indent=2)+'\n',encoding='utf-8')
     for package in [ROOT/'mujoco/par6',ROOT/'mujoco/parol6',
                     ROOT/'urdf/par6_description',ROOT/'urdf/parol6_description']:
-        (documentation(package)/'SSG48_CONTACTS.md').write_bytes((ROOT/'reports/ssg48_contact_diagnosis.md').read_bytes())
+        (documentation(package)/'SSG48_CONTACTS.md').write_bytes((ROOT/'reports/grippers/ssg48_contact_diagnosis.md').read_bytes())
         (package/'LICENSE').write_bytes((ROOT/'LICENSE').read_bytes())
     print('All 16 electric-gripper close/lift/hold/release checks passed.',flush=True)
     from build_review_sheets import build as reviews

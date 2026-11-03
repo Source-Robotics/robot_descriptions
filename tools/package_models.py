@@ -18,7 +18,7 @@ from model_licensing import apply as apply_license
 
 def expected_masses(profile, measurements):
     if profile == 'pneumatic':
-        report = json.loads((ROOT/'reports/pneumatic_geometry.json').read_text())
+        report = json.loads((ROOT/'reports/grippers/pneumatic_geometry.json').read_text())
         return {name: part['mass_kg'] for name, part in report['parts'].items()}
     from sync_model_dynamics import tool_masses
     family = 'ssg48' if profile.startswith('ssg48') else 'msg' if profile.startswith('msg') else 'flange'
@@ -135,7 +135,7 @@ def build():
         result[archive.name]=dict(bytes=archive.stat().st_size,variants_checked=6,crc_and_assets_valid=True,
                                   dependency=family+'_description')
         print(archive.name,result[archive.name],flush=True)
-    (ROOT/'reports/package_validation.json').write_text(json.dumps(result,indent=2)+'\n')
+    (ROOT/'reports/packages/package_validation.json').write_text(json.dumps(result,indent=2)+'\n')
 
 
 if __name__=='__main__':build()

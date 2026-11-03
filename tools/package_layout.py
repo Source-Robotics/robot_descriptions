@@ -24,7 +24,7 @@ def write_index(package):
     data=json.loads((Path(package)/'sim2bot.robot.json').read_text(encoding='utf-8'))
     colors=(source/'docs/COLORS.md').read_text(encoding='utf-8')
     base=f'https://github.com/Source-Robotics/robot_descriptions/blob/v{data["packageVersion"]}/'
-    colors=colors.replace('](../source/',']('+base+'source/').replace('](../BUILDING.md)',']('+base+'BUILDING.md)')
+    colors=colors.replace('](../source/',']('+base+'source/').replace('](maintenance/BUILDING.md)',']('+base+'docs/maintenance/BUILDING.md)')
     colors=colors.replace('](images/color_examples/','](../previews/color_examples/')
     examples=previews(package)/'color_examples'
     examples.mkdir(parents=True,exist_ok=True)

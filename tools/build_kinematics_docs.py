@@ -129,7 +129,7 @@ Sources: [MuJoCo 3.3 actuation](https://mujoco.readthedocs.io/en/3.3.0/XMLrefere
 
 def build(report=None):
     if report is None:
-        report = json.loads((ROOT/'reports/parol6_validation.json').read_text())
+        report = json.loads((ROOT/'reports/kinematics/parol6_validation.json').read_text())
     maximum = lambda key: [max(e[key][i] for e in report['profiles'].values()) for i in range(2)]
     source_error = maximum('corrected_source_arm_fk_max_mm_deg')
     residual = maximum('canonical_chain_residual_max_mm_deg')
@@ -266,15 +266,15 @@ The shorter PAROL6 flange reference is derived from the supplied housing
 geometry. The original export has no independently named flange marker.
 See `DYNAMICS.md`, `DYNAMICS_AUDIT.md`, and `ACTUATION.md` for inherited physical
 data, finite servo settings and calibration limits. Machine-readable results:
-`reports/parol6_validation.json` in the authoring repository.
+`reports/kinematics/parol6_validation.json` in the authoring repository.
 '''
     svg, actuation = diagram(), actuation_document()
     for directory in [ROOT/'mujoco/par6', ROOT/'urdf/par6_description', MJCF, URDF]:
         (documentation(directory)/'KINEMATICS_COMPARISON.md').write_text(text, encoding='utf-8')
         (documentation(directory)/'kinematics_comparison.svg').write_text(svg, encoding='utf-8')
         (documentation(directory)/'ACTUATION.md').write_text(actuation, encoding='utf-8')
-    (ROOT/'reports/par6_parol6_kinematics.md').write_text(text, encoding='utf-8')
-    (ROOT/'reports/kinematics_comparison.svg').write_text(svg, encoding='utf-8')
+    (ROOT/'reports/kinematics/par6_parol6_kinematics.md').write_text(text, encoding='utf-8')
+    (ROOT/'reports/kinematics/kinematics_comparison.svg').write_text(svg, encoding='utf-8')
     dh = '''# PAROL6 DH and joint convention
 
 The generated package uses PAR6 axes and joint-origin orientations, including

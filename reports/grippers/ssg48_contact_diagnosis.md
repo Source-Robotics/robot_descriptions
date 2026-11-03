@@ -69,6 +69,6 @@ python -I tools/build.py
 ```
 
 The full build runs the contact sweeps and all 16 grasp cases before packaging.
-Numeric results are in `reports/ssg48_internal_contacts.json` and
-`reports/grasp_checks.json`. Each exported package includes this document as
+Numeric results are in `reports/grippers/ssg48_internal_contacts.json` and
+`reports/grippers/grasp_checks.json`. Each exported package includes this document as
 `SSG48_CONTACTS.md`.

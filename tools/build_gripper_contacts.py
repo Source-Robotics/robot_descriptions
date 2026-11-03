@@ -81,7 +81,7 @@ def remove_old(root):
 
 
 def build():
-    report_path=ROOT/'reports/gripper_contact_geometry.json'
+    report_path=ROOT/'reports/grippers/gripper_contact_geometry.json'
     previous=json.loads(report_path.read_text()) if report_path.exists() else {}
     report={'method':'VHACD regions refitted through complete source triangles',
             'maximum_pieces_per_finger':6,'visible_geometry_unchanged':True,
@@ -159,7 +159,7 @@ def build():
             tree.write(model_path,encoding='utf-8',xml_declaration=True)
         report['profiles'][identifier]=output
         print(identifier,{kind:{side:entry['pieces'] for side,entry in value.items()} for kind,value in output.items()},flush=True)
-    (ROOT/'reports/gripper_contact_geometry.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
+    (ROOT/'reports/grippers/gripper_contact_geometry.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
 
 
 if __name__=='__main__':build()

@@ -8,3 +8,7 @@ dist/
 tmp/
 .tmp/
 *.log
+
+# Local downloads of ephemeral CI logs/screenshots; report indexes stay tracked.
+/reports/integration/ros2/
+/reports/integration/moveit2/

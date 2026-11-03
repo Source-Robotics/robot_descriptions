@@ -29,7 +29,7 @@ uses the same model, pose, lighting and camera; only its example colors change.
 The shared build applies the same settings to URDF. Examples are independent:
 start from the default palette for each one, then change only the listed entries.
 
-After installing the [build dependencies](../BUILDING.md), run this from the
+After installing the [build dependencies](maintenance/BUILDING.md), run this from the
 repository root:
 
 ```bash

@@ -90,7 +90,7 @@ def verify():
             'collision_geoms_after':int(np.count_nonzero((selected.geom_contype!=0)|(selected.geom_conaffinity!=0))),
             'meshes':mesh_checks,
             'physical_scope':'Current finger mass and inertia retained by request. Collision hulls follow the new rigid jaw geometry; contact forces can differ.'}
-    (ROOT/'tools/msg_jaw_validation.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
+    (ROOT/'reports/grippers/msg_jaw_validation.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(report,indent=2))
 
 

@@ -100,7 +100,7 @@ All maintained models live in the central `robot_descriptions` repository,
 under `mujoco/ssg48` and `urdf/ssg48_description`. A software project
 can load those paths from a pinned checkout if it needs local model sources.
 
-[Standalone validation](../reports/standalone_grippers_validation.json) compares
+[Standalone validation](../reports/grippers/standalone_grippers_validation.json) compares
 tool-relative FK, local inertia, masses and controls with the mounted models,
 then checks physical close/open behavior and relocated package assets.
 [Migration instructions](legacy-models.md) cover the older standalone exports.

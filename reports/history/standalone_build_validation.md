@@ -36,7 +36,7 @@ f5c6e29538a42ed51fb04f9a6e8b4431e9a898097c892dcf8805d3fd290fe358  par6_urdf.zip
 
 The build uses a versioned RCB snapshot and included CAD/artwork inputs;
 refreshing the upstream reference is a separate explicit operation. See
-[BUILDING.md](../BUILDING.md) for setup and commands.
+[BUILDING.md](../../docs/maintenance/BUILDING.md) for setup and commands.
 
 The Linux GitHub Actions workflow is prepared but has not been run on GitHub.
 This validation establishes reproducibility in the tested Windows environment;

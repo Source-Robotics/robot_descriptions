@@ -38,7 +38,7 @@ def render():
         x, y = (index % 3)*tile_width, (index//3)*tile_height
         montage.paste(tile, (x, y))
         ImageDraw.Draw(montage).text((x+14, y+tile_height-30), label, fill='#183247', font_size=20)
-    path = ROOT/'reports/parol6_models.png'
+    path = ROOT/'docs/images/robots/parol6_models.png'
     montage.save(path)
     print(path)
 

@@ -32,8 +32,8 @@ python -m mujoco.viewer --mjcf=scene_msg.xml
 | Folder | Contents |
 | --- | --- |
 | `assets/` | Geometry, textures and collision pieces. |
-| [`docs/`](docs/) | DH tables, physical-data notes, actuation assumptions, contact checks and dimensioned review sheets. |
-| [`previews/`](previews/) | Model preview images. |
+| [`docs/`](docs) | DH tables, physical-data notes, actuation assumptions, contact checks and dimensioned review sheets. |
+| [`previews/`](previews) | Model preview images. |
 | `bench/` | Eight electric-gripper grasp-test fixtures. |
 
 The entry files, README, license and package metadata stay at the package root.

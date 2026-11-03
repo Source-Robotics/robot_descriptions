@@ -36,8 +36,8 @@ can open a selected file directly with meshes/ alongside it.
 | Folder | Contents |
 | --- | --- |
 | `meshes/` | Geometry, textures and collision pieces. |
-| [`docs/`](docs/) | DH tables, physical-data notes, actuation assumptions, contact checks and dimensioned review sheets. |
-| [`previews/`](previews/) | Model preview images. |
+| [`docs/`](docs) | DH tables, physical-data notes, actuation assumptions, contact checks and dimensioned review sheets. |
+| [`previews/`](previews) | Model preview images. |
 | `config/`, `launch/` | ROS joint configuration and launch files. |
 
 The entry files, README, license and package metadata stay at the package root.

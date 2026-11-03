@@ -211,7 +211,7 @@ def verify(poses=160):
     report['original_arm_collision_meshes_preserved'] = True
     assert report['ideal_dh_error_max_mm_deg'][0] < .02
     assert report['ideal_dh_error_max_mm_deg'][1] < .003
-    (ROOT/'reports/parol6_validation.json').write_text(json.dumps(report, indent=2)+'\n', encoding='utf-8')
+    (ROOT/'reports/kinematics/parol6_validation.json').write_text(json.dumps(report, indent=2)+'\n', encoding='utf-8')
     from build_kinematics_docs import build as docs
     docs(report)
     return report

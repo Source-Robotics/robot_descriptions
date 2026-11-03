@@ -152,7 +152,7 @@ def generate_meshes():
                 (folder / f'{name}.STL').write_bytes(output)
             source_report['parts'][name] = {'triangles': len(ids), 'components': group_ids}
         report['sources'][f'{source}.STL'] = source_report
-    (ROOT / 'tools/motor_visual_partitions.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
+    (ROOT / 'reports/appearance/motor_visual_partitions.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
 
 
 def update_urdf():

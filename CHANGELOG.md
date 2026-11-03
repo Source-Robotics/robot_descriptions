@@ -1,5 +1,12 @@
 # Changelog - Source Robotics robot descriptions
 
+## 2.18.1 - 2026-11-03
+
+- Organized reports by appearance, dynamics, grippers, kinematics, package checks and historical milestones; moved generated JSON out of the tools folder.
+- Grouped maintenance notes, release notes and the review PDF under docs; added task-oriented indexes for documentation, tools, inputs and reports.
+- Added a current model-status page and a path-migration list; refreshed links, generators and archive documentation.
+- Preserved model/scene entry paths, authoring CLI paths, ROS launch commands and physical model definitions. Joint-limit and accuracy work remain separate.
+
 ## 2.18.0 - 2026-11-03
 
 - Added dedicated PAR6/PAROL6 MoveIt 2 packages for all twelve robot/tool combinations, using the existing URDF assets.

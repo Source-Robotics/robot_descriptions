@@ -137,7 +137,7 @@ if __name__ == '__main__':
     parser.add_argument('--original', type=Path,help='Optional historical comparison package')
     parser.add_argument('--motors-only', type=Path,help='Optional historical comparison package')
     parser.add_argument('--current', type=Path, default=ROOT / 'mujoco/par6')
-    parser.add_argument('--output', type=Path,default=ROOT/'reports/benchmark.json')
+    parser.add_argument('--output', type=Path,default=ROOT/'reports/appearance/benchmark.json')
     parser.add_argument('--rounds',type=int,default=7)
     parser.add_argument('--frames-per-round',type=int,default=20)
     args = parser.parse_args()

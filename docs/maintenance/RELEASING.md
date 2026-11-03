@@ -8,9 +8,9 @@ submodule when they load models directly from a source checkout.
 
 ## Prepare and verify
 
-Use the environment in `BUILDING.md`. Update the PAR6 URDF `package.xml` and
+Use the environment in `docs/maintenance/BUILDING.md`. Update the PAR6 URDF `package.xml` and
 both PAR6 `sim2bot.robot.json` package versions together. The build propagates
-that version to PAROL6, both standalone grippers and both MoveIt packages. Add notes at `releases/vVERSION.md` and update the
+that version to PAROL6, both standalone grippers and both MoveIt packages. Add notes at `docs/releases/vVERSION.md` and update the
 changelog. Run:
 
 ```bash

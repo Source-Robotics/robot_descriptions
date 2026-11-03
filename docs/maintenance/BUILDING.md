@@ -7,13 +7,13 @@ All source models, meshes, STEP files, artwork and reference data are contained
 here. Exported packages remain independent of the authoring tools.
 
 All maintained appearance settings are in
-[`source/appearance/colors.json`](source/appearance/colors.json).
-For examples and individual-part overrides, see [Changing model colors](docs/COLORS.md).
+[`source/appearance/colors.json`](../../source/appearance/colors.json).
+For examples and individual-part overrides, see [Changing model colors](../COLORS.md).
 
 ## Setup
 
 These are the CAD/model-authoring dependencies. To use a committed/downloaded
-URDF in ROS 2, follow [ROS2.md](docs/ROS2.md) instead: it needs ROS dependencies
+URDF in ROS 2, follow [ROS2.md](../ROS2.md) instead: it needs ROS dependencies
 and colcon, without this authoring virtual environment.
 
 Use 64-bit CPython 3.11 and an isolated virtual environment:
@@ -187,7 +187,7 @@ URDF controller gains are configured in the consuming simulator/controller.
 All four packages contain `docs/KINEMATIC_REVIEW.md` and six sheets under
 `docs/kinematics_review/`, in SVG and PNG with companion JSON. The authoring
 checkout also contains an offline comparison page at
-`reports/kinematics_review/index.html`. All diagrams use the same zero-angle
+`reports/kinematics/review/index.html`. All diagrams use the same zero-angle
 pose and orthographic camera. Dimensions are extracted from URDF joint origins
 and fixed TCP transforms; the snapshot uses native MuJoCo visual meshes.
 
@@ -206,7 +206,7 @@ python -m pip install -r requirements-review.txt
 python tools/build_review_sheets.py --pdf
 ```
 
-The booklet is written to `output/pdf/robot_kinematics_review.pdf`. Rendered robot
+The booklet is written to `docs/kinematics/robot_kinematics_review.pdf`. Rendered robot
 images are embedded; dimension arrows and tables remain vector graphics in SVG
 and PDF. The optional PDF dependency is not required by ordinary builds or CI.
 Changing a jaw does not automatically measure a new contact/grasp frame; the
@@ -218,7 +218,7 @@ MSG built-in camera examples use the existing box grasp fixtures. Refresh them
 with `python tools/render_msg_camera_previews.py` on a machine with OpenGL;
 the normal build copies the committed PNGs and `docs/MSG_CAMERA.md` into the
 six arm/MSG packages. Camera pose/FOV and model definitions are retained.
-See [the camera guide](docs/MSG_CAMERA.md) for scene and lighting details.
+See [the camera guide](../MSG_CAMERA.md) for scene and lighting details.
 
 Standalone gripper guide images can be refreshed separately on a machine with
 OpenGL, for example `python tools/render_gripper_previews.py --gripper msg`.
@@ -237,7 +237,7 @@ python tools/benchmark_visuals.py --rounds 1 --frames-per-round 1
 All eight grasp cases pass in each robot package. Add `--robot parol6` for
 that package's fixtures. The full build runs all 16 grasps and eight 201-point
 SSG48 internal contact sweeps before packaging. Invalid initial object
-penetration is rejected. See `reports/ssg48_contact_diagnosis.md` for the rack
+penetration is rejected. See `reports/grippers/ssg48_contact_diagnosis.md` for the rack
 collision and short-jaw fixture corrections. Force/friction/compliance remain
 uncalibrated. Viewing/rendering needs a working OpenGL backend; the core build
 does not open a viewer.
@@ -253,7 +253,7 @@ those archived baselines are not required to build a clean checkout.
 Keep model maintenance here. The hardware repositories contain ordinary
 `par6_description/`, `parol6_description/`, `msg_description/` or
 `ssg48_description/` guide folders, with README, previews and release-download
-links. They do not include model copies or submodules. See `RELEASING.md` for
+links. They do not include model copies or submodules. See `docs/maintenance/RELEASING.md` for
 `tools/export_hardware_guide.py`, which regenerates those guide folders.
 
 Software projects that load models directly from a checkout may include this

@@ -96,7 +96,7 @@ For MSG configurations, see [the built-in camera view](../docs/MSG_CAMERA.md).
 
 - [Dimensioned PAR6 review sheets](../mujoco/par6/docs/KINEMATIC_REVIEW.md)
 - [PAR6 DH convention](../mujoco/par6/docs/DH.md)
-- [PAR6 / PAROL6 comparison](../reports/par6_parol6_kinematics.md)
+- [PAR6 / PAROL6 comparison](../reports/kinematics/par6_parol6_kinematics.md)
 - [Mass, COM and inertia status](../mujoco/par6/docs/DYNAMICS.md)
 - [Actuator settings](../mujoco/par6/docs/ACTUATION.md)
 - [Pneumatic jaw motion and controls](../mujoco/par6/docs/PNEUMATIC.md)

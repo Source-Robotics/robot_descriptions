@@ -459,7 +459,7 @@ def build():
               'source_from_parol6_joint_signs': SOURCE_FROM_PAROL6.tolist(),
               'actuation_policy': settings['actuation_policy'], 'geometry': settings['geometry'],
               'mounting_geometry': mounting}
-    (ROOT/'reports/parol6_build.json').write_text(json.dumps(report, indent=2)+'\n', encoding='utf-8')
+    (ROOT/'reports/kinematics/parol6_build.json').write_text(json.dumps(report, indent=2)+'\n', encoding='utf-8')
     for package in [MJCF, URDF]:
         (documentation(package)/'PNEUMATIC.md').write_bytes((documentation(PAR6_MJCF)/'PNEUMATIC.md').read_bytes())
         from model_licensing import apply as apply_license

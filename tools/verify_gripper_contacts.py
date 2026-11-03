@@ -17,7 +17,7 @@ from verify_msg_jaws import canonical
 
 def verify(baseline_mujoco, baseline_urdf):
     report = {'scope':'Contact geometry intentionally changes; no contact-force equivalence is claimed.', 'profiles':{}}
-    geometry = json.loads((ROOT/'reports/gripper_contact_geometry.json').read_text())
+    geometry = json.loads((ROOT/'reports/grippers/gripper_contact_geometry.json').read_text())
     for profile, (identifier, sources) in PROFILES.items():
         before = mujoco.MjModel.from_xml_path(str(baseline_mujoco/f'scene_{profile}.xml'))
         after = mujoco.MjModel.from_xml_path(str(MJCF/f'scene_{profile}.xml'))
@@ -69,7 +69,7 @@ def verify(baseline_mujoco, baseline_urdf):
                 checks[f'{kind}/{side}']={'pieces':len(pieces),'source_triangles_covered':int(covered.sum())}
         report['profiles'][identifier]={'unchanged_compiled_arrays':arrays,'poses_checked':26,
             'urdf_only_finger_collisions_changed':True,'visible_assets_byte_identical':True,'geometry':checks}
-    (ROOT/'reports/gripper_contact_validation.json').write_text(json.dumps(report,indent=2)+'\n')
+    (ROOT/'reports/grippers/gripper_contact_validation.json').write_text(json.dumps(report,indent=2)+'\n')
     print('Validated all four profiles: inertia, kinematics, visuals, and complete external contact coverage.')
     return report
 

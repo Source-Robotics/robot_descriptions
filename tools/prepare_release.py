@@ -24,7 +24,7 @@ def prepare(root=ROOT,tag=None):
     expected=f'v{version}'
     if tag is not None and tag!=expected:
         raise ValueError(f'Release tag {tag!r} does not match package version {expected!r}')
-    notes=root/f'releases/{expected}.md'
+    notes=root/f'docs/releases/{expected}.md'
     if not notes.is_file():raise ValueError(f'Missing release notes: {notes}')
     files=[]
     for filename,package in PACKAGES.items():
@@ -42,7 +42,7 @@ def prepare(root=ROOT,tag=None):
             actual=ET.fromstring(archive.read(f'{package}/package.xml')).findtext('version')
             if actual!=version:raise ValueError(f'Archive version mismatch: {filename}')
         files.append(path)
-    booklet=root/'output/pdf/robot_kinematics_review.pdf'
+    booklet=root/'docs/kinematics/robot_kinematics_review.pdf'
     if not booklet.read_bytes().startswith(b'%PDF-'):raise ValueError('Invalid review booklet')
     pdf=root/'dist'/booklet.name
     shutil.copyfile(booklet,pdf);files.append(pdf)

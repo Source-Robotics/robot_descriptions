@@ -47,7 +47,7 @@ def badge_texture(directory, palette):
     try:
         badge.CONFIG = directory/original.name
         shapes, _ = badge.artwork(config)
-        viewport = json.loads((ROOT/'tools/side_badge_geometry.json').read_text())['texture_viewbox_svg_units']
+        viewport = json.loads((ROOT/'reports/appearance/side_badge_geometry.json').read_text())['texture_viewbox_svg_units']
         return badge.render_texture(config, shapes, viewport)
     finally:
         badge.CONFIG = original

@@ -87,6 +87,6 @@ Inputs are `source/dynamics/model_mapping.json` and
 `source/dynamics/rcb_arm_reference.generated.json` records source hashes,
 resolved frame conversions and exported central tensors; regenerate it rather
 than editing it. Jaw builders invoke the same synchronization after rebuilding.
-See `reports/dynamics_sync_validation.json` in the source repository for the
+See `reports/dynamics/dynamics_sync_validation.json` in the source repository for the
 per-profile results. `DYNAMICS_AUDIT.md` compares the whole configured models;
 its remaining tool/rotor differences are expected pending their calibration.
