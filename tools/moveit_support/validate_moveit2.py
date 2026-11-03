@@ -24,6 +24,7 @@ class Probe:
         from sensor_msgs.msg import JointState
         from moveit_msgs.srv import GetMotionPlan, GetStateValidity, GetPositionFK, GetPositionIK, ApplyPlanningScene
         from moveit_msgs.action import ExecuteTrajectory
+        from control_msgs.action import FollowJointTrajectory
         from rclpy.action import ActionClient
         self.rclpy = rclpy; self.data = data; self.current = {}; self.state_messages=0
         self.context = Context(); rclpy.init(context=self.context)
@@ -41,14 +42,34 @@ class Probe:
             self.services[name] = client
         self.action = ActionClient(self.node, ExecuteTrajectory, '/execute_trajectory')
         assert self.action.wait_for_server(timeout_sec=30), 'Execution action missing'
+        self.controllers=[]
+        for name in ['arm_controller']+(['gripper_controller'] if data['has_gripper'] else []):
+            client=ActionClient(self.node,FollowJointTrajectory,'/'+name+'/follow_joint_trajectory')
+            assert client.wait_for_server(timeout_sec=30), f'{name}: trajectory action unavailable'
+            self.controllers.append(client)
         self.until(lambda: set(data['position_limits']) <= self.current.keys(), timeout=30)
         # Action/service discovery can precede MoveIt's first state update.
         # Wait for its actual joint-state subscription and fresh broadcaster
         # traffic before sending an execution goal (especially with Fast DDS).
         self.until(lambda: any('move_group' in x.node_name for x in
             self.node.get_subscriptions_info_by_topic('/joint_states')), timeout=30)
-        first=self.state_messages
-        self.until(lambda: self.state_messages >= first+50 and
+        from rclpy.action.graph import get_action_client_names_and_types_by_node
+        expected={'/arm_controller/follow_joint_trajectory'}
+        if data['has_gripper']:expected.add('/gripper_controller/follow_joint_trajectory')
+        def moveit_clients_discovered():
+            clients=set()
+            for name,namespace in self.node.get_node_names_and_namespaces():
+                if 'move_group' in name:
+                    clients.update(n for n,_ in get_action_client_names_and_types_by_node(self.node,name,namespace))
+            return expected <= clients
+        self.until(moveit_clients_discovered,timeout=30)
+        # DDS discovers each newly created action client separately. The
+        # installed MoveIt simple manager checks readiness without waiting;
+        # allow discovery to settle before this automated, immediate client
+        # starts execution. No failed execution is retried or ignored.
+        first=self.state_messages;settled=time.monotonic()+5.
+        self.until(lambda: time.monotonic()>=settled and self.state_messages >= first+50 and
+            all(client.server_is_ready() for client in self.controllers) and
             abs(self.node.get_clock().now().nanoseconds*1e-9-self.state_stamp)<.5, timeout=30)
 
     def until(self, predicate, timeout=30):
@@ -157,6 +178,7 @@ class Probe:
             self.until(lambda: abs(self.current['right_finger_joint']-sign*self.current['left_finger_joint']) < 1e-8)
 
     def close(self):
+        for client in self.controllers:client.destroy()
         self.action.destroy();self.executor.shutdown();self.node.destroy_node();self.rclpy.shutdown(context=self.context)
 
 
