@@ -15,6 +15,7 @@
 - [PAR6 and PAROL6: common DH and joint convention](KINEMATICS_COMPARISON.md)
 - [PAR6 1.x to 2.0 migration](MIGRATION.md)
 - [Source Robotics PAR6 URDF package](MODEL_DETAILS.md)
+- [MoveIt 2: plan and preview robot movements](MOVEIT2.md)
 - [View from the MSG built-in camera](MSG_CAMERA.md)
 - [Pneumatic gripper](PNEUMATIC.md)
 - [ROS 2: install and display the models](ROS2.md)

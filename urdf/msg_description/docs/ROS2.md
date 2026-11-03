@@ -12,6 +12,11 @@ These launchers display the maintained URDFs. The sliders publish preview joint
 states; they do not command motors or simulate dynamics. The existing MuJoCo
 packages and raw URDF entry files are unchanged.
 
+For collision-checked motion planning and simulated trajectory execution, add
+the matching `par6_moveit_config` or `parol6_moveit_config` package and follow
+the [MoveIt 2 guide](https://github.com/Source-Robotics/robot_descriptions/blob/main/docs/MOVEIT2.md).
+It supports every mounted tool/jaw option and uses mock controllers.
+
 ## Install one downloaded package
 
 Start with ROS 2 installed on its matching Ubuntu version. Use a fresh terminal

@@ -317,12 +317,15 @@ older packages; those packages are not required for the normal clean build.
 | `test_badge_cache.py` | Badge raster-cache reuse/invalidation. |
 | `test_model_colors.py` | Non-default themes across every model, override/badge handling, invalid settings and unchanged compiled physical arrays. |
 | `test_ros_support.py` | All sixteen model selections, resource URI conversion without model edits, compatibility aliases and invalid choices/assets. |
+| `test_moveit_support.py` | Planning joint ranges, unchanged physical definitions, TCP/groups, conservative collision exemptions, mock controller/mimic interfaces and invalid demo rates. |
 | `test_tessellation_cache.py` | Jaw CAD-cache reuse/invalidation. |
 | `test_portability.py` | Authoring tools import without application/runtime dependencies. |
 | `test_release.py` | Release versions, archive safety and generated release metadata. |
 
 The full suite currently expands into 238 test cases. ROS 2 CI additionally runs
-24 installed launch/TF/GUI cases per distribution. Simulation checks protect
+24 installed launch/TF/GUI cases per distribution. MoveIt CI adds 14 installed
+planning/IK/collision/mock-execution cases per distribution, covering all twelve
+arm/tool combinations and two RViz sessions. Simulation checks protect
 model behavior; they do not turn estimated material/contact parameters into
 measured hardware values.
 
@@ -377,7 +380,8 @@ runs and release manifests identify the built revision.
 - [`output/pdf/robot_kinematics_review.pdf`](output/pdf/robot_kinematics_review.pdf)
   is the twelve-page booklet: PAR6 and PAROL6, each with six tool configurations.
 - `releases/v*.md` are versioned release-note sources, including the shared palette in `v2.16.0.md` and illustrated examples in `v2.16.1.md`.
-- A local build produces eight ZIPs under `dist/`. `prepare_release.py` adds the
+- A local build produces eight model ZIPs and two MoveIt configuration ZIPs
+  under `dist/`. `prepare_release.py` adds the
   release PDF, `release_manifest.json` and `SHA256SUMS`.
 - The manifest describes the packaged revision/assets; checksums verify the
   downloaded bytes. GitHub Releases also offers an automatic source-code ZIP,
@@ -388,6 +392,7 @@ runs and release manifests identify the built revision.
 | Change | Start with |
 | --- | --- |
 | Use a robot/gripper | `guides/<product>.md`, then one runtime package or release ZIP. |
+| Plan robot movements in ROS 2 | `docs/MOVEIT2.md`, then `moveit/<robot>_moveit_config` and the matching URDF package. |
 | Edit a measured mass | `source/dynamics/physical_measurements.json`, then rebuild and validate. |
 | Refresh preferred arm reference data | Explicit `tools/import_rcb_reference.py` import, then review and rebuild. |
 | Change model or badge colors | `source/appearance/colors.json`. |
@@ -397,6 +402,24 @@ runs and release manifests identify the built revision.
 | Change PAROL6 normalization/mounting policy | `source/parol6/model.json` and its generator, followed by frame/geometry review. |
 | Change a preview pose | The relevant `render_*` tool, then refresh the PNGs and export guides. |
 | Change a robot link/joint definition | Review the tracked XML/URDF and the generators that update that field; see `BUILDING.md`. Not all robot structure is regenerated from CAD. |
+
+## MoveIt configuration files
+
+`moveit/par6_moveit_config/` and `moveit/parol6_moveit_config/` use conventional
+ROS package names and install with ament/colcon. Each has one `demo.launch.py`.
+Select tools/jaws with the same arguments as the description viewer. The package
+README explains every file. The shared guide is `docs/MOVEIT2.md`, also copied
+into each MoveIt package and both arm URDF packages.
+
+The generator is `tools/build_moveit_support.py`; its editable shared templates
+are under `tools/moveit_support/`. `model_config.py` assembles the selected URDF
+and mock controllers in memory. The two `ompl*.yaml` templates cover Humble's
+and Jazzy's different adapter APIs. `validate_moveit2.py` runs only in a ROS
+environment; CI relocates the installed packages before testing them.
+
+These packages own semantic/planning configuration, not another copy of the
+robot geometry. Edit the generator/templates when maintaining repository-wide
+defaults; edit installed `config/joint_limits.yaml` for a local demo-rate change.
 
 For ordinary use, download one package. For maintenance, keep the source inputs
 and generators: manually editing a generated mesh/report may be overwritten by

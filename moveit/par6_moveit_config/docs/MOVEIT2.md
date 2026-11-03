@@ -102,6 +102,9 @@ The MSG `closed` preset stops **0.5 mm per finger before the mathematical
 lower limit**. The existing mesh at that limit has about 0.8 mm total opposing
 jaw overlap. The preset keeps empty-jaw collision checking enabled; the saved
 model limit and actual contact/physics model are unchanged.
+SSG48's `closed` preset similarly stops **0.1 mm per finger** before its exact
+face-contact endpoint. Pneumatic uses its actual endpoints: `open` = 0 and
+`closed` = 0.0035 m per finger.
 
 ## Joint limits and collision checking
 

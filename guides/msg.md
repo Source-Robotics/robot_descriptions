@@ -106,6 +106,10 @@ guide, then choose the corresponding mounted entry:
 | Solid jaws | `scene_msg.xml` | `par6_msg.urdf` / `parol6_msg.urdf` |
 | Soft TPU jaws | `scene_msg_tpu_glue.xml` | `par6_msg_tpu_glue.urdf` / `parol6_msg_tpu_glue.urdf` |
 
+The [MoveIt 2 demos](../docs/MOVEIT2.md) support both MSG jaw options on either
+arm, including TCP planning and coupled `open`/`closed` presets. Install the
+arm's matching URDF and MoveIt packages for that workflow.
+
 ## Source checkout and validation
 
 In the MSG hardware repository, **`msg_description/`** contains this

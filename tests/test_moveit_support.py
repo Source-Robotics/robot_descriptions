@@ -77,6 +77,9 @@ def test_semantics_use_selected_tcp_and_leave_nonadjacent_collisions_enabled(fam
         assert srdf.find('end_effector').get('parent_link') == 'tcp'
         assert srdf.find('group_state[@name="open"]') is not None
         assert srdf.find('group_state[@name="closed"]') is not None
+    if profile == 'pneumatic':
+        assert data['named_states']['open']['left_finger_joint'] == 0.
+        assert data['named_states']['closed']['left_finger_joint'] == .0035
 
 
 @pytest.mark.parametrize('distro', ['humble', 'jazzy'])

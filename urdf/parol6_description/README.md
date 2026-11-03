@@ -52,6 +52,8 @@ The authoring repository is https://github.com/Source-Robotics/robot_description
 
 Models and assets: **CC BY 4.0**. See [attribution and license scope](docs/ATTRIBUTION.md).
 
+[MoveIt 2 planning](docs/MOVEIT2.md): install `parol6_moveit_config` alongside this package for TCP planning and mock execution.
+
 [Changing colors](docs/COLORS.md): shared palette, part overrides and illustrated examples.
 
 [MSG built-in camera](docs/MSG_CAMERA.md): simulated views with both jaw options and a rendering example.

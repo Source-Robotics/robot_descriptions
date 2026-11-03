@@ -85,6 +85,10 @@ guide, then choose the corresponding mounted entry:
 | Solid jaws | `scene_ssg48.xml` | `par6_ssg48.urdf` / `parol6_ssg48.urdf` |
 | Fin-ray jaws | `scene_ssg48_stock.xml` | `par6_ssg48_stock.urdf` / `parol6_ssg48_stock.urdf` |
 
+The [MoveIt 2 demos](../docs/MOVEIT2.md) support both SSG48 jaw options on either
+arm, including TCP planning and coupled `open`/`closed` presets. Install the
+arm's matching URDF and MoveIt packages for that workflow.
+
 ## Source checkout and validation
 
 In the SSG48 hardware repository, **`ssg48_description/`** contains this

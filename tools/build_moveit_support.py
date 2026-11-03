@@ -67,12 +67,17 @@ def profile_data(family, root):
             limit = root.find(f'joint[@name="{name}"]/limit')
             bounds[name] = [float(limit.get('lower')), float(limit.get('upper'))]
         lower, upper = bounds['left_finger_joint']
-        opened, closed = upper, lower
+        pneumatic = root.find('link[@name="pneumatic_gripper_link"]') is not None
+        opened, closed = (lower, upper) if pneumatic else (upper, lower)
         # The original MSG meshes overlap 0.8 mm at the mathematical endpoint.
         # Keep that model limit, but use a 0.5 mm/finger stand-off for the
         # empty-gripper closed planning preset so collision checking stays on.
         if root.find('link[@name="msg_gripper_link"]') is not None:
             closed += .0005
+        elif not pneumatic:
+            # SSG48 faces meet at the exact endpoint. FCL treats this as
+            # collision; leave a 0.1 mm/finger stand-off for empty closure.
+            closed += .0001
         states.update(open={'left_finger_joint': opened}, closed={'left_finger_joint': closed})
         initial['left_finger_joint'] = opened
         mimic = root.find('joint[@name="right_finger_joint"]/mimic')

@@ -64,3 +64,5 @@ Models and assets: **CC BY 4.0**. See [attribution and license scope](docs/ATTRI
 [Changing colors](docs/COLORS.md): shared palette, part overrides and illustrated examples.
 
 [MSG built-in camera](docs/MSG_CAMERA.md): simulated views with both jaw options and a rendering example.
+
+[MoveIt 2 planning](docs/MOVEIT2.md): install `par6_moveit_config` alongside this package for TCP planning and mock execution.

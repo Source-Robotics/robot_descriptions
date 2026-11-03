@@ -44,8 +44,8 @@
     "wrist_1_joint": 0.0,
     "wrist_2_joint": 0.0,
     "wrist_3_joint": 0.0,
-    "left_finger_joint": 0.0035,
-    "right_finger_joint": 0.0035
+    "left_finger_joint": 0.0,
+    "right_finger_joint": 0.0
   },
   "named_states": {
     "home": {
@@ -65,10 +65,10 @@
       "wrist_3_joint": 0.0
     },
     "open": {
-      "left_finger_joint": 0.0035
+      "left_finger_joint": 0.0
     },
     "closed": {
-      "left_finger_joint": 0.0
+      "left_finger_joint": 0.0035
     }
   }
 }

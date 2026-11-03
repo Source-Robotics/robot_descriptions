@@ -1,5 +1,13 @@
 # Changelog - Source Robotics robot descriptions
 
+## 2.18.0 - 2026-11-03
+
+- Added dedicated PAR6/PAROL6 MoveIt 2 packages for all twelve robot/tool combinations, using the existing URDF assets.
+- Added TCP IK/pose planning, OMPL collision-checked paths, named arm/gripper poses and mock ros2_control execution with coupled fingers.
+- Added in-memory planning joint bounds from the captured RCB ranges for PAR6 and maintained URDF ranges for PAROL6; saved physical models stay unchanged.
+- Added two downloadable configuration ZIPs and a complete installation/RViz guide; updated product entry pages.
+- Added Humble/Jazzy integration jobs that plan, validate and execute trajectories from a relocated install, including negative collision/limit checks and RViz screenshots.
+
 ## 2.17.0 - 2026-11-03
 
 - Added native ROS 2 ament/colcon installation and display launchers for both robots and standalone grippers, with tool/jaw selection, joint sliders, saved RViz views and headless/external-state options.
