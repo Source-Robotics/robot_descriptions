@@ -46,7 +46,7 @@ class Probe:
         # Action/service discovery can precede MoveIt's first state update.
         # Wait for its actual joint-state subscription and fresh broadcaster
         # traffic before sending an execution goal (especially with Fast DDS).
-        self.until(lambda: any(x.node_name == 'move_group' for x in
+        self.until(lambda: any('move_group' in x.node_name for x in
             self.node.get_subscriptions_info_by_topic('/joint_states')), timeout=30)
         first=self.state_messages
         self.until(lambda: self.state_messages >= first+50 and
