@@ -306,7 +306,7 @@ in memory; the portable URDF files on disk are not rewritten.
 ''', encoding='utf-8')
         suffix = 'urdf' if target == URDF else 'xml'
         entries = '\n'.join(f'| {LABELS[p]} | `parol6_{p}.{suffix}` |' for p in PROFILES)
-        viewing = ('Run `roslaunch parol6_description display.launch end_effector:=msg` in a ROS 1 workspace, or load an individual URDF in your viewer.'
+        viewing = ('Install with colcon using [the ROS 2 guide](docs/ROS2.md), then run `ros2 launch parol6_description display.launch.py end_effector:=msg`. ROS 1 retains `roslaunch parol6_description display.launch end_effector:=msg`. Other viewers can open the URDF directly.'
                    if target == URDF else 'Run `python -m mujoco.viewer --mjcf scene_msg.xml` from this package folder. `scene.xml` selects MSG Solid jaws by default.')
         (target/'README.md').write_text(f'''# Source Robotics PAROL6
 
@@ -388,10 +388,10 @@ Neither actuator calibration nor physical PAROL6 validation is established
 by inheriting these parameters. Finite position gains and torque limits
 remain existing estimates; see ACTUATION.md.
 ''', encoding='utf-8')
-    # Preserve the existing PAR6 ROS 1 package convention in the new package.
+    # Seed shared support; native ROS packaging is regenerated below.
     for name in ['package.xml', 'CMakeLists.txt']:
         text = (PAR6_URDF/name).read_text().replace('par6_description', 'parol6_description').replace('PAR6', 'PAROL6').replace('par6_', 'parol6_')
-        if name == 'CMakeLists.txt':
+        if name == 'CMakeLists.txt' and 'docs previews scripts' not in text:
             text = text.replace('DIRECTORY config launch meshes docs previews', 'DIRECTORY config launch meshes docs previews scripts')
         (URDF/name).write_text(text, encoding='utf-8')
     for directory in ['config', 'launch']:
@@ -459,6 +459,8 @@ def build():
         (documentation(package)/'PNEUMATIC.md').write_bytes((documentation(PAR6_MJCF)/'PNEUMATIC.md').read_bytes())
         from model_licensing import apply as apply_license
         apply_license(package)
+    from build_ros_support import build as ros_support
+    ros_support(('parol6',))
     print(f'Built all {len(PROFILES)} PAROL6 URDF/MuJoCo profiles from included sources.', flush=True)
     return report
 

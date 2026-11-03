@@ -73,6 +73,8 @@ def build(models_only=False, render=False):
     from build_standalone_grippers import build as grippers
     from verify_standalone_grippers import verify as gripper_checks
     grippers();gripper_checks()
+    from build_ros_support import build as ros_support
+    ros_support()
     packages()
     print('Standalone build, dynamics/jaw validation and release archive checks passed.',flush=True)
 

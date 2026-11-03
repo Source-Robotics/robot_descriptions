@@ -19,13 +19,17 @@ Keep this folder together so the model can find its meshes and textures.
 MSG and SSG48 each default to Solid jaws. Alternate choices are MSG Soft TPU
 and SSG48 Fin-ray jaws. TPU and Fin-ray deformation is not simulated.
 
-For ROS 1, put this package in catkin_ws/src, build and source the workspace, then run:
+For native ROS 2, install this package with colcon using [the ROS 2 guide](docs/ROS2.md),
+source the workspace, then run:
 
 ```bash
-roslaunch par6_description display.launch end_effector:=msg
+ros2 launch par6_description display.launch.py end_effector:=msg jaws:=solid
 ```
 
-Other URDF viewers can open a selected file directly with meshes/ alongside it. ROS 2 can consume the URDF with its own launch setup.
+The launcher opens RViz and joint sliders. Select `jaws:=soft_tpu` for MSG Soft TPU
+or `end_effector:=ssg48 jaws:=fin_ray` for SSG48 Fin-ray. ROS 1 retains
+`roslaunch par6_description display.launch end_effector:=msg`. Other URDF viewers
+can open a selected file directly with meshes/ alongside it.
 
 ## Package folders
 

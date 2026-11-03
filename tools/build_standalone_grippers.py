@@ -165,7 +165,7 @@ def readme(family, native):
                      for suffix, _, name in config['profiles'])
     table = '| Jaws | Viewer scene | Gripper model |\n| --- | --- | --- |' if native else '| Jaws | URDF entry file |\n| --- | --- |'
     command = (f'python -m mujoco.viewer --mjcf={family}/scene_solid.xml' if native else
-               f'roslaunch {family}_description display.launch jaws:=solid')
+               f'ros2 launch {family}_description display.launch.py jaws:=solid')
     endpoint_note = '''For MSG, the opposing jaws touch about 0.4 mm per finger before the mathematical
 joint-limit target. Position control stops against that contact; forcing both
 qpos values to their exact closed limits produces the same 0.8 mm overlap as
@@ -183,8 +183,8 @@ body filtering when the standalone housing is fixed to world.
 with a fixed joint. `left_finger_joint` drives the mechanism and
 `right_finger_joint` follows its retained mimic relation. Your URDF consumer
 must honor the mimic joint and exclude adjacent housing/finger collisions.
-The supplied display launch is ROS 1; ROS 2 users can load the same URDF using
-their own `robot_state_publisher`/RViz launch setup. URDF itself does not
+Native ROS 2 installation, RViz and slider instructions are in [ROS2.md](docs/ROS2.md).
+The older `display.launch` remains available for ROS 1. URDF itself does not
 implement the native MuJoCo position servo or contact solver.
 ''')
     return f'''# Source Robotics {label}: standalone {'MuJoCo' if native else 'URDF'} gripper
@@ -206,7 +206,7 @@ remain at the package root.
 
 ## Open the model
 
-{'After extracting the ZIP, run this from its parent directory:' if native else 'Open the selected URDF in a viewer with the meshes directory alongside it. For ROS 1, place this package in catkin_ws/src, build and source the workspace, then run:'}
+{'After extracting the ZIP, run this from its parent directory:' if native else 'Open the selected URDF in a viewer with meshes/ alongside it, or install the package in a ROS 2 workspace using [the ROS 2 guide](docs/ROS2.md), source the workspace and run:'}
 
 ```bash
 {command}
@@ -319,6 +319,9 @@ install(FILES README.md LICENSE sim2bot.robot.json {family}_solid.urdf {family}_
                 write_xml(destination/'launch/display.launch',launch)
             from model_licensing import apply as apply_license
             apply_license(destination)
+            if not native:
+                from build_ros_support import build as ros_support
+                ros_support((family,))
     print('Exported four independent MSG/SSG48 packages, with both jaw options.',flush=True)
 
 

@@ -1,6 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
 <launch>
   <arg name="end_effector" default="msg" doc="flange, msg, msg_tpu_glue, ssg48, ssg48_stock, pneumatic" />
-  <param name="robot_description" command="python3 &quot;$(find parol6_description)/scripts/ros_urdf.py&quot; &quot;$(find parol6_description)/parol6_$(arg end_effector).urdf&quot;" />
+  <param name="robot_description" command="python3 &quot;$(find parol6_description)/scripts/ros_urdf.py&quot; &quot;$(find parol6_description)/parol6_$(arg end_effector).urdf&quot; --package parol6_description" />
   <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
   <node name="rviz" pkg="rviz" type="rviz" />

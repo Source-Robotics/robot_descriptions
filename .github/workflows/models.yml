@@ -58,9 +58,59 @@ jobs:
           if-no-files-found: error
           compression-level: 0
 
+  ros2:
+    name: ROS 2 ${{ matrix.distro }} install and display
+    runs-on: ubuntu-24.04
+    container: ros:${{ matrix.distro }}-ros-base
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        distro: [humble, jazzy]
+    env:
+      ROS_LOCALHOST_ONLY: '1'
+      LIBGL_ALWAYS_SOFTWARE: '1'
+      QT_X11_NO_MITSHM: '1'
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install ROS display and validation dependencies
+        shell: bash
+        run: |
+          apt-get update
+          apt-get install -y python3-colcon-common-extensions liburdfdom-tools xvfb xauth \
+            libgl1-mesa-dri python3-pyqt5 python3-pil \
+            ros-${ROS_DISTRO}-launch-ros ros-${ROS_DISTRO}-rviz2 \
+            ros-${ROS_DISTRO}-joint-state-publisher-gui
+      - name: Build four packages and relocate the install
+        shell: bash
+        run: |
+          source /opt/ros/${ROS_DISTRO}/setup.bash
+          task_ws=${RUNNER_TEMP}/description_ros2_ws
+          mkdir -p "${task_ws}/src"
+          cp -a urdf/. "${task_ws}/src/"
+          cd "${task_ws}"
+          colcon build --merge-install --event-handlers console_cohesion+
+          mv src source_hidden
+          mv build build_hidden
+          mv install relocated_install
+      - name: Validate installed variants, TF, mimic joints and GUI applications
+        shell: bash
+        run: |
+          source /opt/ros/${ROS_DISTRO}/setup.bash
+          source ${RUNNER_TEMP}/description_ros2_ws/relocated_install/setup.bash
+          xvfb-run -a -s '-screen 0 1600x1000x24' \
+            python3 tools/ros_support/validate_ros2.py --output reports/ros2_smoke/${ROS_DISTRO}
+      - name: Save ROS display checks and screenshots
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: ros2-${{ matrix.distro }}-validation
+          path: reports/ros2_smoke/${{ matrix.distro }}/
+          if-no-files-found: warn
+
   release:
     if: startsWith(github.ref, 'refs/tags/v')
-    needs: standalone
+    needs: [standalone, ros2]
     runs-on: ubuntu-24.04
     permissions:
       contents: write
