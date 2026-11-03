@@ -87,6 +87,8 @@ jobs:
           source /opt/ros/${ROS_DISTRO}/setup.bash
           task_ws=${RUNNER_TEMP}/description_ros2_ws
           mkdir -p "${task_ws}/src"
+          colcon list --names-only --base-paths "${GITHUB_WORKSPACE}" > "${task_ws}/packages.txt"
+          python3 -c 'import pathlib,sys; assert set(pathlib.Path(sys.argv[1]).read_text().split()) == {"par6_description","parol6_description","msg_description","ssg48_description"}' "${task_ws}/packages.txt"
           cp -a urdf/. "${task_ws}/src/"
           cd "${task_ws}"
           colcon build --merge-install --event-handlers console_cohesion+

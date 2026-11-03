@@ -142,6 +142,11 @@ inertial definition intact. No model files or meshes on disk are rewritten.
 Use `rviz_materials:=false` when another application requires the original
 link/joint tree rather than the RViz-compatible display tree.
 
+During arm startup, KDL logs a root-inertia warning for `base_link`. Its TF
+tree does not use the fixed root's inertia. The existing base inertial data
+is deliberately retained in the URDF; the warning does not change joint/frame
+transforms. This viewer is not computing robot dynamics.
+
 ROS 1 users retain `display.launch` and the conditional catkin build path when
 working in a sourced ROS 1 environment. ROS 2 users should use
 `display.launch.py`. The older `gazebo.launch` files are ROS 1 scaffolds;

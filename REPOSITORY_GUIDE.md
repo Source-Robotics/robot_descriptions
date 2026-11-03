@@ -189,6 +189,10 @@ data; simulator code does not load them.
 
 ## Editable inputs and checked caches: `source/`
 
+`source/COLCON_IGNORE` and `source/CATKIN_IGNORE` keep the preserved historical
+ROS exports out of package discovery. The four maintained packages under
+`urdf/` are the installable ROS products.
+
 | Path | What it is |
 | --- | --- |
 | `artwork/par6_side_badge.svg` | Editable Figma artwork for the side-panel badge. |
