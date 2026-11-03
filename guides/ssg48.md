@@ -45,15 +45,16 @@ The native gripper-only model files are `ssg48_solid.xml` and
 its `meshes/` folder alongside it. Upload the whole extracted package if a web
 viewer requests a folder or ZIP.
 
-**ROS 1 / RViz:** put `ssg48_description` in `catkin_ws/src`, build and source
-your workspace, then run:
+**ROS 2 / RViz:** install `ssg48_description` with colcon using
+[the ROS 2 guide](../docs/ROS2.md), source your workspace, then run:
 
 ```bash
-roslaunch ssg48_description display.launch jaws:=solid
+ros2 launch ssg48_description display.launch.py jaws:=solid
 ```
 
-Use `jaws:=fin_ray` for Fin-ray jaws. The supplied launch is ROS 1; ROS 2 can
-consume the URDF using its own launch setup.
+Use `jaws:=fin_ray` for Fin-ray jaws. The launcher opens RViz and joint sliders;
+the second finger follows its mimic relation. ROS 1 retains
+`roslaunch ssg48_description display.launch jaws:=solid`.
 
 ## 3. Move or attach the gripper
 

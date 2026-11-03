@@ -11,6 +11,8 @@ import subprocess
 import time
 import xml.etree.ElementTree as ET
 
+_QT_APPLICATION = None
+
 
 def product_cases():
     tools = [('flange', 'default'), ('msg', 'solid'), ('msg', 'soft_tpu'),
@@ -55,6 +57,7 @@ def run_case(index, family, tool, jaws, output, gui=False, external=False):
     os.environ['ROS_DOMAIN_ID'] = str(50+index)
     import rclpy
     from rclpy.context import Context
+    from rclpy.executors import SingleThreadedExecutor
     from rclpy.qos import QoSProfile, DurabilityPolicy, ReliabilityPolicy, qos_profile_sensor_data
     from ament_index_python.packages import get_package_share_directory
     from sensor_msgs.msg import JointState
@@ -81,6 +84,7 @@ def run_case(index, family, tool, jaws, output, gui=False, external=False):
             values[joint.get('name')] = values[mimic.get('joint')]*float(mimic.get('multiplier','1'))+float(mimic.get('offset','0'))
     context = Context(); rclpy.init(context=context)
     node = rclpy.create_node('description_integration_probe', context=context)
+    executor = SingleThreadedExecutor(context=context); executor.add_node(node)
     state = {'description': None, 'joints': None, 'tf': {}}
     durable = QoSProfile(depth=1, durability=DurabilityPolicy.TRANSIENT_LOCAL,
                          reliability=ReliabilityPolicy.RELIABLE)
@@ -107,7 +111,7 @@ def run_case(index, family, tool, jaws, output, gui=False, external=False):
                 if publisher:
                     msg = JointState(); msg.header.stamp = node.get_clock().now().to_msg()
                     msg.name = list(desired); msg.position = list(desired.values()); publisher.publish(msg)
-                rclpy.spin_once(node, timeout_sec=.05)
+                executor.spin_once(timeout_sec=.05)
                 if not state['description'] or not state['joints']:continue
                 if not all(child in state['tf'] and transform_matches(state['tf'][child],joint,values)
                            for child,joint in expected_tf.items()):continue
@@ -115,6 +119,8 @@ def run_case(index, family, tool, jaws, output, gui=False, external=False):
                                      any(abs(state['joints'][j]-q)>1e-10 for j,q in values.items())):continue
                 names = {n for n,_ in node.get_node_names_and_namespaces()}
                 if gui and not {'rviz2','joint_state_publisher_gui'} <= names:continue
+                if gui and not any(info.node_name == 'rviz2' for info in
+                                   node.get_subscriptions_info_by_topic('/robot_description')):continue
                 break
             else:
                 missing = set(expected_tf)-state['tf'].keys()
@@ -127,9 +133,11 @@ def run_case(index, family, tool, jaws, output, gui=False, external=False):
             if gui:
                 # Let RViz finish uploading its mesh/texture resources before capturing.
                 until = time.monotonic()+4
-                while time.monotonic()<until:rclpy.spin_once(node,timeout_sec=.05)
+                while time.monotonic()<until:executor.spin_once(timeout_sec=.05)
                 from PyQt5.QtWidgets import QApplication
-                app = QApplication.instance() or QApplication([])
+                global _QT_APPLICATION
+                _QT_APPLICATION = QApplication.instance() or QApplication([])
+                app = _QT_APPLICATION
                 app.processEvents()
                 assert app.primaryScreen().grabWindow(0).save(str(output/(name+'.png')))
                 text = log_path.read_text().lower()
@@ -145,7 +153,7 @@ def run_case(index, family, tool, jaws, output, gui=False, external=False):
                 try:process.wait(timeout=10)
                 except subprocess.TimeoutExpired:
                     os.killpg(process.pid,signal.SIGKILL); process.wait(timeout=5)
-            node.destroy_node(); rclpy.shutdown(context=context)
+            executor.shutdown(); node.destroy_node(); rclpy.shutdown(context=context)
 
 
 def main():

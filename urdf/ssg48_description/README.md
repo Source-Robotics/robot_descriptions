@@ -19,10 +19,10 @@ remain at the package root.
 
 ## Open the model
 
-Open the selected URDF in a viewer with the meshes directory alongside it. For ROS 1, place this package in catkin_ws/src, build and source the workspace, then run:
+Open the selected URDF in a viewer with meshes/ alongside it, or install the package in a ROS 2 workspace using [the ROS 2 guide](docs/ROS2.md), source the workspace and run:
 
 ```bash
-roslaunch ssg48_description display.launch jaws:=solid
+ros2 launch ssg48_description display.launch.py jaws:=solid
 ```
 
 ## Mount and finger controls
@@ -31,8 +31,8 @@ The URDF root link, `flange`, is the mounting face. Attach it to your robot
 with a fixed joint. `left_finger_joint` drives the mechanism and
 `right_finger_joint` follows its retained mimic relation. Your URDF consumer
 must honor the mimic joint and exclude adjacent housing/finger collisions.
-The supplied display launch is ROS 1; ROS 2 users can load the same URDF using
-their own `robot_state_publisher`/RViz launch setup. URDF itself does not
+Native ROS 2 installation, RViz and slider instructions are in [ROS2.md](docs/ROS2.md).
+The older `display.launch` remains available for ROS 1. URDF itself does not
 implement the native MuJoCo position servo or contact solver.
 
 Each finger travels 23.5 mm. Both formats preserve their

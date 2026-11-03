@@ -17,6 +17,7 @@
 - [Source Robotics PAR6 URDF package](MODEL_DETAILS.md)
 - [View from the MSG built-in camera](MSG_CAMERA.md)
 - [Pneumatic gripper](PNEUMATIC.md)
+- [ROS 2: install and display the models](ROS2.md)
 - [SSG48 internal contacts and grasp fixture correction](SSG48_CONTACTS.md)
 
 [Dimensioned SVG/PNG sheets and numeric data](kinematics_review/)

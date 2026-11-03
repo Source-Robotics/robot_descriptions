@@ -64,15 +64,16 @@ or ROS workspace to use the actual model package.
 `meshes/` directory alongside it. If a web viewer asks for a ZIP or folder,
 provide this one URDF package with all its assets.
 
-**ROS 1 / RViz:** place the extracted `parol6_description` package in
-`catkin_ws/src`, build and source that workspace, then run:
+**ROS 2 / RViz:** install the extracted `parol6_description` package with
+colcon using [the ROS 2 guide](../docs/ROS2.md), source your workspace, then run:
 
 ```bash
-roslaunch parol6_description display.launch end_effector:=msg
+ros2 launch parol6_description display.launch.py end_effector:=msg jaws:=solid
 ```
 
-Replace `msg` with any file suffix in the table. The supplied launch files are
-ROS 1 files; a ROS 2 consumer can use the URDF with its own launch setup.
+This opens RViz and joint sliders. Choose `jaws:=soft_tpu` for MSG Soft TPU,
+`end_effector:=ssg48 jaws:=fin_ray` for SSG48 Fin-ray, or another end effector
+from the guide. ROS 1 retains `roslaunch parol6_description display.launch end_effector:=msg`.
 
 ## 4. Check dimensions and frames
 

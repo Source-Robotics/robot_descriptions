@@ -68,7 +68,7 @@ textures. The same folder contains the PAR6/PAROL6 getting-started guide images.
 | `.json` | Configuration, metadata, cached geometry or validation results, depending on the folder. |
 | `.py` | Python generator, helper, validator or test. |
 | `.md` | Human-readable documentation. |
-| `.yaml`, `.launch` | ROS configuration and launch files. |
+| `.yaml`, `.rviz`, `.launch`, `.launch.py` | ROS configuration, saved RViz views and ROS 1/2 launch files. |
 | `.csv` | Original CAD/URDF export tables under `source/legacy/`. |
 | `.pdf` | Printable review/inertial-data documents. |
 
@@ -137,17 +137,20 @@ The four folders are `urdf/par6_description/`, `urdf/parol6_description/`,
 | `<product>_<option>.urdf` | The selected robot/gripper: links, joints, limits, inertials, visual meshes and collision meshes. Open this in a URDF consumer. |
 | `meshes/` | All geometry and textures used by the package, grouped by arm/tool and purpose. `visual/`, `branding/`, `jaws/`, `contacts/` and `pneumatic/` serve the same roles as their MuJoCo counterparts, sometimes nested under a tool folder. |
 | `package.xml` | ROS package identity, version, license and dependencies. This XML is not a MuJoCo model. |
-| `CMakeLists.txt` | Catkin build/install instructions for the supplied ROS 1 package. |
+| `CMakeLists.txt` | Native ament/colcon installation for ROS 2; conditional catkin path for a sourced ROS 1 environment. |
+| `launch/display.launch.py` | ROS 2 display with tool/jaw selection, joint sliders and saved RViz configuration. |
 | `launch/display.launch` | ROS 1 launch to display the selected configuration in RViz. |
 | `launch/gazebo.launch` | Existing ROS 1/Gazebo launch scaffold in arm packages; simulator/controller setup remains the consumer's responsibility. |
 | `config/joint_names.yaml` | Arm joint-name configuration. |
-| `scripts/ros_urdf.py` | PAROL6 ROS launch helper: converts relative mesh paths to ROS `package://` paths. It is not a controller. |
+| `config/display.rviz` | Saved ROS 2 RViz view with the product's fixed frame, visual model and scale. |
+| `scripts/robot_description.py` | Shared model selection and in-memory ROS 2 `package://` resource resolution. |
+| `scripts/ros_urdf.py` | ROS 1 helper for portable `package://` paths. It is not a controller. |
 | `sim2bot.robot.json`, previews and review drawings | Package index and documentation, as above. |
 
 URDF describes the mechanism and its physical data. It does not by itself
 provide a motor controller; gains and simulator-specific behavior belong in
-the consuming software. The included launch files use ROS 1, while the URDF
-data can also be consumed by ROS 2 with an appropriate launch setup.
+the consuming software. Native ROS 2 installation/display and retained ROS 1
+entry points are explained in [the ROS 2 guide](docs/ROS2.md).
 
 ## Documentation bundled inside packages
 
@@ -162,6 +165,7 @@ a root README/LICENSE and `docs/VALIDATION.md`.
 | `docs/ATTRIBUTION.md` | Source Robotics credit and CC BY 4.0 model-license scope; URDF packages also include `docs/LICENSE-CODE.txt` for Apache-2.0 support code. |
 | `docs/MSG_CAMERA.md` | Simulated built-in MSG camera views, FOV/frame information and a Python rendering example; included in arm/MSG packages. |
 | `docs/COLORS.md`, `docs/colors.json` | Shared appearance instructions and the applied palette snapshot carried by each package. |
+| `docs/ROS2.md` | Installation and ROS 2 display instructions, included in all four URDF packages. |
 | `docs/README.md` | Clickable index of the detailed notes. |
 | `docs/MODEL_DETAILS.md` | Retained longer PAR6 appearance, jaw and authoring notes. |
 | `docs/CHANGELOG.md` | Package version history. |
@@ -236,6 +240,7 @@ running every script manually is not the normal workflow.
 | `build.py` | Main build: generates assets, synchronizes physical data, builds all products, validates them and writes ZIPs. |
 | `split_motor_visuals.py` | Splits original triangle records into separately colored arm actuators and MSG lens/motor/structure visuals. |
 | `model_colors.py` | Validates the shared palette, resolves overrides and applies visual colors without changing physical definitions. |
+| `build_ros_support.py`, `ros_support/` | Native ROS packaging/launch templates, pure model-selection/resource helper and Linux integration validation. |
 | `render_color_examples.py` | Renders the color guide's motor, jaw and badge comparisons from temporary model copies; needs OpenGL. |
 | `build_side_badge.py` | Bakes SVG/palette onto the side-panel visual texture. |
 | `build_msg_jaws.py` | Tessellates and installs the MSG Soft TPU jaw option. |
@@ -306,11 +311,13 @@ older packages; those packages are not required for the normal clean build.
 | `test_review_sheets.py` | Dimensioned sheets, DH checks and snapshot validation. |
 | `test_badge_cache.py` | Badge raster-cache reuse/invalidation. |
 | `test_model_colors.py` | Non-default themes across every model, override/badge handling, invalid settings and unchanged compiled physical arrays. |
+| `test_ros_support.py` | All sixteen model selections, resource URI conversion without model edits, compatibility aliases and invalid choices/assets. |
 | `test_tessellation_cache.py` | Jaw CAD-cache reuse/invalidation. |
 | `test_portability.py` | Authoring tools import without application/runtime dependencies. |
 | `test_release.py` | Release versions, archive safety and generated release metadata. |
 
-The full suite currently expands into 161 test cases. Simulation checks protect
+The full suite currently expands into 191 test cases. ROS 2 CI additionally runs
+24 installed launch/TF/GUI cases per distribution. Simulation checks protect
 model behavior; they do not turn estimated material/contact parameters into
 measured hardware values.
 

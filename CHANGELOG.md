@@ -1,5 +1,12 @@
 # Changelog - Source Robotics robot descriptions
 
+## 2.17.0 - 2026-11-03
+
+- Added native ROS 2 ament/colcon installation and display launchers for both robots and standalone grippers, with tool/jaw selection, joint sliders, saved RViz views and headless/external-state options.
+- Resolved ROS asset URIs in memory while preserving portable URDF model files, physical data and MuJoCo packages; retained ROS 1 manifests/build conditions and launch entry points.
+- Added Humble/Jazzy Linux integration jobs covering relocated installs, all sixteen variants, nonzero external joint-state TF, mimic fingers, RViz and GUI startup, screenshots and invalid selections. Releases require those checks.
+- Added ROS 2 installation/usage documentation and model-selection/resource-preservation regression checks.
+
 ## 2.16.1 - 2026-11-03
 
 - Added rendered comparisons and matching JSON examples for blue motors, custom MSG/SSG48 jaws and a graphite/teal PAR6 badge.

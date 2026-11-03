@@ -6,7 +6,7 @@
   "license": "CC-BY-4.0",
   "sourceUrl": "https://source-robotics.com/",
   "sourceRevision": "2025-02-10",
-  "packageVersion": "2.16.1",
+  "packageVersion": "2.17.0",
   "entry": "par6_msg.urdf",
   "dof": 6,
   "armActuators": [

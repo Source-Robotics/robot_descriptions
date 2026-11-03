@@ -24,7 +24,7 @@ The original side-gripping pneumatic assembly is also selectable; its jaws
 move symmetrically through 3.5 mm each. See [PNEUMATIC.md](docs/PNEUMATIC.md) for
 the mounting reference, TCP and explicitly estimated dynamics/actuation.
 
-Run `roslaunch parol6_description display.launch end_effector:=msg` in a ROS 1 workspace, or load an individual URDF in your viewer.
+Install with colcon using [the ROS 2 guide](docs/ROS2.md), then run `ros2 launch parol6_description display.launch.py end_effector:=msg`. ROS 1 retains `roslaunch parol6_description display.launch end_effector:=msg`. Other viewers can open the URDF directly.
 
 Read [DH.md](docs/DH.md) and [the PAR6 comparison](docs/KINEMATICS_COMPARISON.md) before
 exchanging joint angles with older exports. Public angles, axes and J6

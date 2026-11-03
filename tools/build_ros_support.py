@@ -123,7 +123,7 @@ Window Geometry:
   Height: 800
 ''', encoding='utf-8')
         shutil.copyfile(ROOT/'docs/ROS2.md', package/'docs/ROS2.md')
-    print('Generated native ROS 2 support for four packages; ROS 1 entry points retained.', flush=True)
+    print(f'Generated native ROS 2 support for {len(families)} package(s); ROS 1 entry points retained.', flush=True)
 
 
 if __name__ == '__main__':

@@ -4,4 +4,5 @@
 
 - [Model license and attribution](ATTRIBUTION.md)
 - [Changing model colors](COLORS.md)
+- [ROS 2: install and display the models](ROS2.md)
 - [Standalone gripper validation](VALIDATION.md)

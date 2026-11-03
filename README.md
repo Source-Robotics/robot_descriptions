@@ -44,6 +44,20 @@ in URDF and MuJoCo. The MSG/SSG48 downloads contain only the gripper and both
 of its jaw options. The robot downloads include all six mounted end-effectors.
 Choose a gripper guide below if you are working without an arm.
 
+## ROS 2 and RViz
+
+All four URDF packages provide native ROS 2 installation, saved RViz views and
+joint sliders. Follow the [ROS 2 installation and display guide](docs/ROS2.md)
+for Humble or Jazzy, then for example:
+
+```bash
+ros2 launch par6_description display.launch.py end_effector:=msg jaws:=soft_tpu
+ros2 launch ssg48_description display.launch.py jaws:=fin_ray
+```
+
+Run one display at a time. Downloaded URDF packages install directly with colcon;
+the CAD/authoring build is not needed. ROS 1 entry points remain available.
+
 ## End-effector options
 
 | Configuration | File suffix | Notes |

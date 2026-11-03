@@ -12,6 +12,10 @@ For examples and individual-part overrides, see [Changing model colors](docs/COL
 
 ## Setup
 
+These are the CAD/model-authoring dependencies. To use a committed/downloaded
+URDF in ROS 2, follow [ROS2.md](docs/ROS2.md) instead: it needs ROS dependencies
+and colcon, without this authoring virtual environment.
+
 Use 64-bit CPython 3.11 and an isolated virtual environment:
 
 ```bash
@@ -106,6 +110,12 @@ in the color guide.
 
 The entry point also supports isolated Python mode and invocation by absolute
 path from another working directory: `python -I /path/to/checkout/tools/build.py`.
+
+The build also generates native ROS 2 manifests, CMake installation, display
+launchers, RViz configuration and portable in-memory asset helpers for all four
+URDF packages, retaining conditional ROS 1 support. Linux CI tests Humble and
+Jazzy installation, TF, mimic joints and the display applications separately
+from the CAD authoring environment.
 
 ## Reference data and explicit refresh
 
