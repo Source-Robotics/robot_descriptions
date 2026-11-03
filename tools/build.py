@@ -75,6 +75,8 @@ def build(models_only=False, render=False):
     grippers();gripper_checks()
     from build_ros_support import build as ros_support
     ros_support()
+    from build_moveit_support import build as moveit_support
+    moveit_support()
     packages()
     print('Standalone build, dynamics/jaw validation and release archive checks passed.',flush=True)
 

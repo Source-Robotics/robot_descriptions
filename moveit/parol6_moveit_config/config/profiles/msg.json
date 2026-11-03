@@ -1,0 +1,74 @@
+{
+  "family": "parol6",
+  "has_gripper": true,
+  "tcp": "tcp",
+  "position_limits": {
+    "base_joint": [
+      -1.7,
+      1.7
+    ],
+    "shoulder_joint": [
+      -0.98,
+      1.0
+    ],
+    "elbow_joint": [
+      -1.3,
+      2.0
+    ],
+    "wrist_1_joint": [
+      -2.0,
+      2.0
+    ],
+    "wrist_2_joint": [
+      -2.1,
+      2.1
+    ],
+    "wrist_3_joint": [
+      -3.1,
+      3.1
+    ],
+    "left_finger_joint": [
+      -0.0525,
+      0.0
+    ],
+    "right_finger_joint": [
+      0.0,
+      0.0525
+    ]
+  },
+  "position_limit_source": "Maintained PAROL6 URDF finite ranges, including the stored J6 range",
+  "initial_positions": {
+    "base_joint": 0.0,
+    "shoulder_joint": 0.0,
+    "elbow_joint": 0.0,
+    "wrist_1_joint": 0.0,
+    "wrist_2_joint": 0.0,
+    "wrist_3_joint": 0.0,
+    "left_finger_joint": 0.0,
+    "right_finger_joint": 0.0
+  },
+  "named_states": {
+    "home": {
+      "base_joint": 0.0,
+      "shoulder_joint": 0.0,
+      "elbow_joint": 0.0,
+      "wrist_1_joint": 0.0,
+      "wrist_2_joint": 0.0,
+      "wrist_3_joint": 0.0
+    },
+    "ready": {
+      "base_joint": 0.0,
+      "shoulder_joint": -0.4,
+      "elbow_joint": 0.6,
+      "wrist_1_joint": 0.0,
+      "wrist_2_joint": 0.5,
+      "wrist_3_joint": 0.0
+    },
+    "open": {
+      "left_finger_joint": 0.0
+    },
+    "closed": {
+      "left_finger_joint": -0.052
+    }
+  }
+}

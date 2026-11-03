@@ -1,0 +1,74 @@
+{
+  "family": "par6",
+  "has_gripper": true,
+  "tcp": "tcp",
+  "position_limits": {
+    "base_joint": [
+      -2.8647335,
+      2.8647335
+    ],
+    "shoulder_joint": [
+      -0.8699371732051033,
+      1.4585298267948965
+    ],
+    "elbow_joint": [
+      -1.150326153589793,
+      3.421140846410207
+    ],
+    "wrist_1_joint": [
+      -2.6147335,
+      2.5547335
+    ],
+    "wrist_2_joint": [
+      -1.73,
+      1.6
+    ],
+    "wrist_3_joint": [
+      -3.991592653589793,
+      3.9984073464102066
+    ],
+    "left_finger_joint": [
+      0.0,
+      0.0035
+    ],
+    "right_finger_joint": [
+      0.0,
+      0.0035
+    ]
+  },
+  "position_limit_source": "Captured RCB limits minus RCB/package angle offsets",
+  "initial_positions": {
+    "base_joint": 0.0,
+    "shoulder_joint": 0.0,
+    "elbow_joint": 0.0,
+    "wrist_1_joint": 0.0,
+    "wrist_2_joint": 0.0,
+    "wrist_3_joint": 0.0,
+    "left_finger_joint": 0.0035,
+    "right_finger_joint": 0.0035
+  },
+  "named_states": {
+    "home": {
+      "base_joint": 0.0,
+      "shoulder_joint": 0.0,
+      "elbow_joint": 0.0,
+      "wrist_1_joint": 0.0,
+      "wrist_2_joint": 0.0,
+      "wrist_3_joint": 0.0
+    },
+    "ready": {
+      "base_joint": 0.0,
+      "shoulder_joint": -0.4,
+      "elbow_joint": 0.6,
+      "wrist_1_joint": 0.0,
+      "wrist_2_joint": 0.5,
+      "wrist_3_joint": 0.0
+    },
+    "open": {
+      "left_finger_joint": 0.0035
+    },
+    "closed": {
+      "left_finger_joint": 0.0
+    }
+  }
+}

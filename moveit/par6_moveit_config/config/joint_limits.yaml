@@ -1,0 +1,10 @@
+# Demo defaults, NOT measured hardware capabilities.
+# Position ranges are profile-specific; this file only controls demo rates.
+arm:
+  max_velocity: 0.5       # rad/s
+  max_acceleration: 1.0   # rad/s^2
+  effort: 300.0          # Nm; existing simulation placeholder, mock position mode
+gripper:
+  max_velocity: 0.03     # m/s per finger
+  max_acceleration: 0.1  # m/s^2 per finger
+  effort: 50.0           # N; mock placeholder, not a hardware grip-force rating

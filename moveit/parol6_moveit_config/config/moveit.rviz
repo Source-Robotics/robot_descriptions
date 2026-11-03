@@ -1,0 +1,52 @@
+# SPDX-License-Identifier: Apache-2.0
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Grid
+      Enabled: true
+      Value: true
+      Cell Size: 0.05
+      Plane Cell Count: 20
+    - Class: moveit_rviz_plugin/MotionPlanning
+      Name: MotionPlanning
+      Enabled: true
+      Robot Description: robot_description
+      Planning Scene Topic: /monitored_planning_scene
+      Planned Path:
+        Loop Animation: true
+        State Display Time: 0.05 s
+        Trajectory Topic: /display_planned_path
+      Planning Request:
+        Planning Group: arm
+        Interactive Marker Size: 0.1
+        Query Start State: false
+        Query Goal State: true
+      Scene Robot:
+        Robot Visual Enabled: true
+        Robot Collision Enabled: false
+  Global Options:
+    Fixed Frame: world
+    Background Color: 35; 50; 65
+    Frame Rate: 30
+  Tools:
+    - Class: rviz_default_plugins/Interact
+    - Class: rviz_default_plugins/MoveCamera
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Name: Current View
+      Distance: 0.9
+      Focal Point:
+        X: 0.1
+        Y: 0
+        Z: 0.2
+      Pitch: 0.4
+      Yaw: 0.8
+      Target Frame: <Fixed Frame>
+Window Geometry:
+  Width: 1400
+  Height: 950

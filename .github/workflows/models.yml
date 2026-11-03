@@ -88,7 +88,7 @@ jobs:
           task_ws=${RUNNER_TEMP}/description_ros2_ws
           mkdir -p "${task_ws}/src"
           colcon list --names-only --base-paths "${GITHUB_WORKSPACE}" > "${task_ws}/packages.txt"
-          python3 -c 'import pathlib,sys; assert set(pathlib.Path(sys.argv[1]).read_text().split()) == {"par6_description","parol6_description","msg_description","ssg48_description"}' "${task_ws}/packages.txt"
+          python3 -c 'import pathlib,sys; assert set(pathlib.Path(sys.argv[1]).read_text().split()) == {"par6_description","parol6_description","msg_description","ssg48_description","par6_moveit_config","parol6_moveit_config"}' "${task_ws}/packages.txt"
           cp -a urdf/. "${task_ws}/src/"
           cd "${task_ws}"
           colcon build --merge-install --event-handlers console_cohesion+
@@ -110,9 +110,60 @@ jobs:
           path: reports/ros2_smoke/${{ matrix.distro }}/
           if-no-files-found: warn
 
+  moveit2:
+    name: MoveIt 2 ${{ matrix.distro }} planning and mock execution
+    runs-on: ubuntu-24.04
+    container: ros:${{ matrix.distro }}-ros-base
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        distro: [humble, jazzy]
+    env:
+      ROS_LOCALHOST_ONLY: '1'
+      LIBGL_ALWAYS_SOFTWARE: '1'
+      QT_X11_NO_MITSHM: '1'
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install MoveIt and mock controller dependencies
+        shell: bash
+        run: |
+          apt-get update
+          apt-get install -y python3-colcon-common-extensions python3-pyqt5 python3-yaml \
+            xvfb xauth libgl1-mesa-dri ros-${ROS_DISTRO}-moveit \
+            ros-${ROS_DISTRO}-ros2-control ros-${ROS_DISTRO}-ros2-controllers \
+            ros-${ROS_DISTRO}-joint-state-publisher-gui
+      - name: Build and relocate descriptions and MoveIt packages
+        shell: bash
+        run: |
+          source /opt/ros/${ROS_DISTRO}/setup.bash
+          task_ws=${RUNNER_TEMP}/description_moveit_ws
+          mkdir -p "${task_ws}/src/urdf" "${task_ws}/src/moveit"
+          cp -a urdf/. "${task_ws}/src/urdf/"
+          cp -a moveit/. "${task_ws}/src/moveit/"
+          cd "${task_ws}"
+          colcon build --merge-install --event-handlers console_cohesion+
+          mv src source_hidden
+          mv build build_hidden
+          mv install relocated_install
+      - name: Plan and execute every tool configuration, check IK, limits and collisions
+        shell: bash
+        run: |
+          source /opt/ros/${ROS_DISTRO}/setup.bash
+          source ${RUNNER_TEMP}/description_moveit_ws/relocated_install/setup.bash
+          xvfb-run -a -s '-screen 0 1600x1100x24' \
+            python3 tools/moveit_support/validate_moveit2.py --output reports/moveit2_smoke/${ROS_DISTRO}
+      - name: Save MoveIt checks and RViz screenshots
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: moveit2-${{ matrix.distro }}-validation
+          path: reports/moveit2_smoke/${{ matrix.distro }}/
+          if-no-files-found: warn
+
   release:
     if: startsWith(github.ref, 'refs/tags/v')
-    needs: [standalone, ros2]
+    needs: [standalone, ros2, moveit2]
     runs-on: ubuntu-24.04
     permissions:
       contents: write
