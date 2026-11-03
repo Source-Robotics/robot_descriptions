@@ -25,6 +25,12 @@ def write_index(package):
     colors=(source/'docs/COLORS.md').read_text(encoding='utf-8')
     base=f'https://github.com/Source-Robotics/robot_descriptions/blob/v{data["packageVersion"]}/'
     colors=colors.replace('](../source/',']('+base+'source/').replace('](../BUILDING.md)',']('+base+'BUILDING.md)')
+    colors=colors.replace('](images/color_examples/','](../previews/color_examples/')
+    examples=previews(package)/'color_examples'
+    examples.mkdir(parents=True,exist_ok=True)
+    for path in (source/'docs/images/color_examples').iterdir():
+        if path.suffix in {'.png','.json'}:
+            shutil.copyfile(path,examples/path.name)
     (directory/'COLORS.md').write_text(colors,encoding='utf-8')
     shutil.copyfile(source/'source/appearance/colors.json',directory/'colors.json')
     has_msg=Path(package).name in {'par6','parol6','msg','par6_description','parol6_description','msg_description'}
@@ -36,8 +42,10 @@ def write_index(package):
             shutil.copyfile(source/'docs/images'/name,previews(package)/name)
     front=Path(package)/'README.md'
     text=front.read_text(encoding='utf-8')
+    text=text.replace('[Changing colors](docs/COLORS.md): material names, editable palettes and examples.',
+                      '[Changing colors](docs/COLORS.md): shared palette, part overrides and illustrated examples.')
     if '[Changing colors](docs/COLORS.md)' not in text:
-        text+='\n[Changing colors](docs/COLORS.md): material names, editable palettes and examples.\n'
+        text+='\n[Changing colors](docs/COLORS.md): shared palette, part overrides and illustrated examples.\n'
     if has_msg and '[MSG built-in camera](docs/MSG_CAMERA.md)' not in text:
         text+='\n[MSG built-in camera](docs/MSG_CAMERA.md): simulated views with both jaw options and a rendering example.\n'
     front.write_text(text,encoding='utf-8')

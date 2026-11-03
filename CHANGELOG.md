@@ -1,5 +1,12 @@
 # Changelog - Source Robotics robot descriptions
 
+## 2.16.1 - 2026-11-03
+
+- Added rendered comparisons and matching JSON examples for blue motors, custom MSG/SSG48 jaws and a graphite/teal PAR6 badge.
+- Included the illustrated guide and its local images in all eight packages; linked the examples from package/product READMEs.
+- Added an optional renderer that uses temporary colored model copies, preserving the active palette, runtime definitions and badge cache.
+- Kept all maintained runtime model/geometry definitions and default colors unchanged.
+
 ## 2.16.0 - 2026-11-03
 
 - Added one shared appearance palette for both robots, standalone grippers, all jaw/tool options and both formats, with individual-part overrides and badge colors.

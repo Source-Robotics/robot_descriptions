@@ -7,7 +7,7 @@ Both formats include **Solid jaws** (default) and **Fin-ray jaws**, with all mes
 materials, finger joints, collision shapes and mass properties.
 
 To customize appearance, edit the [shared color file](../source/appearance/colors.json)
-and follow the [color build guide](../docs/COLORS.md). Colors match standalone and arm-mounted versions.
+and follow the [illustrated color guide](../docs/COLORS.md). Colors match standalone and arm-mounted versions.
 
 | Solid jaws (default) | Fin-ray jaws |
 | --- | --- |

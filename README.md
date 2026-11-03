@@ -96,8 +96,8 @@ repository as a submodule. See [release and integration maintenance](RELEASING.m
 
 Change [`source/appearance/colors.json`](source/appearance/colors.json) to recolor
 both robots and standalone grippers in URDF and MuJoCo from one palette.
-See the [color and appearance guide](docs/COLORS.md) for examples, individual-part
-overrides and the build command.
+See the [color and appearance guide](docs/COLORS.md) for illustrated motor, jaw
+and badge examples, individual-part overrides and the build command.
 
 The exported packages work independently. To regenerate them, change jaw colors,
 edit branding, or contribute a model, see the [build guide](BUILDING.md),

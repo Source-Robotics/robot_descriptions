@@ -2,7 +2,7 @@
 
 [Back to the repository](../README.md)
 
-**Edit one file: [`source/appearance/colors.json`](https://github.com/Source-Robotics/robot_descriptions/blob/v2.16.0/source/appearance/colors.json).**
+**Edit one file: [`source/appearance/colors.json`](https://github.com/Source-Robotics/robot_descriptions/blob/v2.16.1/source/appearance/colors.json).**
 The build applies it to PAR6, PAROL6, standalone MSG and standalone SSG48, in
 both URDF and MuJoCo, including every tool/jaw option and the grasp fixtures.
 The starting palette keeps the existing appearance.
@@ -22,7 +22,14 @@ This gives both robots blue J1/J2/J3 motors and makes the MSG motor blue too.
 The camera lens stays black, the structures stay light, and the Soft TPU inserts
 stay yellow. Keep the other settings in the file.
 
-After installing the [build dependencies](https://github.com/Source-Robotics/robot_descriptions/blob/v2.16.0/BUILDING.md), run this from the
+![Starting palette and blue-motor example on PAROL6 with MSG Soft TPU jaws](../previews/color_examples/motors.png)
+
+The images in this guide are renders of the actual MuJoCo models. Each pair
+uses the same model, pose, lighting and camera; only its example colors change.
+The shared build applies the same settings to URDF. Examples are independent:
+start from the default palette for each one, then change only the listed entries.
+
+After installing the [build dependencies](https://github.com/Source-Robotics/robot_descriptions/blob/v2.16.1/BUILDING.md), run this from the
 repository root:
 
 ```bash
@@ -63,6 +70,22 @@ arrays; replacing one with a HEX color is fine.
 A color applies to an existing visual partition. For example, a jaw and its
 carriage cannot get separate colors if they share one visual mesh.
 
+### Example: teal MSG inserts and orange SSG48 jaws
+
+Change these three entries inside `colors`; keep the other entries as they are:
+
+```json
+"msg_soft_holders": "#26364A",
+"msg_soft_inserts": "#20B7A8",
+"ssg48_solid_jaws": "#F08020"
+```
+
+![MSG Soft TPU and SSG48 Solid jaws, starting colors on the left and example colors on the right](../previews/color_examples/jaws.png)
+
+The dark blue holders and teal honeycomb inserts affect the MSG Soft TPU option.
+The orange setting affects SSG48 Solid jaws. Each applies to both fingers,
+standalone and arm-mounted, while the other jaw options keep their own colors.
+
 ## Override an individual part
 
 The optional `overrides` section takes precedence over common colors. For
@@ -94,8 +117,38 @@ channels and transparency are rejected before the build changes models.
 The same file has a `badge` section for `background`, `emblem`, `symbol`,
 `wordmark`, `robot_name`, `tagline`, `divider`. Change those colors and run
 the same build command. Badge size, resolution, placement and SVG shapes stay
-in [`source/artwork/par6_side_badge.json`](https://github.com/Source-Robotics/robot_descriptions/blob/v2.16.0/source/artwork/par6_side_badge.json)
-and [`par6_side_badge.svg`](https://github.com/Source-Robotics/robot_descriptions/blob/v2.16.0/source/artwork/par6_side_badge.svg).
+in [`source/artwork/par6_side_badge.json`](https://github.com/Source-Robotics/robot_descriptions/blob/v2.16.1/source/artwork/par6_side_badge.json)
+and [`par6_side_badge.svg`](https://github.com/Source-Robotics/robot_descriptions/blob/v2.16.1/source/artwork/par6_side_badge.svg).
+
+### Example: graphite cover and teal logo
+
+Set `overrides` to the following, or add this entry to your existing overrides:
+
+```json
+"overrides": {
+  "par6_panel": "#303A48"
+}
+```
+
+Then set the badge section to:
+
+```json
+"badge": {
+  "background": "#15364A",
+  "emblem": "#20B7A8",
+  "symbol": "#15364A",
+  "wordmark": "#20B7A8",
+  "robot_name": "#FFFFFF",
+  "tagline": "#FFFFFF",
+  "divider": "#20B7A8"
+}
+```
+
+![Close-up of the PAR6 side badge with starting colors and a graphite-and-teal example](../previews/color_examples/badge.png)
+
+This changes the existing PAR6 cover and badge artwork. The logo shapes,
+placement and texture resolution stay the same. PAROL6's unbadged cover is
+unaffected by these PAR6-specific settings.
 
 The color fields retained in the historical badge/jaw/pneumatic geometry
 configs are baseline settings for their low-level geometry tools. The complete
@@ -129,3 +182,9 @@ python tools/build.py --models-only
 
 To regenerate the optional review PDF too, use
 `python tools/build_review_sheets.py --pdf` with the review dependencies installed.
+
+To refresh the three illustrated comparisons in this guide, run
+`python tools/render_color_examples.py`, then rebuild the packages. This optional
+OpenGL renderer uses temporary model copies and leaves the active palette,
+runtime models and checked badge texture unchanged. The exact settings and
+viewing poses are recorded in the [render manifest](../previews/color_examples/render_manifest.json).

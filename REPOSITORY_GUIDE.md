@@ -236,6 +236,7 @@ running every script manually is not the normal workflow.
 | `build.py` | Main build: generates assets, synchronizes physical data, builds all products, validates them and writes ZIPs. |
 | `split_motor_visuals.py` | Splits original triangle records into separately colored arm actuators and MSG lens/motor/structure visuals. |
 | `model_colors.py` | Validates the shared palette, resolves overrides and applies visual colors without changing physical definitions. |
+| `render_color_examples.py` | Renders the color guide's motor, jaw and badge comparisons from temporary model copies; needs OpenGL. |
 | `build_side_badge.py` | Bakes SVG/palette onto the side-panel visual texture. |
 | `build_msg_jaws.py` | Tessellates and installs the MSG Soft TPU jaw option. |
 | `build_ssg48_jaws.py` | Tessellates and installs default SSG48 Solid jaws while retaining Fin-ray as an option. |
@@ -363,7 +364,7 @@ runs and release manifests identify the built revision.
 
 - [`output/pdf/robot_kinematics_review.pdf`](output/pdf/robot_kinematics_review.pdf)
   is the twelve-page booklet: PAR6 and PAROL6, each with six tool configurations.
-- `releases/v*.md` are versioned release-note sources, including the shared palette in `v2.16.0.md`.
+- `releases/v*.md` are versioned release-note sources, including the shared palette in `v2.16.0.md` and illustrated examples in `v2.16.1.md`.
 - A local build produces eight ZIPs under `dist/`. `prepare_release.py` adds the
   release PDF, `release_manifest.json` and `SHA256SUMS`.
 - The manifest describes the packaged revision/assets; checksums verify the

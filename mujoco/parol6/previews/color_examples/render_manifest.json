@@ -1,0 +1,666 @@
+{
+  "mujoco_version": "3.3.0",
+  "examples": {
+    "motors": {
+      "settings_to_change": {
+        "colors": {
+          "structure": "#CAD1EE",
+          "motors": "#2060E0",
+          "camera_lens": "#080808",
+          "msg_soft_inserts": "#FFD21A"
+        }
+      },
+      "views": [
+        {
+          "source_model": "mujoco/parol6/parol6_msg_tpu_glue.xml",
+          "model_sha256": "a49d2ea730af7134d6ef91c7411f7002dc4b6b772074e668c95eb2a6980f56ba",
+          "palette": {
+            "schema_version": 1,
+            "colors": {
+              "structure": "#CAD1EE",
+              "motors": [
+                0.06,
+                0.06,
+                0.065,
+                1
+              ],
+              "camera_lens": [
+                0.06,
+                0.06,
+                0.065,
+                1
+              ],
+              "msg_solid_jaws": [
+                0.29804,
+                0.29804,
+                0.29804,
+                1
+              ],
+              "msg_soft_holders": "#0F0F11",
+              "msg_soft_inserts": "#FFD21A",
+              "ssg48_solid_jaws": "#4C4C4C",
+              "ssg48_fin_ray_jaws": [
+                0.29804,
+                0.29804,
+                0.29804,
+                1
+              ],
+              "pneumatic_body": [
+                0.72,
+                0.75,
+                0.8,
+                1
+              ],
+              "pneumatic_jaws": [
+                0.12,
+                0.13,
+                0.15,
+                1
+              ]
+            },
+            "overrides": {},
+            "badge": {
+              "background": "#464545",
+              "emblem": "#FFFFFF",
+              "symbol": "#464545",
+              "wordmark": "#FFFFFF",
+              "robot_name": "#FFFFFF",
+              "tagline": "#FFFFFF",
+              "divider": "#FFFFFF"
+            }
+          },
+          "qpos": [
+            0.0,
+            -0.5,
+            -1.3,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "presentation_root_rotation": false,
+          "camera": {
+            "lookat": [
+              0.0,
+              0.0,
+              0.2
+            ],
+            "distance": 0.68,
+            "azimuth": 135.0,
+            "elevation": -18.0,
+            "orthographic": false
+          }
+        },
+        {
+          "source_model": "mujoco/parol6/parol6_msg_tpu_glue.xml",
+          "model_sha256": "a49d2ea730af7134d6ef91c7411f7002dc4b6b772074e668c95eb2a6980f56ba",
+          "palette": {
+            "schema_version": 1,
+            "colors": {
+              "structure": "#CAD1EE",
+              "motors": "#2060E0",
+              "camera_lens": "#080808",
+              "msg_solid_jaws": [
+                0.29804,
+                0.29804,
+                0.29804,
+                1
+              ],
+              "msg_soft_holders": "#0F0F11",
+              "msg_soft_inserts": "#FFD21A",
+              "ssg48_solid_jaws": "#4C4C4C",
+              "ssg48_fin_ray_jaws": [
+                0.29804,
+                0.29804,
+                0.29804,
+                1
+              ],
+              "pneumatic_body": [
+                0.72,
+                0.75,
+                0.8,
+                1
+              ],
+              "pneumatic_jaws": [
+                0.12,
+                0.13,
+                0.15,
+                1
+              ]
+            },
+            "overrides": {},
+            "badge": {
+              "background": "#464545",
+              "emblem": "#FFFFFF",
+              "symbol": "#464545",
+              "wordmark": "#FFFFFF",
+              "robot_name": "#FFFFFF",
+              "tagline": "#FFFFFF",
+              "divider": "#FFFFFF"
+            }
+          },
+          "qpos": [
+            0.0,
+            -0.5,
+            -1.3,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "presentation_root_rotation": false,
+          "camera": {
+            "lookat": [
+              0.0,
+              0.0,
+              0.2
+            ],
+            "distance": 0.68,
+            "azimuth": 135.0,
+            "elevation": -18.0,
+            "orthographic": false
+          }
+        }
+      ],
+      "image": "motors.png",
+      "image_sha256": "ab73b8d2ae868818ba63434d3716817f47287dc460e5214e23b240396a046eb1"
+    },
+    "jaws": {
+      "settings_to_change": {
+        "colors": {
+          "msg_soft_holders": "#26364A",
+          "msg_soft_inserts": "#20B7A8",
+          "ssg48_solid_jaws": "#F08020"
+        }
+      },
+      "views": [
+        {
+          "source_model": "mujoco/msg/msg_soft_tpu.xml",
+          "model_sha256": "a1238295e5f42186e2b46fbb7df3637d5b357df8eddbfa1228b81ad09ef09965",
+          "palette": {
+            "schema_version": 1,
+            "colors": {
+              "structure": "#CAD1EE",
+              "motors": [
+                0.06,
+                0.06,
+                0.065,
+                1
+              ],
+              "camera_lens": [
+                0.06,
+                0.06,
+                0.065,
+                1
+              ],
+              "msg_solid_jaws": [
+                0.29804,
+                0.29804,
+                0.29804,
+                1
+              ],
+              "msg_soft_holders": "#0F0F11",
+              "msg_soft_inserts": "#FFD21A",
+              "ssg48_solid_jaws": "#4C4C4C",
+              "ssg48_fin_ray_jaws": [
+                0.29804,
+                0.29804,
+                0.29804,
+                1
+              ],
+              "pneumatic_body": [
+                0.72,
+                0.75,
+                0.8,
+                1
+              ],
+              "pneumatic_jaws": [
+                0.12,
+                0.13,
+                0.15,
+                1
+              ]
+            },
+            "overrides": {},
+            "badge": {
+              "background": "#464545",
+              "emblem": "#FFFFFF",
+              "symbol": "#464545",
+              "wordmark": "#FFFFFF",
+              "robot_name": "#FFFFFF",
+              "tagline": "#FFFFFF",
+              "divider": "#FFFFFF"
+            }
+          },
+          "qpos": [
+            0.0,
+            0.0
+          ],
+          "presentation_root_rotation": true,
+          "camera": {
+            "lookat": [
+              -0.035,
+              0.0,
+              0.022
+            ],
+            "distance": 0.27,
+            "azimuth": 15.0,
+            "elevation": -18.0,
+            "orthographic": false
+          }
+        },
+        {
+          "source_model": "mujoco/msg/msg_soft_tpu.xml",
+          "model_sha256": "a1238295e5f42186e2b46fbb7df3637d5b357df8eddbfa1228b81ad09ef09965",
+          "palette": {
+            "schema_version": 1,
+            "colors": {
+              "structure": "#CAD1EE",
+              "motors": [
+                0.06,
+                0.06,
+                0.065,
+                1
+              ],
+              "camera_lens": [
+                0.06,
+                0.06,
+                0.065,
+                1
+              ],
+              "msg_solid_jaws": [
+                0.29804,
+                0.29804,
+                0.29804,
+                1
+              ],
+              "msg_soft_holders": "#26364A",
+              "msg_soft_inserts": "#20B7A8",
+              "ssg48_solid_jaws": "#F08020",
+              "ssg48_fin_ray_jaws": [
+                0.29804,
+                0.29804,
+                0.29804,
+                1
+              ],
+              "pneumatic_body": [
+                0.72,
+                0.75,
+                0.8,
+                1
+              ],
+              "pneumatic_jaws": [
+                0.12,
+                0.13,
+                0.15,
+                1
+              ]
+            },
+            "overrides": {},
+            "badge": {
+              "background": "#464545",
+              "emblem": "#FFFFFF",
+              "symbol": "#464545",
+              "wordmark": "#FFFFFF",
+              "robot_name": "#FFFFFF",
+              "tagline": "#FFFFFF",
+              "divider": "#FFFFFF"
+            }
+          },
+          "qpos": [
+            0.0,
+            0.0
+          ],
+          "presentation_root_rotation": true,
+          "camera": {
+            "lookat": [
+              -0.035,
+              0.0,
+              0.022
+            ],
+            "distance": 0.27,
+            "azimuth": 15.0,
+            "elevation": -18.0,
+            "orthographic": false
+          }
+        },
+        {
+          "source_model": "mujoco/ssg48/ssg48_solid.xml",
+          "model_sha256": "9c70383c5bf97558bb095066055dd83eb82849cb9e622efe07ba1b698a60b953",
+          "palette": {
+            "schema_version": 1,
+            "colors": {
+              "structure": "#CAD1EE",
+              "motors": [
+                0.06,
+                0.06,
+                0.065,
+                1
+              ],
+              "camera_lens": [
+                0.06,
+                0.06,
+                0.065,
+                1
+              ],
+              "msg_solid_jaws": [
+                0.29804,
+                0.29804,
+                0.29804,
+                1
+              ],
+              "msg_soft_holders": "#0F0F11",
+              "msg_soft_inserts": "#FFD21A",
+              "ssg48_solid_jaws": "#4C4C4C",
+              "ssg48_fin_ray_jaws": [
+                0.29804,
+                0.29804,
+                0.29804,
+                1
+              ],
+              "pneumatic_body": [
+                0.72,
+                0.75,
+                0.8,
+                1
+              ],
+              "pneumatic_jaws": [
+                0.12,
+                0.13,
+                0.15,
+                1
+              ]
+            },
+            "overrides": {},
+            "badge": {
+              "background": "#464545",
+              "emblem": "#FFFFFF",
+              "symbol": "#464545",
+              "wordmark": "#FFFFFF",
+              "robot_name": "#FFFFFF",
+              "tagline": "#FFFFFF",
+              "divider": "#FFFFFF"
+            }
+          },
+          "qpos": [
+            0.0,
+            0.0
+          ],
+          "presentation_root_rotation": false,
+          "camera": {
+            "lookat": [
+              0.0,
+              0.0,
+              0.045
+            ],
+            "distance": 0.3,
+            "azimuth": 135.0,
+            "elevation": -24.0,
+            "orthographic": false
+          }
+        },
+        {
+          "source_model": "mujoco/ssg48/ssg48_solid.xml",
+          "model_sha256": "9c70383c5bf97558bb095066055dd83eb82849cb9e622efe07ba1b698a60b953",
+          "palette": {
+            "schema_version": 1,
+            "colors": {
+              "structure": "#CAD1EE",
+              "motors": [
+                0.06,
+                0.06,
+                0.065,
+                1
+              ],
+              "camera_lens": [
+                0.06,
+                0.06,
+                0.065,
+                1
+              ],
+              "msg_solid_jaws": [
+                0.29804,
+                0.29804,
+                0.29804,
+                1
+              ],
+              "msg_soft_holders": "#26364A",
+              "msg_soft_inserts": "#20B7A8",
+              "ssg48_solid_jaws": "#F08020",
+              "ssg48_fin_ray_jaws": [
+                0.29804,
+                0.29804,
+                0.29804,
+                1
+              ],
+              "pneumatic_body": [
+                0.72,
+                0.75,
+                0.8,
+                1
+              ],
+              "pneumatic_jaws": [
+                0.12,
+                0.13,
+                0.15,
+                1
+              ]
+            },
+            "overrides": {},
+            "badge": {
+              "background": "#464545",
+              "emblem": "#FFFFFF",
+              "symbol": "#464545",
+              "wordmark": "#FFFFFF",
+              "robot_name": "#FFFFFF",
+              "tagline": "#FFFFFF",
+              "divider": "#FFFFFF"
+            }
+          },
+          "qpos": [
+            0.0,
+            0.0
+          ],
+          "presentation_root_rotation": false,
+          "camera": {
+            "lookat": [
+              0.0,
+              0.0,
+              0.045
+            ],
+            "distance": 0.3,
+            "azimuth": 135.0,
+            "elevation": -24.0,
+            "orthographic": false
+          }
+        }
+      ],
+      "image": "jaws.png",
+      "image_sha256": "9ba48709e99132b177d53aa4c78c80f18f3eb75c868ea8c9d228b4fa8cad62b0"
+    },
+    "badge": {
+      "settings_to_change": {
+        "overrides": {
+          "par6_panel": "#303A48"
+        },
+        "badge": {
+          "background": "#15364A",
+          "emblem": "#20B7A8",
+          "symbol": "#15364A",
+          "wordmark": "#20B7A8",
+          "robot_name": "#FFFFFF",
+          "tagline": "#FFFFFF",
+          "divider": "#20B7A8"
+        }
+      },
+      "views": [
+        {
+          "source_model": "mujoco/par6/par6_flange.xml",
+          "model_sha256": "b6e0819df0137110772556c89f45f905211c6217a57e5c57f9b31b52992b9bbb",
+          "palette": {
+            "schema_version": 1,
+            "colors": {
+              "structure": "#CAD1EE",
+              "motors": [
+                0.06,
+                0.06,
+                0.065,
+                1
+              ],
+              "camera_lens": [
+                0.06,
+                0.06,
+                0.065,
+                1
+              ],
+              "msg_solid_jaws": [
+                0.29804,
+                0.29804,
+                0.29804,
+                1
+              ],
+              "msg_soft_holders": "#0F0F11",
+              "msg_soft_inserts": "#FFD21A",
+              "ssg48_solid_jaws": "#4C4C4C",
+              "ssg48_fin_ray_jaws": [
+                0.29804,
+                0.29804,
+                0.29804,
+                1
+              ],
+              "pneumatic_body": [
+                0.72,
+                0.75,
+                0.8,
+                1
+              ],
+              "pneumatic_jaws": [
+                0.12,
+                0.13,
+                0.15,
+                1
+              ]
+            },
+            "overrides": {},
+            "badge": {
+              "background": "#464545",
+              "emblem": "#FFFFFF",
+              "symbol": "#464545",
+              "wordmark": "#FFFFFF",
+              "robot_name": "#FFFFFF",
+              "tagline": "#FFFFFF",
+              "divider": "#FFFFFF"
+            }
+          },
+          "qpos": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "presentation_root_rotation": false,
+          "camera": {
+            "lookat": [
+              0.023421,
+              0.081700445476714,
+              0.21549965337517302
+            ],
+            "distance": 0.55,
+            "azimuth": 270.0,
+            "elevation": 0.0,
+            "orthographic": true
+          }
+        },
+        {
+          "source_model": "mujoco/par6/par6_flange.xml",
+          "model_sha256": "b6e0819df0137110772556c89f45f905211c6217a57e5c57f9b31b52992b9bbb",
+          "palette": {
+            "schema_version": 1,
+            "colors": {
+              "structure": "#CAD1EE",
+              "motors": [
+                0.06,
+                0.06,
+                0.065,
+                1
+              ],
+              "camera_lens": [
+                0.06,
+                0.06,
+                0.065,
+                1
+              ],
+              "msg_solid_jaws": [
+                0.29804,
+                0.29804,
+                0.29804,
+                1
+              ],
+              "msg_soft_holders": "#0F0F11",
+              "msg_soft_inserts": "#FFD21A",
+              "ssg48_solid_jaws": "#4C4C4C",
+              "ssg48_fin_ray_jaws": [
+                0.29804,
+                0.29804,
+                0.29804,
+                1
+              ],
+              "pneumatic_body": [
+                0.72,
+                0.75,
+                0.8,
+                1
+              ],
+              "pneumatic_jaws": [
+                0.12,
+                0.13,
+                0.15,
+                1
+              ]
+            },
+            "overrides": {
+              "par6_panel": "#303A48"
+            },
+            "badge": {
+              "background": "#15364A",
+              "emblem": "#20B7A8",
+              "symbol": "#15364A",
+              "wordmark": "#20B7A8",
+              "robot_name": "#FFFFFF",
+              "tagline": "#FFFFFF",
+              "divider": "#20B7A8"
+            }
+          },
+          "qpos": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "presentation_root_rotation": false,
+          "camera": {
+            "lookat": [
+              0.023421,
+              0.081700445476714,
+              0.21549965337517302
+            ],
+            "distance": 0.55,
+            "azimuth": 270.0,
+            "elevation": 0.0,
+            "orthographic": true
+          }
+        }
+      ],
+      "image": "badge.png",
+      "image_sha256": "76acabf39402dc542280a4c8f026c366c1c9d8e3b3aecdc2b393c19a26223fbb"
+    }
+  },
+  "description": "Native model renders; only example palettes and documented viewing poses differ.",
+  "runtime_models_palette_and_checked_texture_unchanged": true
+}

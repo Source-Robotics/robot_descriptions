@@ -1,5 +1,10 @@
 # PAROL6 description changelog
 
+## 2.16.1 - 2026-11-03
+
+- Added illustrated color examples for motors, jaws and badge, bundled with the package.
+- Kept runtime models, default colors and physical properties unchanged.
+
 ## 2.16.0 - 2026-11-03
 
 - Added a shared color palette and individual-part overrides across both formats and all tools.

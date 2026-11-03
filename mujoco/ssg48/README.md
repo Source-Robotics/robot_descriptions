@@ -61,4 +61,4 @@ See [validation notes](docs/VALIDATION.md) for the extraction checks and `LICENS
 
 Models and assets: **CC BY 4.0**. See [attribution and license scope](docs/ATTRIBUTION.md).
 
-[Changing colors](docs/COLORS.md): material names, editable palettes and examples.
+[Changing colors](docs/COLORS.md): shared palette, part overrides and illustrated examples.

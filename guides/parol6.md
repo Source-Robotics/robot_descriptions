@@ -6,7 +6,7 @@ PAROL6 is available in **MuJoCo and URDF**, with all six configurations below.
 The default `scene.xml` in the MuJoCo package opens the MSG with Solid jaws.
 
 To customize appearance, edit the [shared color file](../source/appearance/colors.json)
-and follow the [color build guide](../docs/COLORS.md). One palette covers both formats and all tools.
+and follow the [illustrated color guide](../docs/COLORS.md). One palette covers both formats and all tools.
 
 ### PAROL6 with MSG
 
