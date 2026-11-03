@@ -124,6 +124,13 @@ Window Geometry:
   Height: 800
 ''', encoding='utf-8')
         shutil.copyfile(ROOT/'docs/ROS2.md', package/'docs/ROS2.md')
+        if family in ('par6', 'parol6'):
+            shutil.copyfile(ROOT/'docs/MOVEIT2.md', package/'docs/MOVEIT2.md')
+            front = package/'README.md'
+            text = front.read_text(encoding='utf-8')
+            if '[MoveIt 2 planning](docs/MOVEIT2.md)' not in text:
+                text += f'\n[MoveIt 2 planning](docs/MOVEIT2.md): install `{family}_moveit_config` alongside this package for TCP planning and mock execution.\n'
+            front.write_text(text, encoding='utf-8')
     print(f'Generated native ROS 2 support for {len(families)} package(s); ROS 1 entry points retained.', flush=True)
 
 

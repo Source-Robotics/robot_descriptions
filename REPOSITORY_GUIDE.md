@@ -16,6 +16,7 @@ hundreds of individual STL files.
 | [`guides/`](guides/) | Short instructions for each product, including downloads and which model to open. | Start here. |
 | [`mujoco/`](mujoco/) | Four independent native MuJoCo packages: `par6/`, `parol6/`, `msg/`, `ssg48/`. | Using MuJoCo. |
 | [`urdf/`](urdf/) | Four independent URDF/ROS packages: `par6_description/`, `parol6_description/`, `msg_description/`, `ssg48_description/`. | Using URDF, RViz or another URDF consumer. |
+| [`moveit/`](moveit/) | `par6_moveit_config/` and `parol6_moveit_config/`: planning groups, TCP, joint limits, SRDF collision rules, OMPL and mock execution. Each depends on its matching URDF package. | Planning and previewing trajectories in ROS 2. |
 | [`docs/`](docs/) | Color/camera guides in `COLORS.md` / `MSG_CAMERA.md` and images under `images/`. | Browsing illustrations. |
 | [`LICENSES/`](LICENSES/) | Apache-2.0 software license text. | Maintaining or redistributing support code. |
 | [`source/`](source/) | Original CAD exports, STEP jaws, editable logo, measured data, reference snapshots and checked rendering/geometry caches. | Changing or rebuilding models. |
@@ -320,7 +321,7 @@ older packages; those packages are not required for the normal clean build.
 | `test_portability.py` | Authoring tools import without application/runtime dependencies. |
 | `test_release.py` | Release versions, archive safety and generated release metadata. |
 
-The full suite currently expands into 207 test cases. ROS 2 CI additionally runs
+The full suite currently expands into 238 test cases. ROS 2 CI additionally runs
 24 installed launch/TF/GUI cases per distribution. Simulation checks protect
 model behavior; they do not turn estimated material/contact parameters into
 measured hardware values.

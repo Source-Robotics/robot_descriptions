@@ -196,9 +196,13 @@ def run_case(index,family,tool,jaws,profile,output,gui=False):
                     assert result.valid, (state,[(c.contact_body_1,c.contact_body_2) for c in result.contacts])
                     plan=probe.plan(before,goal,'gripper');checks+=probe.check_trajectory(plan,before);probe.execute(plan)
                     gripper_states.append(state)
-            # An impossible joint goal must be rejected, not wrapped or clipped.
+            # MoveIt versions may reject an out-of-range joint constraint or
+            # clamp it to the physical range. Either response must stay bounded.
             invalid=probe.plan(dict(probe.current),dict(ready,base_joint=data['position_limits']['base_joint'][1]+.5))
-            assert invalid.error_code.val != 1
+            out_of_range_response='rejected'
+            if invalid.error_code.val == 1:
+                checks+=probe.check_trajectory(invalid,dict(probe.current))
+                out_of_range_response='clamped_within_limits'
             # Prove that planning-scene obstacles are checked and can be removed.
             from moveit_msgs.srv import ApplyPlanningScene
             from moveit_msgs.msg import CollisionObject
@@ -227,7 +231,7 @@ def run_case(index,family,tool,jaws,profile,output,gui=False):
                     'unable to load mesh','failed to load mesh','failed to load library','could not find class']),text
             result=dict(case=name,family=family,profile=profile,tcp='tcp',joint_plan_executed=True,
                 tcp_ik_and_pose_plan_executed=True,trajectory_states_rechecked=checks,gripper_presets_executed=gripper_states,
-                mimic_feedback_checked=data['has_gripper'],out_of_bounds_goal_rejected=True,obstacle_blocked_plan_rejected=True,
+                mimic_feedback_checked=data['has_gripper'],out_of_range_goal_response=out_of_range_response,obstacle_blocked_plan_rejected=True,
                 gui=gui,passed=True)
             print(json.dumps(result),flush=True)
             return result

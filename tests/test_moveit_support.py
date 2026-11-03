@@ -95,3 +95,11 @@ def test_selection_reuses_description_compatibility_checks():
     assert select_profile(share, 'par6', 'msg', 'soft_tpu') == 'msg_tpu_glue'
     with pytest.raises(ValueError, match='jaws must be'):
         select_profile(share, 'par6', 'msg', 'fin_ray')
+
+
+@pytest.mark.parametrize('key,value', [('max_velocity',0),('max_acceleration',float('nan')),('effort',-1)])
+def test_invalid_demo_rates_fail_before_building_a_planning_description(key,value):
+    share=ROOT/'urdf/par6_description';root=ET.parse(share/'par6_msg.urdf').getroot()
+    limits=copy.deepcopy(DEMO_LIMITS);limits['arm'][key]=value
+    with pytest.raises(ValueError,match='finite and positive'):
+        assemble_description(share,'par6','msg',profile_data('par6',root),limits)

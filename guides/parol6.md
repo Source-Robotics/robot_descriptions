@@ -75,7 +75,22 @@ This opens RViz and joint sliders. Choose `jaws:=soft_tpu` for MSG Soft TPU,
 `end_effector:=ssg48 jaws:=fin_ray` for SSG48 Fin-ray, or another end effector
 from the guide. ROS 1 retains `roslaunch parol6_description display.launch end_effector:=msg`.
 
-## 4. Check dimensions and frames
+## 4. Plan movements with MoveIt 2
+
+Download [parol6_moveit_config.zip](https://github.com/Source-Robotics/robot_descriptions/releases/latest/download/parol6_moveit_config.zip)
+alongside the PAROL6 URDF ZIP from the same release. Follow the
+[MoveIt 2 installation and RViz walkthrough](../docs/MOVEIT2.md), then run:
+
+```bash
+ros2 launch parol6_moveit_config demo.launch.py end_effector:=ssg48 jaws:=fin_ray
+```
+
+All six tool options are supported. Plan TCP movements, check collisions and
+execute them with mock controllers. Select the `gripper` group for its
+`open`/`closed` presets. This is an offline planning/control demo; RCB hardware
+control and contact/physics simulation are separate integrations.
+
+## 5. Check dimensions and frames
 
 For MSG configurations, see [the built-in camera view](../docs/MSG_CAMERA.md).
 

@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 """Assemble an installed MoveIt demo without changing the description package."""
 import importlib.util
+import math
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
@@ -39,6 +40,9 @@ def assemble_description(description_share, family, profile, data, limits, *,
         if joint is None:
             raise ValueError(f'Planning configuration references missing joint: {name}')
         settings = limits['arm' if name in ARM_JOINTS else 'gripper']
+        if not all(math.isfinite(float(settings[k])) and float(settings[k]) > 0
+                   for k in ('max_velocity', 'max_acceleration', 'effort')):
+            raise ValueError(f'{name}: demo speed, acceleration and effort must be finite and positive')
         if joint.get('type') == 'continuous':
             joint.set('type', 'revolute')
         limit = joint.find('limit')

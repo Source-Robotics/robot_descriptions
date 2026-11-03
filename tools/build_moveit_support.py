@@ -8,7 +8,6 @@ import sys
 import xml.etree.ElementTree as ET
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from ros_support.robot_description import ARM_TOOLS
 from moveit_support.model_config import ARM_JOINTS
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -67,9 +66,8 @@ def profile_data(family, root):
         for name in ['left_finger_joint', 'right_finger_joint']:
             limit = root.find(f'joint[@name="{name}"]/limit')
             bounds[name] = [float(limit.get('lower')), float(limit.get('upper'))]
-        pneumatic = root.find('link[@name="pneumatic_gripper_link"]') is not None
         lower, upper = bounds['left_finger_joint']
-        opened, closed = (upper, lower) if pneumatic else (upper, lower)
+        opened, closed = upper, lower
         # The original MSG meshes overlap 0.8 mm at the mathematical endpoint.
         # Keep that model limit, but use a 0.5 mm/finger stand-off for the
         # empty-gripper closed planning preset so collision checking stays on.

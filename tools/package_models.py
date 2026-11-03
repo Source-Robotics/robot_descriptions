@@ -2,6 +2,7 @@
 
 from pathlib import Path
 import json
+import ast
 import tempfile
 import zipfile
 import xml.etree.ElementTree as ET
@@ -105,6 +106,36 @@ def build():
                 assert benches==8
             result[filename]={'bytes':archive.stat().st_size,'variants_checked':len(metadata['variants']),'grasp_scenes_compiled':benches,'crc_and_assets_valid':True}
         print(filename,result[filename],flush=True)
+    (ROOT/'reports/package_validation.json').write_text(json.dumps(result,indent=2)+'\n')
+    # Config-only MoveIt packages deliberately depend on the corresponding URDF
+    # package rather than copying geometry and creating another model source.
+    for family in ['par6', 'parol6']:
+        package=ROOT/f'moveit/{family}_moveit_config';archive=destination/f'{family}_moveit_config.zip'
+        with zipfile.ZipFile(archive,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=9) as output:
+            for path in sorted(package.rglob('*')):
+                if not path.is_file() or '__pycache__' in path.parts:continue
+                info=zipfile.ZipInfo(path.relative_to(package.parent).as_posix(),date_time=(1980,1,1,0,0,0))
+                info.create_system=3;info.external_attr=0o100644<<16
+                output.writestr(info,path.read_bytes().replace(b'\r\n',b'\n'),compress_type=zipfile.ZIP_DEFLATED,compresslevel=9)
+        with tempfile.TemporaryDirectory(prefix='moveit_check_',dir=destination) as temporary:
+            directory=Path(temporary).resolve();assert directory.is_relative_to(destination.resolve())
+            with zipfile.ZipFile(archive) as source:
+                assert source.testzip() is None
+                assert all((directory/name).resolve().is_relative_to(directory) for name in source.namelist())
+                source.extractall(directory)
+            unpacked=directory/package.name
+            manifest=ET.parse(unpacked/'package.xml')
+            assert manifest.findtext('version')==version
+            assert family+'_description' in [d.text for d in manifest.findall('exec_depend')]
+            assert len(list((unpacked/'config/profiles').glob('*.srdf')))==6
+            for script in unpacked.rglob('*.py'):ast.parse(script.read_text())
+            for path in (unpacked/'config/profiles').glob('*.json'):
+                data=json.loads(path.read_text());assert data['family']==family and data['tcp']=='tcp'
+                ET.parse(path.with_suffix('.srdf'))
+            assert not any(p.suffix.lower() in ['.stl','.dae','.obj'] for p in unpacked.rglob('*'))
+        result[archive.name]=dict(bytes=archive.stat().st_size,variants_checked=6,crc_and_assets_valid=True,
+                                  dependency=family+'_description')
+        print(archive.name,result[archive.name],flush=True)
     (ROOT/'reports/package_validation.json').write_text(json.dumps(result,indent=2)+'\n')
 
 

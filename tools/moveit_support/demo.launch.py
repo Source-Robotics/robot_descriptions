@@ -7,7 +7,9 @@ from pathlib import Path
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, LogInfo, OpaqueFunction
+from launch.actions import DeclareLaunchArgument, EmitEvent, LogInfo, OpaqueFunction, RegisterEventHandler
+from launch.event_handlers import OnProcessExit, OnShutdown
+from launch.events import Shutdown
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
@@ -42,15 +44,34 @@ def launch_nodes(context):
     import tempfile
     # NamedTemporaryFile is closed before controller_manager opens it. The
     # launch shutdown handler removes it on normal shutdown and on failure.
-    from launch.actions import OpaqueFunction as Cleanup, RegisterEventHandler as Register
-    from launch.event_handlers import OnShutdown
     fd, filename = tempfile.mkstemp(prefix=FAMILY+'_controllers_', suffix='.yaml')
     with os.fdopen(fd, 'w') as handle:
         yaml.safe_dump(control, handle)
     def cleanup(_context):
         Path(filename).unlink(missing_ok=True)
         return []
-    actions = [Register(OnShutdown(on_shutdown=[Cleanup(function=cleanup)])),
+    broadcaster = Node(package='controller_manager', executable='spawner',
+        arguments=['joint_state_broadcaster', '--controller-manager-timeout', '60'], output='screen')
+    arm = Node(package='controller_manager', executable='spawner',
+        arguments=['arm_controller', '--controller-manager-timeout', '60'], output='screen')
+    gripper = Node(package='controller_manager', executable='spawner',
+        arguments=['gripper_controller', '--controller-manager-timeout', '60'], output='screen') if data['has_gripper'] else None
+    planning = [Node(package='moveit_ros_move_group', executable='move_group', parameters=[config], output='screen')]
+    if value('rviz') == 'true':
+        planning.append(Node(package='rviz2', executable='rviz2', name='moveit_rviz',
+            arguments=['-d', value('rviz_config')], parameters=[config], output='screen'))
+    def after_success(next_actions):
+        def callback(event, _context):
+            if event.returncode != 0:
+                return [LogInfo(msg='Controller activation failed; stopping the mock demo.'),
+                        EmitEvent(event=Shutdown(reason='Controller activation failed'))]
+            return next_actions
+        return callback
+    sequence = [broadcaster, arm]+([gripper] if gripper else [])
+    handlers = [RegisterEventHandler(OnProcessExit(target_action=node,
+        on_exit=after_success([sequence[index+1]] if index+1<len(sequence) else planning)))
+        for index,node in enumerate(sequence)]
+    actions = [RegisterEventHandler(OnShutdown(on_shutdown=[OpaqueFunction(function=cleanup)])), *handlers,
         LogInfo(msg=f'{FAMILY.upper()}: MoveIt {profile}; mock hardware only; TCP=tcp'),
         Node(package='robot_state_publisher', executable='robot_state_publisher',
              parameters=[{'robot_description': config['robot_description']}], output='screen'),
@@ -59,17 +80,7 @@ def launch_nodes(context):
         Node(package='controller_manager', executable='ros2_control_node',
              parameters=[{'robot_description': config['robot_description']}, filename],
              remappings=[('~/robot_description', '/robot_description')], output='screen'),
-        Node(package='controller_manager', executable='spawner',
-             arguments=['joint_state_broadcaster', '--controller-manager-timeout', '60'], output='screen'),
-        Node(package='controller_manager', executable='spawner',
-             arguments=['arm_controller', '--controller-manager-timeout', '60'], output='screen'),
-        Node(package='moveit_ros_move_group', executable='move_group', parameters=[config], output='screen')]
-    if data['has_gripper']:
-        actions.append(Node(package='controller_manager', executable='spawner',
-            arguments=['gripper_controller', '--controller-manager-timeout', '60'], output='screen'))
-    if value('rviz') == 'true':
-        actions.append(Node(package='rviz2', executable='rviz2', name='moveit_rviz',
-            arguments=['-d', value('rviz_config')], parameters=[config], output='screen'))
+        broadcaster]
     return actions
 
 

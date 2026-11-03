@@ -1,6 +1,7 @@
 # Publishing a description release
 
-This repository is the source for all eight distributions. Model changes and
+This repository is the source for eight model distributions and two MoveIt
+configuration distributions. Model changes and
 generation tools belong here. Hardware repositories contain product guides,
 previews and release links. Software consumers can pin this repository as a
 submodule when they load models directly from a source checkout.
@@ -9,7 +10,7 @@ submodule when they load models directly from a source checkout.
 
 Use the environment in `BUILDING.md`. Update the PAR6 URDF `package.xml` and
 both PAR6 `sim2bot.robot.json` package versions together. The build propagates
-that version to PAROL6 and both standalone grippers. Add notes at `releases/vVERSION.md` and update the
+that version to PAROL6, both standalone grippers and both MoveIt packages. Add notes at `releases/vVERSION.md` and update the
 changelog. Run:
 
 ```bash
@@ -33,9 +34,11 @@ git push origin v2.13.0
 ```
 
 The GitHub Actions workflow tests and builds that tag, checks every ZIP's
-version against it, and publishes eight model ZIPs, the review PDF, a source
+version against it, and publishes eight model ZIPs, two MoveIt ZIPs, the review PDF, a source
 manifest and SHA-256 checksums. Only the tag's release job has repository
-write permission. Existing releases are not overwritten.
+write permission. Release publishing waits for the portable build, ROS display
+tests and MoveIt planning/mock-execution tests on both Humble and Jazzy.
+Existing releases are not overwritten.
 
 ## Update hardware-repository guides
 

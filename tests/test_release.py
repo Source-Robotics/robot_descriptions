@@ -4,7 +4,7 @@ import zipfile
 
 import pytest
 
-from prepare_release import PACKAGES,prepare
+from prepare_release import PACKAGES,MOVEIT_PACKAGES,prepare
 
 
 def release_fixture(root,version='2.12.1'):
@@ -15,6 +15,9 @@ def release_fixture(root,version='2.12.1'):
     for filename,name in PACKAGES.items():
         with zipfile.ZipFile(root/'dist'/filename,'w') as archive:
             archive.writestr(f'{name}/sim2bot.robot.json',json.dumps({'packageVersion':version}))
+    for filename,name in MOVEIT_PACKAGES.items():
+        with zipfile.ZipFile(root/'dist'/filename,'w') as archive:
+            archive.writestr(f'{name}/package.xml',f'<package><version>{version}</version></package>')
     (root/'output/pdf').mkdir(parents=True)
     (root/'output/pdf/robot_kinematics_review.pdf').write_bytes(b'%PDF-1.4\nfixture')
 
@@ -36,9 +39,17 @@ def test_release_rejects_mixed_package_versions(tmp_path):
 
 def test_release_checksums_match_every_downloadable_asset(tmp_path):
     release_fixture(tmp_path);manifest=prepare(tmp_path,tag='v2.12.1')
-    assert len(manifest['assets'])==9
+    assert len(manifest['assets'])==11
     lines=(tmp_path/'dist/SHA256SUMS').read_text().splitlines()
-    assert len(lines)==10
+    assert len(lines)==12
     for line in lines:
         digest,name=line.split('  ')
         assert digest==hashlib.sha256((tmp_path/'dist'/name).read_bytes()).hexdigest()
+
+
+def test_release_rejects_a_mismatched_moveit_package(tmp_path):
+    release_fixture(tmp_path)
+    with zipfile.ZipFile(tmp_path/'dist/par6_moveit_config.zip','w') as archive:
+        archive.writestr('par6_moveit_config/package.xml','<package><version>0.0.1</version></package>')
+    with pytest.raises(ValueError,match='Archive version mismatch'):
+        prepare(tmp_path)

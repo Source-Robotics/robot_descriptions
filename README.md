@@ -58,6 +58,25 @@ ros2 launch ssg48_description display.launch.py jaws:=fin_ray
 Run one display at a time. Downloaded URDF packages install directly with colcon;
 the CAD/authoring build is not needed. ROS 1 entry points remain available.
 
+## Plan movements with MoveIt 2
+
+PAR6 and PAROL6 have separate MoveIt 2 configuration packages for all six tool
+options. Follow the [MoveIt installation and RViz walkthrough](docs/MOVEIT2.md)
+to plan TCP movements, check collisions, open/close grippers and execute
+trajectories with mock controllers:
+
+```bash
+ros2 launch par6_moveit_config demo.launch.py end_effector:=msg jaws:=soft_tpu
+ros2 launch parol6_moveit_config demo.launch.py end_effector:=ssg48 jaws:=fin_ray
+```
+
+Download [par6_moveit_config.zip](https://github.com/Source-Robotics/robot_descriptions/releases/latest/download/par6_moveit_config.zip)
+or [parol6_moveit_config.zip](https://github.com/Source-Robotics/robot_descriptions/releases/latest/download/parol6_moveit_config.zip)
+**plus the matching URDF ZIP from the same release**. These two additional
+configuration packages use the maintained description assets directly.
+Mock execution follows commands ideally; hardware control and contact/dynamics
+simulation are separate integrations.
+
 ## End-effector options
 
 | Configuration | File suffix | Notes |
