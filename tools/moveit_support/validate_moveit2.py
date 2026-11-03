@@ -26,12 +26,14 @@ class Probe:
         from moveit_msgs.srv import GetMotionPlan, GetStateValidity, GetPositionFK, GetPositionIK, ApplyPlanningScene
         from moveit_msgs.action import ExecuteTrajectory
         from rclpy.action import ActionClient
-        self.rclpy = rclpy; self.data = data; self.current = {}
+        self.rclpy = rclpy; self.data = data; self.current = {}; self.state_messages=0
         self.context = Context(); rclpy.init(context=self.context)
         self.node = rclpy.create_node('moveit_integration_probe', context=self.context)
         self.executor = SingleThreadedExecutor(context=self.context); self.executor.add_node(self.node)
-        self.subscription = self.node.create_subscription(JointState, '/joint_states',
-            lambda msg: self.current.update(zip(msg.name,msg.position)), qos_profile_sensor_data)
+        def receive(msg):
+            self.current.update(zip(msg.name,msg.position)); self.state_messages+=1
+            self.state_stamp=msg.header.stamp.sec+msg.header.stamp.nanosec*1e-9
+        self.subscription = self.node.create_subscription(JointState, '/joint_states',receive,qos_profile_sensor_data)
         self.services = {}
         for name, kind in [('/plan_kinematic_path',GetMotionPlan), ('/check_state_validity',GetStateValidity),
             ('/compute_fk',GetPositionFK), ('/compute_ik',GetPositionIK), ('/apply_planning_scene',ApplyPlanningScene)]:
@@ -41,6 +43,14 @@ class Probe:
         self.action = ActionClient(self.node, ExecuteTrajectory, '/execute_trajectory')
         assert self.action.wait_for_server(timeout_sec=30), 'Execution action missing'
         self.until(lambda: set(data['position_limits']) <= self.current.keys(), timeout=30)
+        # Action/service discovery can precede MoveIt's first state update.
+        # Wait for its actual joint-state subscription and fresh broadcaster
+        # traffic before sending an execution goal (especially with Fast DDS).
+        self.until(lambda: any(x.node_name == 'move_group' for x in
+            self.node.get_subscriptions_info_by_topic('/joint_states')), timeout=30)
+        first=self.state_messages
+        self.until(lambda: self.state_messages >= first+50 and
+            abs(self.node.get_clock().now().nanoseconds*1e-9-self.state_stamp)<.5, timeout=30)
 
     def until(self, predicate, timeout=30):
         deadline = time.monotonic()+timeout
