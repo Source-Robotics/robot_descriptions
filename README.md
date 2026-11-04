@@ -14,7 +14,7 @@ collision geometry, joints and mass properties, ready to open without a CAD buil
 
 | **[PAR6](guides/par6.md)** | **[PAROL6](guides/parol6.md)** |
 | :---: | :---: |
-| ![PAR6 with MSG Solid jaws](docs/images/par6_msg.png) | ![PAROL6 with MSG Solid jaws](docs/images/parol6_msg.png) |
+| ![PAR6 with MSG Soft TPU jaws, isometric view](docs/images/robots/par6_msg_soft_tpu_isometric.png) | ![PAROL6 with pneumatic gripper, isometric view](docs/images/robots/parol6_pneumatic_isometric.png) |
 | Six end-effector configurations | Six end-effector configurations |
 | **[MSG gripper](guides/msg.md)** | **[SSG48 gripper](guides/ssg48.md)** |
 | ![Standalone MSG with Soft TPU jaws](source/grippers/previews/msg_soft_tpu.png) | ![Standalone SSG48 with Fin-ray jaws](source/grippers/previews/ssg48_fin_ray.png) |
