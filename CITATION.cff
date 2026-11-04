@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use Source Robotics robot descriptions in your work, please cite it as below."
+title: "Source Robotics robot descriptions: URDF and MuJoCo models of PAR6, PAROL6, MSG and SSG-48"
+type: software
+authors:
+  - name: Source Robotics
+    website: https://source-robotics.com
+  - given-names: Petar
+    family-names: Crnjak
+abstract: "URDF and MuJoCo models, meshes and generation tools for the Source Robotics arms and grippers, each robot with its end-effector configurations, ready for simulation."
+version: v2.18.1
+date-released: 2026-11-03
+repository-code: https://github.com/Source-Robotics/robot_descriptions
+url: https://github.com/Source-Robotics/robot_descriptions
+license:
+  - CC-BY-4.0
+  - Apache-2.0
+keywords:
+  - URDF
+  - MuJoCo
+  - robot description
+  - simulation
+  - robot arm
+  - robot gripper
+  - robotics
