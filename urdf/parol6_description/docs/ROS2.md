@@ -2,7 +2,7 @@
 
 [Back to the model instructions](../README.md)
 
-The four URDF packages provide native `ament_cmake` installation and a ROS 2
+The five URDF packages provide native `ament_cmake` installation and a ROS 2
 `display.launch.py` launcher. Choose a tool or jaw option, then view it in RViz
 and move its joints with sliders. Linux CI checks ROS 2 **Humble / Ubuntu 22.04**
 and **Jazzy / Ubuntu 24.04**, including installed assets, TF, mimic joints and
@@ -55,7 +55,7 @@ colcon build --base-paths src/robot_descriptions/urdf
 source install/setup.bash
 ```
 
-This builds all four packages. Run colcon against the `urdf/` packages; there
+This builds all five packages. Run colcon against the `urdf/` packages; there
 is no need to run `tools/build.py` to use the committed models. After opening a
 new terminal, source both `/opt/ros/<distro>/setup.bash` and your workspace's
 `install/setup.bash` again.
@@ -93,6 +93,7 @@ ros2 launch msg_description display.launch.py jaws:=solid
 ros2 launch msg_description display.launch.py jaws:=soft_tpu
 ros2 launch ssg48_description display.launch.py jaws:=solid
 ros2 launch ssg48_description display.launch.py jaws:=fin_ray
+ros2 launch raft_description display.launch.py
 ```
 
 Each launcher opens RViz and a joint-slider window. The two fingers retain

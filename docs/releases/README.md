@@ -2,6 +2,7 @@
 
 [Changelog](../../CHANGELOG.md) · [Publishing instructions](../maintenance/RELEASING.md)
 
+- [v2.19.0](v2.19.0.md)
 - [v2.18.1](v2.18.1.md)
 - [v2.18.0](v2.18.0.md)
 - [v2.17.0](v2.17.0.md)

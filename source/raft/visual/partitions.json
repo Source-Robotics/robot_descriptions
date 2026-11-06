@@ -1,0 +1,162 @@
+{
+  "base_link": {
+    "source": "meshes/base_link.stl",
+    "triangles": 10668,
+    "servos": 1,
+    "parts": {
+      "structure": {
+        "file": "visual/base_link_structure.stl",
+        "triangles": 1862
+      },
+      "motors": {
+        "file": "visual/base_link_motors.stl",
+        "triangles": 1638
+      },
+      "fasteners": {
+        "file": "visual/base_link_fasteners.stl",
+        "triangles": 7168
+      }
+    }
+  },
+  "shoulder_link": {
+    "source": "meshes/shoulder_link.stl",
+    "triangles": 13060,
+    "servos": 1,
+    "parts": {
+      "structure": {
+        "file": "visual/shoulder_link_structure.stl",
+        "triangles": 2348
+      },
+      "motors": {
+        "file": "visual/shoulder_link_motors.stl",
+        "triangles": 1638
+      },
+      "horns": {
+        "file": "visual/shoulder_link_horns.stl",
+        "triangles": 896
+      },
+      "fasteners": {
+        "file": "visual/shoulder_link_fasteners.stl",
+        "triangles": 8178
+      }
+    }
+  },
+  "upper_arm_link": {
+    "source": "meshes/upper_arm_link.stl",
+    "triangles": 2954,
+    "servos": 0,
+    "parts": {
+      "structure": {
+        "file": "visual/upper_arm_link_structure.stl",
+        "triangles": 1162
+      },
+      "horns": {
+        "file": "visual/upper_arm_link_horns.stl",
+        "triangles": 1792
+      }
+    }
+  },
+  "forearm_link": {
+    "source": "meshes/forearm_link.stl",
+    "triangles": 20008,
+    "servos": 2,
+    "parts": {
+      "structure": {
+        "file": "visual/forearm_link_structure.stl",
+        "triangles": 1458
+      },
+      "motors": {
+        "file": "visual/forearm_link_motors.stl",
+        "triangles": 3276
+      },
+      "fasteners": {
+        "file": "visual/forearm_link_fasteners.stl",
+        "triangles": 15274
+      }
+    }
+  },
+  "wrist_1_link": {
+    "source": "meshes/wrist_1_link.stl",
+    "triangles": 12456,
+    "servos": 1,
+    "parts": {
+      "structure": {
+        "file": "visual/wrist_1_link_structure.stl",
+        "triangles": 1744
+      },
+      "motors": {
+        "file": "visual/wrist_1_link_motors.stl",
+        "triangles": 1638
+      },
+      "horns": {
+        "file": "visual/wrist_1_link_horns.stl",
+        "triangles": 896
+      },
+      "fasteners": {
+        "file": "visual/wrist_1_link_fasteners.stl",
+        "triangles": 8178
+      }
+    }
+  },
+  "wrist_2_link": {
+    "source": "meshes/wrist_2_link.stl",
+    "triangles": 12528,
+    "servos": 1,
+    "parts": {
+      "structure": {
+        "file": "visual/wrist_2_link_structure.stl",
+        "triangles": 1816
+      },
+      "motors": {
+        "file": "visual/wrist_2_link_motors.stl",
+        "triangles": 1638
+      },
+      "horns": {
+        "file": "visual/wrist_2_link_horns.stl",
+        "triangles": 896
+      },
+      "fasteners": {
+        "file": "visual/wrist_2_link_fasteners.stl",
+        "triangles": 8178
+      }
+    }
+  },
+  "wrist_3_link": {
+    "source": "meshes/wrist_3_link.stl",
+    "triangles": 11026,
+    "servos": 1,
+    "parts": {
+      "structure": {
+        "file": "visual/wrist_3_link_structure.stl",
+        "triangles": 1396
+      },
+      "motors": {
+        "file": "visual/wrist_3_link_motors.stl",
+        "triangles": 1638
+      },
+      "horns": {
+        "file": "visual/wrist_3_link_horns.stl",
+        "triangles": 896
+      },
+      "fasteners": {
+        "file": "visual/wrist_3_link_fasteners.stl",
+        "triangles": 7096
+      }
+    }
+  },
+  "trigger_link": {
+    "source": "meshes/trigger_link.stl",
+    "triangles": 1532,
+    "servos": 0,
+    "parts": {
+      "structure": {
+        "file": "visual/trigger_link_structure.stl",
+        "triangles": 636
+      },
+      "horns": {
+        "file": "visual/trigger_link_horns.stl",
+        "triangles": 896
+      }
+    }
+  }
+}

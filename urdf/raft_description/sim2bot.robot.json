@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "name": "Source Robotics RAFT URDF",
+  "manufacturer": "Source Robotics",
+  "category": "arm",
+  "license": "CC-BY-4.0",
+  "sourceUrl": "https://github.com/Source-Robotics/RAFT-teleoperation-arm",
+  "packageVersion": "2.19.0",
+  "entry": "raft.urdf",
+  "dof": 6,
+  "rootFrame": "base_link",
+  "tcpSites": [
+    "tcp"
+  ],
+  "armActuators": [
+    "base_joint",
+    "shoulder_joint",
+    "elbow_joint",
+    "wrist_1_joint",
+    "wrist_2_joint",
+    "wrist_3_joint"
+  ],
+  "gripperActuators": [
+    "trigger_joint"
+  ],
+  "endEffectorBodies": [
+    "wrist_3_link"
+  ],
+  "preview": "previews/raft.png",
+  "variants": [
+    {
+      "id": "leader",
+      "label": "RAFT leader arm",
+      "entry": "raft.urdf",
+      "tcpSites": [
+        "tcp"
+      ],
+      "endEffectorBodies": [
+        "wrist_3_link"
+      ],
+      "gripperActuators": [
+        "trigger_joint"
+      ],
+      "preview": "previews/raft.png"
+    }
+  ],
+  "codeLicense": "Apache-2.0"
+}

@@ -1,4 +1,4 @@
-"""Build and check eight model archives and two MoveIt configuration archives."""
+"""Build and check ten model archives and two MoveIt configuration archives."""
 
 from pathlib import Path
 import json
@@ -35,7 +35,9 @@ def build():
                    (ROOT/'mujoco/msg','msg_mujoco.zip',True),
                    (ROOT/'urdf/msg_description','msg_urdf.zip',False),
                    (ROOT/'mujoco/ssg48','ssg48_mujoco.zip',True),
-                   (ROOT/'urdf/ssg48_description','ssg48_urdf.zip',False)]
+                   (ROOT/'urdf/ssg48_description','ssg48_urdf.zip',False),
+                   (ROOT/'mujoco/raft','raft_mujoco.zip',True),
+                   (ROOT/'urdf/raft_description','raft_urdf.zip',False)]
     for package,filename,native in distributions:
         if not package.is_dir():raise ValueError(f'Build the missing package first: {package.name}')
         apply_license(package)
@@ -63,6 +65,11 @@ def build():
             verify_layout(unpacked)
             metadata=json.loads((unpacked/'sim2bot.robot.json').read_text())
             assert metadata['packageVersion']==version
+            if package.name in ('raft','raft_description'):
+                from verify_raft import check_package as raft_package
+                result[filename]={'bytes':archive.stat().st_size,**raft_package(unpacked,native)}
+                print(filename,result[filename],flush=True)
+                continue
             if metadata.get('category')=='gripper':
                 from verify_standalone_grippers import check_package
                 result[filename]={'bytes':archive.stat().st_size,**check_package(unpacked,native)}

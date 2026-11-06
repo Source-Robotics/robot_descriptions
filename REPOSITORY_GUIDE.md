@@ -18,8 +18,8 @@
 ```text
 robot_descriptions/
   guides/       Product-specific getting-started pages
-  mujoco/       Four portable MuJoCo model packages
-  urdf/         Four portable URDF/ROS description packages
+  mujoco/       Five portable MuJoCo model packages
+  urdf/         Five portable URDF/ROS description packages
   moveit/       Two optional MoveIt configuration packages
   docs/         Usage guides, images, PDF, maintenance notes and releases
   source/       Editable inputs, original exports and checked caches
@@ -56,8 +56,8 @@ See [the move list](docs/maintenance/FOLDER_CHANGES.md) for older paths.
 
 | Format | Packages |
 | --- | --- |
-| MuJoCo | `mujoco/par6`, `mujoco/parol6`, `mujoco/msg`, `mujoco/ssg48` |
-| URDF | `urdf/par6_description`, `urdf/parol6_description`, `urdf/msg_description`, `urdf/ssg48_description` |
+| MuJoCo | `mujoco/par6`, `mujoco/parol6`, `mujoco/msg`, `mujoco/ssg48`, `mujoco/raft` |
+| URDF | `urdf/par6_description`, `urdf/parol6_description`, `urdf/msg_description`, `urdf/ssg48_description`, `urdf/raft_description` |
 | MoveIt | `moveit/par6_moveit_config`, `moveit/parol6_moveit_config`; each uses its matching URDF package. |
 
 The arm packages include all six tool configurations. Standalone gripper
@@ -65,8 +65,8 @@ packages contain both jaw options. Runtime meshes are repeated where necessary
 so each model package can be downloaded or moved independently.
 
 Hardware repositories contain ordinary product-guide folders named
-`par6_description`, `parol6_description`, `msg_description` and
-`ssg48_description`. Those are guide pages and previews. The actual model
+`par6_description`, `parol6_description`, `msg_description`,
+`ssg48_description` and `raft_description`. Those are guide pages and previews. The actual model
 packages with those names live under this repository's `urdf/` folder.
 
 ## Inside a MuJoCo package
@@ -106,11 +106,11 @@ SSG48.
 
 Detailed notes are grouped in `docs/`, which has its own clickable index.
 Only the README, license, package metadata and model/scene entry files stay at
-the root. This layout is shared by all eight runtime packages.
+the root. This layout is shared by all ten runtime packages.
 
 ## Inside a URDF package
 
-The four folders are `urdf/par6_description/`, `urdf/parol6_description/`,
+The five folders are `urdf/par6_description/`, `urdf/parol6_description/`,
 `urdf/msg_description/` and `urdf/ssg48_description/`.
 
 | File or folder | Purpose |

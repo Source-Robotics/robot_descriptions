@@ -14,12 +14,14 @@ COLOR_KEYS = {
     'structure', 'motors', 'camera_lens', 'msg_solid_jaws',
     'msg_soft_holders', 'msg_soft_inserts', 'ssg48_solid_jaws',
     'ssg48_fin_ray_jaws', 'pneumatic_body', 'pneumatic_jaws',
+    'raft_structure', 'raft_trigger', 'raft_horns', 'raft_fasteners',
 }
 OVERRIDES = {
     'j1_motor': 'motors', 'j2_motor': 'motors', 'j3_motor': 'motors',
     'msg_motor': 'motors', 'msg_body': 'structure', 'ssg48_body': 'structure',
     'flange': 'structure', 'par6_structure': 'structure',
     'parol6_structure': 'structure', 'par6_panel': 'structure',
+    'raft_motors': 'motors',
 }
 BADGE_KEYS = {'background', 'emblem', 'symbol', 'wordmark', 'robot_name', 'tagline', 'divider'}
 MATERIALS = {
@@ -27,6 +29,8 @@ MATERIALS = {
     'msg_camera_lens_black': 'camera_lens', 'msg_gripper_motor_black': 'msg_motor',
     'msg_jaw_black': 'msg_soft_holders', 'msg_jaw_yellow': 'msg_soft_inserts',
     'ssg48_jaw_material': 'ssg48_solid_jaws',
+    # RAFT's visual pieces carry one material per palette part
+    **{f'raft_{piece}': f'raft_{piece}' for piece in ('structure', 'trigger', 'motors', 'horns', 'fasteners')},
 }
 ARM_LINKS = {'base_link', 'shoulder_link', 'upper_arm_link', 'forearm_link',
              'wrist_1_link', 'wrist_2_link', 'wrist_3_link'}

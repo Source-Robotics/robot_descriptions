@@ -20,7 +20,7 @@ def launch_nodes(context):
     helper = importlib.util.module_from_spec(spec); spec.loader.exec_module(helper)
     value = lambda name: LaunchConfiguration(name).perform(context)
     end_effector = value('end_effector') if FAMILY in ('par6', 'parol6') else 'msg'
-    entry = helper.select_model(FAMILY, end_effector, value('jaws'))
+    entry = helper.select_model(FAMILY, end_effector, value('jaws') if FAMILY != 'raft' else 'default')
     description = ParameterValue(helper.load_description(share/entry, PACKAGE,
                                  rviz_materials=value('rviz_materials') == 'true'), value_type=str)
     parameters = {'robot_description': description, 'use_sim_time': value('use_sim_time') == 'true'}
@@ -41,7 +41,7 @@ def launch_nodes(context):
 def generate_launch_description():
     share = Path(get_package_share_directory(PACKAGE))
     arm = FAMILY in ('par6', 'parol6')
-    options = [DeclareLaunchArgument('jaws', default_value='default' if arm else 'solid',
+    options = [] if FAMILY == 'raft' else [DeclareLaunchArgument('jaws', default_value='default' if arm else 'solid',
                  choices=['default', 'solid', 'soft_tpu', 'fin_ray'] if arm else
                          ['solid', 'soft_tpu' if FAMILY == 'msg' else 'fin_ray'])]
     if arm:

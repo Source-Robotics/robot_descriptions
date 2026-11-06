@@ -8,6 +8,8 @@ JAW_OPTIONS = {'msg': ('solid', 'soft_tpu'), 'ssg48': ('solid', 'fin_ray')}
 
 
 def select_model(family, end_effector='msg', jaws='default'):
+    if family == 'raft':
+        return 'raft.urdf'          # one configuration: the leader arm with its trigger handle
     if family in JAW_OPTIONS:
         jaws = 'solid' if jaws == 'default' else jaws
         if jaws not in JAW_OPTIONS[family]:

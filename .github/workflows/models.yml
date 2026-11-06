@@ -81,14 +81,14 @@ jobs:
             libgl1-mesa-dri python3-pyqt5 python3-pil \
             ros-${ROS_DISTRO}-launch-ros ros-${ROS_DISTRO}-rviz2 \
             ros-${ROS_DISTRO}-joint-state-publisher-gui
-      - name: Build four packages and relocate the install
+      - name: Build the description and MoveIt packages and relocate the install
         shell: bash
         run: |
           source /opt/ros/${ROS_DISTRO}/setup.bash
           task_ws=${RUNNER_TEMP}/description_ros2_ws
           mkdir -p "${task_ws}/src"
           colcon list --names-only --base-paths "${GITHUB_WORKSPACE}" > "${task_ws}/packages.txt"
-          python3 -c 'import pathlib,sys; assert set(pathlib.Path(sys.argv[1]).read_text().split()) == {"par6_description","parol6_description","msg_description","ssg48_description","par6_moveit_config","parol6_moveit_config"}' "${task_ws}/packages.txt"
+          python3 -c 'import pathlib,sys; assert set(pathlib.Path(sys.argv[1]).read_text().split()) == {"par6_description","parol6_description","msg_description","ssg48_description","raft_description","par6_moveit_config","parol6_moveit_config"}' "${task_ws}/packages.txt"
           cp -a urdf/. "${task_ws}/src/"
           cd "${task_ws}"
           colcon build --merge-install --event-handlers console_cohesion+

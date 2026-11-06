@@ -6,7 +6,7 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT/'tools/ros_support'
-FAMILIES = ('par6', 'parol6', 'msg', 'ssg48')
+FAMILIES = ('par6', 'parol6', 'msg', 'ssg48', 'raft')
 
 
 def build(families=FAMILIES):
@@ -36,7 +36,7 @@ def build(families=FAMILIES):
         for version, tool in [(1, 'catkin'), (2, 'ament_cmake')]:
             ET.SubElement(export, 'build_type', condition=f'$ROS_VERSION == {version}').text = tool
         ET.indent(tree, space='  '); tree.write(package/'package.xml', encoding='utf-8', xml_declaration=True)
-        entries = ' '.join(path.name for path in sorted(package.glob(f'{family}_*.urdf')))
+        entries = ' '.join(path.name for path in sorted(package.glob(f'{family}_*.urdf')) or [package/f'{family}.urdf'])
         (package/'CMakeLists.txt').write_text('''# SPDX-License-Identifier: Apache-2.0
 cmake_minimum_required(VERSION 3.8)
 project('''+name+''')
@@ -61,13 +61,14 @@ endif()
         parameter = launch.find('param[@name="robot_description"]')
         argument = 'end_effector' if family in ('par6', 'parol6') else 'jaws'
         parameter.attrib.pop('textfile', None)
+        entry = f'{family}.urdf' if family == 'raft' else f'{family}_$(arg {argument}).urdf'
         parameter.set('command', f'python3 "$(find {name})/scripts/ros_urdf.py" '
-                                f'"$(find {name})/{family}_$(arg {argument}).urdf" --package {name}')
+                                f'"$(find {name})/{entry}" --package {name}')
         ET.indent(launch, space='  '); launch.write(package/'launch/display.launch', encoding='utf-8', xml_declaration=True)
-        fixed = 'base_link' if family in ('par6', 'parol6') else 'flange'
-        distance = .85 if fixed == 'base_link' else .30
-        center_z = .2 if fixed == 'base_link' else .035
-        center_x = .10 if fixed == 'base_link' else 0.
+        fixed = 'base_link' if family in ('par6', 'parol6', 'raft') else 'flange'
+        distance = .5 if family == 'raft' else .85 if fixed == 'base_link' else .30
+        center_z = .11 if family == 'raft' else .2 if fixed == 'base_link' else .035
+        center_x = .08 if family == 'raft' else .10 if fixed == 'base_link' else 0.
         (package/'config/display.rviz').write_text('''# SPDX-License-Identifier: Apache-2.0
 Panels:
   - Class: rviz_common/Displays

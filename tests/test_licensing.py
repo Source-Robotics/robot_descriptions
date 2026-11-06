@@ -9,7 +9,8 @@ from model_reference import ROOT
 @pytest.mark.parametrize('package',[
     'mujoco/par6','mujoco/parol6','mujoco/msg','mujoco/ssg48',
     'urdf/par6_description','urdf/parol6_description',
-    'urdf/msg_description','urdf/ssg48_description'])
+    'urdf/msg_description','urdf/ssg48_description',
+    'mujoco/raft','urdf/raft_description'])
 def test_downloaded_model_license_and_support_code_scope_are_consistent(package):
     path=ROOT/package
     data=json.loads((path/'sim2bot.robot.json').read_text())

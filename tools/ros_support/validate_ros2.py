@@ -19,7 +19,7 @@ def product_cases():
              ('ssg48', 'solid'), ('ssg48', 'fin_ray'), ('pneumatic', 'default')]
     return [(family, tool, jaw) for family in ['par6', 'parol6'] for tool, jaw in tools]+[
         ('msg', 'msg', 'solid'), ('msg', 'msg', 'soft_tpu'),
-        ('ssg48', 'msg', 'solid'), ('ssg48', 'msg', 'fin_ray')]
+        ('ssg48', 'msg', 'solid'), ('ssg48', 'msg', 'fin_ray'), ('raft', 'leader', 'default')]
 
 
 def multiply(a, b):
@@ -96,9 +96,10 @@ def run_case(index, family, tool, jaws, output, gui=False, external=False):
     subscriptions += [node.create_subscription(TFMessage,'/tf',receive_tf,qos_profile_sensor_data),
                       node.create_subscription(TFMessage,'/tf_static',receive_tf,durable)]
     publisher = node.create_publisher(JointState, '/joint_states', 10) if external else None
-    command = ['ros2','launch',family+'_description','display.launch.py',f'jaws:={jaws}',
+    command = ['ros2','launch',family+'_description','display.launch.py',
                'gui:='+str(gui).lower(), 'rviz:='+str(gui).lower(),
                'publish_joint_states:='+str(not external).lower()]
+    if family != 'raft':command.append(f'jaws:={jaws}')
     if family in ('par6','parol6'):command.append('end_effector:='+tool)
     log_path = output/(name+'.log')
     with log_path.open('w') as log:
@@ -178,7 +179,7 @@ def main():
     results=[]
     for case in product_cases():results.append(run_case(len(results),*case,args.output))
     for case in [('par6','pneumatic','default'),('parol6','msg','soft_tpu'),
-                 ('msg','msg','solid'),('ssg48','msg','fin_ray')]:
+                 ('msg','msg','solid'),('ssg48','msg','fin_ray'),('raft','leader','default')]:
         results.append(run_case(len(results),*case,args.output,external=True))
     for case in [('par6','msg','soft_tpu'),('parol6','ssg48','fin_ray'),
                  ('msg','msg','soft_tpu'),('ssg48','msg','solid')]:
@@ -187,9 +188,9 @@ def main():
     bad=subprocess.run(command,capture_output=True,text=True,timeout=20)
     assert bad.returncode != 0 and 'jaws must be one of' in bad.stdout+bad.stderr
     result={'ros_distro':os.environ['ROS_DISTRO'],'cases':results,'invalid_selection_rejected':True,
-            'all_16_variants_checked':True,'gui_cases':4,'external_joint_state_cases':4}
+            'all_17_variants_checked':True,'gui_cases':4,'external_joint_state_cases':5}
     (args.output/'validation.json').write_text(json.dumps(result,indent=2)+'\n')
-    print('All 24 installed ROS 2 launch/TF/mimic/GUI cases passed.',flush=True)
+    print(f'All {len(results)} installed ROS 2 launch/TF/mimic/GUI cases passed.',flush=True)
 
 
 if __name__=='__main__':main()

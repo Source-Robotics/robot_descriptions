@@ -16,7 +16,7 @@ purpose below. Generated JSON records now live in [reports/](../reports/README.m
 | Script | Purpose |
 | --- | --- |
 | [build.py](build.py) | Main build: generates assets, synchronizes physical data, builds all products, validates them and writes ZIPs. |
-| [package_models.py](package_models.py) | Creates all eight independent ZIPs, extracts them and checks their contents/assets. |
+| [package_models.py](package_models.py) | Creates all ten independent ZIPs, extracts them and checks their contents/assets. |
 | [prepare_release.py](prepare_release.py) | Checks version consistency and prepares release assets, manifest and SHA-256 checksums. |
 | [export_hardware_guide.py](export_hardware_guide.py) | Copies a product guide and its local previews to a hardware repository, linking model/docs paths to a chosen central revision. |
 
@@ -34,6 +34,7 @@ purpose below. Generated JSON records now live in [reports/](../reports/README.m
 | [build_pneumatic.py](build_pneumatic.py) | Splits the original pneumatic assembly into housing/two moving jaws and generates both formats. |
 | [build_parol6.py](build_parol6.py) | Generates PAROL6 from included original CAD exports and shared PAR6 tool/physical data. |
 | [build_standalone_grippers.py](build_standalone_grippers.py) | Exports independent MSG/SSG48 packages from maintained arm-mounted tool subtrees. |
+| [build_raft.py](build_raft.py) | Builds RAFT's MuJoCo and URDF packages from `source/raft` (RAFT's model reference, CAD meshes and visual pieces) and the shared palette. |
 | [build_kinematics_docs.py](build_kinematics_docs.py) | Writes common-frame/DH comparison and actuation documentation. |
 | [build_review_sheets.py](build_review_sheets.py) | Builds twelve dimensioned sheets and their checks; optionally refreshes OpenGL snapshots or generates the PDF. |
 | [build_ros_support.py](build_ros_support.py) | Generate native ROS 2 packaging/launch support and retain ROS 1 entry points. |
@@ -52,6 +53,7 @@ purpose below. Generated JSON records now live in [reports/](../reports/README.m
 | [verify_parol6.py](verify_parol6.py) | Checks PAROL6 frames, source-chain correspondence, shared physical data and tool transforms. |
 | [verify_ssg48_contacts.py](verify_ssg48_contacts.py) | Sweeps both jaw options for unintended SSG48 internal contacts on both arms. |
 | [verify_standalone_grippers.py](verify_standalone_grippers.py) | Compares standalone and mounted grippers, runs close/open cycles and checks relocated packages. |
+| [verify_raft.py](verify_raft.py) | Checks both RAFT formats against the kinematics and gravity torques in RAFT's reference, and the ranges, keyframes, palette and visual pieces. |
 | [grasp_check.py](grasp_check.py) | Simulates close, lift, hold and release in those fixtures. |
 
 ## Render and benchmark
@@ -62,6 +64,7 @@ purpose below. Generated JSON records now live in [reports/](../reports/README.m
 | [render_gripper_previews.py](render_gripper_previews.py) | Optional OpenGL refresh of standalone guide images. MSG uses a temporary upright presentation pose, without changing saved mounting frames. |
 | [render_msg_camera_previews.py](render_msg_camera_previews.py) | Renders the actual named MSG camera in both existing box grasp fixtures, with recorded demo lighting and PNG/camera metadata. |
 | [render_parol6_previews.py](render_parol6_previews.py) | Optional OpenGL refresh of PAROL6 preview images. |
+| [render_raft_previews.py](render_raft_previews.py) | Optional OpenGL refresh of RAFT's package preview and overview picture. |
 | [benchmark_visuals.py](benchmark_visuals.py) | Local timing comparison for rendering, physics and clearance queries. Timing records are measurements on a particular machine. |
 
 ## Shared helpers and reference import
@@ -76,6 +79,7 @@ purpose below. Generated JSON records now live in [reports/](../reports/README.m
 | [jaw_build_common.py](jaw_build_common.py) | Shared jaw-generation helpers. |
 | [ros_urdf.py](ros_urdf.py) | Converts relative URDF mesh references to ROS package URIs. |
 | [import_rcb_reference.py](import_rcb_reference.py) | Explicitly imports a fresh snapshot from a specified RCB checkout. This optional operation needs that external checkout; the normal build does not. |
+| [import_raft_reference.py](import_raft_reference.py) | Imports RAFT's model reference and CAD meshes from a RAFT checkout and splits the meshes into visual pieces. Optional, like the RCB import; the normal build does not need the checkout. |
 
 ## ROS support templates
 

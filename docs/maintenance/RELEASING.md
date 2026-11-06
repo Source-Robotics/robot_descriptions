@@ -1,6 +1,6 @@
 # Publishing a description release
 
-This repository is the source for eight model distributions and two MoveIt
+This repository is the source for ten model distributions and two MoveIt
 configuration distributions. Model changes and
 generation tools belong here. Hardware repositories contain product guides,
 previews and release links. Software consumers can pin this repository as a
@@ -34,7 +34,7 @@ git push origin v2.13.0
 ```
 
 The GitHub Actions workflow tests and builds that tag, checks every ZIP's
-version against it, and publishes eight model ZIPs, two MoveIt ZIPs, the review PDF, a source
+version against it, and publishes ten model ZIPs, two MoveIt ZIPs, the review PDF, a source
 manifest and SHA-256 checksums. Only the tag's release job has repository
 write permission. Release publishing waits for the portable build, ROS display
 tests and MoveIt planning/mock-execution tests on both Humble and Jazzy.
@@ -50,6 +50,7 @@ Hardware repositories contain guide folders, without model copies or submodules:
 | PAROL6 | `parol6_description/` |
 | MSG | `msg_description/` |
 | SSG48 | `ssg48_description/` |
+| RAFT | `raft_description/` |
 
 Keep the canonical guide in `guides/` here. After publishing the model release,
 export its guide and local previews to the corresponding hardware checkout:
@@ -58,7 +59,7 @@ export its guide and local previews to the corresponding hardware checkout:
 python tools/export_hardware_guide.py --product par6 --revision CENTRAL_COMMIT --output /path/to/PAR6-Collaborative-Robot-Arm/par6_description
 ```
 
-Use `parol6`, `msg` or `ssg48` for the other products. `--revision` selects the
+Use `parol6`, `msg`, `ssg48` or `raft` for the other products. `--revision` selects the
 central commit/tag for documentation and model-file links. The tool exports
 only README and preview images; it does not copy model packages. Review and
 commit those documentation files in the hardware repository. Model ZIP links
@@ -77,7 +78,7 @@ git commit -m "Pin tested robot description models"
 ```
 
 The application can select `external/robot_descriptions/mujoco/par6`,
-`mujoco/parol6`, `mujoco/msg` or `mujoco/ssg48`, or the corresponding
+`mujoco/parol6`, `mujoco/msg`, `mujoco/ssg48` or `mujoco/raft`, or the corresponding
 `urdf/PRODUCT_description` package. Every path is relative to that submodule's
 root. Clone these software consumers with `git clone --recurse-submodules URL`,
 or initialize an existing clone with `git submodule update --init --recursive`.
