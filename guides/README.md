@@ -8,6 +8,7 @@
 | PAROL6 | [Get started](parol6.md) | Flange, both MSG jaws, both SSG48 jaws, pneumatic. |
 | MSG | [Get started](msg.md) | Standalone or mounted; Solid and Soft TPU jaws. |
 | SSG48 | [Get started](ssg48.md) | Standalone or mounted; Solid and Fin-ray jaws. |
+| RAFT | [Get started](raft.md) | The teleoperation leader arm for PAR6, with its trigger. |
 
 Download one complete model package for your simulator. You do not need the
 authoring inputs or build tools to use it.

@@ -1,5 +1,16 @@
 # Changelog - Source Robotics robot descriptions
 
+## Unreleased
+
+- Added RAFT, the teleoperation leader arm for PAR6: `mujoco/raft` and `urdf/raft_description`, with PAR6's joint names,
+  torque actuators, the trigger, the optional J2 counterbalance tendon, `home`/`parked` keyframes, ROS 2 display support
+  and two downloadable ZIPs. Joint ranges come from the measured mechanical stops and a CAD sweep.
+- Built from RAFT's model reference (`source/raft/`, imported from the RAFT repository by `tools/import_raft_reference.py`),
+  the same source as RAFT's firmware model; both formats are checked against its kinematics and gravity torques.
+- RAFT's printed parts, servos, horns and screws are separate visual pieces coloured by the shared palette: new keys
+  `raft_structure`, `raft_trigger`, `raft_horns`, `raft_fasteners`; the servos follow `motors` or the `raft_motors` override.
+- Linux ROS 2 checks and the release now include `raft_description` and the two RAFT ZIPs.
+
 ## 2.18.1 - 2026-11-03
 
 - Organized reports by appearance, dynamics, grippers, kinematics, package checks and historical milestones; moved generated JSON out of the tools folder.

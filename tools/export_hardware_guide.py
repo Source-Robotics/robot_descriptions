@@ -11,7 +11,7 @@ from urllib.parse import quote, unquote, urlsplit
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
-PRODUCTS = ('par6', 'parol6', 'msg', 'ssg48')
+PRODUCTS = ('par6', 'parol6', 'msg', 'ssg48', 'raft')
 REPOSITORY = 'https://github.com/Source-Robotics/robot_descriptions'
 
 

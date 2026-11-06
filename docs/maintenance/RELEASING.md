@@ -1,6 +1,6 @@
 # Publishing a description release
 
-This repository is the source for eight model distributions and two MoveIt
+This repository is the source for ten model distributions and two MoveIt
 configuration distributions. Model changes and
 generation tools belong here. Hardware repositories contain product guides,
 previews and release links. Software consumers can pin this repository as a
@@ -34,7 +34,7 @@ git push origin v2.13.0
 ```
 
 The GitHub Actions workflow tests and builds that tag, checks every ZIP's
-version against it, and publishes eight model ZIPs, two MoveIt ZIPs, the review PDF, a source
+version against it, and publishes ten model ZIPs, two MoveIt ZIPs, the review PDF, a source
 manifest and SHA-256 checksums. Only the tag's release job has repository
 write permission. Release publishing waits for the portable build, ROS display
 tests and MoveIt planning/mock-execution tests on both Humble and Jazzy.

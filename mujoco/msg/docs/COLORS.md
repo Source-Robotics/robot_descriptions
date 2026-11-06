@@ -3,8 +3,8 @@
 [Back to the repository](../README.md)
 
 **Edit one file: [`source/appearance/colors.json`](https://github.com/Source-Robotics/robot_descriptions/blob/v2.18.1/source/appearance/colors.json).**
-The build applies it to PAR6, PAROL6, standalone MSG and standalone SSG48, in
-both URDF and MuJoCo, including every tool/jaw option and the grasp fixtures.
+The build applies it to PAR6, PAROL6, standalone MSG, standalone SSG48 and RAFT,
+in both URDF and MuJoCo, including every tool/jaw option and the grasp fixtures.
 The starting palette keeps the existing appearance.
 
 ## Quick example
@@ -38,7 +38,7 @@ python tools/build.py --models-only --render
 
 This uses the existing CAD meshes, applies the palette, rebakes the badge,
 refreshes the dimensioned review snapshots, validates the models and exports
-all eight packages to `dist/`. `--render` needs working OpenGL. Normal builds
+all ten packages to `dist/`. `--render` needs working OpenGL. Normal builds
 reuse the checked snapshots without OpenGL; refresh them after changing colors.
 If you also changed CAD/geometry, omit `--models-only`.
 
@@ -57,7 +57,7 @@ arrays; replacing one with a HEX color is fine.
 | Key inside `colors` | Parts controlled |
 | --- | --- |
 | `structure` | Both robot housings, MSG/SSG48 bodies, flange and the PAR6 badge's surrounding cover |
-| `motors` | J1/J2/J3 motor + gearbox and the MSG motor |
+| `motors` | J1/J2/J3 motor + gearbox, the MSG motor and RAFT's seven servos |
 | `camera_lens` | MSG lens |
 | `msg_solid_jaws` | MSG Solid jaws, including the moving carriage geometry |
 | `msg_soft_holders` | MSG Soft TPU black holders and carriages |
@@ -66,6 +66,10 @@ arrays; replacing one with a HEX color is fine.
 | `ssg48_fin_ray_jaws` | SSG48 Fin-ray jaws and carriage geometry |
 | `pneumatic_body` | Pneumatic gripper housing |
 | `pneumatic_jaws` | Both pneumatic fingers |
+| `raft_structure` | RAFT's printed parts, except the trigger |
+| `raft_trigger` | RAFT's printed trigger |
+| `raft_horns` | RAFT's seven aluminium servo horns |
+| `raft_fasteners` | RAFT's servo screws and its M3 stop and lid screws |
 
 A color applies to an existing visual partition. For example, a jaw and its
 carriage cannot get separate colors if they share one visual mesh.
@@ -100,7 +104,8 @@ blue:
 ```
 
 Supported keys are `j1_motor`, `j2_motor`, `j3_motor`, `msg_motor`, `msg_body`,
-`ssg48_body`, `flange`, `par6_structure`, `parol6_structure` and `par6_panel`.
+`ssg48_body`, `flange`, `par6_structure`, `parol6_structure`, `par6_panel` and
+`raft_motors` (RAFT's servos, which otherwise follow `motors`).
 Remove an override to return that part to its common color. Tool colors stay
 the same whether the tool is standalone or mounted on either robot.
 

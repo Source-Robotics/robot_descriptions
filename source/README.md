@@ -12,6 +12,7 @@ package from `mujoco/` or `urdf/`.
 | [dynamics/](dynamics/) | Measured masses, captured RCB data and frame/property mappings. |
 | [jaws/](jaws/) | STEP jaw sources, build settings and checked tessellation caches. |
 | [parol6/](parol6/) | Supplied original export and normalization/material policy. |
+| [raft/](raft/README.md) | RAFT's model reference, CAD meshes, visual pieces, documents and previews, imported from the RAFT repository. |
 | [pneumatic/](pneumatic/) | Pneumatic configuration and checked convex contact pieces. |
 | [grippers/](grippers/) | Canonical standalone-gripper preview images. |
 | [reviews/](reviews/) | Checked robot snapshots used by dimensioned review sheets. |

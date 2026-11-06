@@ -19,6 +19,9 @@ collision geometry, joints and mass properties, ready to open without a CAD buil
 | **[MSG gripper](guides/msg.md)** | **[SSG48 gripper](guides/ssg48.md)** |
 | ![Standalone MSG with Soft TPU jaws](source/grippers/previews/msg_soft_tpu.png) | ![Standalone SSG48 with Fin-ray jaws](source/grippers/previews/ssg48_fin_ray.png) |
 | Solid jaws · Soft TPU jaws | Solid jaws · Fin-ray jaws |
+| **[RAFT leader arm](guides/raft.md)** | |
+| ![RAFT teleoperation leader arm, isometric view](docs/images/robots/raft_isometric.png) | |
+| Teleoperation leader for PAR6, with a trigger | |
 
 Both arms support **Flange only**, **MSG / Solid jaws**, **MSG / Soft TPU jaws**,
 **SSG48 / Solid jaws**, **SSG48 / Fin-ray jaws** and **Pneumatic gripper**.
@@ -36,6 +39,7 @@ needed.** The product guides list every scene and URDF filename.
 | **[PAROL6](guides/parol6.md)** | [parol6_mujoco.zip](https://github.com/Source-Robotics/robot_descriptions/releases/latest/download/parol6_mujoco.zip) | [parol6_urdf.zip](https://github.com/Source-Robotics/robot_descriptions/releases/latest/download/parol6_urdf.zip) |
 | **[MSG — gripper only](guides/msg.md)** | [msg_mujoco.zip](https://github.com/Source-Robotics/robot_descriptions/releases/latest/download/msg_mujoco.zip) | [msg_urdf.zip](https://github.com/Source-Robotics/robot_descriptions/releases/latest/download/msg_urdf.zip) |
 | **[SSG48 — gripper only](guides/ssg48.md)** | [ssg48_mujoco.zip](https://github.com/Source-Robotics/robot_descriptions/releases/latest/download/ssg48_mujoco.zip) | [ssg48_urdf.zip](https://github.com/Source-Robotics/robot_descriptions/releases/latest/download/ssg48_urdf.zip) |
+| **[RAFT — leader arm](guides/raft.md)** | [raft_mujoco.zip](https://github.com/Source-Robotics/robot_descriptions/releases/latest/download/raft_mujoco.zip) | [raft_urdf.zip](https://github.com/Source-Robotics/robot_descriptions/releases/latest/download/raft_urdf.zip) |
 
 The [latest release](https://github.com/Source-Robotics/robot_descriptions/releases/latest)
 also includes the dimensioned review PDF, checksums and optional MoveIt packages.
@@ -69,7 +73,7 @@ The [PAR6](guides/par6.md), [PAROL6](guides/parol6.md), [MSG](guides/msg.md) and
 <details>
 <summary><strong>Using ROS 2, RViz or MoveIt?</strong></summary>
 
-All four URDF packages install with colcon and provide RViz views and joint
+All five URDF packages install with colcon and provide RViz views and joint
 sliders. Follow the [ROS 2 setup guide](docs/ROS2.md) for Humble or Jazzy, then run:
 
 ```bash

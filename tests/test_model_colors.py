@@ -10,7 +10,7 @@ import pytest
 from model_colors import ROOT, apply_tree, badge_config, color, load, rgba, validate
 
 MODELS = sorted((ROOT/'mujoco').glob('*/*.xml'))
-MODELS = [p for p in MODELS if p.stem.startswith(p.parent.name+'_')]
+MODELS = [p for p in MODELS if p.stem.startswith(p.parent.name+'_') or p.stem == p.parent.name]
 MODELS += sorted((ROOT/'urdf').glob('*/*.urdf'))
 
 
@@ -67,7 +67,8 @@ def test_non_default_theme_changes_visuals_and_preserves_all_physics(path):
     for name in dir(previous):
         before, after = getattr(previous, name), getattr(selected, name)
         if isinstance(before, np.ndarray):
-            if not np.array_equal(before, after):
+            # a degenerate (zero-area) CAD polygon has a NaN normal in both compiles
+            if not np.array_equal(before, after, equal_nan=np.issubdtype(before.dtype, np.floating)):
                 changed.add(name)
     # This compares every compiled array, including all mesh vertices/faces,
     # contact parameters, body inertials, joint/actuator data and camera poses.

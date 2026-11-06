@@ -76,13 +76,17 @@ extracting each ZIP, so the organized downloads remain portable.
 10. Exports independent MSG/SSG48 packages with both jaw options, compares
    their tool-relative FK, inertials, controls and contacts against the mounted
    models, and runs finite close/open cycles.
-11. Generates native ROS 2 support for all four URDF packages, then separate
+11. Builds RAFT's two packages from `source/raft` (RAFT's model reference, CAD
+   meshes and visual pieces) and checks both formats against the kinematics and
+   gravity torques in that reference. Generates native ROS 2 support for all
+   five URDF packages, then separate
    `par6_moveit_config` / `parol6_moveit_config` packages. MoveIt adds planning
    limits, SRDF groups/TCP/collision rules and mock-control launch support;
    it does not rewrite the saved physical models.
-12. Writes and extracts all eight model ZIPs: `par6_mujoco.zip`, `par6_urdf.zip`,
+12. Writes and extracts all ten model ZIPs: `par6_mujoco.zip`, `par6_urdf.zip`,
    `parol6_mujoco.zip`, `parol6_urdf.zip`, `msg_mujoco.zip`, `msg_urdf.zip`,
-   `ssg48_mujoco.zip` and `ssg48_urdf.zip`. Each uses only its own assets.
+   `ssg48_mujoco.zip`, `ssg48_urdf.zip`, `raft_mujoco.zip` and `raft_urdf.zip`.
+   Each uses only its own assets.
    Also writes `par6_moveit_config.zip` and `parol6_moveit_config.zip`, which
    require the matching URDF package and contain no duplicate geometry.
 

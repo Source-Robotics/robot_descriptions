@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="raft">
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.00730483363719 -0.000420419325433 0.010516627165" rpy="0 0 0"/>
+      <mass value="0.08776"/>
+      <inertia ixx="5.18931e-05" ixy="2.25048e-06" ixz="-3.40251e-06" iyy="6.09566e-05" iyz="3.09482e-06" izz="0.000102433"/>
+    </inertial>
+    <visual name="base_link_structure">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><mesh filename="meshes/visual/base_link_structure.stl"/></geometry>
+      <material name="raft_structure"><color rgba="0.3 0.31 0.335 1"/></material>
+    </visual>
+    <visual name="base_link_motors">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><mesh filename="meshes/visual/base_link_motors.stl"/></geometry>
+      <material name="raft_motors"><color rgba="0.06 0.06 0.065 1"/></material>
+    </visual>
+    <visual name="base_link_fasteners">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><mesh filename="meshes/visual/base_link_fasteners.stl"/></geometry>
+      <material name="raft_fasteners"><color rgba="0.42 0.43 0.46 1"/></material>
+    </visual>
+    <collision name="base_link_collision">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><mesh filename="meshes/base_link.stl"/></geometry>
+    </collision>
+  </link>
+  <link name="shoulder_link">
+    <inertial>
+      <origin xyz="0.00683 -0.0001 0.04872" rpy="0 0 0"/>
+      <mass value="0.04314"/>
+      <inertia ixx="4.90853e-06" ixy="7.971e-08" ixz="1.499e-07" iyy="8.81203e-06" iyz="1.294e-08" izz="8.88116e-06"/>
+    </inertial>
+    <visual name="shoulder_link_structure">
+      <origin xyz="0.013 0 0.05122" rpy="-1.57079632679 0 0"/>
+      <geometry><mesh filename="meshes/visual/shoulder_link_structure.stl"/></geometry>
+      <material name="raft_structure"><color rgba="0.3 0.31 0.335 1"/></material>
+    </visual>
+    <visual name="shoulder_link_motors">
+      <origin xyz="0.013 0 0.05122" rpy="-1.57079632679 0 0"/>
+      <geometry><mesh filename="meshes/visual/shoulder_link_motors.stl"/></geometry>
+      <material name="raft_motors"><color rgba="0.06 0.06 0.065 1"/></material>
+    </visual>
+    <visual name="shoulder_link_horns">
+      <origin xyz="0.013 0 0.05122" rpy="-1.57079632679 0 0"/>
+      <geometry><mesh filename="meshes/visual/shoulder_link_horns.stl"/></geometry>
+      <material name="raft_horns"><color rgba="0.74 0.76 0.79 1"/></material>
+    </visual>
+    <visual name="shoulder_link_fasteners">
+      <origin xyz="0.013 0 0.05122" rpy="-1.57079632679 0 0"/>
+      <geometry><mesh filename="meshes/visual/shoulder_link_fasteners.stl"/></geometry>
+      <material name="raft_fasteners"><color rgba="0.42 0.43 0.46 1"/></material>
+    </visual>
+    <collision name="shoulder_link_collision">
+      <origin xyz="0.013 0 0.05122" rpy="-1.57079632679 0 0"/>
+      <geometry><mesh filename="meshes/shoulder_link.stl"/></geometry>
+    </collision>
+  </link>
+  <link name="upper_arm_link">
+    <inertial>
+      <origin xyz="0 -0.05 -0.02315" rpy="0 0 0"/>
+      <mass value="0.0182"/>
+      <inertia ixx="2.3591e-05" ixy="-8.42035e-38" ixz="0" iyy="7.8223e-07" iyz="1.42444e-21" izz="2.40451e-05"/>
+    </inertial>
+    <visual name="upper_arm_link_structure">
+      <origin xyz="0 -0.1 0" rpy="3.14159265359 0 -1.57079632679"/>
+      <geometry><mesh filename="meshes/visual/upper_arm_link_structure.stl"/></geometry>
+      <material name="raft_structure"><color rgba="0.3 0.31 0.335 1"/></material>
+    </visual>
+    <visual name="upper_arm_link_horns">
+      <origin xyz="0 -0.1 0" rpy="3.14159265359 0 -1.57079632679"/>
+      <geometry><mesh filename="meshes/visual/upper_arm_link_horns.stl"/></geometry>
+      <material name="raft_horns"><color rgba="0.74 0.76 0.79 1"/></material>
+    </visual>
+    <collision name="upper_arm_link_collision">
+      <origin xyz="0 -0.1 0" rpy="3.14159265359 0 -1.57079632679"/>
+      <geometry><mesh filename="meshes/upper_arm_link.stl"/></geometry>
+    </collision>
+  </link>
+  <link name="forearm_link">
+    <inertial>
+      <origin xyz="0.01484 0.00744 0.0025" rpy="0 0 0"/>
+      <mass value="0.0714"/>
+      <inertia ixx="1.3758e-05" ixy="-7.469e-08" ixz="-1.53769e-06" iyy="1.73834e-05" iyz="2.9759e-07" izz="1.81406e-05"/>
+    </inertial>
+    <visual name="forearm_link_structure">
+      <origin xyz="0.02416 0 0" rpy="1.57079632679 0 3.14159265359"/>
+      <geometry><mesh filename="meshes/visual/forearm_link_structure.stl"/></geometry>
+      <material name="raft_structure"><color rgba="0.3 0.31 0.335 1"/></material>
+    </visual>
+    <visual name="forearm_link_motors">
+      <origin xyz="0.02416 0 0" rpy="1.57079632679 0 3.14159265359"/>
+      <geometry><mesh filename="meshes/visual/forearm_link_motors.stl"/></geometry>
+      <material name="raft_motors"><color rgba="0.06 0.06 0.065 1"/></material>
+    </visual>
+    <visual name="forearm_link_fasteners">
+      <origin xyz="0.02416 0 0" rpy="1.57079632679 0 3.14159265359"/>
+      <geometry><mesh filename="meshes/visual/forearm_link_fasteners.stl"/></geometry>
+      <material name="raft_fasteners"><color rgba="0.42 0.43 0.46 1"/></material>
+    </visual>
+    <collision name="forearm_link_collision">
+      <origin xyz="0.02416 0 0" rpy="1.57079632679 0 3.14159265359"/>
+      <geometry><mesh filename="meshes/forearm_link.stl"/></geometry>
+    </collision>
+  </link>
+  <link name="wrist_1_link">
+    <inertial>
+      <origin xyz="-2e-05 0.02135 -0.07139" rpy="0 0 0"/>
+      <mass value="0.0461"/>
+      <inertia ixx="4.66724e-05" ixy="-1.577e-08" ixz="4.116e-08" iyy="3.83882e-05" iyz="1.53861e-05" izz="1.07566e-05"/>
+    </inertial>
+    <visual name="wrist_1_link_structure">
+      <origin xyz="0 0 -0.09792" rpy="-1.57079632679 0 0"/>
+      <geometry><mesh filename="meshes/visual/wrist_1_link_structure.stl"/></geometry>
+      <material name="raft_structure"><color rgba="0.3 0.31 0.335 1"/></material>
+    </visual>
+    <visual name="wrist_1_link_motors">
+      <origin xyz="0 0 -0.09792" rpy="-1.57079632679 0 0"/>
+      <geometry><mesh filename="meshes/visual/wrist_1_link_motors.stl"/></geometry>
+      <material name="raft_motors"><color rgba="0.06 0.06 0.065 1"/></material>
+    </visual>
+    <visual name="wrist_1_link_horns">
+      <origin xyz="0 0 -0.09792" rpy="-1.57079632679 0 0"/>
+      <geometry><mesh filename="meshes/visual/wrist_1_link_horns.stl"/></geometry>
+      <material name="raft_horns"><color rgba="0.74 0.76 0.79 1"/></material>
+    </visual>
+    <visual name="wrist_1_link_fasteners">
+      <origin xyz="0 0 -0.09792" rpy="-1.57079632679 0 0"/>
+      <geometry><mesh filename="meshes/visual/wrist_1_link_fasteners.stl"/></geometry>
+      <material name="raft_fasteners"><color rgba="0.42 0.43 0.46 1"/></material>
+    </visual>
+    <collision name="wrist_1_link_collision">
+      <origin xyz="0 0 -0.09792" rpy="-1.57079632679 0 0"/>
+      <geometry><mesh filename="meshes/wrist_1_link.stl"/></geometry>
+    </collision>
+  </link>
+  <link name="wrist_2_link">
+    <inertial>
+      <origin xyz="0.00464 3e-05 0.00048" rpy="0 0 0"/>
+      <mass value="0.0351"/>
+      <inertia ixx="3.42008e-06" ixy="3.215e-08" ixz="1.3694e-07" iyy="4.47832e-06" iyz="4.161e-08" izz="5.27248e-06"/>
+    </inertial>
+    <visual name="wrist_2_link_structure">
+      <origin xyz="0 0 0" rpy="1.57079632679 0 0"/>
+      <geometry><mesh filename="meshes/visual/wrist_2_link_structure.stl"/></geometry>
+      <material name="raft_structure"><color rgba="0.3 0.31 0.335 1"/></material>
+    </visual>
+    <visual name="wrist_2_link_motors">
+      <origin xyz="0 0 0" rpy="1.57079632679 0 0"/>
+      <geometry><mesh filename="meshes/visual/wrist_2_link_motors.stl"/></geometry>
+      <material name="raft_motors"><color rgba="0.06 0.06 0.065 1"/></material>
+    </visual>
+    <visual name="wrist_2_link_horns">
+      <origin xyz="0 0 0" rpy="1.57079632679 0 0"/>
+      <geometry><mesh filename="meshes/visual/wrist_2_link_horns.stl"/></geometry>
+      <material name="raft_horns"><color rgba="0.74 0.76 0.79 1"/></material>
+    </visual>
+    <visual name="wrist_2_link_fasteners">
+      <origin xyz="0 0 0" rpy="1.57079632679 0 0"/>
+      <geometry><mesh filename="meshes/visual/wrist_2_link_fasteners.stl"/></geometry>
+      <material name="raft_fasteners"><color rgba="0.42 0.43 0.46 1"/></material>
+    </visual>
+    <collision name="wrist_2_link_collision">
+      <origin xyz="0 0 0" rpy="1.57079632679 0 0"/>
+      <geometry><mesh filename="meshes/wrist_2_link.stl"/></geometry>
+    </collision>
+  </link>
+  <link name="wrist_3_link">
+    <inertial>
+      <origin xyz="0.00162 0.02617 -0.04571" rpy="0 0 0"/>
+      <mass value="0.0553"/>
+      <inertia ixx="9.01654e-05" ixy="2.77967e-06" ixz="-1.00802e-06" iyy="1.87513e-05" iyz="3.05318e-05" izz="7.6915e-05"/>
+    </inertial>
+    <visual name="wrist_3_link_structure">
+      <origin xyz="0 0 -0.078277" rpy="3.14159265359 0 3.14159265359"/>
+      <geometry><mesh filename="meshes/visual/wrist_3_link_structure.stl"/></geometry>
+      <material name="raft_structure"><color rgba="0.3 0.31 0.335 1"/></material>
+    </visual>
+    <visual name="wrist_3_link_motors">
+      <origin xyz="0 0 -0.078277" rpy="3.14159265359 0 3.14159265359"/>
+      <geometry><mesh filename="meshes/visual/wrist_3_link_motors.stl"/></geometry>
+      <material name="raft_motors"><color rgba="0.06 0.06 0.065 1"/></material>
+    </visual>
+    <visual name="wrist_3_link_horns">
+      <origin xyz="0 0 -0.078277" rpy="3.14159265359 0 3.14159265359"/>
+      <geometry><mesh filename="meshes/visual/wrist_3_link_horns.stl"/></geometry>
+      <material name="raft_horns"><color rgba="0.74 0.76 0.79 1"/></material>
+    </visual>
+    <visual name="wrist_3_link_fasteners">
+      <origin xyz="0 0 -0.078277" rpy="3.14159265359 0 3.14159265359"/>
+      <geometry><mesh filename="meshes/visual/wrist_3_link_fasteners.stl"/></geometry>
+      <material name="raft_fasteners"><color rgba="0.42 0.43 0.46 1"/></material>
+    </visual>
+    <collision name="wrist_3_link_collision">
+      <origin xyz="0 0 -0.078277" rpy="3.14159265359 0 3.14159265359"/>
+      <geometry><mesh filename="meshes/wrist_3_link.stl"/></geometry>
+    </collision>
+  </link>
+  <link name="trigger_link">
+    <inertial>
+      <origin xyz="-0.0131 0.0152 0.01278" rpy="0 0 0"/>
+      <mass value="0.0143"/>
+      <inertia ixx="4.94175e-06" ixy="1.37642e-06" ixz="-1.42386e-06" iyy="4.41935e-06" iyz="1.71948e-06" izz="4.54686e-06"/>
+    </inertial>
+    <visual name="trigger_link_structure">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><mesh filename="meshes/visual/trigger_link_structure.stl"/></geometry>
+      <material name="raft_trigger"><color rgba="0.3 0.31 0.335 1"/></material>
+    </visual>
+    <visual name="trigger_link_horns">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><mesh filename="meshes/visual/trigger_link_horns.stl"/></geometry>
+      <material name="raft_horns"><color rgba="0.74 0.76 0.79 1"/></material>
+    </visual>
+    <collision name="trigger_link_collision">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><mesh filename="meshes/trigger_link.stl"/></geometry>
+    </collision>
+  </link>
+  <link name="tcp"/>
+  <joint name="base_joint" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="shoulder_link"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-2.37853470462" upper="2.37853470462" effort="0.588399" velocity="6"/>
+    <dynamics damping="0.01" friction="0.02"/>
+  </joint>
+  <joint name="shoulder_joint" type="revolute">
+    <origin xyz="0.013 0 0.05122" rpy="-1.57079632679 0 0"/>
+    <parent link="shoulder_link"/>
+    <child link="upper_arm_link"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.46537843997" upper="2.29510796637" effort="0.588399" velocity="6"/>
+    <dynamics damping="0.01" friction="0.02"/>
+  </joint>
+  <joint name="elbow_joint" type="revolute">
+    <origin xyz="0 -0.1 0" rpy="3.14159265359 0 -1.57079632679"/>
+    <parent link="upper_arm_link"/>
+    <child link="forearm_link"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.40202298813" upper="1.61984007878" effort="0.588399" velocity="6"/>
+    <dynamics damping="0.01" friction="0.02"/>
+  </joint>
+  <joint name="wrist_1_joint" type="revolute">
+    <origin xyz="0.02416 0 0" rpy="1.57079632679 0 3.14159265359"/>
+    <parent link="forearm_link"/>
+    <child link="wrist_1_link"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-2.76739406196" upper="2.67908040181" effort="0.588399" velocity="6"/>
+    <dynamics damping="0.01" friction="0.02"/>
+  </joint>
+  <joint name="wrist_2_joint" type="revolute">
+    <origin xyz="0 0 -0.09792" rpy="-1.57079632679 0 0"/>
+    <parent link="wrist_1_link"/>
+    <child link="wrist_2_link"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-2.19911485751" upper="2.08950818049" effort="0.588399" velocity="6"/>
+    <dynamics damping="0.01" friction="0.02"/>
+  </joint>
+  <joint name="wrist_3_joint" type="revolute">
+    <origin xyz="0 0 0" rpy="1.57079632679 0 0"/>
+    <parent link="wrist_2_link"/>
+    <child link="wrist_3_link"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-2.57436064669" upper="2.6069983037" effort="0.588399" velocity="6"/>
+    <dynamics damping="0.01" friction="0.02"/>
+  </joint>
+  <joint name="trigger_joint" type="revolute">
+    <origin xyz="0 -0.01129 -0.03571" rpy="-1.57079632679 0 -1.57079632679"/>
+    <parent link="wrist_3_link"/>
+    <child link="trigger_link"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.691673982565" upper="0" effort="0.588399" velocity="6"/>
+    <dynamics damping="0.01" friction="0.02"/>
+  </joint>
+  <joint name="tcp_fixed_joint" type="fixed">
+    <origin xyz="0 0 -0.078277" rpy="3.14159265359 0 3.14159265359"/>
+    <parent link="wrist_3_link"/>
+    <child link="tcp"/>
+  </joint>
+</robot>
