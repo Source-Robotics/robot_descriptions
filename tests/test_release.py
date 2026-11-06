@@ -53,3 +53,14 @@ def test_release_rejects_a_mismatched_moveit_package(tmp_path):
         archive.writestr('par6_moveit_config/package.xml','<package><version>0.0.1</version></package>')
     with pytest.raises(ValueError,match='Archive version mismatch'):
         prepare(tmp_path)
+
+
+def test_release_workflow_publishes_every_prepared_package():
+    """the tag job lists its uploads by name: each ZIP prepare_release checks must be among them"""
+    from pathlib import Path
+    import re
+    workflow = (Path(__file__).resolve().parents[1]/'.github/workflows/models.yml').read_text(encoding='utf-8')
+    command = workflow[workflow.index('gh release create'):workflow.index('--repo', workflow.index('gh release create'))]
+    uploads = set(re.findall(r'dist/([\w.-]+)', command))
+    assert set(PACKAGES) | set(MOVEIT_PACKAGES) | {'robot_kinematics_review.pdf', 'release_manifest.json', 'SHA256SUMS'} == uploads
+

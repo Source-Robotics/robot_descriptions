@@ -182,6 +182,7 @@ jobs:
             dist/parol6_mujoco.zip dist/parol6_urdf.zip \
             dist/msg_mujoco.zip dist/msg_urdf.zip \
             dist/ssg48_mujoco.zip dist/ssg48_urdf.zip \
+            dist/raft_mujoco.zip dist/raft_urdf.zip \
             dist/par6_moveit_config.zip dist/parol6_moveit_config.zip \
             dist/robot_kinematics_review.pdf dist/release_manifest.json dist/SHA256SUMS \
             --repo "$GITHUB_REPOSITORY" --verify-tag \
