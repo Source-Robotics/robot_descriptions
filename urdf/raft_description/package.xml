@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <package format="3">
   <name>raft_description</name>
-  <version>2.18.1</version>
+  <version>2.19.0</version>
   <description>Source Robotics RAFT teleoperation leader arm: PAR6's kinematics at 5/9 scale, six joints and a trigger.</description>
   <maintainer email="petar@source-robotics.com">Source Robotics</maintainer>
   <license>CC-BY-4.0</license>

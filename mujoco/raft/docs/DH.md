@@ -13,7 +13,7 @@ pose, with every length scaled to about 5/9 ([comparison](KINEMATICS_COMPARISON.
   to 6. They are continuous and never wrapped, as in the runtime.
 - **Units.** Metres and radians in the model files; millimetres and degrees in these tables.
 
-## DH table (model version 2.18.1)
+## DH table (model version 2.19.0)
 
 | Joint | d (mm) | a (mm) | alpha | theta offset |
 |---|---:|---:|---:|---:|

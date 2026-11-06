@@ -59,7 +59,7 @@ def prepare(root=ROOT,tag=None):
     files.append(path)
     checksums=''.join(f'{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.name}\n' for p in files)
     (root/'dist/SHA256SUMS').write_text(checksums,encoding='ascii',newline='\n')
-    print(f'Prepared {expected}: eight model ZIPs, two MoveIt ZIPs, review PDF, manifest and SHA256SUMS.',flush=True)
+    print(f'Prepared {expected}: {len(PACKAGES)} model ZIPs, {len(MOVEIT_PACKAGES)} MoveIt ZIPs, review PDF, manifest and SHA256SUMS.',flush=True)
     return manifest
 
 

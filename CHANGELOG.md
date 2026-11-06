@@ -1,6 +1,6 @@
 # Changelog - Source Robotics robot descriptions
 
-## Unreleased
+## 2.19.0 - 2026-11-06
 
 - Added RAFT, the teleoperation leader arm for PAR6: `mujoco/raft` and `urdf/raft_description`, with PAR6's joint names,
   torque actuators, the trigger, the optional J2 counterbalance tendon, `home`/`parked` keyframes, ROS 2 display support

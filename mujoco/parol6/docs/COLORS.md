@@ -2,7 +2,7 @@
 
 [Back to the repository](../README.md)
 
-**Edit one file: [`source/appearance/colors.json`](https://github.com/Source-Robotics/robot_descriptions/blob/v2.18.1/source/appearance/colors.json).**
+**Edit one file: [`source/appearance/colors.json`](https://github.com/Source-Robotics/robot_descriptions/blob/v2.19.0/source/appearance/colors.json).**
 The build applies it to PAR6, PAROL6, standalone MSG, standalone SSG48 and RAFT,
 in both URDF and MuJoCo, including every tool/jaw option and the grasp fixtures.
 The starting palette keeps the existing appearance.
@@ -29,7 +29,7 @@ uses the same model, pose, lighting and camera; only its example colors change.
 The shared build applies the same settings to URDF. Examples are independent:
 start from the default palette for each one, then change only the listed entries.
 
-After installing the [build dependencies](https://github.com/Source-Robotics/robot_descriptions/blob/v2.18.1/docs/maintenance/BUILDING.md), run this from the
+After installing the [build dependencies](https://github.com/Source-Robotics/robot_descriptions/blob/v2.19.0/docs/maintenance/BUILDING.md), run this from the
 repository root:
 
 ```bash
@@ -122,8 +122,8 @@ channels and transparency are rejected before the build changes models.
 The same file has a `badge` section for `background`, `emblem`, `symbol`,
 `wordmark`, `robot_name`, `tagline`, `divider`. Change those colors and run
 the same build command. Badge size, resolution, placement and SVG shapes stay
-in [`source/artwork/par6_side_badge.json`](https://github.com/Source-Robotics/robot_descriptions/blob/v2.18.1/source/artwork/par6_side_badge.json)
-and [`par6_side_badge.svg`](https://github.com/Source-Robotics/robot_descriptions/blob/v2.18.1/source/artwork/par6_side_badge.svg).
+in [`source/artwork/par6_side_badge.json`](https://github.com/Source-Robotics/robot_descriptions/blob/v2.19.0/source/artwork/par6_side_badge.json)
+and [`par6_side_badge.svg`](https://github.com/Source-Robotics/robot_descriptions/blob/v2.19.0/source/artwork/par6_side_badge.svg).
 
 ### Example: graphite cover and teal logo
 

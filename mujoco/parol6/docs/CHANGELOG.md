@@ -1,6 +1,6 @@
 # PAROL6 description changelog
 
-## 2.18.1 - 2026-11-03
+## 2.19.0 - 2026-11-03
 
 - Added native ROS 2 installation, RViz display and joint sliders for all six tool profiles.
 - Retained ROS 1 compatibility and portable model/physical definitions.
