@@ -12,18 +12,17 @@ collision geometry, joints and mass properties, ready to open without a CAD buil
 
 ## Meet the models
 
-| **[PAR6](guides/par6.md)** | **[PAROL6](guides/parol6.md)** |
-| :---: | :---: |
-| ![PAR6 with MSG Soft TPU jaws, isometric view](docs/images/robots/par6_msg_soft_tpu_isometric.png) | ![PAROL6 with pneumatic gripper, isometric view](docs/images/robots/parol6_pneumatic_isometric.png) |
-| Six end-effector configurations | Six end-effector configurations |
+| **[PAR6](guides/par6.md)** | **[PAROL6](guides/parol6.md)** | **[RAFT leader arm](guides/raft.md)** |
+| :---: | :---: | :---: |
+| ![PAR6 with MSG Soft TPU jaws, isometric view](docs/images/robots/par6_msg_soft_tpu_isometric.png) | ![PAROL6 with pneumatic gripper, isometric view](docs/images/robots/parol6_pneumatic_isometric.png) | ![RAFT teleoperation leader arm, isometric view](docs/images/robots/raft_isometric.png) |
+| Six end-effector configurations | Six end-effector configurations | Teleoperation leader for PAR6, with a trigger |
+
 | **[MSG gripper](guides/msg.md)** | **[SSG48 gripper](guides/ssg48.md)** |
+| :---: | :---: |
 | ![Standalone MSG with Soft TPU jaws](source/grippers/previews/msg_soft_tpu.png) | ![Standalone SSG48 with Fin-ray jaws](source/grippers/previews/ssg48_fin_ray.png) |
 | Solid jaws · Soft TPU jaws | Solid jaws · Fin-ray jaws |
-| **[RAFT leader arm](guides/raft.md)** | |
-| ![RAFT teleoperation leader arm, isometric view](docs/images/robots/raft_isometric.png) | |
-| Teleoperation leader for PAR6, with a trigger | |
 
-Both arms support **Flange only**, **MSG / Solid jaws**, **MSG / Soft TPU jaws**,
+PAR6 and PAROL6 support **Flange only**, **MSG / Solid jaws**, **MSG / Soft TPU jaws**,
 **SSG48 / Solid jaws**, **SSG48 / Fin-ray jaws** and **Pneumatic gripper**.
 Standalone gripper downloads include both of that gripper's jaw options.
 MSG and SSG48 default to Solid jaws.
